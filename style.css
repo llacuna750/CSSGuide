@@ -863,10 +863,10 @@ div.transform1 p.afterclick {
 }
 
 .transform2:active h1 {
-    transform: translate(500px, -10px);
+    transform: translate(0px, -100px);
     background-color: #cf2222;
     color: rgb(30, 206, 124);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 2s ease, opacity 0.3s ease;
 }
 
 .transform2:active p.afterclick {
@@ -1004,11 +1004,14 @@ div.transform1 p.afterclick {
 }
 
 .displayflexme #card:active {
-    transform: rotate(30deg);
     transition: transform 0.3s ease, opacity 0.3s ease;
 
     /* Sets the point at top left corner */
+    /* transform: rotate(-500deg); */
+    transform: rotate(500deg);
+    /* transform-origin: top left; */
     transform-origin: top right;
+    transition: transform 3s ease, opacity 3s ease;
 }
 
 .displayflexme #card {
@@ -1032,11 +1035,32 @@ div.transform1 p.afterclick {
     height: 150px;
     width: 150px;
     /* margin: 80px; */
-    border: 1px solid;
+    border: 1px;
+    border-style: dotted;
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.Guidetransform .combinecontainer {
+    /* border: 1px solid; */
+}
+.Guidetransform .combinecontainer p {
+    /* border: 1px solid; */
+    margin: 0;
+}
+.Guidetransform .combine {
+    background-color: #00CC00;
+    width: 180px;
+    height: 115px;
+    border-radius: 20px;
+    margin: 20px 29px;
+}
 
+.Guidetransform .combine:active {
+    transform: translate(100px, 150px) 
+    rotate(70deg) 
+    scale(1.5);
+    transition: transform 2s ease, opacity 3s ease;
+}

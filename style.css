@@ -879,15 +879,41 @@ div.transform1 p.afterclick {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Scale */
-.colors {
-    border: 1px solid;
+/* Scale, Rotate */
+/* Transform Rotate */
+.Guidetransform {
+    /* PARENT class */
+    border: 1px dashed #0a300a;
+    box-shadow: 0 5px 3px #273d27;
+    border-radius: 10px;
+    background-color: #1ba89f;
     position: relative;
     bottom: 14em;
-    padding: 10px 20px;
+    padding: 7px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px; /* This adds spacing between the <p> tags */
 }
 
-.blue:active {
+.Guidetransform .containcolors p {
+    margin: 0;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+/* Containercolors here */
+.containercolors {
+    /* border: 1px solid; */
+    width: 300px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* This adds spacing between the <p> tags */
+}
+
+.containercolors .blue:active {
     transform: scale(1.5);
     transition: transform 0.3s ease, opacity 0.3s ease;   
 }
@@ -897,7 +923,7 @@ div.transform1 p.afterclick {
 }
 
 .blue {
-    margin: ;
+    margin: 0;
     width: 150px;
     height: 150px;
     background-color: #3498db;
@@ -922,33 +948,95 @@ div.transform1 p.afterclick {
     align-items: center;      /* vertical center */
 }
 
-/* Transform Rotate */
-.rotate {
-    border: 1px solid;
-    position: relative;
-    bottom: 13.5em;
+.containerRotate {
+    /* border: 1px solid; */
+    padding: 0;
+    text-align: center;
 }
 
-.rotate p {
-    border: 1px solid;
+.containerRotate p {
+    /* border: 1px solid; */
+    /* width: 200px; */
     margin-top: 0;
+    margin: 0;
 }
 
-.rotate #rotatethis:active {
+.containerRotate p:active {
     /* rotates the card by 15 degrees when pressed */
-    transform: rotate(15deg);
-    transition: transform 1s ease, opacity 0.3s ease;  
+    transform: rotate(180deg);
+    transition: transform 2s ease, opacity 0.3s ease;  
 }
 
-.rotate #rotatethis {
+.containerRotate #rotatethis {
     width: 150px;
     height: 150px;
     border-radius: 20px;
     margin: 40px;
     background-color: #05eb05;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Center text vertically using flexbox */
+    display: flex;
+    justify-content: center;  /* horizontal center */
+    align-items: center;      /* vertical center */
+} 
+
+.containerRotate #rotatethis:active 
+{
+    /* rotates the card by 15 degrees when pressed */
+    transform: rotate(180deg);
+    transition: transform 2s ease, opacity 0.3s ease;  
 }
 
-
+/* Transform Origin */
+.containercards {
+    /* border: 1px solid #000000; */
+    /* position: relative; */
+    /* bottom: 13em; */
+    padding: 0;
     
+}
+
+.containercards p {
+    text-align: center;
+    margin: 0;
+}
+
+.displayflexme #card:active {
+    transform: rotate(30deg);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    /* Sets the point at top left corner */
+    transform-origin: top right;
+}
+
+.displayflexme #card {
+    /* position: absolute; */
+    background-color: #3498db;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    /* margin-left: 81px; */
+    margin-top: 1px;
+    z-index: 10;
+}
+
+.containercards .displayflexme {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.displayflexme #empty {
+    height: 150px;
+    width: 150px;
+    /* margin: 80px; */
+    border: 1px solid;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 

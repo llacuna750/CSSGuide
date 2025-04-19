@@ -1,0 +1,954 @@
+
+body {
+    background-color: #f3f4f6;
+    color: #333333;
+}
+ 
+.right {
+    text-align: right;
+}
+
+img {
+    width: 150px;
+}
+
+.parent {
+    font-size: 20px;
+    background-color: #98fb98;
+}
+
+.child {
+    font-size: 50%;
+    background-color: #FFD700;
+}
+
+div.content-justify {
+    p#content {
+       /*border-width, border-style, border-color*/
+        border: 1px solid #000000;
+        text-align: justify;
+        /* text-justify: inter-word; */
+        border-style: dashed;
+        color: #6BBE92;
+        text-align: justify;
+        text-justify: inter-word;
+        /* text-decoration: overline; */
+        /* text-decoration: line-through; */
+        /* text-decoration: underline overline line-through; */
+    }
+}
+
+
+#offer b{
+    text-decoration: overline;
+    /*   or
+     b {
+        text-decoration: overline;
+    } */
+}
+
+.article-title {
+    text-decoration: underline #FF4500; /* underline and color*/
+    font-size: 24px;
+}
+
+.believe{
+    text-decoration: overline #3d0cf1  dashed;
+    text-align: right;
+}
+
+.decorstyle {
+    text-decoration-line: overline;
+    text-decoration-color: #2A9D8F;
+    text-decoration-style: double, dashed, dotted, none, solid, wavy;
+    text-align: right;
+    text-transform: capitalize, lowercase, uppercase;
+}
+
+p.capitalize {
+    text-transform: capitalize;
+    text-align: right;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    text-align: right;
+    text-shadow: 6px -4px #11c07d;
+    font-size: 100px;
+}
+
+.lowercase {
+    text-transform: lowercase;
+    text-align: right;
+    font-size: 18px;
+}
+
+.Harrpoter {
+    color: #390cb3;
+    text-decoration: underline wavy #43e919;
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 4rem;
+    /*text-shadow: horizontal , vertical , blur radius  */
+    text-shadow: 4px 4px 4px #4296CE;
+}
+
+.font-family {
+    text-align: right;
+    border: 1px solid;
+    border-collapse: collapse;
+
+    #font-georgia {
+        font-family: Georgia;
+    }
+    
+    #font-arial {
+        font-family: Arial;
+    }
+    
+    #font-courier {
+        font-family: "Courier New", Monaco, monospace;
+    }
+    
+    #font-comic {
+        font-family: Comic SanS MS;
+    }
+
+    .tahoma {
+        font-family: Tahoma;
+    }
+
+    .lucida-console {
+        font-family: Lucida Console;
+    }
+
+    .helvetica {
+        font-family: Georgia, Helvetica, Georgia, Arial;
+    }
+
+    .serif {
+        font-family: serif;
+    }
+
+    .monospace {
+        font-family: monospace;
+    }
+
+    .sans-serif {
+        font-family: sans-serif;
+    }
+
+    .cursive {
+        font-family: cursive;
+    }
+
+    .fantasy {
+        font-family: fantasy;
+        font-weight: 500;
+    }
+}
+
+.centerstep2 {
+    text-align: center;
+    margin-top: 1em;
+
+    #profile {
+        color: #7f0b0bc2;
+    }
+    
+    .active-day {
+        color: #00CC00;
+    }
+    
+    .inactive-day {
+        color: #CCCCCC;
+    }
+
+    .links p {
+        color: rgb(0, 0, 0);
+        font-weight: 500;
+        font-size: 1em;
+        
+    }
+}
+
+.container {
+    text-align: center;
+    font-size: 20px;
+
+    background-color: F4F4F4;
+
+    a.so {
+        color: 52c80c;
+        background-color: #d6e5e3;
+    }
+
+    /* defines the style unvisited links*/
+    a.thislink:link {
+        text-decoration: none;
+        color: #D11BCE;
+    }
+
+    /* a link is hovered when the mouse is over it*/
+    .thislink:hover {
+        color: #6897ee;
+        /* background-color: #000000; */
+    }
+
+    /* click on the link but hasn't realased the mouse button yet*/
+    .thatlink:active {
+        color: #B8860B;
+        background-color: #000000;
+    }
+
+    .visitlink:visited {
+        color: #FF4500;
+    }
+}
+
+.liststyle {
+    text-align: center;
+
+    /* Unordered-list*/
+    ul {
+        /* type  ,   position  ,  image*/
+        list-style: square inside none;
+    }
+
+    /* Ordered-list*/
+    ol {
+        /* */
+        list-style: ;
+        /* list-style-type: decimal, decimal-leading-zero, lower-roman, upper-roman, upper-alpha; */
+        /* list-style-type: decimal-leading-zero; */
+        /* list-style-type: lower-roman; */
+        list-style-type: upper-roman;   
+        /* list-style-type: upper-alpha;   Letters format */
+        text-transform: capitalize;
+        color: #0829e4;
+    }
+}
+
+.country {
+    text-align: center;
+    
+    ol {
+        list-style-type: upper-alpha;
+        list-style-position: inside;
+    }
+}
+
+.be1, #be2 {
+    background-color: #D6C4E9;
+    /* text-align: center; */
+}
+
+div.betiknik {   
+    /* text-align: center; */
+    width: 50%;
+}
+
+.color-black {
+    background-color:#0c1527
+}
+
+.default-box {
+    border: 2px solid #FFA310;
+    color: #FFFFFF;
+}
+
+.padded-box {
+    border: 2px solid #FFA310;
+    padding: 20px;
+    color: #FFFFFF;
+}
+
+/*padding order padding: top, right, bottom, left.*/
+div.paddis {
+    text-align: center;
+    margin-top: 1em;
+    padding: 10px 20px 30px 40px;
+    border: 2px solid #4d11ad;
+    color: #0f0505;
+
+    
+
+    /* .image-container img {
+        padding: 10px;
+        width: 25%;
+    } */
+
+    .image-container img {
+        display: block  ;
+        margin-bottom: 15px; /* Adjust vertical space */
+        margin-left: 40%;
+        width: 25%;
+        border: 3px solid pink;
+    }
+}
+
+.containertextbox{
+    border: 2px solid #d40666;
+    padding: 10px;
+    margin-top: 1em;
+
+    .defaultbox {
+        border: 2px solid #B8860B;
+    }
+
+    .custom-box1 {
+        border: 2px solid #b4740c;
+        padding: 1em;
+    }
+
+    .custom-box2 {
+        border: 2px solid #FFA310;
+        padding: 1em;
+        margin-top: 1em;
+    }
+}
+
+.behave-as-block-element {
+
+    a {
+        display: block;
+        /* border: #4478b1 solid;
+        text-decoration: none; */
+    }
+    
+    img {
+        display: block;
+        width: 40%;
+        padding-left: 30%;
+        /* padding-left: 1em; */
+    }
+}
+
+.spanvsdiv {
+    padding-left: 30%;
+    div {
+        background-color: pink;
+    }
+    span {
+        background-color: #FF4500;
+    }
+}
+
+div.flextime {
+    border: 1px solid rgb(168, 34, 34);
+    display: flex;
+    box-shadow: 3px 2px 4px #390cb3;
+    /* flex-wrap: wrap; */
+
+    p {
+        border: 1px solid #4296CE;
+        margin-left: 10px;
+    }
+}
+/*  row*/
+div.container-row {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
+    margin-bottom: 7px;
+    margin-top: 7px;
+
+    p {
+        border: 1px solid rgb(150, 150, 150);
+        padding: 8px;
+        margin: 5px;
+        font-size: 18px;
+    }
+}
+/*  Column*/
+div.container-column {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    margin-bottom: 1px;
+
+    p {
+        border: 1px solid rgb(150, 150, 150);
+        padding: 8px;
+        margin: 5px;
+        font-size: 18px;
+    }
+}
+
+#wrap {
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #11c07d;
+    display: flex;
+    flex-wrap: wrap ;
+
+    button {
+        width: 100px;
+        border: 1px solid #333333;
+        font-size: 30px;
+        box-shadow: 0 2px 4px #6BBE92;
+        margin: 5px;
+        background-color: #D11BCE;
+    }
+}
+
+#nowrap {
+    padding: 20px;
+    border: 1px solid #11c07d;
+    display: flex;
+    flex-wrap: nowrap;
+
+    button {
+        width: 100px;
+        border: 1px solid #333333;
+        font-size: 30px;
+        box-shadow: 0 2px 4px #6BBE92;
+        margin: 5px;
+        background-color: #8baf26;
+    }
+}
+
+
+
+#container1 {
+    display: flex; /* set the parent to flex */
+    border: 1px solid #e02909;
+    padding: 10px;
+    /* flex-direction: column; */
+    margin: 8px 10px;
+
+    #small-content {
+        border: 1px solid #D11BCE;
+        padding: 5px;
+        margin-right: 5px;
+    }
+    #large-content {
+        border: 1px solid #D11BCE;
+        /* padding: 5px;
+        margin-right: 5px; */
+    }
+}
+
+#containergrow {
+    border: 1px solid #641c63;
+    box-shadow: 2px 2px #474747;
+    display: flex;
+    /* text-align: center; */
+    p {
+        padding: 0 10px;
+    }
+
+    #item1 {
+        flex-grow: 1;
+        border: 1px solid #d40666;
+        box-shadow: 2px 2px 3px #474747;
+        margin-right: 10px;
+        margin-left: 5px;
+        
+    }
+
+    #item2 {
+        flex-grow: 2;
+        border: 1px solid #d40666;
+        box-shadow: 2px 2px 3px #474747;
+        margin-right: 10px;
+        /* margin-left: 5px; */
+    }
+    #item3 {
+        flex-grow: 3;
+        border: 1px solid #d40666;
+        box-shadow: 2px 2px 3px #474747;
+        margin-right: 10px;
+        /* margin-left: 5px; */
+    }
+}
+/* Shrink and grow*/
+div.containershrink {
+    margin-top: 10px    ;
+    border: 1px solid #0b4e49;
+    padding: 1px 1px 10px;
+    box-shadow: 0 2px 4px #000000;
+    display: flex;
+
+    p {
+        border: 1px solid #d40666;
+        box-shadow: 0 2px 4px #000000;
+        background-color: rgb(247, 228, 203);
+        margin: 5px;
+        padding-left: 3px;
+    }
+
+    #item1 {
+        flex-shrink: 1;
+        flex-grow: 1;
+        /* width: 50%; */
+    }
+    #item2 {
+        flex-shrink: 2;
+        flex-grow: 1;
+    }
+}
+/* Position absolute Only */
+.positioning {
+    /* display: flex; */
+    border: 1px dashed #cc2900;
+    box-shadow: 3px 3px 5px #000000;
+    margin: 10px 1px;
+    /* padding: 0 200px; use margin or padding*/ 
+    
+    h3 {
+        /*  Top , right&Left , Bottom */
+        margin: 6px 20px 40px;
+        /* border: 1px solid; */
+    }
+    #item-1 { 
+        /* ELement 1 */
+        position: absolute;
+        top: 5685px;
+        left: 40px;
+        background-color: #97b36a;
+        border: 1px solid #0b4e49;
+        border-radius: 3px;
+        padding: 3px 10px;
+    } 
+    
+    #item-2 { 
+        /* Element 2 */
+        background-color: rgb(219, 139, 20);
+        position: absolute;
+        left: 180px;
+        top: 5685px;
+        padding: 3px 10px;
+        border: 1px solid #7a7676;
+        border-radius: 3px;
+        
+    } 
+    
+    #item-3 {
+        background-color: rgb(35, 155, 224);
+        position: absolute;
+        left: 330px;
+        top: 5685px;
+        padding: 3px 10px;
+        border: 1px solid #7a7676;
+        border-radius: 3px;
+    } 
+}
+
+/* Position Relative Only */
+div.Relativeproperty {
+    border: 1px solid #0f0505;
+    padding: 0 0 1px;
+
+    h3 {
+        border: 1px solid #080808;
+        width: 150px;
+        text-align: center;
+        margin-left: 6em;
+    }
+
+    /* Default static position */
+    #item1  {
+        position: relative;
+        background-color: blue;
+        left: -10px;
+        top: 70px;
+        height: 100px;
+        width: 100px;
+    }
+
+    #item2 {
+        position: relative;
+        left: 190px;
+        top: 1px;
+        background-color: red;
+        height: 100px;
+        width: 100px;
+        left: 500px;
+        top: -70px;
+    }
+}
+
+section.fixed {
+    border: 1px solid #3eb13e;
+    padding: 1px 10px;
+    margin: 7px 1px 0px;
+    box-shadow: 4px 3px 3px #0b4e49;
+
+    #fixed {
+        background-color: #080808;
+        padding: 10px 0;
+        text-align: center;
+        width: 100%;
+        color: #d3d3d3;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1; /* Ensure it's always on top */
+    }
+
+    h3 {
+        background-color: #9eafbb;
+        text-align: center;
+        color: #3fd620;
+    }
+}
+
+/*  Parent as relative & child as a absolute*/
+div.parentdiv {
+    border: 1px solid #000000;
+    padding: 10px 50px;
+    width: 150px;
+    height: 80px;
+    left: 10px;
+    top: 20px;
+    position: relative;
+
+    #child {
+        position: absolute;
+        top: 15px;
+        left: -5px;
+    }
+}
+
+#grandparent {
+    border: 1px solid #6e09e0;
+    width: 250px;
+    height: 100px;
+    position: relative;
+    top: 25px;
+    left: 20px;
+
+    #parent {
+        width: 150px;
+        height: 50px;
+        border: 1px solid blue;
+        margin: 40px 20px;
+
+        #child {
+            position: absolute;
+            left: 150px;
+            top: 50px;
+        }
+    }
+}
+
+#myparent {
+    padding: 1px 5px 10px;
+    position: relative;
+    width: 150px;
+    height: 100px;
+    border: 1px solid #288104;
+    top: 30px;
+
+    #child {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        
+    }
+}
+
+#grandparent1 {
+    div#parentslur {
+        border: 1px solid #1014d6;
+        position: relative;
+        width: 350px;
+        height: 495px;
+        top: -300px;
+        left: 500px;
+        background-image: url("images/slur.jpg");
+        background-size: contain;  /*  It fit the background-image inside the div container*/
+        background-repeat: no-repeat; /* Set to repeat */
+        /* background-repeat: no-repeat; Set to repat-x from left to right */
+        /* background-repeat: repeat-y; Set to repat-y from top to bottom */
+        
+        p.imageslur {
+            /* border: 1px solid #000000; */
+            position: absolute;
+            padding: 1px 6px 10px;
+            text-align: center;
+            top: 20px;
+            left: 120px;
+            color: #3eb13e;
+        }
+    }
+}
+
+#parentbackground {
+    border: 1px solid;
+    position: relative;
+    top: -250px;
+}
+
+#parentbackground .imagetop-left {
+    width: 30%;
+    margin-left: 1em;
+}
+
+#parentbackground .imagez-index {
+    width: 40%;
+    margin-left: 2em;
+    position: absolute;
+    bottom: 5px;
+    /* right: 115px; */
+}
+
+#parentbackground .backgroundstyling {
+    position: absolute;
+    width: 20%;
+    margin-left: 5em;
+        /* See the diffence comment this */
+    /* top: 100px;  */
+    /* left: 1400px;  */
+
+        /* Reduced from 35em to prevent excessive movement */
+    /* Adjusted for better positioning */
+    bottom: 10px;  
+    right: 10px; 
+}
+
+
+/* Forms */
+.forms {
+    border: 1px solid #000000;
+    position: relative;
+    bottom: 15em;
+}
+
+.forms img {
+    width: 30%;
+}
+
+.forms .gamayigamay {
+    width: 20%;
+}
+
+.forms label {
+    font-family: Arial;
+    font-weight: bolder;
+}
+
+.forms input {
+    border: 1px solid #00CC00;
+}
+
+.forms input[type="submit"] {
+    border: 1px solid #d80da5;
+}
+
+
+/* Transitions And Transform */
+.transform {
+    position: relative;
+    bottom: 15em;
+    border: 1px solid #000000;
+    margin-top: 9px;
+    padding: 0 10px;
+}
+
+.transform h3{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.transform .transform1 {
+    border: 1px solid #000000;  
+    padding: 0 10px;
+}
+.transform1 h3 {
+    margin-top: 0;
+    text-decoration: underline;
+}
+
+
+
+.transform1 .beforeclick, .transform .afterclick {
+    margin-bottom: 0;
+    /* border: 1px solid; */
+}
+
+div.transform1 p.afterclick {
+    display: none;
+}
+
+.transform1 h1{
+    margin-top: 0;
+    padding: 0;
+    border: 1px solid #000000;
+    width: 20%; 
+    text-align: center; 
+    /* color: transparent; */
+    background-color: #288104;
+    font-size: 25px;
+    color: #080a08;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.transform1 .beforeclick,
+.transform1 .afterclick
+{
+    padding: 0;
+    width: 20%; 
+    text-align: center; 
+}
+
+.transform1:active .afterclick {
+    transform: translate(500px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.transform1:active h1 {
+    transform: translate(500px);
+    margin-top: 0;
+    /* color: transparent; */
+    background-color: #3264c9;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.transform1:active .afterclick {
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.transform1:active .beforeclick {
+    display: none;
+    transition: transform 0.3s ease, opacity 0.5s ease;
+}
+
+/* .stick {
+    border: 1px solid #000;
+    background-color: #f4f4f4;
+    padding: 10px;
+    width: 50%;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(0);
+    opacity: 1;
+    user-select: none;
+}
+
+/* When the div is active (being clicked) */
+/* .stick:active {
+    transform: translateX(300px);
+    opacity: 0;
+} */ 
+
+.transform2 {
+    border: 1px solid;
+    margin-bottom: 7px;
+    padding: 0 10px;
+}
+
+.transform2 p {
+    border: 1px solid;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    width: 20%; 
+}
+
+.transform2 h1{
+    margin-top: 0;
+    padding: 0;
+    border: 1px solid #000000;
+    width: 20%; 
+    text-align: center; 
+    background-color: #43e6ca;
+    font-weight: 50;
+    font-size: 20px;
+}
+
+
+.transform2 p.afterclick {
+    display: none;
+}
+
+.transform2:active h1 {
+    transform: translate(500px, -10px);
+    background-color: #cf2222;
+    color: rgb(30, 206, 124);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.transform2:active p.afterclick {
+    transform: translate(500px, -10px);
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.transform2:active p.beforeclick {
+    display: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Scale */
+.colors {
+    border: 1px solid;
+    position: relative;
+    bottom: 14em;
+    padding: 10px 20px;
+}
+
+.blue:active {
+    transform: scale(1.5);
+    transition: transform 0.3s ease, opacity 0.3s ease;   
+}
+
+.yellow:active {
+    transform: scale(0.7);
+}
+
+.blue {
+    margin: ;
+    width: 150px;
+    height: 150px;
+    background-color: #3498db;
+    border-radius: 20px;
+
+    /* Center text vertically using flexbox */
+    display: flex;
+    justify-content: center;  /* horizontal center */
+    align-items: center;      /* vertical center */
+    
+}
+
+.yellow {
+    width: 150px;
+    height: 150px;
+    background-color: #06cc27;
+    border-radius: 20px;
+
+    /* Center text vertically using flexbox */
+    display: flex;
+    justify-content: center;  /* horizontal center */
+    align-items: center;      /* vertical center */
+}
+
+/* Transform Rotate */
+.rotate {
+    border: 1px solid;
+    position: relative;
+    bottom: 13.5em;
+}
+
+.rotate p {
+    border: 1px solid;
+    margin-top: 0;
+}
+
+.rotate #rotatethis:active {
+    /* rotates the card by 15 degrees when pressed */
+    transform: rotate(15deg);
+    transition: transform 1s ease, opacity 0.3s ease;  
+}
+
+.rotate #rotatethis {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    margin: 40px;
+    background-color: #05eb05;
+}
+
+
+    
+
+

@@ -1355,11 +1355,12 @@ div.keyframethis1 {
   position: relative;
   animation: Moving 3.5s infinite ease-in-out;
   transform-origin: center center;
-  animation-duration: 10s;
+  animation-duration: 6s;
+  animation-name: Moving;
 }
 
 @keyframes Moving {
-  0%   { left: 5px;}
+  0%   { left: 5px; transform: rotate(0deg);}
   25%  { left: 20px; }
   50%  { left: 30px; background-color: #DC3545; transform: rotate(50deg);}
   75%  { top: 1em; background-color: #ff5e01; }

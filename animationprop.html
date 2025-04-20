@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 50px;
+            background-color: #6C1527;
+            display: flex;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(2); }
+            100% { transform: scale(1); }
+        }
+        
+        .circle-yellow {
+            width: 40px;
+            height: 40px;
+            background-color: #FFA310;
+            border-radius: 50%;
+            animation: pulse 3.5s;
+            animation-iteration-count: 5;
+        }
+        
+        .circle-green {
+            width: 100px;
+            height: 100px;
+            top: 120px;
+            left: 50px;
+            background-color: #10FF14;
+            border-radius: 50%;
+            position: absolute;
+            animation: pulse 3.5s;
+            animation-iteration-count: 5;
+        }
+        
+        .circle-blue {
+            left: 170px;
+            top: 150px;
+            width: 60px;
+            height: 60px;
+            background-color: #1064FF;
+            border-radius: 50%;
+            position: absolute;
+            animation: pulse 3.5s;
+            animation-iteration-count: 5;
+        }
+        
+        .visual {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="visual">
+        <div class="circle-yellow"></div>
+        <div class="circle-green"></div>
+        <div class="circle-blue"></div>
+    </div>
+</body>
+</html>

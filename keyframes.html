@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #6C1527;
+        }
+        
+        .container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            animation: pulse 3.5s infinite ease-in-out;
+        }
+        
+        .large {
+            width: 400px;
+            height: 400px;
+            background-color: #FFA318;
+        }
+        
+        .medium {
+            width: 150px;
+            height: 150px;
+            background-color: #10FF14;
+            top: 100px;
+            left: 50px;
+            animation-delay: 0.2s;
+        }
+        
+        .small {
+            width: 80px;
+            height: 80px;
+            background-color: #1064FF;
+            top: 150px;
+            left: 180px;
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle large"></div>
+        <div class="circle medium"></div>
+        <div class="circle small"></div>
+    </div>
+</body>
+</html>

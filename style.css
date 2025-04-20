@@ -1,5 +1,6 @@
 :root {
     --Dabdabprimary-color: #4c8318;
+    --primary-color: rgb(214, 158, 4);
 }
 
 
@@ -588,7 +589,7 @@ section.fixed {
         position: fixed;
         top: 0px;
         left: 0px;
-        z-index: 1; /* Ensure it's always on top */
+        z-index: 11; /* Ensure it's always on top */
     }
 
     h3 {
@@ -1181,18 +1182,127 @@ div.transform1 p.afterclick {
 }
 /* Transition no.4 */
 .transition4 #element3 {
+    background-color: #0482d6;
     padding: 1em 2em;
     border-radius: 3px;
     border-width: 0.1;
     border-style: outset;
     margin: 1px;
-    transition: transform 3s;
+    transition: transform 3s, background-color 5s;
     box-shadow: 0 1px 2px #0193f5;
 }
 /* Transition no.4 */
 .transition4 #element3:active {
     transform: scale(10) translate(130px,  -50px) rotate(-720deg);
+    background-color: var(--primary-color);
 }
 
+/* Keyframes & Animations */
+.keyframesandanimations {
+    /* display: flex; */
+    border: 1px solid;
+    border-radius: 7px;
+    position: relative;
+    top: -12.5em;
+    /* padding: 0; */
+}
+/* Title */
+.kanda h1 {
+    border: 1px solid;
+    margin: 1px;
+}
 
+.keyframesandanimations .element1 {
+    border: 1px solid;
+    border-radius: 7px;
+    width: 10%;
+    background-color: red;
+    transition: background-color 5s;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.element1:active {
+    background-color: yellow;
+}
+
+.element1 p {
+    border: 1px solid;
+    color: white;
+    /* padding-top: 65px; */
+    font-size: 20px;
+}
+
+.element2 {
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 2px;
+    width: 40%;
+    display: flex;
+    background-color: #95a4b6;
+    justify-content: center;  
+    animation-name: colorChange;
+    animation-duration: 7s;
+    /* horizontal center */
+
+    align-items: center;     
+    /* vertical center */
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: red;
+    }
+    50% {
+        background-color: yellow;
+    }
+    100% {
+        background-color: blue;
+    }
+}
+
+.keyframesandanimations .container {
+    display: flex;
+}
+
+.forkeyframes {
+    border: 1px solid;
+    width: 50%;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+div.keyframethis {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: 10px;
+    animation-name: snakeMove;
+    animation-duration: 5s;
+
+}
+
+@keyframes snakeMove {
+    0% {
+        background-color: #7B41EA;
+        bottom: 0;
+        left: 0;
+    }
+    33% {
+        background-color: #CCB4FB;
+        bottom: 40px;
+        left: 40px;
+    }
+    66% {
+        background-color: #fd2802;
+        bottom: 0;
+        left: 80px;
+    }
+    100% {
+        background-color: #73f30a;
+        bottom: 40px;
+        left: 120px;
+    }
+}

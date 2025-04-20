@@ -1246,6 +1246,7 @@ div.transform1 p.afterclick {
     justify-content: center;  
     animation-name: colorChange;
     animation-duration: 7s;
+    animation: colorChange 3.5s infinite ease-in-out;
     /* horizontal center */
 
     align-items: center;     
@@ -1270,7 +1271,7 @@ div.transform1 p.afterclick {
 
 .forkeyframes1 {
     border: 1px solid;
-    width: 30%;
+    width: 15%;
     margin: 2px;
     border-radius: 5px;
 }
@@ -1282,6 +1283,7 @@ div.keyframethis1 {
     margin: 10px;
     animation-name: snakeMove;
     animation-duration: 5s;
+    animation: snakeMove 3.5s infinite ease-in-out;
 }
 
 @keyframes snakeMove {
@@ -1311,10 +1313,11 @@ div.keyframethis1 {
     border: 1px solid;
     border-radius: 7px;
     margin: 1px;
-    width: 20%;
+    width: 15%;
 }
 
 .forkeyframes2 .keyframethis2 {
+    margin: 15px 20px;
     padding: 30px;
     border-radius: 50%;
     width: 50px;
@@ -1323,6 +1326,7 @@ div.keyframethis1 {
     animation-name: colorChange2;
     animation-duration: 5s;
     animation-delay: 1s;
+    animation: colorChange2 3.5s infinite ease-in-out;
 }
 
 @keyframes colorChange2 {
@@ -1330,5 +1334,35 @@ div.keyframethis1 {
     25% {background-color: #FFC107;}
     50% {background-color: #28A745;}
     75% {background-color: #DC3545;}
+    85% {background-color: #ff5e01;}
     100% {background-color: #6610F2;}
+}
+
+.forkeyframes3 {
+    border: 1px solid;
+    padding: 1em;
+    width: 10%;
+    border-radius: 10px;
+    margin: 2px 2px;
+}
+
+.forkeyframes3 #elem1 {
+  background-color: #0193f5;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  animation: Moving 3.5s infinite ease-in-out;
+  transform-origin: center center;
+  animation-duration: 10s;
+}
+
+@keyframes Moving {
+  0%   { left: 5px;}
+  25%  { left: 20px; }
+  50%  { left: 30px; background-color: #DC3545; transform: rotate(50deg);}
+  75%  { top: 1em; background-color: #ff5e01; }
+  85%  { background-color: #ff5e01; }
+  100% { background-color: #6610F2; }
 }

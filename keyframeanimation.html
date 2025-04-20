@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 50px;
+            background-color: #6C1527;
+            display: flex;
+        }
+        
+        .circle-yellow {
+            width: 480px;
+            height: 480px;
+            background-color: #FFA318;
+            border-radius: 80%;
+            animation-name: pulse;
+            animation-duration: 35s;
+        }
+        
+        .circle-green {
+            width: 100px;
+            height: 100px;
+            top: 120px;
+            left: 50px;
+            background-color: #10FF14;
+            border-radius: 80%;
+            position: absolute;
+            animation-name: pulse;
+            animation-duration: 35s;
+        }
+        
+        .circle-blue {
+            left: 170px;
+            top: 150px;
+            width: 60px;
+            height: 60px;
+            background-color: #1064FF;
+            border-radius: 80%;
+            position: absolute;
+            animation-name: pulse;
+            animation-duration: 35s;
+        }
+        
+        .visual {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: inline;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="visual">
+        <div class="circle-yellow"></div>
+        <div class="circle-green"></div>
+        <div class="circle-blue"></div>
+    </div>
+</body>
+</html>

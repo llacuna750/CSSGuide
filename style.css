@@ -1208,8 +1208,9 @@ div.transform1 p.afterclick {
 }
 /* Title */
 .kanda h1 {
-    border: 1px solid;
+    /* border: 1px solid; */
     margin: 1px;
+    text-align: center;
 }
 
 .keyframesandanimations .element1 {
@@ -1267,21 +1268,20 @@ div.transform1 p.afterclick {
     display: flex;
 }
 
-.forkeyframes {
+.forkeyframes1 {
     border: 1px solid;
-    width: 50%;
+    width: 30%;
     margin: 2px;
     border-radius: 5px;
 }
 
-div.keyframethis {
+div.keyframethis1 {
     width: 150px;
     height: 150px;
     position: relative;
     margin: 10px;
     animation-name: snakeMove;
     animation-duration: 5s;
-
 }
 
 @keyframes snakeMove {
@@ -1305,4 +1305,30 @@ div.keyframethis {
         bottom: 40px;
         left: 120px;
     }
+}
+
+.forkeyframes2 {
+    border: 1px solid;
+    border-radius: 7px;
+    margin: 1px;
+    width: 20%;
+}
+
+.forkeyframes2 .keyframethis2 {
+    padding: 30px;
+    border-radius: 50%;
+    width: 50px;
+    background-color: #007BFF;
+    color: white;
+    animation-name: colorChange2;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+@keyframes colorChange2 {
+    0% {background-color: #007BFF;}
+    25% {background-color: #FFC107;}
+    50% {background-color: #28A745;}
+    75% {background-color: #DC3545;}
+    100% {background-color: #6610F2;}
 }

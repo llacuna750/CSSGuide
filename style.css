@@ -893,8 +893,9 @@ div.transform1 p.afterclick {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    flex-direction: row;
-    gap: 20px; /* This adds spacing between the <p> tags */
+    /* flex-direction: row; */
+    align-content: flex-start;
+    gap: 10px; /* This adds spacing between the <p> tags */
 }
 
 .Guidetransform .containcolors p {
@@ -1064,3 +1065,80 @@ div.transform1 p.afterclick {
     scale(1.5);
     transition: transform 2s ease, opacity 3s ease;
 }
+
+
+/* Transiton CSS */
+.Transition {
+    border: 1px solid #00000041;
+    border-radius: 7px;
+    padding: 1px 5px;
+    position: relative;
+    bottom: 13.1em;
+    box-shadow: 0 2px 5px #4b5fcf;
+    /* font-family: fantasy; */
+    font-style: oblique;
+}
+
+/* Title */
+.transitioncss {
+    /* border: 1px solid; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.transitioncss h1 {
+    /* border: 1px solid; */
+    margin: 0;
+    width: 25%;
+    text-align: center;
+}
+
+/* Transition no.1 */
+.transition1 {
+    border: 1px solid;
+    padding: 1px;
+}
+
+.Transition .transition1 p {
+    font-size: x-large;
+    font-family: monospace;
+    color: white;
+    width: 10%;
+    background-color: blueviolet;
+    margin: 0;
+    transition: width 4s;
+}
+
+.Transition .transition1 p:active 
+/* .Transition p:hover */
+{
+    /* transform: translate(0px, -100px); */
+    width: 100%;
+}
+
+/* Transition no.2 */
+.transition2 {
+    border: 1px solid;
+    margin: 5px 0;
+    padding: 1px 2px;
+}
+
+.transition2 #element1 {
+    font-size: x-large;
+    font-family: monospace;
+    background-color: #0482d6;
+    width: 0%;
+    color: transparent;
+    transition: width 5s, color 2s, background-color 5s;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.transition2 #element1:hover {
+    width: 100%;
+    color: rgb(25, 247, 17);
+    background-color: red;
+}
+
+

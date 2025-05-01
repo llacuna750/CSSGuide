@@ -1367,3 +1367,20 @@ div.keyframethis1 {
   85%  { background-color: #ff5e01; }
   100% { background-color: #6610F2; }
 }
+
+
+.keyframes-animation {
+    border: 1px solid;
+    position: relative;
+    bottom: 12em;
+}
+
+.keyframes-animation a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.keyframes-animation ul {
+    list-style-type: square;
+    list-style-position: inside;
+}

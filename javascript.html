@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Course</title>
+    <style>
+        #welcome-msg {
+            /* text-align: center; */
+            width: 50%;
+            color: yellow;
+        }
+
+        .DOMexplaination {
+            border: 1px solid;
+        }
+
+        .elementselectors {
+            border: 1px solid;
+            margin-top: 1em;
+        }
+
+        .byId {
+            display: flex;
+            border: 1px solid;
+            margin: 2px;
+            justify-content: center;
+        }
+
+        .fruitsalad {
+            border: 1px solid;
+            margin: 3px;
+        }
+
+        .fruits {
+            margin: 2px;
+            border: 1px solid;
+        }
+
+        .rootvegetables {
+            border: 1px solid;
+            margin: 3px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="DOMexplaination">
+        <h1 id="welcome-msg">Welcome </h1>
+
+        <img src="images/DOM-model.svg" alt="DOM-Model">
+    </div>
+
+    <div class="elementselectors">
+        <div class="byId">
+            <h1 id="my-heading">Food are Us</h1>
+        </div>
+        
+        <div class="fruitsalad">
+            <div class="fruits">Apple</div>
+            <div class="fruits">Orange</div>
+            <div class="fruits">Banana</div>
+        </div>
+
+        <div class="rootvegetables">
+            <h4>Root Vegetables</h4>
+
+            <div class="div-root">
+                <ul class="ul-rootvegetables">
+                    <li>Beets</li>
+                    <li>Carrots</li>
+                    <li>Potatoes</li>
+                </ul>
+            </div>
+
+            <h4>Non-Root Vegetables</h4>
+            <div class="div-non-root">
+                <ul class="ulnon-root">
+                    <li>Broccoli</li>   
+                    <li>Celery</li>
+                    <li>Onions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="index.js"></script>
+</body>
+</html>

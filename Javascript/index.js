@@ -82,8 +82,10 @@ for (let the_h4 of h4Elements) {
     the_h4.style.backgroundColor = `green`;
     the_h4.style.margin = `5px`;
 }
-
+// 4. document.quarySelector()        // FIRST ELEMENT OR NULL
 const pagkaon = document.querySelector(`li`);
+const tryfruits = document.querySelector(`.fruits`);
+tryfruits.style.backgroundColor = `yellow`;
 
 pagkaon.style.backgroundColor = "Green";
 pagkaon.style.margin = "3px 3px";

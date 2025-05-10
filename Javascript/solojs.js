@@ -11,7 +11,7 @@ console.log(gbutton.textContent);
 const imgdom = document.getElementById("dom-img");
 
 const divforimg = document.getElementsByClassName("imgcontainer");
-divforimg[0].style.border = `1px solid`;
+divforimg[0].style.border = `1px solid`; 
 
 
 console.log(divforimg);

@@ -45,3 +45,27 @@ imgdom.onclick = function () {
   divforimg[0].style.justifyContent = "center";
   divforimg[0].style.alignItems = "center";
 };
+// remove double quotation
+console.log("not error");
+
+var no = 10;
+
+for (no; no>=0; no--) {
+  console.log(`Number ${no}`);
+}
+console.log("Happy New Year!");
+
+const devname = "Gab dev";
+console.log(typeof devname);
+console.log(`Your name is ${devname}`);
+
+const readp1 = document.getElementById(`p1`).textContent = "Updated: I want to be a programmer!";
+console.log(readp1);
+
+let pharagraph2 = document.getElementById(`p2`);
+alert(pharagraph2.textContent);
+pharagraph2 = "New Content";
+console.log(pharagraph2);
+
+
+

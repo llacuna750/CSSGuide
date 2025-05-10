@@ -13,7 +13,7 @@
 // 1. document.getElementById()       // ELEMENT OR NULL
 // 2. document.getElementsByClassName // HTML COLLECTION
 // 3. document.getElementsByTagName   // HTML COLLECTION
-// 4. document.quarySelector()        // ELEMENT OR NULL
+// 4. document.quarySelector()        // FIRST ELEMENT OR NULL
 // 5. document.querySelectorAll()     // NODELIST
 
 
@@ -83,11 +83,36 @@ for (let the_h4 of h4Elements) {
     the_h4.style.margin = `5px`;
 }
 
+const pagkaon = document.querySelector(`li`);
+
+pagkaon.style.backgroundColor = "Green";
+pagkaon.style.margin = "3px 3px";
+console.log(pagkaon);
+
 const foods = document.querySelectorAll(`li`);
 
 foods.forEach(food => {
-    food.style.background = `yellow`;
+    // food.style.background = `yellow`;
     food.style.margin =   `0 15px 5px 0`;
 });
 
 console.log(foods);
+
+console.log('Gabriel Coder');
+
+// alert('you have alert!');
+
+// constant can't be change the value
+const name = 'Gabriel';
+// name = 'Dabskie';
+
+// let variable can change the value
+let age = 21;
+age = 18;
+
+
+
+console.log(name);
+console.log(age);
+// console.error('This is an error!');
+console.warn('This is a warning!');

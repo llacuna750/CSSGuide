@@ -16,7 +16,6 @@
 // 4. document.quarySelector()        // FIRST ELEMENT OR NULL
 // 5. document.querySelectorAll()     // NODELIST
 
-
 document.title = "My website";
 document.body.style.backgroundColor = "cyan";
 document.getElementById("my_h1");

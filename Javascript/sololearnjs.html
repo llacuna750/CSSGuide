@@ -15,9 +15,107 @@
         #slur {
             width: 20%;
         }
+
+        .javascriptCourse {
+            /* border: 1px solid; */
+            margin-bottom: 5px;
+        } 
+
+        .javascriptCourse h1{
+            margin: 0;
+            text-align: center;
+        }
+
+        .javascriptCourse .takeJsCourse{
+            display: flex;
+            /* border: 1px solid; */
+        }
+
+        .welcomejs {
+            border: 1px solid;
+            width: 24%;
+        }
+
+        .centerWelcome {
+            text-align: center;
+        }
+
+        .welcomejs #targetSmall {
+            width: 2em;
+        }
+
+        .Gdwjs {
+            text-align: center;
+        }
+
+        #table {
+            background-color:  #525252;
+            padding: 20px;
+            color:  white;
+
+        }
+
+        #dataTable {
+            width: 68%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            color:  white;
+
+        }
+
+        th, td {
+            border: lpx solid  #DDDDDDD;
+            padding: 8px;
+
+        }
+
+        th {
+            background-color:  #494949;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+
+        }
+
+        h2{
+            text-align: center;
+        }
+
     </style>
 </head>
-<body>
+<body id="body">
+    <div class="javascriptCourse">
+        <h1>Introduction to JavaScript</h1>
+
+        <div class="takeJsCourse">
+            <div class="welcomejs">
+                <p class="centerWelcome"><b>Welcome to JavaScript</b></p>
+                <ol>
+                    <li>Welcome to JavaScript</li>
+                    <li>JavaScript Code</li>
+                    <li>Data & Variables</li>
+                    <li>Working with Variables</li>
+                    <li>AI-generated practice</li>
+                    <li>Status Messages</li>
+                    <li>The Document Object Model</li>
+                    <li><img src="https://blob.sololearn.com/web-assets/le-module-quiz-icon.svg" id="targetSmall" class="le-course-widget__main-icon" alt="widgetImg">Module quiz </li>
+                </ol>
+            </div>
+            <div class="welcomejs">
+                <p class="Gdwjs"><b>Going deeper with JavaScript</b></p>
+                <ol>
+                    <li>JavaScript Functions</li>
+                    <li>Standards and best practices</li>
+                    <li>AI-generated practice</li>
+                    <li>Writing JS Code</li>
+                    <li>Practice: Spotting Errors</li>
+                    <li>User Input</li>
+                    <li>Number and String Operations</li>
+                    <li><img src="https://blob.sololearn.com/web-assets/le-module-quiz-icon.svg" id="targetSmall" class="le-course-widget__main-icon" alt="widgetImg">Module quiz </li>
+                </ol>
+            </div>
+        </div>
+    </div>
     <button id="greenbutton" onclick="alert('You click the green button')">Press the green Button</button>
 
     <div class="imgcontainer">
@@ -39,6 +137,80 @@
     <div class="divcolor">
         <button id="button_style">Click me! to Color me!</button>
     </div>
+
+    <!-- <button onclick="prompt()">Click to enter your name</button> -->
+    <p id="welcomeMessage">Welcome back</p>
+    <p id="userName"></p>
+
+    <!-- example of form this one is from my activity 6 -->
+    <!-- <form method="post" action="{{route('product.store')}}"></form> -->
+
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="enter your username..">
+        <input type="radio">
+        <input type="checkbox">
+        <input type="submit" value="Log In">
+    </form>
+
+    <div class="forform">
+        <form id="myForm">
+            <label for="city">Enter city:</label>
+            <input type="text" id="city"><br><br>
+
+            <label for="country">Enter country:</label>
+            <input type="text" id="country"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="table">
+            <h2>Database Simulation</h2>
+            <table id="dataTable">
+                <tr>
+                    <th>city</th>
+                    <th>country</th>
+                </tr>
+            </table>        
+        </div>
+    </div>
+
+    <div class="bodyBC">
+        <h3>Ensure you enter valid color names.</h3>
+        <form id="myForm">
+            <label for="background">Enter a Backgorund color</label>
+            <input type="text" id="background" id="grey"><br><br>
+
+            <label for="color">Enter color text:</label>
+            <input type="text" id="color" value="white"><br><br>
+
+            <input type="button" onclick="changeStyle()" value="Change">
+        </form>
+    </div>
+
+    <div class="calculator" style="border: 1px solid; width: 18%; padding: 1px 2px 10px 10px; margin-top: 10px;">
+        <h2 style="margin: 0 0 10px;">Calculator</h2>
+        <form id="myCalc">
+            <label for="num1">Enter a first number:</label>
+            <input type="text" name="dataD_num1" id="num1" required><br><br>
+
+            <label for="num2">Enter a second number:</label>
+            <input type="text" name="dataD_num2" id="num2" required><br><br>
+
+            <input type="submit" onclick="sumCalc()" value="Calculate">
+        </form>
+
+        <!-- <div id="tableCalc">
+            <h2>Total Score</h2>
+            <table id="data_calcTable">
+                <tr>
+                    <th>city</th>
+                </tr>
+            </table>        
+        </div> -->
+    </div>
+
+    <button onclick="greet()">Click this to greet yourself!</button>
+    <button onclick="checkBolean()">Click this to verify if True or False</button>
 
     <script src="solojs.js"></script>
 </body>

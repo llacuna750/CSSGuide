@@ -304,6 +304,7 @@ function inserRegFormtData(email, password, isSubscribed) {
 }// document.getElementById(`myregForm`).addEventListener(`submit`, processregFormData);
 
 function processPaymentFormData() {
+  event.defaultPrevented;
   let form = document.getElementById(`myFormpayment`);
 
   let cardNumber = form.elements.number.value;

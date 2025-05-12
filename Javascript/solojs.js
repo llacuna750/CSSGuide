@@ -301,7 +301,41 @@ function inserRegFormtData(email, password, isSubscribed) {
   // if (isSubscribed === false)
   console.log(`is Subscribe?  ${isSubscribed}`);
   cell3.textContent = isSubscribed ? "Yes" : "No";
+}// document.getElementById(`myregForm`).addEventListener(`submit`, processregFormData);
+
+function processPaymentFormData() {
+  let form = document.getElementById(`myFormpayment`);
+
+  let cardNumber = form.elements.number.value;
+  let holder = form.elements.holder.value;
+  let method = form.elements.pay.value;
+
+  // Insert data into table with predefined function
+  paymentinsertData(cardNumber, holder, method);
+
+  // Clear the form fields
+  form.reset(); // This clears all inputs (text, radio, etc.)
 }
 
+function paymentinsertData(cardNumber, holder, method) {
+  let table = document.getElementById(`datapmTable`);
+  let newRow = table.insertRow(-1); // Insert at the end
 
-// document.getElementById(`myregForm`).addEventListener(`submit`, processregFormData);
+  // the value of input add in a new row of a th / column
+  let cell1 = newRow.insertCell(0);
+  let cell2 = newRow.insertCell(1);
+  let cell3 = newRow.insertCell(2);
+
+  cell1.textContent = cardNumber;
+  cell2.textContent = holder;
+  cell3.textContent = method;
+
+  // Add border styles
+  [cell1, cell2, cell3].forEach((cell) => {
+    cell.style.border = "1px solid black";
+    // cell.style.padding = "10px";
+    cell.style.marginTop = "10px";
+    cell.style.textAlign = "center";
+  });
+  console.log(`Selected payment method: ${method}`);
+}

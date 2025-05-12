@@ -81,9 +81,10 @@
         }
 
         th {
-            background-color:  #494949;
+            background-color:  #cabcbc;
             padding-top: 12px;
-            padding-bottom: 12px;
+            /* padding-bottom: 12px; */
+            margin-bottom: 0;
             text-align: left;
 
         }
@@ -121,10 +122,16 @@
 
         .divPMethod {
             border: 1px solid;
+            margin: 10px;
+            width: 20%;
+            padding: 0 5px 5px 5px;
+        }
+        #pmethod {
+            margin: 0;
         }
 
-        .pmethod {
-
+        #datapmTable th {
+            border: 1px solid white;
         }
     </style>    
 </head>
@@ -156,6 +163,19 @@
                     <li>Practice: Spotting Errors</li>
                     <li>User Input</li>
                     <li>Number and String Operations</li>
+                    <li><img src="https://blob.sololearn.com/web-assets/le-module-quiz-icon.svg" id="targetSmall" class="le-course-widget__main-icon" alt="widgetImg">Module quiz </li>
+                </ol>
+            </div>
+            <div id="gdwjsBox">
+                <p class="Gdwjs"><b>Working with Data</b></p>
+                <ol>
+                    <li>Comparison Operations</li>
+                    <li>Advanced User Input</li>
+                    <li>AI-generated practice</li>
+                    <li>Objects & Dot Notation</li>
+                    <li>Rating Matters</li>
+                    <li>Logical Operations</li>
+                    <li>Data types</li>
                     <li><img src="https://blob.sololearn.com/web-assets/le-module-quiz-icon.svg" id="targetSmall" class="le-course-widget__main-icon" alt="widgetImg">Module quiz </li>
                 </ol>
             </div>
@@ -302,6 +322,37 @@
             <input type="radio" name="radio2" id="r2">
             <label for="r2">Cash</label>
         </form>
+    </div>
+
+    <div class="paymentM2hod" style="border: 1px solid; padding: 0 5px 5px 5px; width: 25%;">
+        <h2 style="margin: 0;">Payment</h2>
+        <form id="myFormpayment">
+            <label for="number">Card number:</label>
+            <input type="text" name="number" id="number"><br> <br>
+
+            <label for="holder">Card holder's name:</label>
+            <input type="text" name="holder" id="holder"> <br><br>
+
+            <p>Payment method:</p>
+            <input type="radio" name="pay" id="rd1" value="cash">
+            <label for="r1">Cash</label>
+
+            <input type="radio" name="pay" id="rd2" value="card">
+            <label for="r2">Card</label>
+
+            <input type="radio" name="pay" id="rd3" value="credit">
+            <label for="r3">Credit</label>
+            <input type="button" onclick="processPaymentFormData()" value="Submit">
+        </form>
+
+        <div class="paymentTable">
+            <h2>Database Simulation</h2>
+            <table id="datapmTable" style="border-collapse: collapse;">
+                <tr>
+                    <th>number</th><th>holder</th><th>method</th>
+                </tr>
+            </table>
+        </div>
     </div>
     <script src="solojs.js"></script>
 </body>

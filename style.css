@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Tagesschrift&display=swap');
+
 :root {
     --Dabdabprimary-color: #4c8318;
     --primary-color: rgb(214, 158, 4);
@@ -7,6 +9,7 @@
 body {
     background-color: #f3f4f6;
     color: #333333;
+    padding-top: 50px; /* Add some space to clear the fixed header */
 }
  
 .right {
@@ -581,15 +584,110 @@ section.fixed {
     box-shadow: 4px 3px 3px #0b4e49;
 
     #fixed {
-        background-color: #080808;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* subtle shadow */
+        display: flex;
+        justify-content: center;
+        background-color: #ffffff;
         padding: 10px 0;
+        height: 45px;    
         text-align: center;
         width: 100%;
-        color: #d3d3d3;
+        color: #fdfdfd;
         position: fixed;
         top: 0px;
         left: 0px;
         z-index: 11; /* Ensure it's always on top */
+
+        .centerfixed {
+            /* border: 1px solid white; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10em;
+            
+        }
+
+        .containerLinks {
+            font-family: "Cal Sans", sans-serif;
+            display: flex;
+            /* border: 1px solid yellow; */
+            justify-content: space-between;
+            align-items: center;
+            gap: 1em;
+            padding: 15px;
+            
+        }
+
+        p {
+            margin: 0;
+            color: black;
+        }
+
+        .solojs {
+            /* border: 1px solid violet; */
+            background-color: #54be22;
+            border: none;
+            box-shadow: 0 3px 1px #cab6b6;
+            margin-right: 0;
+            
+            border-radius: 4px;
+            /* background-color: #007BFF; */
+            /* width: 50%; */
+            transition: transform 0.3s, background-color 0.3s, margin 0.3s;
+            transition-delay: 0.15s;
+        }
+        .solojs:hover {
+            transform: scale(1.2);
+            background-color: #76cf4c;
+            border: 1px solid rgb(197, 181, 197);
+            border-radius: 4px;
+            margin-right: 10px;
+            /* background-color: #007BFF; */
+            /* width: 50%; */
+        }
+
+        .solojs a {
+            font-size: 150%;
+            font-weight: 400;
+            font-style: normal;
+            margin: 10px;
+            text-decoration: none;
+            color: rgb(238, 247, 238);
+        }
+
+        .solohtml {
+            /* border: 1px solid violet; */
+            background-color: #d86213;
+            border: none;
+            box-shadow: 0 3px 1px #cab6b6;
+            margin-left: 0;
+            
+            border-radius: 4px;
+            /* background-color: #007BFF; */
+            /* width: 50%; */
+            transition: transform 0.3s, background-color 0.3s, margin 0.3s;
+            transition-delay: 0.15s;
+        }
+
+        .solohtml:hover {
+            transform: scale(1.2);
+            background-color: #e4762d;
+            border: 1px solid rgb(197, 181, 197);
+            border-radius: 4px;
+            margin-left: 10px;
+            /* background-color: #007BFF; */
+            /* width: 50%; */
+        }
+
+        .solohtml a {
+            font-size: 150%;
+            font-family: "Cal Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: rgb(234, 247, 234);
+            margin: 10px;
+            text-decoration: none;
+        }
     }
 
     h3 {

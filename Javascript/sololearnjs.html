@@ -91,6 +91,26 @@
             text-align: center;
         }
 
+        .mycheckForm {
+            margin: 1em;
+            border: 1px solid;
+            padding: 3px 0 5px 10px;
+            width: 10%;
+        }
+
+        .regForm {
+            border: 1px solid;
+            padding: 3px 0 5px 10px;
+            width: 30%;
+        }
+        
+
+        .forAddressform {
+            border: 1px solid;
+            padding: 3px 10px 5px 10px;
+            margin-top: 1em;
+        }
+
     </style>
 </head>
 <body id="body">
@@ -163,13 +183,13 @@
         <input type="submit" value="Log In">
     </form>
 
-    <div class="forform">
+    <div class="forAddressform">
         <form id="myForm">
             <label for="city">Enter city:</label>
             <input type="text" id="city"><br><br>
 
             <label for="country">Enter country:</label>
-            <input type="text" id="country"><br><br>
+            <input type="text" id="country">
             <input type="submit" value="Submit">
         </form>
 
@@ -186,7 +206,7 @@
 
     <div class="bodyBC">
         <h3>Ensure you enter valid color names.</h3>
-        <form id="myForm">
+        <form id="mybodyBCForm">
             <label for="background">Enter a Backgorund color</label>
             <input type="text" id="background" id="grey"><br><br>
 
@@ -221,6 +241,42 @@
 
     <button onclick="greet()">Click this to greet yourself!</button>
     <button onclick="checkBolean()">Click this to verify if True or False</button>
+
+    <div class="mycheckForm">
+        <form id="mycheck">
+            <label for="c1">Tick this boxx</label>
+            <input type="checkbox" id="c1"><br> <br>
+
+            <input type="button" onclick="checkTicked()" value="Check if Thick"></input>
+        </form>
+    </div>
+
+    <div class="regForm">
+        <h2>Register Form</h2>
+
+        <form id="myregForm">
+            <label for="name">Enter email: </label>
+            <input type="text" name="email" id="email" required><br><br>
+            
+            <label for="age">Enter password: </label>
+            <input type="text" name="pass" id="pass" required><br><br>
+            
+            <input type="checkbox" name="subscribe" id="subscribe" required>
+            <label for="subscribe">Subscribe to our newsletter</label>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="regTable">
+            <h2>Database Simulation</h2>
+            <table id="dataregTable">
+                <tr>
+                    <th>email</th>
+                    <th>password</th>
+                    <th>isSubscribed</th>
+                </tr>
+            </table>
+        </div>
+    </div>
 
     <script src="solojs.js"></script>
 </body>

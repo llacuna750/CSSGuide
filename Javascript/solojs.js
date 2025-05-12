@@ -131,12 +131,14 @@ function processFormData() {
 
   // Access the form
   let form = document.getElementById("myForm");
+  
   // Access the elements by name and get values
+  // gi-Access niya ang element with form variable then called by name gi kuha ang child properties/value.
   let city = form.elements.city.value;
   let country = form.elements.country.value;
-
   insertData(city, country);
 
+  console.log(form);
   document.getElementById("city").value = "";
   document.getElementById("country").value = "";
 }
@@ -151,7 +153,7 @@ function insertData(city, country) {
   cell1.textContent = city;
   cell2.textContent = country;
 }
-
+// target the form by id name myForm the add  a event interaction/js then action is processFormData();
 document.getElementById("myForm").addEventListener("submit", processFormData);
 
 function changeStyle() {
@@ -174,10 +176,11 @@ console.log(thePrice * amount);
 let score = 7 + 8;
 // alert(`Total score: ${score}`);
 
-function sumCalc() {
-  let n1 = document.getElementById("num1");
-  let n2 = document.getElementById("num2");
 
+var n1 = document.getElementById("num1");
+var n2 = document.getElementById("num2");
+
+function sumCalc() {
   let attempts = 0;
   while ((n1.value === "" || n2.value === "") && attempts < 1) {
     if (n1.value === "" && n2.value === "") {
@@ -192,10 +195,9 @@ function sumCalc() {
   }
 
   
-
+  console.log(attempts);
   // Only runs if both inputs are filled
   let sum = Number(n1.value) + Number(n2.value);
-  console.log(attempts);
   console.log(`Sum of n1 and n2 is: ${sum}`);
 }
 
@@ -236,4 +238,53 @@ let c = a > 8;
 let d = a === 5;
 console.log(a, b, c, d);
 
+// Advanced User Input
+// let x = confirm(`Proceed to payment?`);
+// console.log(x);
 
+// let decision = confirm();
+// alert(decision);
+
+function checkTicked () {
+  let box = document.getElementById(`c1`);
+  
+  console.dir(box);
+
+  if (box.checked === true) {
+    console.log(`You check the box: ${box.checked}`);
+  } else {
+    console.log(`You uncheck the box: ${box.checked}`); 
+  }
+}
+
+
+function processregFormData () {
+  let email = document.getElementById(`email`);
+  let password = document.getElementById(`pass`);
+  let isSubscribed = document.getElementById(`subscribe`).checked;
+
+  // Insert data into table with predefined function
+  inserRegFormtData(email, password, isSubscribed);
+
+  // Clear the form fields
+  document.getElementById(`email`).value = ``;
+  document.getElementById(`pass`).value = ``;
+}
+
+
+function inserRegFormtData(email, password, isSubscribed) {
+  let table = document.getElementById("dataregTable");
+  let newRow = table.insertRow(-1); // Insert at the end
+
+  // the value of input add in a new row of a th / column
+  let cell1 = newRow.insertCell(0);
+  let cell2 = newRow.insertCell(1);
+  let cell3 = newRow.insertCell(2);
+
+  cell1.textContent = email;
+  cell2.textContent = password;
+  cell3.checked = isSubscribed;
+}
+
+
+document.getElementById(`myregForm`).addEventListener(`submit`, processregFormData);

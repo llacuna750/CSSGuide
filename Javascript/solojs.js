@@ -138,7 +138,8 @@ function processFormData() {
   let country = form.elements.country.value;
   insertData(city, country);
 
-  console.log(form);
+  console.dir(form);
+  console.dir(city);
   document.getElementById("city").value = "";
   document.getElementById("country").value = "";
 }
@@ -181,6 +182,10 @@ var n1 = document.getElementById("num1");
 var n2 = document.getElementById("num2");
 
 function sumCalc() {
+  event.preventDefault(); 
+
+  let form = document.getElementById(`myCalc`);
+
   let attempts = 0;
   while ((n1.value === "" || n2.value === "") && attempts < 1) {
     if (n1.value === "" && n2.value === "") {
@@ -198,11 +203,13 @@ function sumCalc() {
   console.log(attempts);
   // Only runs if both inputs are filled
   let sum = Number(n1.value) + Number(n2.value);
-  console.log(`Sum of n1 and n2 is: ${sum}`);
+  console.log(`Sum of ${n1.value} and ${n2.value} is: ${sum}`);
+  form.reset();
 }
 
 let price = 14;
 let discount = price / 2; // 2 = 50% OFF
+
 // alert(discount);
 console.log(`Total discounted price: ${discount} Pesos`);
 console.log("Iron"+"Man");
@@ -259,18 +266,26 @@ function checkTicked () {
 
 
 function processregFormData () {
-  let email = document.getElementById(`email`);
-  let password = document.getElementById(`pass`);
-  let isSubscribed = document.getElementById(`subscribe`).checked;
+  event.preventDefault(); // Prevent form from reloading the page
+  let form = document.getElementById(`myregForm`);
+  // let email = document.getElementById(`email`).value;
+  // let password = document.getElementById(`pass`).value;
+  // let isSubscribed = document.getElementById(`subscribe`).checked;
+
+  
+  // Access the the value of form through parent form then calling the elements and its value
+  let email = form.elements.theEmail.value;
+  let password = form.elements.thePass.value;
+  let isSubscribed = form.elements.itSubscribe.checked;
 
   // Insert data into table with predefined function
   inserRegFormtData(email, password, isSubscribed);
 
-  // Clear the form fields
-  document.getElementById(`email`).value = ``;
-  document.getElementById(`pass`).value = ``;
+  // Clear the form fields   / for next input
+  // document.getElementById(`theEmail`).value = ``;
+  // document.getElementById(`thePass`).value = ``;
+  form.reset(); // clear the form fields
 }
-
 
 function inserRegFormtData(email, password, isSubscribed) {
   let table = document.getElementById("dataregTable");
@@ -283,8 +298,10 @@ function inserRegFormtData(email, password, isSubscribed) {
 
   cell1.textContent = email;
   cell2.textContent = password;
-  cell3.checked = isSubscribed;
+  // if (isSubscribed === false)
+  console.log(`is Subscribe?  ${isSubscribed}`);
+  cell3.textContent = isSubscribed ? "Yes" : "No";
 }
 
 
-document.getElementById(`myregForm`).addEventListener(`submit`, processregFormData);
+// document.getElementById(`myregForm`).addEventListener(`submit`, processregFormData);

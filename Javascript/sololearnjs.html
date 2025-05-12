@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="shortcut icon" href="../images/js-favicon.png" type="image/x-icon">
     <style>
         #dom-img {
             border: 1px solid;
@@ -111,7 +112,21 @@
             margin-top: 1em;
         }
 
-    </style>
+        .bodyBC {
+            border: 1px solid;
+            margin: 10px;
+            padding: 10px;
+            width: 20%;
+        }
+
+        .divPMethod {
+            border: 1px solid;
+        }
+
+        .pmethod {
+
+        }
+    </style>    
 </head>
 <body id="body">
     <div class="javascriptCourse">
@@ -217,9 +232,9 @@
         </form>
     </div>
 
-    <div class="calculator" style="border: 1px solid; width: 18%; padding: 1px 2px 10px 10px; margin-top: 10px;">
+    <div class="calculator" style="border: 1px solid; width: 18%; padding: 1px 2px 10px 10px; margin: 10px;">
         <h2 style="margin: 0 0 10px;">Calculator</h2>
-        <form id="myCalc">
+        <form id="myCalc" onsubmit="sumCalc(event)">
             <label for="num1">Enter a first number:</label>
             <input type="text" name="dataD_num1" id="num1" required><br><br>
 
@@ -254,14 +269,14 @@
     <div class="regForm">
         <h2>Register Form</h2>
 
-        <form id="myregForm">
+        <form id="myregForm" onsubmit="processregFormData(event)">
             <label for="name">Enter email: </label>
-            <input type="text" name="email" id="email" required><br><br>
+            <input type="text" name="theEmail" id="email" required><br><br>
             
             <label for="age">Enter password: </label>
-            <input type="text" name="pass" id="pass" required><br><br>
+            <input type="text" name="thePass" id="pass" required><br><br>
             
-            <input type="checkbox" name="subscribe" id="subscribe" required>
+            <input type="checkbox" name="itSubscribe" id="subscribe" >
             <label for="subscribe">Subscribe to our newsletter</label>
             <input type="submit" value="Submit">
         </form>
@@ -278,6 +293,17 @@
         </div>
     </div>
 
+    <div class="divPMethod">
+        <h2 id="pmethod">Payment Method:</h2>
+        <form id="formpaymentMethod">
+            <input type="radio" name="radio1" id="r1">
+            <label for="r1">Card</label>
+
+            <input type="radio" name="radio2" id="r2">
+            <label for="r2">Cash</label>
+        </form>
+    </div>
     <script src="solojs.js"></script>
 </body>
 </html>
+

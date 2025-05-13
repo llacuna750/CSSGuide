@@ -360,7 +360,7 @@ function performAndOrOperation(event) {
   let form = document.getElementById(`AndOr`);
 
   let input1 = form.elements.input1.checked;
-  let input2 = pay.elements.input2.checked;
+  let input2 = form.pay.elements.input2.checked;
   let pickLO = form.elements.falseortrue.value.toLowerCase(); // PICK OR or AND
   let result;
 

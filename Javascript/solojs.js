@@ -1,6 +1,7 @@
 //  Asingn Title
-document.title = "Javascript Sololearn Course";
-document.body.style.fontFamily = `"Roboto", sans-serif`; 
+let myTitle = document.title = "Javascript Sololearn Course";
+console.log(myTitle);
+let myFonts = document.body.style.fontFamily = `"Roboto", sans-serif`; 
 
 const gbutton = document.getElementById("greenbutton");
 gbutton.style.backgroundColor = `green`;

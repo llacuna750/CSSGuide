@@ -1,5 +1,6 @@
 //  Asingn Title
 document.title = "Javascript Sololearn Course";
+document.body.style.fontFamily = `"Roboto", sans-serif`; 
 
 const gbutton = document.getElementById("greenbutton");
 gbutton.style.backgroundColor = `green`;
@@ -340,3 +341,105 @@ function paymentinsertData(cardNumber, holder, method) {
   });
   console.log(`Selected payment method: ${method}`);
 }
+
+// alert(document.title);
+function handleForm(event) {
+  event.preventDefault(); // This stops the form from reloading the page
+
+  let form = document.getElementById(`AndOr1`);
+  let ttf = form.elements.falseortrue1.value.toLowerCase();
+  console.log(ttf);
+}
+// Logical Operations
+let logicalOperation = false || false;
+console.log(logicalOperation);
+console.log(5 === 5);
+
+function performAndOrOperation(event) {
+  event.preventDefault();
+  let form = document.getElementById(`AndOr`);
+
+  let input1 = form.elements.input1.checked;
+  let input2 = pay.elements.input2.checked;
+  let pickLO = form.elements.falseortrue.value.toLowerCase(); // PICK OR or AND
+  let result;
+
+  if (pickLO === "or") {
+    result = input1 || input2;
+    console.log(`Picked logical Operation: ${pickLO}`);
+    alertConsoleLO_OR(input1, input2, result);
+  } else if (pickLO === "and") {
+    result = input1 && input2;
+    console.log(`Picked logical Operation: ${pickLO}`);
+    alertConsoleLO_AND(input1, input2, result);
+  } 
+  else {
+    alert("Invalid logical operation. Please enter 'AND' or 'OR'.");
+    return;
+  }
+  form.reset();
+}
+
+function alertConsoleLO_OR (input1, input2, result) {
+  alert(
+    `Input 1: ${capitalizeBool(
+      input1
+    )}   \n      OR \nInput 2: ${capitalizeBool(
+      input2
+    )} \n\nResult: ${capitalizeBool(result)}`
+  );
+  console.log(
+    `Input 1: ${capitalizeBool(input1)}   \n     OR \nInput 2: ${capitalizeBool(
+      input2
+    )} \n\nResult: ${capitalizeBool(result)}`
+  );
+}
+
+function alertConsoleLO_AND (input1, input2, result) {
+  alert(
+    `Input 1: ${capitalizeBool(input1)}   \n      AND \nInput 2: ${capitalizeBool(input2)} \n\nResult: ${capitalizeBool(result)}`
+  );
+  console.log(
+    `Input 1: ${capitalizeBool(
+      input1
+    )}   \n     AND \nInput 2: ${capitalizeBool(
+      input2
+    )} \n\nResult: ${capitalizeBool(result)}`
+  );
+}
+
+function capitalizeBool(bool) {
+  return bool ? "True" : "False";
+}
+
+function logicalOperationUse(pickLO) {
+  if (typeof pickLO === "string" && pickLO.toLowerCase() === "true") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Data types // Converting Data types
+let a1 = "5";
+let b1 = "7";
+console.log(a1 + b1);
+2
+let balance = 234;
+// alert(typeof balance);
+
+// The prompt() instruction always turns the user input into a string, no matter what the user enters.
+// let age = Number(prompt("Enter your age: "));
+// let age = prompt("Enter your age: ");
+// let changetype = Number(age);
+// alert(`The data-type of ${age} is ${(typeof changetype)}`);
+
+let x = '55'; // x is a string
+let y = Number(x); // y is a number
+// alert(typeof y);
+
+let num = 29;
+let str = String(a);
+// alert(`The current datatype is: ${typeof str} and the property value: ${num}`);
+// console.log(`The current datatype is: ${typeof str} and the property value: ${num}`);
+

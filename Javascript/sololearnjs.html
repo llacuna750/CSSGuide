@@ -6,11 +6,12 @@
     <title>Document</title>
     <link rel="shortcut icon" href="../images/js-favicon.png" type="image/x-icon">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap');
         #dom-img {
             border: 1px solid;
             padding: 3px;
             margin: 10px;
-            justify-content: ;
+            /* justify-content: center; */
         }
 
         #slur {
@@ -133,6 +134,18 @@
         #datapmTable th {
             border: 1px solid white;
         }
+
+        .ANDoperation {
+            border: 1px solid;
+            margin: 5px;
+            width: 50%;
+            padding: 0 5px 5px 5px;
+
+            h3, p {
+                margin: 0;
+                text-align: center;
+            }
+        }
     </style>    
 </head>
 <body id="body">
@@ -212,9 +225,9 @@
 
     <form>
         <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="enter your username..">
-        <input type="radio">
-        <input type="checkbox">
+        <input type="text" name="username" id="username" placeholder="enter your username.." autocomplete="username">
+        <input type="radio" id="radyo1">
+        <input type="checkbox" id="cb1">
         <input type="submit" value="Log In">
     </form>
 
@@ -224,8 +237,8 @@
             <input type="text" id="city"><br><br>
 
             <label for="country">Enter country:</label>
-            <input type="text" id="country">
-            <input type="submit" value="Submit">
+            <input type="text" id="country" name="count" autocomplete="country">
+            <input type="submit" onclick="processFormData(event)" value="Submit">
         </form>
 
         <div id="table">
@@ -290,10 +303,10 @@
         <h2>Register Form</h2>
 
         <form id="myregForm" onsubmit="processregFormData(event)">
-            <label for="name">Enter email: </label>
-            <input type="text" name="theEmail" id="email" required><br><br>
+            <label for="email">Enter email: </label>
+            <input type="text" name="theEmail" id="email" autocomplete="email" required><br><br>
             
-            <label for="age">Enter password: </label>
+            <label for="pass">Enter password: </label>
             <input type="text" name="thePass" id="pass" required><br><br>
             
             <input type="checkbox" name="itSubscribe" id="subscribe" >
@@ -341,7 +354,7 @@
             <label for="r2">Card</label>
 
             <input type="radio" name="pay" id="rd3" value="credit">
-            <label for="r3">Credit</label>
+            <label for="rd3">Credit</label>
             <input type="button" value="Submit" onclick="processPaymentFormData(event)" />
         </form>
 
@@ -354,6 +367,31 @@
             </table>
         </div>
     </div>
+
+    <div class="ANDoperation">
+        <h3>AND operation on user inputs</h3>
+        <p>&& is the symbol for the AND operation in JavaScript syntax</p>
+        <p>Select and submit different combinations of inputs to see the result.</p>
+        
+        <form id="AndOr" onsubmit="performAndOrOperation(event)">
+            <input type="checkbox" name="input1" id="inp1">
+            <label for="inp1">Input 1</label><br><br>
+
+            <label for="falseortrue">Type OR / AND:</label>
+            <input type="text" name="falseortrue" id="falseortrue"><br><br> 
+
+            <input type="checkbox" name="input2" id="inp2">
+            <label for="inp2">Input 2</label>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <form id="AndOr1" onsubmit="handleForm(event)">
+        <input type="text" name="falseortrue1" placeholder="Enter AND or OR">
+        <input type="submit">
+    </form>
+
     <script src="solojs.js"></script>
 </body>
 </html>

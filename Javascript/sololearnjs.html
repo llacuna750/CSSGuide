@@ -220,9 +220,33 @@
             66% { background-color: rgb(231, 235, 48); }
             100% { background-color: rgb(113, 113, 223); }
         }
-
         .color-animation {
             animation: colorChange .55s infinite;
+        }
+
+        .studentP {
+            border: 1px solid;
+            padding: 5px;
+            width: 350px;
+            border-radius: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .tableSP {
+            border-collapse: collapse;
+        }
+        #spTable {
+            /* border: 1px solid; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* width: 80%; */
+            /* padding: 10em; */
+        }
+        #spTable tr, th {
+            border: 1px solid;    
         }
     </style>    
 </head>
@@ -440,10 +464,10 @@
 
             <p>Payment method:</p>
             <input type="radio" name="pay" id="rd1" value="cash">
-            <label for="r1">Cash</label>
+            <label for="rd1">Cash</label>
 
             <input type="radio" name="pay" id="rd2" value="card">
-            <label for="r2">Card</label>
+            <label for="rd2">Card</label>
 
             <input type="radio" name="pay" id="rd3" value="credit">
             <label for="rd3">Credit</label>
@@ -512,6 +536,30 @@
         </div>
 
         <button onclick="carspeed()">Enable Speed Checker</button>
+    </div>
+
+    <div class="studentP">
+        <h2 style="margin: 0 0 10px 0;">Student Previleges</h2>
+        <form id="spform" style="margin-bottom: 5px;">
+            <label for="sname">Enter your name:</label>
+            <input type="text" name="Sname" id="sname"><br><br>
+            <p>Are you a?</p>
+            <input type="radio" name="aya" id="rad1" value="cash">
+            <label for="rad1">Student</label>
+
+            <input type="radio" name="aya" id="rad2" value="card">
+            <label for="rad2">Senior</label><br><br>
+            
+            <input type="button" value="Submit" onclick="CheckifStudent(event)" />
+        </form>
+        <div class="tableSP" style="display: flex; justify-content: center;">
+            <table id="spTable" style="border-collapse: collapse;">
+                <tr>
+                    <th>Name</th><th>S / S</th><th>Status</th>
+                </tr>
+            </table>
+        </div>
+        
     </div>
     <script src="solojs.js"></script>
 </body>

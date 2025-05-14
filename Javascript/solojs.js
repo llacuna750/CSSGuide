@@ -532,3 +532,35 @@ console.log(`isCartEmpty? ${isCartEmpty}`);
 let notificationsOn = true;
 let userOnline = false;
 // alert(notificationsOn || userOnline);
+
+function CheckifStudent (event) {
+  event.preventDefault;
+  let form = document.getElementById(`spform`);
+  let name = form.elements.Sname.value;
+  let sors = form.elements.aya.value;
+
+  insertDataStudentorSenior(name, sors);
+
+  form.reset();
+}
+
+function insertDataStudentorSenior (name, issors) {
+  let table = document.getElementById("spTable");
+  let newRow = table.insertRow(-1); // Insert at the end
+
+  let cell1 = newRow.insertCell(0);
+  let cell2 = newRow.insertCell(1);
+  let cell3 = newRow.insertCell(2);
+
+  cell1.textContent = name;
+  cell2.textContent = issors ? "Student" : "Seniors";
+  cell3.textContent = issors ? "Student discount" : "No discount";
+
+  // Add border styles
+  [cell1, cell2, cell3].forEach((cell) => {
+    cell.style.border = "1px solid black";
+    // cell.style.padding = "10px";
+    cell.style.marginTop = "10px";
+    cell.style.textAlign = "center";
+  });
+}

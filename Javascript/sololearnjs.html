@@ -146,6 +146,84 @@
                 text-align: center;
             }
         }
+        #pbutton {
+            display: flex;
+            padding: 10px;
+            border: 1px solid;
+            width: 125px;
+            height: 20px;
+            /* width: 140px;
+            height: 40px; */
+            border-radius: 5px;
+            box-shadow: 0 2px 3px #665e5e;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+        }
+
+        #pbutton p {
+            /* border: 1px solid; */
+            /* padding: 1em; */
+            
+            
+            flex-shrink: 3;
+            flex-grow: 1;
+            
+        }
+
+        .newVideoG {
+            border: 1px solid;
+            padding: 5px;
+            width: 500px;
+            border-radius: 5px;
+        }
+
+        .adtoZoo {
+            border: 1px solid;
+            padding: 5px;
+            width: 500px;
+            border-radius: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        #statusprice {
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .carspeed{
+            border: 1px solid;
+            padding: 5px;
+            width: 500px;
+            border-radius: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        #yourCar{
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        @keyframes colorChange {
+            0% { background-color: red; }
+            33% {background-color: rgb(243, 243, 233);}
+            66% { background-color: rgb(231, 235, 48); }
+            100% { background-color: rgb(113, 113, 223); }
+        }
+
+        .color-animation {
+            animation: colorChange .55s infinite;
+        }
     </style>    
 </head>
 <body id="body">
@@ -406,6 +484,35 @@
         <input type="submit">
     </form>
 
+    <div class="newVideoG">
+        <h2>New Video Games</h2>
+        <p>To play the desired video game you need to be sure that the ram volume your pc is high enough</p>
+        <div id="pbutton">
+            <p id="result">Reading ram....</p>
+            <!-- <p id="result">You need to Upgrade your ram.</p> -->
+        </div>  
+        <input type="button" onclick="checkram()"  value="Submit">
+    </div>
+
+    <div class="adtoZoo">
+        <h2 style="margin: 0;">Welcome to the Zoo!</h2>
+
+        <p>We have a special offer for our visitors! Today, we are offering a special discount for our younger visitors.</p>
+        <div id="statusprice">
+            <p id="price">Ticket price will be displayed here.</p>
+        </div>
+
+        <button onclick="calculate()">START</button>
+    </div>
+
+    <div class="carspeed">
+        <h2 style="margin: 0 0 10px;">Car speed Tracker</h2>
+        <div id="yourCar">
+            <p id="yourcarstatus">Checking the view road...</p>
+        </div>
+
+        <button onclick="carspeed()">Enable Speed Checker</button>
+    </div>
     <script src="solojs.js"></script>
 </body>
 </html>

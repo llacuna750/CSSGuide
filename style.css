@@ -473,15 +473,16 @@ div.container-column {
 /* Shrink and grow*/
 div.containershrink {
     margin-top: 10px    ;
-    border: 1px solid #0b4e49;
+    border: 1px solid #030303;
     padding: 1px 1px 10px;
     box-shadow: 0 2px 4px #000000;
     display: flex;
+    align-items: center;
 
     p {
         border: 1px solid #d40666;
         box-shadow: 0 2px 4px #000000;
-        background-color: rgb(247, 228, 203);
+        background-color: rgb(187, 134, 65);
         margin: 5px;
         padding-left: 3px;
     }
@@ -491,7 +492,9 @@ div.containershrink {
         flex-grow: 1;
         /* width: 50%; */
     }
+
     #item2 {
+        margin: 3px;
         flex-shrink: 2;
         flex-grow: 1;
     }

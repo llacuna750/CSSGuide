@@ -443,3 +443,92 @@ let str = String(a);
 // alert(`The current datatype is: ${typeof str} and the property value: ${num}`);
 // console.log(`The current datatype is: ${typeof str} and the property value: ${num}`);
 
+
+// Conditional Statements
+// let age = Number(prompt("How old are you?"));
+// if (age > 18) {
+//   alert(`You pay regular price because your above ${age}`);
+// }else {
+//   alert(`Discount ${age} below`);
+// }
+
+function checkram () {
+  let ram = Number(prompt("how many GB do you have on your ram?"));
+  let element = document.getElementById(`pbutton`);
+
+  if (ram >= 16) {
+    element.textContent = "Start the game....";
+    Object.assign(element.style, {
+      backgroundColor: "rgb(65, 180, 49)",
+      color: "rgb(176, 226, 215)",
+      width: `130px`,
+    });
+    alert(`Enjoy Playing!`);
+  }else
+  {
+    element.textContent = "You need to Upgrade your ram.";
+    Object.assign(element.style, {
+      backgroundColor: "rgb(209, 56, 56)",
+      color: "rgb(176, 226, 215)",
+      width: `140px`,
+      height: `40px`,
+    });
+    alert(`You can't play this game!`);
+  }
+}
+
+function calculate() {
+  let x = document.getElementById(`price`);
+  let bG = document.getElementById(`statusprice`);
+  let isOver18 = confirm(`Press OK if under 18`);
+
+  if (isOver18) {
+    x.textContent = `Discount: 10$`;
+    Object.assign(bG.style, {
+      backgroundColor: "rgb(65, 180, 49)",
+      // color: "rgb(219, 235, 231)",
+      // width: `130px`,
+    });
+  }
+  else {
+    x.textContent = `Regular price: 50$`;
+    Object.assign(bG.style, {
+      backgroundColor: "rgb(209, 56, 56)",
+      color: "rgb(176, 226, 215)",
+      // width: `140px`,
+      // height: `40px`,
+    });
+  }
+  alert(`Proceed to payment`);  
+}
+
+function carspeed() {
+  let x = document.getElementById(`yourCar`);
+  let carstatus = document.getElementById(`yourcarstatus`);
+  let carspeed= prompt("What is the speed of car?")
+
+  if (carspeed < 100) {
+    alert("No ticket");
+    carstatus.style.color = `white`;
+    Object.assign(x.style, {
+      backgroundColor: "rgb(176, 199, 77)",
+      
+    });
+
+  }else {
+    alert("Traffic ticket");
+    carstatus.textContent = `Issue Traffic ticket`;
+    x.classList.add("color-animation");
+  }
+  alert(`Drive with care`);
+}
+
+// Advanced Conditions
+let cartItems = 0;
+let isCartEmpty = cartItems === 0;
+// alert(isCartEmpty);
+console.log(`isCartEmpty? ${isCartEmpty}`);
+
+let notificationsOn = true;
+let userOnline = false;
+// alert(notificationsOn || userOnline);

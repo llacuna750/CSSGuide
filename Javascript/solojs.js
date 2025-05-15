@@ -356,7 +356,7 @@ let logicalOperation = false || false;
 console.log(logicalOperation);
 console.log(5 === 5);
 
-function performAndOrOperation(event) {
+function performAndOrOperation() {
   event.preventDefault();
   let form = document.getElementById(`AndOr`);
 
@@ -532,3 +532,112 @@ console.log(`isCartEmpty? ${isCartEmpty}`);
 let notificationsOn = true;
 let userOnline = false;
 // alert(notificationsOn || userOnline);
+
+function CheckifStudent (event) {
+  event.preventDefault();
+  let form = document.getElementById(`spform`);
+  let name = form.elements.Sname.value;
+  let age = form.elements.Sage.value;
+  let sors = form.elements.aya.value;
+
+  if (age.trim() == "") {
+    alert(`Don't leave blank!`);
+    console.log(`You leave blank your age!`);
+  }
+  else if (!Number.isInteger(Number(age))) {
+    alert(`Ayaw pag insert ug dili number!`);
+    console.log(`Enter only a number!`);
+  } 
+  else {
+    if (isNumber(age) && age < 18) {
+      performCheckBoth(name, sors);
+      alert(`20% Discount!`);
+      console.log(`Age: ${age}\n20% Discount!`);
+    } else if (isNumber(age) && age >= 18) {
+      performCheckBoth(name, sors);
+      alert(`10% Discount!`);
+      console.log(`Age: ${age}\n10% Discount!`);
+    }
+  }
+  
+  form.reset();
+}
+
+function isNumber(age) {
+  if (age.trim() == "") {
+    return false;
+  } else {
+    return true;
+  }
+    // age.trim() !== "" + 1231 = true
+    // Number.isInteger(Number(age)) + 123 = true
+
+    // age.trim() !== "" + "blank" = false
+    // Number.isInteger(Number(age)) + dada = false
+    isInt = Number.isInteger(Number(age));
+    // kini nga code unsa iyang gibuhat ani? below
+    // return !isNaN(value) && value.trim() !== "";
+}
+
+function performCheckBoth(name, sors) {
+  if (isBlank(name)) {
+    alert("Name is blank.");
+    console.log("Name is blank.");
+  }
+  else if (isBlank(sors)) {
+    alert("Type is blank.");
+    console.log("Type is blank.");
+  } else {
+    insertDataStudentorSenior(name, sors);
+  }
+}
+
+function insertDataStudentorSenior(name, sors) {
+  let table = document.getElementById("spTable");
+  let newRow = table.insertRow(-1); // Insert at the end
+
+  let cell1 = newRow.insertCell(0);
+  let cell2 = newRow.insertCell(1);
+  let cell3 = newRow.insertCell(2);
+
+  cell1.textContent = name;
+  cell2.textContent = sors === "Student" ? "Student" : "Seniors";
+  cell3.textContent = sors === "Student" ? "Student discount" : "No discount";
+
+  // Add border styles
+  [cell1, cell2, cell3].forEach((cell) => {
+    cell.style.border = "1px solid black";
+    // cell.style.padding = "10px";
+    cell.style.marginTop = "10px";
+    cell.style.textAlign = "center";
+  });
+
+  console.log(`Name: ${name}`);
+  console.log(`SorS: ${sors}`);
+}
+
+function isBlank(str) {
+  return !str || str.trim() === "";
+}
+// More on Conditional Statements
+// let temperature = Number(prompt(`Enter your temperature: 
+//   \nNo Fever: 39 below the temperature
+//   \n Above 39 is High temperature`));
+// if (temperature > 39) {
+//   alert("High temperature");
+// } else {
+//   alert("No fever");
+// }
+
+
+let wloop = 5;
+console.log(typeof wloop);
+// while (wloop > 0) {
+//   console.log();
+// }
+let strname = "";
+let notstr = !strname;
+let nameT = "Gabriel";
+
+console.log(nameT.trim());
+console.log(notstr);

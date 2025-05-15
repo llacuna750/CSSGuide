@@ -356,7 +356,7 @@ let logicalOperation = false || false;
 console.log(logicalOperation);
 console.log(5 === 5);
 
-function performAndOrOperation(event) {
+function performAndOrOperation() {
   event.preventDefault();
   let form = document.getElementById(`AndOr`);
 

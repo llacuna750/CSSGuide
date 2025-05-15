@@ -659,7 +659,6 @@ let nameT = "Gabriel";
 console.log(nameT.trim());
 console.log(notstr);
 
-
 let seats = 10;
 
 while(seats>0) {
@@ -677,3 +676,5 @@ while (i < 5) {
 }
 
 console.log("b"+"a"+ +"a"+"a");
+
+

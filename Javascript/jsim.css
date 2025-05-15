@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+.jsIntermediate {
+  border: 1px solid;
+  border-radius: 5px;
+}
+.jsIntermediate .panit {
+  border-radius: 8px;
+  margin: 2px 3px 2px 3px;
+}
+.jsIntermediate .panit h3 {
+  margin: 1px 0 1px 0;
+  text-align: center;
+  width: 250px;
+  animation-name: movingTitle;
+  animation: movingTitle 6s infinite linear, colorCycle 1.2s infinite linear;
+  border-radius: 5px;
+}
+@keyframes movingTitle {
+  0% {
+    color: #cd4949;
+    transform: translateX(0);
+  }
+  25% {
+    color: #16ebe4;
+    transform: translateX(29);
+  }
+  50% {
+    color: #074e9e;
+    transform: translateX(88em);
+  }
+  75% {
+    color: #e40855;
+    transform: translateX(29);
+  }
+  100% {
+    color: #c0b40e;
+    transform: translateX(0);
+  }
+}
+@keyframes colorCycle {
+  0% {
+    color: #cd4949;
+  }
+  20% {
+    color: #16ebe4;
+  }
+  40% {
+    color: #074e9e;
+  }
+  60% {
+    color: #e40855;
+  }
+  80% {
+    color: #c0b40e;
+  }
+  100% {
+    color: #cd4949;
+  }
+}
+.jsIntermediate .jsimroad {
+  border: 1px solid;
+  border-radius: 7px;
+  width: 300px;
+  margin: 3px;
+}
+.jsIntermediate .jsimroad h4 {
+  margin: 0;
+  text-align: center;
+}
+
+body {
+  background: #F2F2F2;
+  font-family: "Poppins";
+}/*# sourceMappingURL=jsim.css.map */

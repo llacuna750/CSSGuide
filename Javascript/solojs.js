@@ -614,7 +614,7 @@ function insertDataStudentorSenior(name, sors) {
 
   console.log(`Name: ${name}`);
   console.log(`SorS: ${sors}`);
-}
+} 
 
 function isBlank(str) {
   return !str || str.trim() === "";
@@ -631,13 +631,49 @@ function isBlank(str) {
 
 
 let wloop = 5;
-console.log(typeof wloop);
-// while (wloop > 0) {
-//   console.log();
-// }
+let end = -1;
+console.log(`Type of wloop:  ${typeof wloop}`);
+
+while (wloop >= -1) {
+  if (wloop > -1){
+    console.log(wloop);
+    wloop--;
+  }else {
+    console.log(`End`);
+    wloop = -2;
+    // break;
+  }
+}
+// console.log(`new value: ${end}`);
+console.log(``);
+console.log(``);
+
+let forLoop = 5;
+for (let i=0; i<=forLoop; i++) {
+  console.log(i);
+}
+
 let strname = "";
 let notstr = !strname;
 let nameT = "Gabriel";
-
 console.log(nameT.trim());
 console.log(notstr);
+
+
+let seats = 10;
+
+while(seats>0) {
+  console.log(`number of seats left ${seats}`);
+  // seats--;
+  // seats -= 1;
+  seats = seats - 1;
+}
+
+// For Loops
+let i = 0;
+while (i < 5) {
+  console.log(`Alert! ${i}`);
+  i = i + 1;
+}
+
+console.log("b"+"a"+ +"a"+"a");

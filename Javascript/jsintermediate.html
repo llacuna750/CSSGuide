@@ -10,7 +10,9 @@
 <body>
     <div class="jsIntermediate">
         <div class="panit">
-            <h3>JavaScript Intermediate</h3>
+            <h3>
+            <p>JavaScript Intermediate</p>
+            </h3>
         </div>
         <div class="jsimroad">
             <div class="JavaScriptWHaC">
@@ -28,13 +30,41 @@
         </div>
     </div>
 
-    <button onclick='action();'>Click me</button>
+    <button onclick='action();'>Click me</button>   
 
     <h1>Encouraging Messages</h1>
     <button onclick='myButton("Great work!");'>Message 1</button>
     <button onclick='myButton("You are a star!");'>Message 2</button>
     <button onclick='myButton("You are awesome!");'>Message 3</button>
+    <img id="picture1" src="../images/DOM-model.svg" alt="dom">
+    <img class="slur" id="picture2" src="../images/slur.jpg" onclick="changeImage()" alt="dom">
 
-    <script src="soloim2.js"></script>
+    <div class="dpNamediv">
+        <div class="displayname">
+            <div class="helloDiv">
+                <h2 id="greeting">Hello! </h2>
+            </div>
+            
+            <label for="input1">Enter your name:</label>
+            <input type="text" name="input1" id="input1">
+            <button id="submitName" onclick="displayName()">Enter</button>
+        </div>
+    </div>
+    
+    <div class="loginPlease">
+        <p>The password is <span>dabdabgwapo!</span></p>
+        <label for="pass1">Enter  a password:</label>
+        <input type="text" name="pass1" id="pass1" placeholder="Enter your password..">
+        <button onclick="grantedorNot()">Submit</button>
+
+        <div class="dpPassBlock">
+            <div id="dpPass">
+                <!-- <p id="displaypass">Successfull login!</p> -->
+                <p id="displaypass"></p>
+            </div>
+        </div>
+    </div>
+
+    <script  src="soloim2.js"></script>
 </body>
 </html>

@@ -8,32 +8,35 @@
   margin: 2px 3px 2px 3px;
 }
 .jsIntermediate .panit h3 {
+  display: flex;
   margin: 1px 0 1px 0;
   text-align: center;
-  width: 250px;
-  animation-name: movingTitle;
-  animation: movingTitle 6s infinite linear, colorCycle 1.2s infinite linear;
+  width: 12.7%;
+  animation: movingTitle 7s linear infinite, colorCycle 1.2s infinite linear;
   border-radius: 5px;
+}
+.jsIntermediate .panit h3 p {
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0;
+  width: 236px;
+  flex-shrink: 0;
 }
 @keyframes movingTitle {
   0% {
-    color: #cd4949;
     transform: translateX(0);
   }
   25% {
-    color: #16ebe4;
     transform: translateX(29);
   }
   50% {
-    color: #074e9e;
-    transform: translateX(88em);
-  }
+    transform: translateX(693%);
+  } /* 100% is the width of the element itself */
   75% {
-    color: #e40855;
     transform: translateX(29);
   }
   100% {
-    color: #c0b40e;
     transform: translateX(0);
   }
 }
@@ -71,4 +74,68 @@
 body {
   background: #F2F2F2;
   font-family: "Poppins";
+}
+
+.slur {
+  width: 220px;
+}
+
+.dpNamediv {
+  margin: 10px;
+}
+.dpNamediv .displayname {
+  border: 1px solid;
+  display: inline-block; /* Auto-resize to content */
+  padding: 2px 10px 10px 10px;
+  background-color: #f2f2f2;
+}
+.dpNamediv .displayname .helloDiv {
+  display: flex;
+  margin: 0;
+}
+.dpNamediv .displayname .helloDiv #greeting {
+  flex-shrink: 1;
+  flex-grow: 3;
+  margin: 0;
+  text-align: center;
+  margin: 10px;
+  border: 1px solid;
+}
+.dpNamediv .displayname #submitName {
+  text-align: center;
+}
+
+.loginPlease {
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.loginPlease p {
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.loginPlease p span {
+  text-decoration: underline;
+}
+.loginPlease #pass1 {
+  border: thin solid;
+  border-radius: 5px;
+}
+.loginPlease .dpPassBlock {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.loginPlease .dpPassBlock #dpPass {
+  display: inline-block;
+}
+.loginPlease .dpPassBlock #dpPass #displaypass {
+  flex-shrink: 3;
+  flex-grow: 1;
+  border-radius: 8px;
+  flex-shrink: 2;
+  padding: 5px;
+  margin: 0;
 }/*# sourceMappingURL=jsim.css.map */

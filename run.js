@@ -40,16 +40,16 @@ function isNumber(age) {
 
 // console.log(`is a num? ${isInteger}`);
 
-let value = prompt("insert anything: ");
-const val = Number(value);
+// let value = prompt("Is this a number?  ");
+// const val = Number(value);
 
 // if (val !== val) {
 //   console.log(`No it is same number: ${val}`);
 // }else {
 //   console.log(` ${val}`);
 // }
-let output = val !== val;
-console.log(` ${output}`);
+// let output = val === val;
+// console.log(` ${output}`);
 
 // Function myisNan
 function myIsNaN(value) {
@@ -59,6 +59,5 @@ function myIsNaN(value) {
   // Check if the result is NaN (Not-a-Number)
   return num !== num; // Only NaN is not equal to itself
 }
-
 
 // CheckifStudent();

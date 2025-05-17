@@ -74,38 +74,125 @@ let display = document.getElementById("result"); // reference the display contai
 
 //Array traversal
 const number = [5, 2, 4, 7, 1, 15, 9];
-console.log(number);
 
+/*        i=0 > i=1
+         T input: 5, 2, 4, 7, 1, 9, 15      if true updated    i=0 = i=1
+
+         F input: 2, 5, 4, 7, 1, 9, 15        
+           if true: 2, 5, 4, 7, 1, 9, 15    
+                    2, 4, 5, 7, 1, 9, 15        if true: i=1  >  i=2
+         
+         F input:   2, 4, 5, 7, 1, 9, 15 
+          if false: 2, 4, 5, 7, 1, 9, 15        if false: i=1  >  i=2
+                    2, 4, 7, 5, 1, 9, 15        i=3  =  i=2     5 swap 7
+                    2, 4, 7, 1, 5, 9, 15        i=4  =  i=3     new order
+
+        F input:   2, 4, 7, 1, 5, 9, 15 
+          if false: 2, 4, 7, 1, 5, 9, 15        if false: i=1  >  i=2
+                    2, 4, 1, 7, 5, 9, 15        i=3  =  i=2     7 swap 1
+                    2, 4, 1, 5, 7, 9, 15        i=4  =  i=3     new order
+
+        F input:   2, 4, 1, 5, 7, 9, 15         
+          if  true: 2, 1, 4, 5, 7, 9, 15        if true: i=1  >  i=2   &&  update to: i=2  = i=1 
+                    2, 1, 4, 5, 7, 9, 15         new Order
+      
+        T input: 2, 1, 4, 5, 7, 9, 15           if true updated    i=0 = i=1
+                 1, 2, 4, 5, 7, 9, 15            new Order
+
+        F input: 1, 2, 4, 5, 7, 9, 15           
+        if false: 1, 2, 5, 7, 4, 9, 15        if false: i=1  >  i=2
+                    
+        
+expected output: 1, 2, 4, 5, 7, 9, 15 
+*/ 
 let max = number[0];
 let min = number[0];
-/*
-          input: 5, 2, 4, 7, 1, 9, 15
-expected output: 1, 2, 4, 5, 7, 9, 15
-  n[i=1] 5 > 2 T
-  n[i=2] 5 > 4 T
-  n[i=3] 5 > 7 F
-  n[i=4] 5 > 1 T
-  n[i=5] 5 > 9 F
-  n[i=6] 5 > 15 F
-*/ 
-for (let i=0; i<number.length; i+=1) {
-  if (max >  number[i]) {
-    max = number[i];
-    // min = number[i-1];
-    // console.log(min);
-    // if (max > number[i+1]) {
-    // }
+let temp;
+
+// let number = [5, 3, 4, 1, 2]; // example array
+// If yes, here’s a cleaner bubble sort example with explanation:
+for (let i = 0; i < number.length - 1; i++) {
+  for (let j = 0; j < number.length - 1 - i; j++) {
+    if (number[j] > number[j + 1]) {
+      // Swap number[j] and number[j + 1]
+      let temp = number[j];
+      number[j] = number[j + 1];
+      number[j + 1] = temp;
+      console.log(number);
+    }
   }
-  else {
-    number[i+1];
-    // number[i] = number[i + 1];
-    // max = number[i];
-    // console.log(number[i]);
-  }
-  
 }
 
+console.log("Sorted array:", number);
 
-// console.log(`example ${max}`);
-console.log(`Smallest value of an array is => ${max}`);
-// console.log(`The max value of an array is => ${max}`);
+let n = number.length;
+let swapped = true;
+
+while (swapped) {
+  swapped = false;
+  let i = 0;
+
+  while (i < n - 1) {
+    if (number[i] > number[i + 1]) {
+      // Swap number[i] and number[i + 1]
+      let temp = number[i];
+      number[i] = number[i + 1];
+      number[i + 1] = temp;
+
+      swapped = true;
+      console.log(number);
+    }
+    i++;
+  }
+
+  // After each pass, the largest element is at the end,
+  // so we can reduce the length to check by 1.
+  n--;
+}
+
+console.log("Sorted array:", number);
+
+// console.log(number[6] != 15);
+
+// console.log(number);
+// while (number[6] != 15 ) {
+  // if (min > number[1]) {
+  //   temp = number[0];
+  //   number[0] = number[1];
+  //   number[1] = temp;
+  //   console.log(number);
+  //   // break;
+  // } 
+  // else if (number[1] > number[2]) {
+  //   temp = number[1];
+  //     number[1] = number[2];
+  //     number[2] = temp;
+
+  //     console.log(number);
+  //     temp = null;
+  // }
+  // else {
+  //   temp = number[2];
+  //     number[2] = number[3];
+  //     number[3] = temp;
+
+  //     temp = number[3];
+  //     number[3] = number[4]; // Both become number[2]
+  //     number[4] = temp;
+  //     console.log(number);
+
+  //     // 🔁 Add a break to prevent infinite loop
+  //   break;
+  // }
+// }
+
+let btn = document.createElement("button");
+console.log(btn);
+
+function addSpan() {
+  let container = document.getElementById(`container`);
+  let newSpan = document.createElement(`span`);
+  let text = document.createTextNode("The Story of Javascript");
+  newSpan.appendChild(text);
+  container.appendChild(newSpan);
+}

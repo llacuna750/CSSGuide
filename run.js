@@ -10,6 +10,7 @@
 
 const prompt = require('prompt-sync')(); // Import prompt-sync
 
+// CheckifStudent();  // called the function
 function CheckifStudent() {
   let ageInput = prompt("Enter your age: ");
 
@@ -21,37 +22,20 @@ function CheckifStudent() {
   else if (isNumber(age) && age >= 18) {
     console.log(`Working.... na 10% Discount!`);
   }else {
-    alert("Invalid age entered.");
+    console.log(`Invalid age entered.`);
   }
-
 }
 
 function isNumber(age) {
-  return 
-  // if (age >= 0) {
-  //   return true;
-  // } else {
-  //   return false;
-  // return !isNaN(value) && value.trim() !== "";
-  // }
+  if (age >= 0) {
+    return true;
+  } else {
+    //    not a number   &&   is blank
+    return !isNaN(age) && value.trim() !== ""; 
+  }
 }
-// let num = prompt("isNAN: ");
-// isInteger = Number.isInteger(Number(num));
 
-// console.log(`is a num? ${isInteger}`);
-
-// let value = prompt("Is this a number?  ");
-// const val = Number(value);
-
-// if (val !== val) {
-//   console.log(`No it is same number: ${val}`);
-// }else {
-//   console.log(` ${val}`);
-// }
-// let output = val === val;
-// console.log(` ${output}`);
-
-// Function myisNan
+// Function isNan be like
 function myIsNaN(value) {
   // Try to convert the value to a number
   const num = Number(value);
@@ -60,4 +44,25 @@ function myIsNaN(value) {
   return num !== num; // Only NaN is not equal to itself
 }
 
-// CheckifStudent();
+// let num = prompt("isNAN: ");
+// isInteger = Number.isInteger(Number(num));
+// console.log(`is a num? ${isInteger}`);
+
+// let value = prompt("Is this a number?  ");
+// const val = Number(value);
+
+// if (val !== val) {
+//   console.log(`That is not a number: ${val}`);
+// }else {
+//   console.log(`Yes that's valid: ${val}`);
+// }
+// let output = val === val;
+// console.log(` ${output}`);
+
+// let value = prompt(`Enter a number: `);
+// const num = Number(value);
+
+// Check if the result is NaN (Not-a-Number)
+// console.log(num !== num); // Only NaN is not equal to itself
+
+

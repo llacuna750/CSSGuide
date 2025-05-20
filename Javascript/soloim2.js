@@ -196,3 +196,9 @@ function addSpan() {
   newSpan.appendChild(text);
   container.appendChild(newSpan);
 }
+
+function removeBubble () {
+  let box = document.getElementById(`box`);
+  let bubble = document.getElementById(`bubble`);
+  box.removeChild(bubble);
+}

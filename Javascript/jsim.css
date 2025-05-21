@@ -138,4 +138,31 @@ body {
   flex-shrink: 2;
   padding: 5px;
   margin: 0;
+}
+
+.Event1 {
+  border: 1px solid;
+  padding: 3px;
+  display: inline-block;
+  border-radius: 5px;
+}
+.Event1 > div {
+  border: 1px solid;
+  border-radius: 5px;
+}
+.Event1 #pieChart {
+  border: 1px solid;
+  margin: 10px;
+  text-align: center;
+}
+.Event1 .container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#inout {
+  border: 1px solid;
 }/*# sourceMappingURL=jsim.css.map */

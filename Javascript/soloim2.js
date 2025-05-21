@@ -202,3 +202,39 @@ function removeBubble () {
   let bubble = document.getElementById(`bubble`);
   box.removeChild(bubble);
 }
+
+function inMouse(x) {
+  x.style.backgroundColor = "green";
+  console.log(`In`);
+}
+
+function outMouse(x) {
+  x.style.backgroundColor = `red`;
+  console.log(`Out`);
+}
+
+function showData(x) {
+  x.style.backgroundColor = `blue`;
+  console.log(`showData`);
+}
+
+let coin = document.getElementById("coin");
+
+coin.onmouseover = function() {
+  out() // Call your custom function
+  coin.style.backgroundColor = "blue";
+} 
+
+function out () {}
+
+let pieChart = document.getElementById("pieChart1");
+
+pieChart.onmouseover = () => { mouseisOver()};
+pieChart.onmouseleave = () => { mouseisOut()};
+
+function mouseisOver() {
+  console.log(`Mouse is over the pie chart`);
+}
+function mouseisOut() {
+  console.log(`Mouse is out of the pie chart`);
+}

@@ -108,7 +108,7 @@ expected output: 1, 2, 4, 5, 7, 9, 15
 let max = number[0];
 let min = number[0];
 let temp;
-
+console.log(number);
 // let number = [5, 3, 4, 1, 2]; // example array
 // If yes, here’s a cleaner bubble sort example with explanation:
 for (let i = 0; i < number.length - 1; i++) {
@@ -225,7 +225,9 @@ coin.onmouseover = function() {
   coin.style.backgroundColor = "blue";
 } 
 
-function out () {}
+function out () {
+  console.log(`out of the coin`);
+}
 
 let pieChart = document.getElementById("pieChart1");
 
@@ -238,3 +240,122 @@ function mouseisOver() {
 function mouseisOut() {
   console.log(`Mouse is out of the pie chart`);
 }
+
+// Events 2
+const btnaddEvent = document.getElementById("statrtaddEvent");
+
+btnaddEvent.addEventListener("click", () => {
+  console.log(`CSS Padding G clicked`);
+  btnaddEvent.style.backgroundColor = `green`;
+  btnaddEvent.style.color = `white`;
+  btnaddEvent.style.boxShadow = 
+  `0px 3px 3px rgb(0, 0, 0),
+  -4px 0px 3px rgb(37, 167, 33),
+  0 -3px 3px rgb(192, 12, 153),
+  3px 0px 3px rgb(117, 80, 204)`;
+  btnaddEvent.style.borderRadius = `10px`;  
+  btnaddEvent.style.width = `200px`;
+});
+
+const imgaddEvent = document.getElementById(`imgaddEvent`);
+imgaddEvent.addEventListener(`pointerenter`, () => {
+  imgaddEvent.style.width = `200px`;
+  imgaddEvent.style.height = `200px`;
+  imgaddEvent.style.borderRadius = `50%`;
+  imgaddEvent.style.boxShadow = 
+  `0px 3px 3px rgb(0, 0, 0),
+  -4px 0px 3px rgb(37, 167, 33),
+  0 -3px 3px rgb(192, 12, 153),
+  3px 0px 3px rgb(117, 80, 204)`;
+});
+
+imgaddEvent.onpointerleave = () => {
+  imgaddEvent.style.width = `100px`;
+  imgaddEvent.style.height = `100px`;
+  imgaddEvent.style.borderRadius = `0%`;
+};
+
+const goodPCaption = document.getElementById("goodProgrammer");
+
+goodPCaption.addEventListener("pointerover", showCaption);
+
+function showCaption() {
+  goodPCaption.style.display = `block`;
+  goodPCaption.style.color = `blue`;
+  console.log(`Show Caption`);
+  goodPCaption.removeEventListener("pointerover", showCaption);
+  goodPCaption.addEventListener("pointerout", hideCaption);
+}
+
+function hideCaption() {
+  goodPCaption.style.display = `none`;
+  console.log(`Hide Caption`);
+  goodPCaption.removeEventListener("pointerout", hideCaption);
+  goodPCaption.addEventListener("pointerover", showCaption);
+};
+
+// Events 3
+let box = document.getElementById("Eventbox");
+let wheel = document.getElementById("eventbox2");
+box.addEventListener("pointerover", bigBox);
+box.addEventListener("pointerout", smallBox);
+
+box.addEventListener("pointerdown", handlePointerDown);
+
+function handlePointerDown() {
+  box.style.backgroundColor = `yellow`;
+}
+
+function bigBox() {
+  Object.assign(box.style, {
+    display: `flex`,
+    justifyContent: `center`,
+    alignItems: `center`,
+  });
+  box.style.width = `200px`;
+  box.style.height = `200px`;
+  box.style.backgroundColor = `red`;
+  console.log(`Big Box`);
+}
+
+function smallBox() {
+  Object.assign(box.style, {
+    display: `flex`,
+    justifyContent: `center`,
+    alignItems: `center`,
+  });
+  box.style.width = `100px`;
+  box.style.height = `100px`;
+  box.style.backgroundColor = `blue`;
+  console.log(`Small Box`);
+}
+
+wheel.addEventListener("pointerdown", spin);
+wheel.addEventListener("pointerup", stopSpin);
+
+function spin() {
+  Object.assign(wheel.style, {
+    padding: `10px`,
+    display: `flex`,
+    justifyContent: `center`,
+    alignItems: `center`,
+    animation: `spin 5s linear infinite, spin2 5s linear infinite, changeShape 10s linear infinite`,
+  });
+}
+function stopSpin() {
+  Object.assign(wheel.style, {
+    display: `flex`,
+    justifyContent: `center`,
+    alignItems: `center`,
+    animation: `spin 3s linear, spin2 3s linear , changeShape 3s linear `,
+  });
+}
+
+// Events and Objects
+let length = 5;
+let width = 3;
+
+function calculateArea(length, width) {
+  alert(length * width);
+}
+// calculateArea(length, width);

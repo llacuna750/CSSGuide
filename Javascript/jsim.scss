@@ -9,7 +9,7 @@
         margin: 2px 3px 2px 3px;
         
         // overflow: hidden; /* Ensures the content doesn't spill outside */
-        
+         
         h3 {
             display: flex;
             margin: 1px 0 1px 0;
@@ -46,11 +46,18 @@
         100% { color: #cd4949; }
         }
     }
+    .boxRoadJs {
+        display: flex;
+        // border: 1px solid;
+        #widthadjust {
+            // border: 1px solid;
+        }
+    }
 
     .jsimroad {
         border: 1px solid;
         border-radius: 7px;
-        width: 300px;
+        width: 350px;
         margin: 3px;
 
         h4 {
@@ -147,25 +154,110 @@ body {
     display: inline-block;
     border-radius: 5px;
 
-    > div {
-        border: 1px solid;
-        border-radius: 5px;
-    }
+    
     
     #pieChart {
         border: 1px solid;
         margin: 10px;
         text-align: center;
     }
+      
     .container {
+        // border: 1px solid;
+    }
+
+    .borderThis {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
+        padding: 5px;
         justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
+    }
+
+    .borderThis >  div {
+        border: 1px solid;
+        border-radius: 5px;
+        padding: 5px;
     }
 }
-
 #inout {
     border: 1px solid;
+}
+
+.Event2 {
+    margin: 10px 5px;
+}
+
+.Event3{
+    margin: 5px;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+
+    .container2 {
+        display: flex;
+    }
+}
+.Event3:hover {
+    box-shadow: 3px 0  3px #074e9e,
+                -3px 0  3px #0ca896,
+                0 -2px  5px #3c3b47,
+                0 3px  3px #02f66c;
+
+    .container2 {
+        @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+        }    
+
+        @keyframes spin2 {
+            10% { background-color: #f6e123;}
+            20% { background-color: #ea521b; }
+            30% { background-color: #46c295; }
+            40% { background-color: #ddecee; }
+            50% { background-color: #a7187e; }
+            60% { background-color: #6e6aad; }
+            70% { background-color: #a82929; }
+            // width: 50px;aspect-ratio: 1; background: #F8CA00; clip-path: polygon(50% 0, calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))), calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))), calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+            80% { background-color: #303a2c; }
+            90% { background-color: #193299; }
+            100% { background-color: #2cb367; }
+            /* or more simple
+            clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%); 
+            */
+        }
+
+        @keyframes changeShape {
+            0% {width: 50px;aspect-ratio: 1; background: #F8CA00; clip-path: polygon(50% 0, calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))), calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))), calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));}
+            50% {height: 250px; /* adjust to control the size */
+                aspect-ratio: 1;
+                --_m: radial-gradient(#000 69%,#0000 70%) 84.5%/50%;
+                -webkit-mask-box-image: var(--_m);
+                           mask-border: var(--_m);
+                clip-path: polygon(-41% 0,50% 91%, 141% 0);
+                background: #cc333f;}
+            100% {--t: 45%; /* control the tail part */
+                --h: 40%; /* control the head part */
+                
+                aspect-ratio: 3/2;
+                width: 250px;
+                background: #033649;
+                clip-path: polygon(0 calc(50% - var(--t)/2),calc(100% - var(--h)) calc(50% - var(--t)/2),calc(100% - var(--h)) 0,100% 50%,calc(100% - var(--h)) 100%,calc(100% - var(--h)) calc(50% + var(--t)/2),0 calc(50% + var(--t)/2));}
+        }
+
+        /* fallback until better support for mask-border */
+        @supports not (-webkit-mask-box-image: var(--_m)) { 
+            .heart {
+            mask:
+            radial-gradient(at 70% 31%,#000 29%,#0000 30%),
+            radial-gradient(at 30% 31%,#000 29%,#0000 30%),
+            conic-gradient(#000 0 0) bottom/100% 50% no-repeat;
+            }
+        }
+    }
 }

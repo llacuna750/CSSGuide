@@ -268,4 +268,29 @@ body {
     -webkit-mask: radial-gradient(at 70% 31%, #000 29%, rgba(0, 0, 0, 0) 30%), radial-gradient(at 30% 31%, #000 29%, rgba(0, 0, 0, 0) 30%), conic-gradient(#000 0 0) bottom/100% 50% no-repeat;
             mask: radial-gradient(at 70% 31%, #000 29%, rgba(0, 0, 0, 0) 30%), radial-gradient(at 30% 31%, #000 29%, rgba(0, 0, 0, 0) 30%), conic-gradient(#000 0 0) bottom/100% 50% no-repeat;
   }
+}
+
+.EventsandObjects {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  display: inline-block;
+}
+.EventsandObjects .imgEandO {
+  width: 350px;
+  transition: transform 2s;
+}
+.EventsandObjects .imgEandO:active {
+  transform: scale(4) rotate(720deg) translate(185px, -85px);
+}
+
+.createParagraph {
+  margin: 5px;
+}
+.createParagraph #containerNewElement {
+  border: 1px solid;
+  display: inline-block;
+}
+.createParagraph #containerNewElement h5 {
+  margin: 0;
 }/*# sourceMappingURL=jsim.css.map */

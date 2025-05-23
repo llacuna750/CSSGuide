@@ -342,12 +342,20 @@ function spin() {
     animation: `spin 5s linear infinite, spin2 5s linear infinite, changeShape 10s linear infinite`,
   });
 }
+
 function stopSpin() {
+  // Stop animations by clearing them
+  wheel.style.animation = "none";
+
+  // Trigger reflow to reset animation (forces browser to notice the change)
+  void wheel.offsetWidth;
+
+  // Apply non-infinite version (1 run)
   Object.assign(wheel.style, {
     display: `flex`,
     justifyContent: `center`,
     alignItems: `center`,
-    animation: `spin 3s linear, spin2 3s linear , changeShape 3s linear `,
+    animation: `spin 4s linear, spin2 4.5s linear, changeShape 3s linear`,
   });
 }
 
@@ -359,3 +367,12 @@ function calculateArea(length, width) {
   alert(length * width);
 }
 // calculateArea(length, width);
+
+let containerNewElement = document.getElementById("containerNewElement");
+containerNewElement.addEventListener("click", addImg);
+function addImg() {
+  let newElement = document.createElement("img");
+  newElement.src = "../images/CSS favicon.jpg";
+  containerNewElement.appendChild(newElement);
+}
+

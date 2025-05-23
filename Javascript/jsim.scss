@@ -261,3 +261,28 @@ body {
         }
     }
 }
+
+.EventsandObjects {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline-block;
+    .imgEandO {
+        width: 350px;
+        transition: transform 2s ;
+    }
+    .imgEandO:active {
+        transform: scale(4) rotate(720deg) translate(185px, -85px);
+    }
+}
+
+.createParagraph {
+    margin: 5px;
+    #containerNewElement {
+        h5 {
+            margin: 0;
+        }
+        border: 1px solid;
+        display: inline-block;
+    }
+}

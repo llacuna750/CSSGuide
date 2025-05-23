@@ -428,3 +428,20 @@ function addOne() {
 // setInterval(() => {
 //   console.log("Runs 10 times per second");
 // }, 100); // 100 ms
+
+let msConvertimg = document.getElementById("msConvertion");
+msConvertimg.addEventListener("pointerenter", padakOn);
+msConvertimg.addEventListener("pointerleave", padakOff);
+
+function padakOn() {
+  msConvertimg.style.width = `400px`;
+}
+function padakOff() {
+  msConvertimg.style.width = `800px`;
+}
+
+
+  
+
+
+

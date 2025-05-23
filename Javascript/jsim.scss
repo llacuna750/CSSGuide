@@ -194,6 +194,7 @@ body {
     border: 1px solid;
     padding: 5px;
     border-radius: 5px;
+    display: inline-block;
 
     .container2 {
         display: flex;
@@ -284,5 +285,32 @@ body {
         }
         border: 1px solid;
         display: inline-block;
+    }
+}
+
+#replaceMeContainer {
+    border: 1px solid;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    #clickReplaceme {
+        margin: 0; 
+    }
+    #OldButton {text-align: center};
+}
+
+.Timers {
+    margin: 5px;
+    h2 {
+        margin: 0;
+        text-align: center;
+    }
+
+    .Taymers  {
+        display: inline-block;
+        border: 1px solid;
+        border-radius: 5px;
+        padding: 0 8px;
+        text-align: center;
     }
 }

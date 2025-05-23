@@ -368,6 +368,7 @@ function calculateArea(length, width) {
 }
 // calculateArea(length, width);
 
+// Add a Image testing...
 let containerNewElement = document.getElementById("containerNewElement");
 containerNewElement.addEventListener("click", addImg);
 function addImg() {
@@ -376,3 +377,54 @@ function addImg() {
   containerNewElement.appendChild(newElement);
 }
 
+// Replace The Button testing...
+let containerReplaceButton = document.getElementById("replaceMeContainer");
+containerReplaceButton.addEventListener("click", replaceButton);
+function replaceButton() {
+  let newButton = document.createElement("button");
+  let text = document.createTextNode("I am the new Button");
+  let oldButton = document.getElementById("OldButton");
+
+  newButton.appendChild(text);
+  // newButton.textContent = "I am the new Button!";
+  newButton.style.backgroundColor = "green";
+  containerReplaceButton.replaceChild(newButton, oldButton);
+}
+// Timers
+// setinterval(rotate, 500);
+
+let seconds = 0;
+const timerDisplay = document.getElementById("timer");
+
+let timer = setInterval(() => {
+  seconds++;
+  timerDisplay.textContent = seconds;
+
+  if (seconds >= 10) {
+    // clearInterval uses to stop the timer
+    clearInterval(timer);
+    timerDisplay.textContent += " (done)";
+  }
+}, 1000);
+
+let clock = setInterval(addOne, 1000);
+
+function addOne() {
+  let count = document.getElementById("count");
+  let number = Number(count.textContent);
+  if (number >= 5) {
+    clearInterval(clock);
+    count.textContent = "Finished";
+    // count.textContent += "Finished";
+    return;
+  }else {
+    number = number + 1;
+    count.textContent = number;
+  }
+}
+// 1 second = 1000 milliseconds  
+// 1000 ms ÷ 10 = 100 ms
+
+// setInterval(() => {
+//   console.log("Runs 10 times per second");
+// }, 100); // 100 ms

@@ -3,7 +3,9 @@ document.title = `JS Intermediate`;
 function myButton(message) {
   alert(message);
 }
-
+function action() {
+  console.log(`Action function called`);
+}
 let imgDom1 = document.getElementById("picture1");
 imgDom1.style.width = "300px";
 let link = imgDom1.src;
@@ -62,7 +64,7 @@ function grantedorNot() {
     Object.assign(display.style, {
       border: `0.5px solid`,
       backgroundColor: `rgb(173, 27, 64)`,
-      color: `rgb(198, 240, 240)`,
+      color: `rgb(67, 158, 158)`,
       marginTop: `15px`,
     });
   }
@@ -439,9 +441,113 @@ function padakOn() {
 function padakOff() {
   msConvertimg.style.width = `800px`;
 }
+// Arrays
+let ArrayImg = document.getElementById("Arrayimg");
+let closeX = document.getElementById("closeX");
+closeX.style.display = "none";
+
+ArrayImg.onclick = () => {
+  // let ArrayDiv = document.getElementById("ArrayDiv");
+  // let createCloseicon = document.createElement("img");
+  // createCloseicon.src = "../images/close-X icon.png";
+  // ArrayDiv.appendChild(createCloseicon);
+
+  closeX.style.display = "block";
+  closeX.style.position = "absolute";
+  closeX.style.top = "20px";  
+  ArrayImg.style.width = "500px";
+
+  // Object.assign(ArrayImg.style, {
+  //   width: `500px`,
+  // });
+
+  closeX.onclick = () => {
+    // ArrayImg.style.display = "none";
+    closeX.style.display = "none";
+    ArrayImg.style.width = "100px";
+  };
+};
+
+let colors = ["red", "green", "blue"];
+
+console.log(colors);        // ['red', 'green', 'blue']
+console.log(colors[0]);     // 'red'
+
+// Convert all to uppercase and store back
+colors = colors.map(color => color.toLowerCase());
+
+console.log(colors);        // ['RED', 'GREEN', 'BLUE']
 
 
-  
+let kulay = colors.map(kulay =>
+  kulay.charAt(0).toUpperCase () + kulay.slice(1)
+);
+
+console.log(kulay); // ['Red', 'Green', 'Blue']  
+
+const shoppingCart = ["Eggs", "Milk", "Bread"];
+const animals = ["cat","dog"];
+const person = ["Sina", 32, true];
+let sc = document.getElementById("mainText");
+sc.textContent = shoppingCart.join(", ")
+
+const weekdays = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
+let wk = document.getElementById("weekdaysText");
+wk.textContent = weekdays.join(", ");
+
+for(let i=0; i<weekdays.length; i++) {
+  console.log(`Day ${i + 1}: ${weekdays[i]}`);
+}
+// console.log(weekdays.length);
+
+for(let theDay of weekdays) {
+  console.log(`Day: ${theDay}`);
+}
+const mgaColors = ["red", "green", "blue", "yellow", "purple"];
+let iamPharagraph = document.getElementById("colorMe");
+iamPharagraph.style.color = mgaColors[1];
+
+const SortMenumbers = [5, 3, 8, 1, 2];
+console.log(SortMenumbers.sort((a, b) => a - b));
+
+let slider = document.getElementById("slider"); // The range input
+let numberSlider = document.getElementById("number"); // The display area
+let colorSelected = document.getElementById("colorSelected");
+let selection = slider.value;
+let MyColors = ["red", "green", "blue", "indigo", "violet", "orange", "yellow"];
+
+slider.onpointerup = function () {
+  selection = slider.value; // Get current value from the slider
+
+  numberSlider.textContent = selection; // Show the number
+  colorSelected.textContent = MyColors[selection]; // Show the color name
+
+  document.body.style.backgroundColor = MyColors[selection]; // Set background color
+};
+
+function resetButton() {
+  slider.value = null;
+  numberSlider.textContent = `Unselected:`;
+  colorSelected.textContent = `Please Slide`;
+  console.log(`Reset Button Clicked`);
+  document.body.style.backgroundColor = "#F2F2F2"; // Reset background color
+}
 
 
+// You can use for loop, forEach, or map to achieve this.
+let names = ["John", "Jane", "Doe", "Alice", "Bob"];
+console.log(names);
+//  change all names in the list to "sololearn"
+// Array.from(names).forEach((name, index) => {
+//   names[index] = "sololearn";
+//   console.log(`Name at index ${index} changed to: ${names[index]}`);
+// });
 
+let namesList = document.getElementById("Classlist");
+for (let i = 0; i < names.length; i++) {
+  // namesList.textContent = names.join(", ");
+  let createNewLi = document.createElement("li");
+  let theNames = document.createTextNode(names[i])
+  createNewLi.appendChild(theNames);
+  namesList.appendChild(createNewLi);
+}

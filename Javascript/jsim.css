@@ -325,4 +325,104 @@ body {
 }
 .Timers .Taymers #msConvertion {
   width: 400px;
+}
+
+#Arrayimg {
+  width: 350px;
+}
+
+#ArrayDiv {
+  position: relative;
+  display: inline-block;
+}
+#ArrayDiv h5 {
+  margin: 0;
+  text-align: center;
+}
+#ArrayDiv #closeX {
+  width: 50px;
+  position: absolute;
+  right: 1px;
+}
+
+.Arrays .ArraysContainer {
+  border: 1px solid;
+  display: inline-block;
+  border-radius: 5px;
+}
+.Arrays .flexthis {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.Arrays .shoppingCart {
+  border: 1px solid;
+  padding: 3px;
+  margin: 5px;
+  flex-shrink: 1;
+  flex-grow: 3;
+}
+.Arrays .shoppingCart h5 {
+  margin: 0;
+  text-align: center;
+}
+.Arrays .shoppingCart p {
+  text-align: center;
+}
+.Arrays .Weekdays {
+  border: 1px solid;
+  margin: 5px;
+  flex-shrink: 3;
+  flex-grow: 3;
+}
+.Arrays .Weekdays h5 {
+  margin: 0;
+  text-align: center;
+}
+.Arrays .Weekdays p {
+  text-align: center;
+}
+
+.colorP {
+  border: 1px solid;
+  display: inline-block;
+  border-radius: 5px;
+  margin: 5px;
+}
+.colorP #colorMe {
+  margin: 0;
+}
+
+.Colorslider {
+  border: 1px solid;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px;
+}
+.Colorslider .makeSpaceCol {
+  flex-wrap: wrap;
+  display: flex;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  justify-content: center;
+}
+.Colorslider #slider1 {
+  text-align: center;
+}
+
+.ClassListusingTheArray {
+  border-radius: 5px;
+  margin: 5px;
+}
+.ClassListusingTheArray .classList {
+  border: 1px solid;
+  padding: 0 5px 5px 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.ClassListusingTheArray .classList h3 {
+  margin: 0;
+  text-align: center;
 }/*# sourceMappingURL=jsim.css.map */

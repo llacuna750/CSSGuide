@@ -318,3 +318,104 @@ body {
         }
     }
 }
+#Arrayimg {
+    width: 350px;
+}
+
+// Array
+#ArrayDiv {
+    // border: 1px solid;
+    position: relative;
+    display: inline-block;
+    h5 {
+        margin: 0;
+        text-align: center;
+    }
+    #closeX {
+        width: 50px;
+        position: absolute;
+        right: 1px;
+        // display: none;
+    }
+}
+
+.Arrays {
+    .ArraysContainer {
+        border: 1px solid;
+        display: inline-block;
+        border-radius: 5px;
+
+    }
+    .flexthis {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        // gap: 10px;
+        padding: 5px;
+    }
+    .shoppingCart{
+        border: 1px solid;
+        padding: 3px;
+        margin: 5px;
+        flex-shrink: 1;
+        flex-grow: 3;
+        h5 {
+            
+            margin: 0;text-align: center;}
+        p{text-align: center;}
+    }
+
+    .Weekdays {
+        border: 1px solid;
+        margin: 5px;
+        flex-shrink: 3;
+        flex-grow: 3;
+        h5 {margin: 0;text-align: center;}
+        p{text-align: center;}
+    }
+}
+.colorP {
+    border: 1px solid; 
+    display: inline-block; 
+    border-radius: 5px;
+    margin: 5px;
+
+    #colorMe {margin: 0;}
+}
+
+.Colorslider {
+    border: 1px solid;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+   
+    .makeSpaceCol {
+        flex-wrap: wrap;
+        display: flex;
+        // row-gap: 20px;
+        column-gap: 15px;
+        justify-content: center;
+    }
+
+    #slider1 {
+        // border: 1px solid;
+        text-align: center;
+    }
+}
+
+.ClassListusingTheArray {
+    // border: 1px solid;
+    border-radius: 5px;
+    margin: 5px;
+    .classList {
+        border: 1px solid;
+        padding: 0 5px 5px 5px;
+        border-radius: 5px;
+        display: inline-block;
+        h3 {
+            margin: 0;
+            text-align: center;
+        }
+    }
+}

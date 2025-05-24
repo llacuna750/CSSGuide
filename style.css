@@ -616,7 +616,7 @@ section.fixed {
             /* border: 1px solid yellow; */
             justify-content: space-between;
             align-items: center;
-            gap: 1em;
+            gap: 5px;
             padding: 15px;
             
         }
@@ -628,9 +628,9 @@ section.fixed {
 
         .solojs {
             /* border: 1px solid violet; */
-            background-color: #54be22;
+            background-color: #58f410;
             border: none;
-            box-shadow: 0 3px 1px #cab6b6;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
             margin-right: 0;
             
             border-radius: 4px;
@@ -639,14 +639,23 @@ section.fixed {
             transition: transform 0.3s, background-color 0.3s, margin 0.3s;
             transition-delay: 0.15s;
         }
+
+        .solojs:hover a {
+            text-shadow: 
+            0 0 3px cyan,
+            0 0 5px cyan,
+            /* 0 0 9px cyan, */
+            0 2px 15px cyan;
+        }
         .solojs:hover {
             transform: scale(1.2);
             background-color: #76cf4c;
             border: 1px solid rgb(197, 181, 197);
             border-radius: 4px;
-            margin-right: 10px;
+            margin: 0 25px;
             /* background-color: #007BFF; */
             /* width: 50%; */
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
         }
 
         .solojs a {
@@ -655,7 +664,8 @@ section.fixed {
             font-style: normal;
             margin: 10px;
             text-decoration: none;
-            color: rgb(238, 247, 238);
+            color: rgb(250, 251, 251);
+            text-shadow: #000000 0 1px 3px;
         }
 
         .solohtml {
@@ -674,12 +684,19 @@ section.fixed {
 
         .solohtml:hover {
             transform: scale(1.2);
-            background-color: #e4762d;
+            background-color: #f1a822;
             border: 1px solid rgb(197, 181, 197);
             border-radius: 4px;
-            margin-left: 10px;
+            margin: 0 25px;
             /* background-color: #007BFF; */
             /* width: 50%; */
+        }
+        .solohtml:hover a {
+            text-shadow: 
+            0 0 3px cyan,
+            0 0 5px cyan,
+            /* 0 0 9px cyan, */
+            0 2px 15px cyan;
         }
 
         .solohtml a {

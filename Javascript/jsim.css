@@ -465,4 +465,87 @@ body {
 .ClassListusingTheArray .classList h3 {
   margin: 0;
   text-align: center;
+}
+
+.ArraysDOM {
+  border: 1px solid;
+  border-radius: 5px;
+  display: inline-block;
+}
+.ArraysDOM .theFlex {
+  display: flex;
+}
+.ArraysDOM .containerArraysDOM {
+  display: inline-block;
+  padding: 8px;
+}
+.ArraysDOM .containerArraysDOM h3 {
+  margin: 0;
+}
+.ArraysDOM .containerArraysDOM .centerIT {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ArraysDOM #AccessME {
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+}
+.ArraysDOM #ClickThistoChange {
+  margin: 5px;
+}
+.ArraysDOM #ClickThistoChange .centerThat {
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ArraysDOM #ClickThistoChange h1 {
+  margin: 0;
+  text-align: center;
+  font-size: small;
+}
+.ArraysDOM .theClassName {
+  margin: 5px;
+  text-align: center;
+}
+.ArraysDOM .theClassName .flexButtons {
+  display: flex;
+}
+.ArraysDOM .theClassName button {
+  margin: 7px;
+}
+.ArraysDOM .theClassName h5 {
+  margin: 0;
+  text-align: center;
+}
+.ArraysDOM .theClassName #fromHere1 {
+  border: 1px solid;
+  margin: 5px;
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ArraysDOM .theClassName #fromHere1 .items {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+.ArraysDOM .theClassName #fromHere1 .items .alignCenter {
+  border: 1px solid;
+}
+.ArraysDOM .theClassName #moveHere {
+  border: 1px solid;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+}
+.ArraysDOM .theClassName #moveHere .toitems {
+  margin: 5px;
+  padding: 5px;
 }/*# sourceMappingURL=jsim.css.map */

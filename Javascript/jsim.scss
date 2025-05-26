@@ -475,3 +475,105 @@ body {
         }
     }
 }
+
+.ArraysDOM {
+    border: 1px solid;
+    border-radius: 5px;
+    display: inline-block;
+
+    .theFlex {
+        display: flex;
+    }
+    
+    .containerArraysDOM {
+        // border: 1px solid;   
+        display: inline-block;
+        padding: 8px;
+        h3 {
+            margin: 0;
+        }
+
+        .centerIT {
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    #AccessME {
+        // border: 1px solid;
+        display: inline-block;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    #ClickThistoChange {
+        // border: 1px solid;
+        .centerThat {
+            margin: 3px;
+            // border: 1px solid;
+            display: flex; justify-content: center; align-items: center;}
+        
+        margin: 5px;
+
+
+        h1 {
+            margin: 0;
+            text-align: center;
+            font-size: small;
+        }
+    }
+
+    .theClassName {
+        .flexButtons {
+            display: flex;
+        }
+
+        // border: 1px solid;
+        margin: 5px;
+        text-align: center;
+        button {margin: 7px;}
+
+        .insideContainer {
+            // border: 1px solid;
+        }
+
+        h5 {
+            margin: 0;
+            text-align: center;
+        }
+
+        #fromHere1 {
+            border: 1px solid;
+            margin: 5px;
+            text-align: center;
+            margin: 5px;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .items {
+                text-align: center;
+                margin: 5px;
+                padding: 5px;
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                .alignCenter {border: 1px solid;}
+            }
+        }
+        #moveHere {
+            border: 1px solid;
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
+            .toitems {
+                // border: 1px solid;
+                margin: 5px;
+                padding: 5px;
+            }
+        }
+    }
+}

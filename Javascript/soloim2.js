@@ -392,9 +392,10 @@ function replaceButton() {
   newButton.style.backgroundColor = "green";
   containerReplaceButton.replaceChild(newButton, oldButton);
 }
+
+
 // Timers
 // setinterval(rotate, 500);
-
 let seconds = 0;
 const timerDisplay = document.getElementById("timer");
 
@@ -593,3 +594,77 @@ for (let i = 0; i < names.length; i++) {
   createNewLi.appendChild(theNames);
   namesList.appendChild(createNewLi);
 }
+
+// Arrays and the DOM
+const AccessChileofThisParent = document.getElementById("AccessME");
+let childElements = AccessChileofThisParent.getElementsByTagName("div");
+
+for (let i = 0; i < childElements.length; i++) {
+  if (childElements[i].textContent === "Accessing the Div 1 only") {
+    console.log(`${i + 1}. The first element: ${childElements[i].textContent}`);
+    childElements[i].style.backgroundColor = "yellow";
+  }else {
+    console.log(childElements[i]);
+    childElements[i].style.color = "Blue";
+  }
+}
+let lastPharagraph = childElements[childElements.length - 1]; // Access the last child element
+// console.log(childElements[2]);
+console.log(`the last Pharagraph: ${lastPharagraph.textContent}`);
+lastPharagraph.style.fontWeight = "bold";
+
+// Count over all DIV elements
+const countDivs = document.getElementsByTagName("div");
+console.log(`Total DIV elements: ${countDivs.length} divs`);
+
+function colorChange() {
+  let changeEandO = document.getElementById("ClickThistoChange");
+  let accesspH1 = changeEandO.getElementsByTagName("h1");
+  console.log(`Total H1 elements: ${accesspH1.length} h1s`);
+  for (let i = 0; i < accesspH1.length; i=i+1) {
+    if (i % 2 === 0) {
+      accesspH1[i].style.color = "red"; // Change color of even indexed paragraphs
+    } else {
+      accesspH1[i].style.color = "green"; // Change color of odd indexed paragraphs
+    }
+  }
+}
+let moveButton = document.getElementById("Move");
+let returnBack = document.getElementById("getBack");
+
+let fromHere = document.getElementById("fromHere1"); // parent
+let items = fromHere.getElementsByClassName("items"); // child
+
+let toHere = document.getElementById("moveHere"); 
+
+let toThisClass = toHere.getElementsByClassName(`toitems`); // child
+
+ 
+
+
+console.log(items); // Log the items to see what we have
+console.log(items[0].innerText); // Log the items to see what we have
+
+
+moveButton.addEventListener("click", () => {
+  // console.log(items[0].innerText);
+
+  for (let i=0; i<items.length; i++) {
+    console.log(`Item ${i + 1}: ${items[i].textContent}`);
+    // Move each item to the new location
+    // toHere.appendChild(items[i]);
+    toThisClass[0].appendChild(items[i]);
+  }
+  console.log(toThisClass[0]); 
+});
+
+returnBack.addEventListener("click", function () {
+  let movedItems = toThisClass[0].getElementsByClassName("items"); // Get items inside toitems
+
+  // Convert HTMLCollection to array to avoid live collection issues
+  let itemsArray = Array.from(movedItems);
+
+  itemsArray.forEach((item) => {
+    fromHere.appendChild(item);
+  });
+});

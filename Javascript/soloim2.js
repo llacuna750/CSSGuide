@@ -668,3 +668,101 @@ returnBack.addEventListener("click", function () {
     fromHere.appendChild(item);
   });
 });
+
+console.log(`Items moved back to the original location.`);
+
+// Animating Elements
+let myball = document.getElementById("myball");
+
+myball.style.position = `relative`;
+// myball.style.left = pussytionUpandDown + "px";
+myball.style.backgroundColor = "rgb(255, 115, 0)";
+
+let buttonUp = document.getElementById(`buttonup`);
+let buttonLeft = document.getElementById(`buttonleft`);
+let buttonDown = document.getElementById(`buttondown`);
+let buttonRight = document.getElementById(`buttonright`);
+
+// the position of the ball
+let pussytionUpandDown = 0; // Starting or Initial position
+// Button UP
+buttonUp.onclick = () => {
+  if (pussytionUpandDown === 50) {
+    add10 = pussytionUpandDown += 1; // Move
+    myball.style.bottom = add10 + "px"; // Move up
+    console.log(`Moving Up by:  ${pussytionUpandDown}px`);
+  }
+  else if (pussytionUpandDown <= 52 && pussytionUpandDown > 50) {
+    add10 = pussytionUpandDown += 0.5; // Move
+    myball.style.bottom = add10 + "px"; // Move up
+    console.log(`Moving Up: ${pussytionUpandDown}px`);
+    console.log(`Can't move up anymore!`);
+  } 
+  else if (pussytionUpandDown >= 52.5) {
+    add10 = pussytionUpandDown += 0; 
+    console.log(`Try other buttons!`);
+  }
+  else {
+    let add10 = (pussytionUpandDown += 10); // Move
+    myball.style.bottom = add10 + "px"; // Move up
+    console.log(`Moving Up: ${pussytionUpandDown}px`);
+
+    if (pussytionUpandDown <= 50 && pussytionUpandDown > 40) {
+      console.log(`Reached the top limit!`);
+    }
+  }
+};
+// Button Down
+let pussytionDownOnly = 0; // Starting or Initial position
+buttonDown.onclick = () => {
+  let moveDown10 = pussytionUpandDown; // Move
+
+  if (pussytionUpandDown <= 52.5) {
+    moveDown10 = pussytionUpandDown -= 10; // Move
+
+    myball.style.bottom = moveDown10 + "px"; // Move down
+    console.log(`Moving Down: ${moveDown10}px`);
+  }
+  // else if (){
+
+  // }
+  else  {
+    
+  }
+  // let moveDown10 = pussytionDownOnly -= 10; // Move
+  // pussytionUpandDown = (pussytionUpandDown - 10); // Move
+
+  
+};
+
+let pussytionLeftandRight = 0; // Starting or Initial position
+// Button LEFT
+buttonLeft.onclick = () => {
+  if (pussytionLeftandRight === 130 ) {
+    moveLeft10 = pussytionLeftandRight += 0; // Move
+    console.log(`Can't move left anymore!`);
+  }
+  else{
+    moveLeft10 = pussytionLeftandRight += 10; // Move
+    myball.style.right = moveLeft10 + "px"; // Move left
+    console.log(`Moving Left: ${pussytionLeftandRight}px`);
+  } 
+};
+console.log(`Up & Down Position: ${pussytionUpandDown}px`);
+console.log(`Left Position: ${pussytionLeftandRight}px`);
+
+
+
+
+function move() {
+  if (x < 250) {
+    xSpeed = xSpeed * -1;
+  }
+  if (o < 100) {
+    ySpeed = oSpeed * -1;
+  }
+  x = x + xSpeed;
+  o = o + oSpeed;
+  ball.style.left = x + "px";
+  ball.style.opacity = o;
+}

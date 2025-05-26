@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Madimi+One&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap');
 
 .jsIntermediate {
     border: 1px solid;
@@ -526,14 +526,16 @@ body {
     }
 
     .theClassName {
+        border: 1px solid;
+        margin: 5px;
+        text-align: center;
+        
+        // height: 50%;
+        button {margin: 7px;}
+
         .flexButtons {
             display: flex;
         }
-
-        // border: 1px solid;
-        margin: 5px;
-        text-align: center;
-        button {margin: 7px;}
 
         .insideContainer {
             // border: 1px solid;
@@ -575,5 +577,63 @@ body {
                 padding: 5px;
             }
         }
+
+        // AnimatingElements
+        .AnimatingElements {
+            border: 1px solid;
+            margin: 5px;
+            padding: 5px;
+            display: flex; // Make it flex
+            flex-direction: column; // Stack children vertically
+            align-items: center; // Center content horizontally
+            // width: ; // Shrink to fit content
+        }
+        
+        .containerofBall {
+            // position: relative;
+            // border: 1px solid;
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center; // Center ball horizontally
+            align-items: center;
+        }
+          
+        #myball {
+            width: 50px; // Fixed size ball
+            height: 50px;
+            // border: 1px solid;
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            background: white;
+        }
+
+        .remoteController {
+            border: 1px solid;
+            margin: 5px;
+            // display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            p {
+                font-family: "Madimi One", sans-serif;  
+                margin: 0;
+            }
+            div {
+                // border: 1px solid;
+                display: inline-block;
+                margin: 10px;
+                border-radius: 5px;
+                background-color: #139c9c;
+                
+                .soloUpbutton {
+                    text-align: center;
+                    display: block;
+                    margin: 0;
+                    // border: none;
+                }
+            }
+        }
+          
     }
 }

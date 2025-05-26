@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Madimi+One&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap");
 .jsIntermediate {
   border: 1px solid;
   border-radius: 5px;
@@ -508,14 +508,15 @@ body {
   font-size: small;
 }
 .ArraysDOM .theClassName {
+  border: 1px solid;
   margin: 5px;
   text-align: center;
 }
-.ArraysDOM .theClassName .flexButtons {
-  display: flex;
-}
 .ArraysDOM .theClassName button {
   margin: 7px;
+}
+.ArraysDOM .theClassName .flexButtons {
+  display: flex;
 }
 .ArraysDOM .theClassName h5 {
   margin: 0;
@@ -548,4 +549,47 @@ body {
 .ArraysDOM .theClassName #moveHere .toitems {
   margin: 5px;
   padding: 5px;
+}
+.ArraysDOM .theClassName .AnimatingElements {
+  border: 1px solid;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ArraysDOM .theClassName .containerofBall {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ArraysDOM .theClassName #myball {
+  width: 50px;
+  height: 50px;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  background: white;
+}
+.ArraysDOM .theClassName .remoteController {
+  border: 1px solid;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.ArraysDOM .theClassName .remoteController p {
+  font-family: "Madimi One", sans-serif;
+  margin: 0;
+}
+.ArraysDOM .theClassName .remoteController div {
+  display: inline-block;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #139c9c;
+}
+.ArraysDOM .theClassName .remoteController div .soloUpbutton {
+  text-align: center;
+  display: block;
+  margin: 0;
 }/*# sourceMappingURL=jsim.css.map */

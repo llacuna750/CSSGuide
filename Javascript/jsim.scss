@@ -318,15 +318,12 @@ body {
         }
     }
 }
-#Arrayimg {
-    width: 350px;
-}
-
 // Array
 #ArrayDiv {
     // border: 1px solid;
     position: relative;
     display: inline-block;
+    text-align: center;
     h5 {
         margin: 0;
         text-align: center;
@@ -336,8 +333,67 @@ body {
         position: absolute;
         right: 1px;
         // display: none;
+        // Erase after testing
+        top: 20px;
+        right: 20px;
+    }
+    #closeX:hover {
+        // box-shadow: 0 0 10px white;
+        border: none;
+        cursor: pointer;
+        filter: drop-shadow(0 0 10px white);
+        transition: filter 0.3s ease;
     }
 }
+
+#pussySticky {
+    display: block;
+
+    #Arrayimg {
+        width: 350px;
+        // Test 
+        // position: absolute;
+        // top: 10em;
+        // left: 35%;
+
+        // from GpT
+        // max-width: 90%;
+        // max-height: 90%;
+        // box-shadow: 0 0 20px white;
+        // border-radius: 10px;
+    }
+    #closeX {
+        display: none;
+    }
+}
+
+// enlarged-img: you can use this to enlarge the image
+/* CSS */
+.popup-style {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+}
+  
+.img-popup {
+    width: 600px;
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px white;
+    // border-radius: 10px;
+}
+  
+.hidden {
+    display: none;  
+}
+
 
 .Arrays {
     .ArraysContainer {

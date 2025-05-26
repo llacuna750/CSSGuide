@@ -442,30 +442,72 @@ function padakOff() {
   msConvertimg.style.width = `800px`;
 }
 // Arrays
-let ArrayImg = document.getElementById("Arrayimg");
-let closeX = document.getElementById("closeX");
-closeX.style.display = "none";
+window.onload = function () {
+  const ArrayImg = document.getElementById("Arrayimg");
+  const closeX = document.getElementById("closeX");
+  const TheFixBackground = document.getElementById("pussySticky");
+  ArrayImg.onclick = () => {
+    // let ArrayDiv = document.getElementById("ArrayDiv");
+    // let createCloseicon = document.createElement("img");
+    // createCloseicon.src = "../images/close-X icon.png";
+    // ArrayDiv.appendChild(createCloseicon);
 
-ArrayImg.onclick = () => {
-  // let ArrayDiv = document.getElementById("ArrayDiv");
-  // let createCloseicon = document.createElement("img");
-  // createCloseicon.src = "../images/close-X icon.png";
-  // ArrayDiv.appendChild(createCloseicon);
+    // Add styles to the background and enlarged image (Optional)
+    TheFixBackground.classList.add("popup-style");
+    TheFixBackground.classList.remove("hidden");
+    ArrayImg.classList.add("img-popup");
+    closeX.style.display = "block";
 
-  closeX.style.display = "block";
-  closeX.style.position = "absolute";
-  closeX.style.top = "20px";  
-  ArrayImg.style.width = "500px";
+    closeX.style.position = "absolute";
+    closeX.style.top = "20px";
+    closeX.style.right = "20px";
+    ArrayImg.style.width = "38%";
+    ArrayImg.style.height = "auto";
 
-  // Object.assign(ArrayImg.style, {
-  //   width: `500px`,
-  // });
-
+    // In JavaScript, when modifying styles via .style or Object.assign,
+    // Make sure you must use camelCase property names
+    Object.assign(TheFixBackground.style, {
+      // display: `inline-block`,
+      // position: `fixed`,
+      // top: `0`,
+      // left: `0`,
+      // width: `100%`,
+      // height: `100%`,
+      // backgroundColor: `rgba(0, 0, 0, 0.9)`,
+      display: `flex`,
+      justifyContent: `center`,
+      alignItems: `center`,
+      // zindex: `9999`,
+    });
+    // Object.assign(ArrayImg.style, {
+    //   width: `500px`,
+    //   maxWidth: `90%`,
+    //   maxHeight: `90%`,
+    //   boxShadow: `0 0 20px white`,
+    //   // borderRadius: `10px`,
+    // });
+  };
   closeX.onclick = () => {
     // ArrayImg.style.display = "none";
     closeX.style.display = "none";
-    ArrayImg.style.width = "100px";
-  };
+    ArrayImg.style.width = "350px";
+
+    // If you want to remove the background and enlarged image styles(Optional)
+    TheFixBackground.classList.remove("popup-style");
+    ArrayImg.classList.remove("img-popup");
+
+    // Object.assign(TheFixBackground.style, {
+    //   display: "none", // Hide the background
+    // });
+    // Object.assign(ArrayImg.style, {
+    //   maxWidth: "",
+    //   maxHeight: "",
+    //   boxShadow: "",
+    //   borderRadius: "",
+    // });
+
+    // ArrayImg.style.width = "100px"; // or reset as needed
+  };  
 };
 
 let colors = ["red", "green", "blue"];

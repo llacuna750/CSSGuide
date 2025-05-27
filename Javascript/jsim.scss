@@ -597,15 +597,25 @@ body {
             display: flex;
             justify-content: center; // Center ball horizontally
             align-items: center;
+            background-image: url(../images/basketballCourt.jpg);
+            // background-repeat: no-repeat;
+            background-size: cover;
+            background-repeat: repeat-x;
+            background-position: center;
         }
           
         #myball {
-            width: 50px; // Fixed size ball
-            height: 50px;
+            display: none; // Initially hidden
+            width: 48px; // Fixed size ball
+            height:48px;
+            // padding: 35px;
             // border: 1px solid;
-            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 1.5px 3px 5px rgba(0, 3, 0, 0.671);
             border-radius: 50%;
-            background: white;
+            background-image: url(../images/Ball.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            // background-size: contain;
         }
 
         .remoteController {
@@ -617,21 +627,78 @@ body {
             
             p {
                 font-family: "Madimi One", sans-serif;  
-                margin: 0;
+                margin:     0 10px;
             }
-            div {
+            .boxShadow {
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                 // border: 1px solid;
                 display: inline-block;
+                padding: 7px;
                 margin: 10px;
                 border-radius: 5px;
-                background-color: #139c9c;
+                background-color: #11c7a9;
                 
+                button {
+                    margin: 3px;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                }
                 .soloUpbutton {
                     text-align: center;
                     display: block;
                     margin: 0;
                     // border: none;
                 }
+            }
+        }
+
+        .PlayBallGame {
+            border: 1px solid;
+            position: relative;
+            display: inline-block;
+            // padding: 20px;
+            width: fit-content;
+            // margin: 5px;
+            background-color: rgba(236, 165, 106, 0.788);
+            // border: 1px solid #000;
+            // z-index: 1;
+
+            #theCover {
+                position: absolute;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.815); /* Dark overlay */
+                z-index: 2;
+                border-radius: 5px;
+                // display: none; /* Initially hidden */
+            }
+
+            .putMiddle {
+                // display: flex;
+                position: relative;
+                top: -1em;
+                text-align: center;
+                // justify-content: center;
+                // border: 1px solid white;
+
+                h3 {
+                    font-family: "Madimi One", sans-serif;
+                    color: rgb(217, 177, 47);
+                }
+                
+                #buttonPlay {
+                    border: 1px thin #000000fb 5px;
+                    border-radius: 5px;
+                    // width: 100%;
+                    padding: 5px 10px;
+                }
+            }
+            #SlamdunkSong {
+                display: block;
             }
         }
           

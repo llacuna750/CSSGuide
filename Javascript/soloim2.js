@@ -11,17 +11,17 @@ imgDom1.style.width = "300px";
 let link = imgDom1.src;
 imgDom1.src = "../images/CSS favicon.jpg";
 
-console.log(imgDom1.src); 
+console.log(imgDom1.src);
 console.log(imgDom1.style.width); // Should log "100px"
-console.log(`src => ${link}`); 
+console.log(`src => ${link}`);
 
-function changeImage () {
+function changeImage() {
   let imgDom2 = document.getElementById("picture2");
   imgDom2.src = "../images/sakamoto.jpg";
 
   console.log(imgDom2.src);
   console.log(imgDom2.style.width); // Should log "100px"
-  console.log(`src => ${link}`); 
+  console.log(`src => ${link}`);
 }
 
 let wayl = 10;
@@ -31,13 +31,13 @@ while (wayl >= -1) {
   if (wayl >= 0) {
     console.log(wayl);
     wayl = wayl - 1;
-  }else if (wayl == -1) {
+  } else if (wayl == -1) {
     console.log(`end!`);
     wayl = -2;
   }
 }
 
-function displayName () {
+function displayName() {
   let greet = document.getElementById(`greeting`);
   let name = document.getElementById(`input1`);
 
@@ -59,7 +59,7 @@ function grantedorNot() {
       color: `rgb(31, 33, 33)`,
       marginTop: `15px`,
     });
-  }else {
+  } else {
     display.textContent = `Not Permitted`;
     Object.assign(display.style, {
       border: `0.5px solid`,
@@ -106,7 +106,7 @@ const number = [5, 2, 4, 7, 1, 15, 9];
                     
         
 expected output: 1, 2, 4, 5, 7, 9, 15 
-*/ 
+*/
 let max = number[0];
 let min = number[0];
 let temp;
@@ -158,34 +158,34 @@ console.log("Sorted array:", number);
 
 // console.log(number);
 // while (number[6] != 15 ) {
-  // if (min > number[1]) {
-  //   temp = number[0];
-  //   number[0] = number[1];
-  //   number[1] = temp;
-  //   console.log(number);
-  //   // break;
-  // } 
-  // else if (number[1] > number[2]) {
-  //   temp = number[1];
-  //     number[1] = number[2];
-  //     number[2] = temp;
+// if (min > number[1]) {
+//   temp = number[0];
+//   number[0] = number[1];
+//   number[1] = temp;
+//   console.log(number);
+//   // break;
+// }
+// else if (number[1] > number[2]) {
+//   temp = number[1];
+//     number[1] = number[2];
+//     number[2] = temp;
 
-  //     console.log(number);
-  //     temp = null;
-  // }
-  // else {
-  //   temp = number[2];
-  //     number[2] = number[3];
-  //     number[3] = temp;
+//     console.log(number);
+//     temp = null;
+// }
+// else {
+//   temp = number[2];
+//     number[2] = number[3];
+//     number[3] = temp;
 
-  //     temp = number[3];
-  //     number[3] = number[4]; // Both become number[2]
-  //     number[4] = temp;
-  //     console.log(number);
+//     temp = number[3];
+//     number[3] = number[4]; // Both become number[2]
+//     number[4] = temp;
+//     console.log(number);
 
-  //     // 🔁 Add a break to prevent infinite loop
-  //   break;
-  // }
+//     // 🔁 Add a break to prevent infinite loop
+//   break;
+// }
 // }
 
 let btn = document.createElement("button");
@@ -199,7 +199,7 @@ function addSpan() {
   container.appendChild(newSpan);
 }
 
-function removeBubble () {
+function removeBubble() {
   let box = document.getElementById(`box`);
   let bubble = document.getElementById(`bubble`);
   box.removeChild(bubble);
@@ -222,19 +222,23 @@ function showData(x) {
 
 let coin = document.getElementById("coin");
 
-coin.onmouseover = function() {
-  out() // Call your custom function
+coin.onmouseover = function () {
+  out(); // Call your custom function
   coin.style.backgroundColor = "blue";
-} 
+};
 
-function out () {
+function out() {
   console.log(`out of the coin`);
 }
 
 let pieChart = document.getElementById("pieChart1");
 
-pieChart.onmouseover = () => { mouseisOver()};
-pieChart.onmouseleave = () => { mouseisOut()};
+pieChart.onmouseover = () => {
+  mouseisOver();
+};
+pieChart.onmouseleave = () => {
+  mouseisOut();
+};
 
 function mouseisOver() {
   console.log(`Mouse is over the pie chart`);
@@ -250,12 +254,11 @@ btnaddEvent.addEventListener("click", () => {
   console.log(`CSS Padding G clicked`);
   btnaddEvent.style.backgroundColor = `green`;
   btnaddEvent.style.color = `white`;
-  btnaddEvent.style.boxShadow = 
-  `0px 3px 3px rgb(0, 0, 0),
+  btnaddEvent.style.boxShadow = `0px 3px 3px rgb(0, 0, 0),
   -4px 0px 3px rgb(37, 167, 33),
   0 -3px 3px rgb(192, 12, 153),
   3px 0px 3px rgb(117, 80, 204)`;
-  btnaddEvent.style.borderRadius = `10px`;  
+  btnaddEvent.style.borderRadius = `10px`;
   btnaddEvent.style.width = `200px`;
 });
 
@@ -264,8 +267,7 @@ imgaddEvent.addEventListener(`pointerenter`, () => {
   imgaddEvent.style.width = `200px`;
   imgaddEvent.style.height = `200px`;
   imgaddEvent.style.borderRadius = `50%`;
-  imgaddEvent.style.boxShadow = 
-  `0px 3px 3px rgb(0, 0, 0),
+  imgaddEvent.style.boxShadow = `0px 3px 3px rgb(0, 0, 0),
   -4px 0px 3px rgb(37, 167, 33),
   0 -3px 3px rgb(192, 12, 153),
   3px 0px 3px rgb(117, 80, 204)`;
@@ -294,7 +296,7 @@ function hideCaption() {
   console.log(`Hide Caption`);
   goodPCaption.removeEventListener("pointerout", hideCaption);
   goodPCaption.addEventListener("pointerover", showCaption);
-};
+}
 
 // Events 3
 let box = document.getElementById("Eventbox");
@@ -393,7 +395,6 @@ function replaceButton() {
   containerReplaceButton.replaceChild(newButton, oldButton);
 }
 
-
 // Timers
 // setinterval(rotate, 500);
 let seconds = 0;
@@ -420,12 +421,12 @@ function addOne() {
     count.textContent = "Finished";
     // count.textContent += "Finished";
     return;
-  }else {
+  } else {
     number = number + 1;
     count.textContent = number;
   }
 }
-// 1 second = 1000 milliseconds  
+// 1 second = 1000 milliseconds
 // 1000 ms ÷ 10 = 100 ms
 
 // setInterval(() => {
@@ -508,42 +509,41 @@ window.onload = function () {
     // });
 
     // ArrayImg.style.width = "100px"; // or reset as needed
-  };  
+  };
 };
 
 let colors = ["red", "green", "blue"];
 
-console.log(colors);        // ['red', 'green', 'blue']
-console.log(colors[0]);     // 'red'
+console.log(colors); // ['red', 'green', 'blue']
+console.log(colors[0]); // 'red'
 
 // Convert all to uppercase and store back
-colors = colors.map(color => color.toLowerCase());
+colors = colors.map((color) => color.toLowerCase());
 
-console.log(colors);        // ['RED', 'GREEN', 'BLUE']
+console.log(colors); // ['RED', 'GREEN', 'BLUE']
 
-
-let kulay = colors.map(kulay =>
-  kulay.charAt(0).toUpperCase () + kulay.slice(1)
+let kulay = colors.map(
+  (kulay) => kulay.charAt(0).toUpperCase() + kulay.slice(1)
 );
 
-console.log(kulay); // ['Red', 'Green', 'Blue']  
+console.log(kulay); // ['Red', 'Green', 'Blue']
 
 const shoppingCart = ["Eggs", "Milk", "Bread"];
-const animals = ["cat","dog"];
+const animals = ["cat", "dog"];
 const person = ["Sina", 32, true];
 let sc = document.getElementById("mainText");
-sc.textContent = shoppingCart.join(", ")
+sc.textContent = shoppingCart.join(", ");
 
 const weekdays = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
 let wk = document.getElementById("weekdaysText");
 wk.textContent = weekdays.join(", ");
 
-for(let i=0; i<weekdays.length; i++) {
+for (let i = 0; i < weekdays.length; i++) {
   console.log(`Day ${i + 1}: ${weekdays[i]}`);
 }
 // console.log(weekdays.length);
 
-for(let theDay of weekdays) {
+for (let theDay of weekdays) {
   console.log(`Day: ${theDay}`);
 }
 const mgaColors = ["red", "green", "blue", "yellow", "purple"];
@@ -576,7 +576,6 @@ function resetButton() {
   document.body.style.backgroundColor = "#F2F2F2"; // Reset background color
 }
 
-
 // You can use for loop, forEach, or map to achieve this.
 let names = ["John", "Jane", "Doe", "Alice", "Bob"];
 console.log(names);
@@ -590,7 +589,7 @@ let namesList = document.getElementById("Classlist");
 for (let i = 0; i < names.length; i++) {
   // namesList.textContent = names.join(", ");
   let createNewLi = document.createElement("li");
-  let theNames = document.createTextNode(names[i])
+  let theNames = document.createTextNode(names[i]);
   createNewLi.appendChild(theNames);
   namesList.appendChild(createNewLi);
 }
@@ -603,7 +602,7 @@ for (let i = 0; i < childElements.length; i++) {
   if (childElements[i].textContent === "Accessing the Div 1 only") {
     console.log(`${i + 1}. The first element: ${childElements[i].textContent}`);
     childElements[i].style.backgroundColor = "yellow";
-  }else {
+  } else {
     console.log(childElements[i]);
     childElements[i].style.color = "Blue";
   }
@@ -621,7 +620,7 @@ function colorChange() {
   let changeEandO = document.getElementById("ClickThistoChange");
   let accesspH1 = changeEandO.getElementsByTagName("h1");
   console.log(`Total H1 elements: ${accesspH1.length} h1s`);
-  for (let i = 0; i < accesspH1.length; i=i+1) {
+  for (let i = 0; i < accesspH1.length; i = i + 1) {
     if (i % 2 === 0) {
       accesspH1[i].style.color = "red"; // Change color of even indexed paragraphs
     } else {
@@ -635,27 +634,23 @@ let returnBack = document.getElementById("getBack");
 let fromHere = document.getElementById("fromHere1"); // parent
 let items = fromHere.getElementsByClassName("items"); // child
 
-let toHere = document.getElementById("moveHere"); 
+let toHere = document.getElementById("moveHere");
 
 let toThisClass = toHere.getElementsByClassName(`toitems`); // child
-
- 
-
 
 console.log(items); // Log the items to see what we have
 console.log(items[0].innerText); // Log the items to see what we have
 
-
 moveButton.addEventListener("click", () => {
   // console.log(items[0].innerText);
 
-  for (let i=0; i<items.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     console.log(`Item ${i + 1}: ${items[i].textContent}`);
     // Move each item to the new location
     // toHere.appendChild(items[i]);
     toThisClass[0].appendChild(items[i]);
   }
-  console.log(toThisClass[0]); 
+  console.log(toThisClass[0]);
 });
 
 returnBack.addEventListener("click", function () {
@@ -673,85 +668,131 @@ console.log(`Items moved back to the original location.`);
 
 // Animating Elements
 let myball = document.getElementById("myball");
-
-myball.style.position = `relative`;
-// myball.style.left = pussytionUpandDown + "px";
-myball.style.backgroundColor = "rgb(255, 115, 0)";
-
+let cover = document.getElementById("theCover");
+let slamDunk = document.getElementById("SlamdunkSong");
+let buttonPlay = document.getElementById("buttonPlay");
 let buttonUp = document.getElementById(`buttonup`);
 let buttonLeft = document.getElementById(`buttonleft`);
 let buttonDown = document.getElementById(`buttondown`);
 let buttonRight = document.getElementById(`buttonright`);
 
-// the position of the ball
-let pussytionUpandDown = 0; // Starting or Initial position
-// Button UP
-buttonUp.onclick = () => {
-  if (pussytionUpandDown === 50) {
-    add10 = pussytionUpandDown += 1; // Move
-    myball.style.bottom = add10 + "px"; // Move up
-    console.log(`Moving Up by:  ${pussytionUpandDown}px`);
-  }
-  else if (pussytionUpandDown <= 52 && pussytionUpandDown > 50) {
-    add10 = pussytionUpandDown += 0.5; // Move
-    myball.style.bottom = add10 + "px"; // Move up
-    console.log(`Moving Up: ${pussytionUpandDown}px`);
-    console.log(`Can't move up anymore!`);
-  } 
-  else if (pussytionUpandDown >= 52.5) {
-    add10 = pussytionUpandDown += 0; 
-    console.log(`Try other buttons!`);
-  }
-  else {
-    let add10 = (pussytionUpandDown += 10); // Move
-    myball.style.bottom = add10 + "px"; // Move up
-    console.log(`Moving Up: ${pussytionUpandDown}px`);
+myball.style.position = `relative`;
+// myball.style.left = pussytionUpandDown + "px";
+// myball.style.backgroundColor = "rgb(255, 115, 0)";
 
-    if (pussytionUpandDown <= 50 && pussytionUpandDown > 40) {
-      console.log(`Reached the top limit!`);
-    }
-  }
-};
-// Button Down
-let pussytionDownOnly = 0; // Starting or Initial position
-buttonDown.onclick = () => {
-  let moveDown10 = pussytionUpandDown; // Move
+// console.dir(slamDunk);
 
-  if (pussytionUpandDown <= 52.5) {
-    moveDown10 = pussytionUpandDown -= 10; // Move
+buttonPlay.addEventListener("click", playSlamDunk);
 
-    myball.style.bottom = moveDown10 + "px"; // Move down
-    console.log(`Moving Down: ${moveDown10}px`);
-  }
-  // else if (){
+// function play() {
+//   slamDunk.attributes.autoplay = true; // Set autoplay attribute
+//   return;
+// }
 
-  // }
-  else  {
-    
-  }
-  // let moveDown10 = pussytionDownOnly -= 10; // Move
-  // pussytionUpandDown = (pussytionUpandDown - 10); // Move
+function playSlamDunk() {
+  console.log(`You play Slamdunk!`);
+  cover.style.display = "none"; // Hide the cover
+  myball.style.display = "block"; // Show the ball
+  slamDunk.play();
+  // the position of the ball
+  let pussytionUpandDown = 0; // Starting or Initial position
+  // Button UP
+  buttonUp.onmousedown = () => {
+    let intervalId = setInterval(() => {
+      if (pussytionUpandDown === 50) {
+        add10 = pussytionUpandDown += 1; // Move
+        myball.style.bottom = add10 + "px"; // Move up
+        // console.log(`Moving Up by:  ${pussytionUpandDown}px`);
+      } else if (pussytionUpandDown <= 52 && pussytionUpandDown > 50) {
+        add10 = pussytionUpandDown += 0.5; // Move
+        myball.style.bottom = add10 + "px"; // Move up
+        // console.log(`Moving Up: ${pussytionUpandDown}px`);
+        // console.log(`Can't move up anymore!`);
+      } else if (pussytionUpandDown >= 52.5) {
+        add10 = pussytionUpandDown += 0;
+        // console.log(`Try other buttons!`);
+      } else {
+        let add10 = (pussytionUpandDown += 10); // Move
+        myball.style.bottom = add10 + "px"; // Move up
+        // console.log(`Moving Up: ${pussytionUpandDown}px`);
 
-  
-};
+        if (pussytionUpandDown <= 50 && pussytionUpandDown > 40) {
+          // console.log(`Reached the top limit!`);
+        }
+      }
+    }, 100); // Adjust speed as needed
 
-let pussytionLeftandRight = 0; // Starting or Initial position
-// Button LEFT
-buttonLeft.onclick = () => {
-  if (pussytionLeftandRight === 130 ) {
-    moveLeft10 = pussytionLeftandRight += 0; // Move
-    console.log(`Can't move left anymore!`);
-  }
-  else{
-    moveLeft10 = pussytionLeftandRight += 10; // Move
-    myball.style.right = moveLeft10 + "px"; // Move left
-    console.log(`Moving Left: ${pussytionLeftandRight}px`);
-  } 
-};
-console.log(`Up & Down Position: ${pussytionUpandDown}px`);
-console.log(`Left Position: ${pussytionLeftandRight}px`);
+    buttonUp.onmouseup = () => {
+      clearInterval(intervalId); // Stop the interval when mouse is released
+      // console.log(`Mouse released, stopped moving up.`);
+    };
+  };
 
+  // Button Down
+  let pussytionDownOnly = 0; // Starting or Initial position
+  buttonDown.onmousedown = () => {
+    let moveDown10 = pussytionUpandDown; // Move
+    let intervalId = setInterval(() => {
+      if (pussytionUpandDown <= 52.5 && pussytionUpandDown > -50) {
+        moveDown10 = pussytionUpandDown -= 10; // Move
 
+        myball.style.bottom = moveDown10 + "px"; // Move down
+        // console.log(`Moving Down: ${moveDown10}px`);
+      } else if (pussytionUpandDown <= 50 && pussytionUpandDown >= -56) {
+        if (pussytionUpandDown === -56) {
+          // console.log(`Reached the top limit!`);
+          moveDown10 = pussytionUpandDown = pussytionUpandDown - 0; // Move
+        } else {
+          moveDown10 = pussytionUpandDown = pussytionUpandDown - 1; // Move
+          myball.style.bottom = moveDown10 + "px"; // Move down
+          // console.log(`Move Down by: ${moveDown10}px`);
+        }
+      }
+    }, 100);
+
+    buttonDown.onmouseup = () => {
+      clearInterval(intervalId); // Stop the interval when mouse is released
+    };
+    // let moveDown10 = pussytionDownOnly -= 10; // Move
+    // pussytionUpandDown = (pussytionUpandDown - 10); // Move
+  };
+
+  let pussytionLeftandRight = 0; // Starting or Initial position
+  // Button LEFT
+  buttonLeft.onmousedown = () => {
+    let intervalId = setInterval(() => {
+      if (pussytionLeftandRight === 130) {
+        moveLeft10 = pussytionLeftandRight += 0; // Move
+        // console.log(`Can't move left anymore!`);
+      } else {
+        moveLeft10 = pussytionLeftandRight += 10; // Move
+        myball.style.right = moveLeft10 + "px"; // Move left
+        // console.log(`Moving Left: ${pussytionLeftandRight}px`);
+      }
+    }, 100); // Adjust speed as needed
+
+    buttonLeft.onmouseup = function () {
+      clearInterval(intervalId); // Stop the interval when mouse is released
+    };
+  };
+  // Right Button
+  buttonRight.onmousedown = () => {
+    let intervalId = setInterval(() => {
+      if (pussytionLeftandRight === -130) {
+        moveLeft10 = pussytionLeftandRight += 0; // Move
+        // console.log(`Can't move left anymore!`);
+      } else {
+        moveLeft10 = pussytionLeftandRight -= 10; // Move
+        myball.style.right = moveLeft10 + "px"; // Move left
+        // console.log(`Moving Left: ${pussytionLeftandRight}px`);
+      }
+    }, 100);
+
+    buttonRight.onmouseup = () => {
+      clearInterval(intervalId);
+    };
+  };
+}
 
 
 function move() {
@@ -766,3 +807,4 @@ function move() {
   ball.style.left = x + "px";
   ball.style.opacity = o;
 }
+

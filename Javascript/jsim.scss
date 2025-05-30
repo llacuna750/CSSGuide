@@ -703,4 +703,35 @@ body {
         }
           
     }
+
+    .akongball {
+        border: 1px solid;
+        padding: 10px;
+        margin: 5px;
+        width: 100px;
+
+        #akongbola {
+            border: 1px solid;
+            width: 10px;
+            padding: 25px;
+            border-radius: 50%;
+        }
+    }
+
+    table {
+        width: 550px;
+        // border: 1px solid;
+        border-collapse: collapse;
+        margin: 3px;
+        text-align: center;
+
+        .Rows {background-color: rgb(185, 167, 167);}
+        .Colms {background-color: rgb(143, 189, 216);}
+
+        th, tr, td {
+            border: 1px solid;
+            // padding: 1px;
+        }
+    }
 }
+

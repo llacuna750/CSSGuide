@@ -643,4 +643,31 @@ body {
 }
 .ArraysDOM .theClassName .PlayBallGame #SlamdunkSong {
   display: block;
+}
+.ArraysDOM .akongball {
+  border: 1px solid;
+  padding: 10px;
+  margin: 5px;
+  width: 100px;
+}
+.ArraysDOM .akongball #akongbola {
+  border: 1px solid;
+  width: 10px;
+  padding: 25px;
+  border-radius: 50%;
+}
+.ArraysDOM table {
+  width: 550px;
+  border-collapse: collapse;
+  margin: 3px;
+  text-align: center;
+}
+.ArraysDOM table .Rows {
+  background-color: rgb(185, 167, 167);
+}
+.ArraysDOM table .Colms {
+  background-color: rgb(143, 189, 216);
+}
+.ArraysDOM table th, .ArraysDOM table tr, .ArraysDOM table td {
+  border: 1px solid;
 }/*# sourceMappingURL=jsim.css.map */

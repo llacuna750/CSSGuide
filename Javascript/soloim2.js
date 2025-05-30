@@ -794,17 +794,35 @@ function playSlamDunk() {
   };
 }
 
+let akongball = document.getElementById(`akongbola`);
+let x = 0;
+let o = 0.5;
+let xSpeed = 1;
+let oSpeed = 0.01;
 
+setInterval(move, 10);
+
+// function move() {
+//   if (x < 250) {
+//     xSpeed = xSpeed * -1; 
+//   }
+//   if (o < 100) {
+//     ySpeed = oSpeed * -1;
+//   }
+//   x = x + xSpeed;
+//   o = o + oSpeed;
+//   ball.style.left = x + "px";
+//   ball.style.opacity = o;
+// }
 function move() {
-  if (x < 250) {
-    xSpeed = xSpeed * -1;
-  }
-  if (o < 100) {
-    ySpeed = oSpeed * -1;
-  }
+  if (x > 250 || x < 0) { xSpeed = xSpeed * -1;}
+  if (o > 1 || o < 0) { oSpeed = oSpeed * -1;}
+
   x = x + xSpeed;
   o = o + oSpeed;
-  ball.style.left = x + "px";
-  ball.style.opacity = o;
+  akongball.style.left = x + "px";
+  akongball.style.backgroundColor = `green`;
+  akongball.style.opacity = o;
 }
 
+move();

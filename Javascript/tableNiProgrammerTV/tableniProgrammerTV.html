@@ -5,51 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table ni Programmer TV</title>
     <style>
+        html, body {margin: 5px; background-color: beige; border: 1px solid; height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;}
+        .myTable {
+            padding: 5px; justify-content: center; align-items: center; height: ; width: 100%;
+        }
+
         table {
-            width: 1500px;
+            width: 700px;
             border-collapse: collapse;
             text-align: center;
-            margin: auto;
+            /* margin: auto; */
         }
         .Rows {background-color: rgb(185, 167, 167);}
         .Colms {background-color: rgb(143, 189, 216);}
 
         th, tr, td {border: 1px solid;}
+        th {padding: 10px 15px;}
+        td {padding: 5px 50px;}
     </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <th class="Rows" rowspan="7">Rows</th>
-            <th class="Colms" colspan="8">Columns</th>
-        </tr>
-        <tr>
-            <td></td><td></td><td>A1</td>
-            <td>A2</td><td>A3</td><td>A4</td><td>A5</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>→1</td><td></td><td rowspan="2">Hehe</td><td colspan="2" rowspan="2"></td>
-        </tr>
-        <tr>
-            <td>→2</td>
-        </tr>
-        <tr>
-            <td>→3</td>
-        </tr>
-        <tr>
-            <td>→4</td>
-        </tr>
-        <tr>
-            <td>→5</td>
-        </tr>
-        <tr>
+        <table>
+            <tr>
+                <th class="Rows" rowspan="7">Rows</th>
+                <th class="Colms" colspan="8">Columns</th>
+            </tr>
+            <tr>
+                <td></td><td></td><td>A1</td>
+                <td>A2</td><td>A3</td><td>A4</td><td>A5</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>→1</td><td></td><td rowspan="2">Merge1</td>
+                <td colspan="2" rowspan="2">Merge2</td>
+                <td></td><td rowspan="2">Merge3</td>
+            </tr>
+            <tr>
+                <td>→2</td>
+                <td></td><td>Human</td>
+            </tr>
+            <tr>
+                <td>→3</td><td></td><td rowspan="3" colspan="5" style="background-color: green;">Kusog mukaon</td>
+            </tr>
+            <tr>
+                <td>→4</td><td>#1 Running man</td><td>#2 Running man </td>
+            </tr>
+            <tr>
+                <td>→5</td>
+            </tr>
+            <tr>
+                
+            </tr>
+            <tr>
+                
+            </tr>
             
-        </tr>
-        <tr>
-            
-        </tr>
-        
-    </table>
+        </table>
 </body>
 </html>

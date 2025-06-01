@@ -705,6 +705,7 @@ body {
     }
 
     .akongball {
+        position: relative;
         border: 1px solid;
         padding: 10px;
         margin: 5px;
@@ -716,6 +717,13 @@ body {
             padding: 25px;
             border-radius: 50%;
         }
+        .akongballRandom {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: red;
+        } 
     }
 
     table {
@@ -733,5 +741,37 @@ body {
             // padding: 1px;
         }
     }
+      
 }
 
+.AnimationswithEvents {border: 1px solid;margin: 5px; border-radius: 5px;
+    .container {
+        // border: 1px solid;
+        padding: 5px;
+        margin: 5px;
+        position: relative;
+
+        .images {
+            display: inline-block;
+            img {
+                width: 30%;
+            }
+        }
+        #card {
+            padding: 5px; border: 1px solid; margin: 5px; display: inline-block;
+            left: 0;
+            position: absolute;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            cursor: pointer;
+        }
+
+        .TheRelated{
+            position: relative;
+            padding: 5px;
+        }
+    }
+    
+}

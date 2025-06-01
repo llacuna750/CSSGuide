@@ -794,13 +794,36 @@ function playSlamDunk() {
   };
 }
 
+
+
 let akongball = document.getElementById(`akongbola`);
-let x = 0;
+let letsMove = document.getElementById(`Moveakongball`);
+
+let x = 3;
 let o = 0.5;
 let xSpeed = 1;
 let oSpeed = 0.01;
 
-setInterval(move, 10);
+letsMove.addEventListener(`click`, () => {
+  setInterval(move, 10);
+  akongball.classList.add("akongballRandom");
+
+  function move() {
+    if (x > 250 || x < 0) {
+      xSpeed = xSpeed * -1;
+    }
+    if (o > 1 || o < 0) {
+      oSpeed = oSpeed * -1;
+    }
+
+    x = x + xSpeed;
+    o = o + oSpeed;
+    // akongball.style.position = `absolute`;
+    akongball.style.left = x + "px";
+    akongball.style.backgroundColor = `green`;
+    akongball.style.opacity = o;
+  }
+});
 
 // function move() {
 //   if (x < 250) {
@@ -814,15 +837,35 @@ setInterval(move, 10);
 //   ball.style.left = x + "px";
 //   ball.style.opacity = o;
 // }
-function move() {
-  if (x > 250 || x < 0) { xSpeed = xSpeed * -1;}
-  if (o > 1 || o < 0) { oSpeed = oSpeed * -1;}
 
-  x = x + xSpeed;
-  o = o + oSpeed;
-  akongball.style.left = x + "px";
-  akongball.style.backgroundColor = `green`;
-  akongball.style.opacity = o;
+//  Animations with Events
+let card = document.getElementById(`card`);
+card.addEventListener(`click`, moveMe);
+
+function moveMe (event) {
+  console.log(`You click moveME!`);
+  let position = Number(event.target.style.left);
+  let target = position + 200;
+  let timer = setInterval(animate, 10);
+
+  function animate () {
+    if (position < target) {
+      position = position +1;
+      event.target.style.left = position;
+    }else {
+      clearInterval(timer);
+    }
+    event.target.removeEventListener(`click`, moveMe);
+  }
 }
 
-move();
+function moveThis(event) {
+  let position = Number(event.target.style.left);
+  position = position + 1;
+  event.target.style.left = position;
+  console.log("Current left position:", position);
+}
+
+
+const shapes =["circle", "square", "triangle"];
+const animalsNako = ["Lion", "Elephant", "Giraffe", "Zebra"]; 

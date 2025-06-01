@@ -4,15 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample JS</title>
+
+    <style>
+        .containerCard {border: 1px solid; padding: 5px; border-radius: 5px;}
+
+        #card1 {
+            position: relative;
+            left: 0px;
+            width: 200px;
+            background-color: lightblue;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .fruits {
+            position: relative;
+            left: 0;
+        }
+
+        .card{
+            width: 250px;
+            padding: 10px;
+            background-color: lightskyblue;
+            border-radius: 25px;
+            position: relative;
+            margin-top: 10px;
+            text-align: center;
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
 
     <div class="countingMaching">
-        <h3>Let's Count</h3>
-        <button id="clickstart">Click to start!</button>
-        <div id="startcount">
+            <h3>Let's Count</h3>
+            <button id="clickstart">Click to start!</button>
+            <div id="startcount">
 
+            </div>
+            <div class="containerCard">
+            <div id="card1">
+                <h3>Card Title</h3>
+                <p>card content</p>
+            </div>
         </div>
+
+        <div class="sampleFruits" style="border: 1px solid; margin: 3px; border-radius: 5px;">
+            <p class="fruits">Banana</p>
+            <p class="fruits">Orange</p>
+            <p class="fruits">Watermelon</p>
+            <p class="fruits">Mango</p>
+        </div>
+    </div>
+
+    <div class='card'>
+        <h3>Card Title</h3>
+        <p>card content</p>
+    </div>
+    <div class='card'>
+        <h3>Card 2 Title</h3>
+        <p>card 2 content</p>
+    </div>
+    <div class='card'>
+        <h3>Card 3 Title</h3>
+        <p>card 3 content</p>
     </div>
     <script>
         /* to calculate the Ms to second 
@@ -36,15 +91,97 @@
                     clearInterval(intervalValid);
                 }else {
                     console.log(`Count start ${number += 1}`);
-                }
-
-                
+                }   
             }
         });
 
+        let card1 = document.getElementById(`card1`);
+        card1.addEventListener(`click`, moveMe);
 
+        function moveMe (event) {
+            console.log(`You click moveME!`);
+            let position = Number(event.target.style.left);
+            let target = position + 200;
+            
+            let timer = setInterval(animate, 20);
 
+            function animate () {
+                if (position < target) {
+                position = position +1;
+                event.target.style.left = position+ "px";
+                console.log(position);
+                }
+                else {
+                console.log(`You remove EventListener moveME function`);
+                clearInterval(timer);
+                }
+            }
+            event.target.removeEventListener(`click`, moveMe);
+        }
 
+        //class fruits array
+        let classFruits = document.getElementsByClassName("fruits");
+        for (let i=0; i<classFruits.length; i++) {
+            console.log(classFruits[i].innerHTML);
+            classFruits[i].addEventListener("click", move1);
+
+            function move1 (event) {
+                console.log(`You click one of the fruits`);
+                let position = Number(event.target.style.left);
+                let target = position + 300;
+
+                let movement = setInterval(animate, 50);
+
+                function animate () {
+                    if (position < target) {
+                        position = position +1;
+                        event.target.style.left = position+ "px";
+                        console.log(position);
+                    }
+                    else {
+                        console.log(`You remove EventListener moveME function`);
+                        clearInterval(movement);
+                    }
+                }
+            }
+        }
+
+        let cards = document.getElementsByClassName("card");
+        for (let i=0; i < cards.length ;i=i+1){
+            cards[i].addEventListener("click", move);
+            fadeIn(cards[i]);
+        }
+
+        function fadeIn(object){
+            object.style.opacity = 0;
+            let num = 0;
+            let timer = setInterval(animate, 10);
+            function animate(){
+                if (num > 1){
+                    clearInterval(timer);
+                } else {
+                    num = num + 0.01;
+                    object.style.opacity = num;
+                }
+            }
+        }
+
+        function move(event){
+            let position = Number(event.target.style.left);
+            let target = position + 200;
+            let timer = setInterval(animate, 10);
+
+            function animate(){
+                if (position < target){
+                    position = position + 1;
+                    event.target.style.left = position;
+                } else {
+                    clearInterval(timer);
+                }
+            }
+
+            event.target.removeEventListener("click", move);
+        }
     </script>
 </body>
 </html>

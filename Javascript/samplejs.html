@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample JS</title>
+</head>
+<body>
+
+    <div class="countingMaching">
+        <h3>Let's Count</h3>
+        <button id="clickstart">Click to start!</button>
+        <div id="startcount">
+
+        </div>
+    </div>
+    <script>
+        /* to calculate the Ms to second 
+            1000ms = 1second
+            if you want 20times per second just do this formula
+            1000ms / 20 = 50ms 
+            result = 50 millisecond 
+            the millisecond of 20times per second is 50 ms
+        */
+        // button start
+        let startClick = document.getElementById(`clickstart`);
+        let startCount = document.getElementById(`startcount`);
+
+        startClick.addEventListener("click", () => {
+            //call the countMe function every 1000 millisecond
+            let intervalValid = setInterval(countMe, 1000);
+            let number = 0;
+            function countMe() {
+                if (number != 49 && number > 49) {
+                    console.log(`You exceed number 50`);
+                    clearInterval(intervalValid);
+                }else {
+                    console.log(`Count start ${number += 1}`);
+                }
+
+                
+            }
+        });
+
+
+
+
+    </script>
+</body>
+</html>

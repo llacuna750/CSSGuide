@@ -794,8 +794,6 @@ function playSlamDunk() {
   };
 }
 
-
-
 let akongball = document.getElementById(`akongbola`);
 let letsMove = document.getElementById(`Moveakongball`);
 
@@ -805,14 +803,16 @@ let xSpeed = 1;
 let oSpeed = 0.01;
 
 letsMove.addEventListener(`click`, () => {
+  // Call a move function every 10 millisecond
   setInterval(move, 10);
   akongball.classList.add("akongballRandom");
-
+  
   function move() {
     // Only 1 condition need to be true to executed
     if (x > 250 || x < 0) {
       xSpeed = xSpeed * -1;
     }
+
     // Only 1 condition need to be true to executed
     if (o > 1 || o < 0) {
       oSpeed = oSpeed * -1;
@@ -824,6 +824,8 @@ letsMove.addEventListener(`click`, () => {
     akongball.style.left = x + "px";
     akongball.style.backgroundColor = `green`;
     akongball.style.opacity = o;
+    // console.log(x);
+    // console.log(o);
   }
 });
 

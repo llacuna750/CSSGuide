@@ -809,9 +809,11 @@ letsMove.addEventListener(`click`, () => {
   akongball.classList.add("akongballRandom");
 
   function move() {
+    // Only 1 condition need to be true to executed
     if (x > 250 || x < 0) {
       xSpeed = xSpeed * -1;
     }
+    // Only 1 condition need to be true to executed
     if (o > 1 || o < 0) {
       oSpeed = oSpeed * -1;
     }

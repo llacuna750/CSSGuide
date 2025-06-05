@@ -1,11 +1,13 @@
-import javax.swing.JOptionPane;
-import java.util.Scanner;
-import java.lang.reflect.Array;
+// package javaSomefile;
+// import javax.swing.JOptionPane;
+// import java.util.Scanner;
+// import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Random;
+// import java.util.Random;
+
 public class SaksiNiJava {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);   
+        // Scanner scanner = new Scanner(System.in);   
 //         // /* expression = Operands & operators
 // 		//   operands = values, Variables, numbers, quantity
 // 		//   operators = + - */  //% modulo
@@ -54,14 +56,14 @@ public class SaksiNiJava {
 
 
 //                     //MATH CLASS
-        double x = 5;     double y = -10;       double sr = 10;        double rnd = 10.99;      double skt = 25; 
-//         // double a = Math.min(x, y);      System.out.println("\n"+a);      //Check two value if who is Lowest
+        // double x = 5;     double y = -10;       double sr = 10;        double rnd = 10.99;      double skt = 25; 
+        // // double a = Math.min(x, y);      System.out.println("\n"+a);      //Check two value if who is Lowest
         // double b = Math.max(x,y);       System.out.printf("%.20f\n",b);     //Check two value if who is larger integer
-//         // double c = Math.abs(y);       System.out.println("\n"+c);       //remove negative (-10  =  10)
+        // // double c = Math.abs(y);       System.out.println("\n"+c);       //remove negative (-10  =  10)
         // double d = Math.pow(x,y);       System.out.println("\n"+d);     
-//         // double e = Math.floor(rnd);       System.out.println("\n"+e);   //Round down
-//         // double f = Math.ceil(rnd);       System.out.println("\n"+f);    //Round up
-//         // double g = Math.round(rnd);       System.out.println("\n"+g);    // nearest whole number to round off ( -10.99   =  11 )
+        // // double e = Math.floor(rnd);       System.out.println("\n"+e);   //Round down
+        // // double f = Math.ceil(rnd);       System.out.println("\n"+f);    //Round up
+        // // double g = Math.round(rnd);       System.out.println("\n"+g);    // nearest whole number to round off ( -10.99   =  11 )
         // double h = Math.sqrt(skt);       System.out.println("\n"+h);    //square root of the number
 
 //         // //MATH: Find The Hypotenuse of triangle
@@ -263,22 +265,22 @@ public class SaksiNiJava {
         System.out.println("\nSize: "+food);
 
 //                                                 //   #20 (02:11:02)  2D ArrayList 📜
-        ArrayList<ArrayList<String>> groceryList = new ArrayList();
+        ArrayList<ArrayList<String>> groceryList = new ArrayList<ArrayList<String>>();
 
-        ArrayList<String> bakeryList = new ArrayList();
+        ArrayList<String> bakeryList = new ArrayList<String>();
 
         bakeryList.add("Pasta");
         bakeryList.add("garlic bread");
         bakeryList.add("donuts");
         // System.out.println(bakeryList.get(0));
         
-        ArrayList<String> produceList = new ArrayList();
+        ArrayList<String> produceList = new ArrayList<String>();
 
         produceList.add("Tomatoes");
         produceList.add("zuchinni");
         produceList.add("peppers");
 
-        ArrayList<String> drinkList = new ArrayList();
+        ArrayList<String> drinkList = new ArrayList<String>();  // Create an ArrayList object
 
         drinkList.add("soda");
         drinkList.add("coffee");
@@ -371,7 +373,7 @@ public class SaksiNiJava {
         // two arguments = format string + (object/variable/value)
 // [flags] [precision] [width] [conversion-character]
 		// boolean myBoolean = true;
-		char myChar = '@';
+		// char myChar = '@';
 		// String myString = "Bro";
 		// int myInt = 50;
 		// double myDouble = 1000;

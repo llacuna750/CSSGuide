@@ -1,8 +1,9 @@
-package javaIntermediate1;
+package ExternalPackage;
 // package JavaIntermediate;
 // package some.other.package;
 
-public class Javainter {
+public 
+class Javainter {
     public
      String name = "Gabriel";
 }

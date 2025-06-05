@@ -1,0 +1,8 @@
+Classes have this following:
+1. Attribute {
+    is like variables, identity, currentstate
+}
+
+2. Method {
+    is like function, method, behavior
+}

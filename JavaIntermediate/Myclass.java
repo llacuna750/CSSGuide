@@ -1,4 +1,6 @@
 package JavaIntermediate;
+import java.util.Scanner;
+
 import ExternalPackage.Javainter;
 // import JavaIntermediate.Vehicle;
 
@@ -24,6 +26,7 @@ import ExternalPackage.Javainter;
  */
 public class Myclass {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Hello from packaged Myclass!");
          /*                                                          javaOOP Class                                                               */   
         javaOOP java = new javaOOP(); // javaOOP class
@@ -79,26 +82,84 @@ public class Myclass {
         // specificFeature.setColor("Pink");
         // System.out.println(specificFeature.getColor());
 
-        // Value Types
+        /*                                                          Person Class                                                               */
+        // Value & Reference Types
+        // Value 
         Double x = 4.0;
-        square(x);
+        square(x); // Square method
         System.out.println(x); // Output: 4
         System.out.println(x.getClass().getName());
 
         // Reference Types
-        Person j;
+        Person j; Person p;
         j = new Person("Gabdevs");
-        j.setAge(21);
-        celebrateBirthday(j);
-        System.out.println(j.getAge());
-        System.out.println(j.getName());
+        p = new Person("programmerDab");
+
+        p.setAge(21); // the private age of Person p setted (age = 21)
+        j.setAge(21);     // setAge = 21    usng the Setters: method   private int age = 21; updated
+
+        celebrateBirthday(j); // Call the method celebBirth...() and takes the Person object as its parameter
+        System.out.print("\n1. It's time for quiz!\n\nWhat is the age of Person j after calling the celebBirth.. method()? ");
+        int personJ = sc.nextInt();
+
+        // Ternary Systax/Operator || Shorthand if-else
+        String result = personJ == j.getAge() ? "You are Correct!\n" :  "Wrong answer.\n";
+        System.out.println(result);
+
+
+        /*  he use to time Time travelled
+            timeTravel();
+         Another quiz */
+        timeTravel(p);
+        System.out.printf("2. Another quiz%n%nIf current age of %s is %d years old. %nHow old is Person p/%s after time travelled from 2025 to 2015  the method? ",p.getName(), p.getAge(), p.getName()); // Output 11
+        int hisageof2015 = sc.nextInt(); System.out.println((hisageof2015 == p.getAge()) ? "You're right he is "+p.getAge()+" years old." : "Wrong answer.");
+        sc.close();
+
+        // The Math Class
+        // int m = Math.min(5, 2);
+        // System.out.println("\n"+m);
+
+        // int 
+        MathguideClass mathG = new MathguideClass();
+        String answer;
+        mathG.openMathClassorNot();
+
+        
+
+        /*    There are a number of other methods available in the Math class, including:
+            sqrt() for square root, sin() for sine, cos() for cosine, and others.      */
+    }
+    // Squaroot
+    static void squaroot(int n) {
     }
 
-    static void celebrateBirthday(Person p) {
-        p.setAge(p.getAge() + 1);
-    }
-
-    static void square (double x) {
+    // Square of x
+    static void square(double x) {
         x = x * x;
+    }
+
+    /* 
+        Algorithim | Code 
+        Gi-send ang Object Person by name of p
+        method name celebrateBirthday();
+    */ 
+    static void celebrateBirthday(Person p) {
+        p.setAge(p.getAge() + 1);   // 21 + 1 = 22
+    }
+    /* 
+        Algorithim | Code 
+        Gi-send ang Object Person by variable name of p
+        method name timeTravel();
+    */ 
+    static void timeTravel(Person traveller) {
+        // Let's say it's 2025 year and he time traveled in the past in 2015!
+        int currentYear = 2025; int timeTravelledPast = 2015;
+
+        traveller.setAge(traveller.getAge()-(currentYear - timeTravelledPast)); 
+        /*
+                Here is the breakdown Timetravelling Formula:
+        the Person p current age setted is "21" decrement by  
+        (currentYear - timeTravelledPast) result inside the parenthesis  is 10
+         */
     }
 }

@@ -51,7 +51,7 @@ function grantedorNot() {
   const display = document.getElementById("displaypass");
   let correctPass = "dabdabgwapo!";
 
-  if (pass === `dabdabgwapo!`) {
+  if (pass === correctPass) {
     display.textContent = `Access Granted`;
     Object.assign(display.style, {
       border: `1px solid 5px`,

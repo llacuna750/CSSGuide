@@ -66,3 +66,18 @@ function myIsNaN(value) {
 // console.log(num !== num); // Only NaN is not equal to itself
 
 
+// console.log("Gwapo si gab");
+// ✅ Examples with === and Their Output
+console.log("5 === 5: " + (5 === 5));           // true   (same value and type: number)
+console.log(5 === "5");         // false  (same value, different type)
+console.log("hello" === "hello"); // true
+console.log(true === 1);        // false  (different type: boolean vs number)
+console.log(null === undefined); // false (different types)
+console.log(0 === false);       // false  (number vs boolean)
+
+// ✅ Comparison with == (Loose Equality)
+console.log("\n"+ (5 == "5"));     // true   (coerces the string to number)
+console.log(0 == false);   // true   (coerces false to 0)
+console.log(null == undefined); // true
+
+

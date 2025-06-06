@@ -26,6 +26,8 @@ const welcomeMsg = document.getElementById("welcome-msg");
 welcomeMsg.style.backgroundColor = "red";
 welcomeMsg.style.textAlign = `center`;
 welcomeMsg.style.margin = `3px `;
+
+// Nag ternary2 pako
 welcomeMsg.textContent += username ===  '' ? 'Guest' : username;
 
 console.log(welcomeMsg);

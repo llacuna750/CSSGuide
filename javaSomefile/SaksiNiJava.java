@@ -62,7 +62,7 @@ public class SaksiNiJava {
         // // double c = Math.abs(y);       System.out.println("\n"+c);       //remove negative (-10  =  10)
         // double d = Math.pow(x,y);       System.out.println("\n"+d);     
         // // double e = Math.floor(rnd);       System.out.println("\n"+e);   //Round down
-        // // double f = Math.ceil(rnd);       System.out.println("\n"+f);    //Round up
+        // double f = Math.ceil(rnd);       System.out.println("\n"+f);    //Round up
         // // double g = Math.round(rnd);       System.out.println("\n"+g);    // nearest whole number to round off ( -10.99   =  11 )
         // double h = Math.sqrt(skt);       System.out.println("\n"+h);    //square root of the number
 

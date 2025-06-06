@@ -4,18 +4,20 @@ class Person {
     private String name;
     private int age;
 
+    // Constructors
     Person (String n) {
-        this.name = n;
+        this.name = n; // private String name is setters
     }
 
+    // Getters
     public String getName () {
         return name;
     }
-
+    // Getters
     public int getAge() {
         return age;
     }
-
+    // Setters
     public void setAge(int a) {
         this.age = a;
     }

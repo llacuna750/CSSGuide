@@ -25,7 +25,7 @@ import ExternalPackage.Javainter;
     private: Accessible only within the declared class itself.
  */
 public class Myclass {
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Hello from packaged Myclass!");
          /*                                                          javaOOP Class                                                               */   
@@ -59,9 +59,6 @@ public class Myclass {
         // System.out.println("My name of my car is "+mynameofCar.getNameofCar()); // We use this one, if we use a Getters and Setters for a private attribute
         // System.out.println("\nname of this car: "+brom2.nameofCar+" Love it\n"); //
 
-
-        
-
         // String colorOfbrom2 = "Blue";
         // brom2.setMycolor(colorOfbrom2);
         // System.out.printf("this is my Color of vehicle 1: %s %nand the brom2 will ", brom2.getMycolor());
@@ -82,7 +79,7 @@ public class Myclass {
         // specificFeature.setColor("Pink");
         // System.out.println(specificFeature.getColor());
 
-        /*                                                          Person Class                                                               */
+        /*                                                           Person Class                                                               */
         // Value & Reference Types
         // Value 
         Double x = 4.0;
@@ -103,17 +100,17 @@ public class Myclass {
         int personJ = sc.nextInt();
 
         // Ternary Systax/Operator || Shorthand if-else
-        String result = personJ == j.getAge() ? "You are Correct!\n" :  "Wrong answer.\n";
+        String result = personJ == j.getAge() ? "You're answer: Correct!\n" :  "You're answer: Wrong answer.\n";
         System.out.println(result);
 
 
         /*  he use to time Time travelled
             timeTravel();
          Another quiz */
-        timeTravel(p);
+        
         System.out.printf("2. Another quiz%n%nIf current age of %s is %d years old. %nHow old is Person p/%s after time travelled from 2025 to 2015  the method? ",p.getName(), p.getAge(), p.getName()); // Output 11
-        int hisageof2015 = sc.nextInt(); System.out.println((hisageof2015 == p.getAge()) ? "You're right he is "+p.getAge()+" years old." : "Wrong answer.");
-        sc.close();
+        timeTravel(p);
+        int hisageof2015 = sc.nextInt(); System.out.println((hisageof2015 == p.getAge()) ? "You're right he is "+p.getAge()+" years old." : "You're answer: Wrong.");
 
         // The Math Class
         // int m = Math.min(5, 2);
@@ -121,14 +118,13 @@ public class Myclass {
 
         // int 
         MathguideClass mathG = new MathguideClass();
-        String answer;
-        mathG.openMathClassorNot();
-
-        
-
+        String answer = sc.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
+        mathG.openMathClassorNot(answer);
+        // MathguideClass.showMathClassExample();
+        sc.close();
+    }
         /*    There are a number of other methods available in the Math class, including:
             sqrt() for square root, sin() for sine, cos() for cosine, and others.      */
-    }
     // Squaroot
     static void squaroot(int n) {
     }

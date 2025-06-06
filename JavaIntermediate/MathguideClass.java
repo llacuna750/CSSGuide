@@ -13,7 +13,7 @@ class MathguideClass {
         }
     }
     // I can call this method without Object
-    static void showMathClassExample() {
+    public static void showMathClassExample() {
                       //MATH CLASS
         double x = 5;     double y = -10;       /*double sr = 10;*/        double rnd = 10.99;      double skt = 25; 
         double a = Math.min(x, y);       System.out.println("\nCheck two value if who is Lowest: "+a);                          // Check two value if who is Lowest

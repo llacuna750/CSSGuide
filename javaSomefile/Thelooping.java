@@ -1,4 +1,4 @@
-package ExternalPackage;
+
 import java.util.Scanner;
 
 public class Thelooping {

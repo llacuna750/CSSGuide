@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="table.css">
+    <link rel="shortcut icon" href="portfoliologo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="fortable">
+                <h4>This are the following technique to create a table effectively:</h4>
+                <ul>
+                    <li>Draw the table for a blueprint</li>
+                    <li>Count the max number of Column and Row</li>
+                    <li>Using rowspan & colspan</li>
+                </ul>
+                <h4>For this table we have:</h4>
+                <ol>
+                    <li>Rows: 7</li>
+                    <li>Columns: 9</li>
+                </ol>
+                <table>
+                    <tr>
+                        <!-- <td rowspan="7">ECESR : EAT > CODE  > EXERCISE > SLEEP > REPEAT</td> -->
+                        <th class="dayinmL" colspan="9">Day in my life as IT Student ( Tracker )</th>
+                    </tr>
+                    <!-- available column: 9 -->
+                    <tr>
+                                        <!-- 1 column use -->
+                        <td class="ecesr" rowspan="6">ECESR : EAT > CODE  > EXERCISE > SLEEP > REPEAT</td>  
+                                        <!-- 1 column use -->
+                            <td></td>
+                                        <!-- 5 column use -->
+                        <td class="weekD" colspan="5">Weekdays</td>
+                                        <!-- 2 column use -->
+                        <td colspan="2">Weekend</td>
+                        <!-- Exceeded the maximum column of 9 -->
+                                        <!-- add another column (molapas) -->
+                                        <!-- <td></td>  -->
+                    </tr>
+
+                    <!-- available column: 8 -->
+                    <tr>
+                        <td>Start to:</td>
+                        <td>Mon</td><td>Tues</td><td>Wed</td>
+                        <td>Thurs</td><td>Fri</td><td>Sat</td><td>Sun</td>
+                    </tr>
+                        
+                    <tr>
+                        <td>Eat</td>
+                        <td>8:00 – 8:30 AM</td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td>Code</td>
+                        <td>8:40 – 2:30 PM</td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td>Sleep</td>
+                        <td>2:40 – 4:30 PM</td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td>Exercise</td>
+                        <td>4:40 – 5:30 PM 
+                            (kadung-singot)
+                            </td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

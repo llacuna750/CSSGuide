@@ -6,7 +6,7 @@ class Person {
 
     // Constructors
     Person (String n) {
-        this.name = n; // private String name is setters
+        this.name = n; // private String name is setted
     }
 
     // Getters

@@ -65,8 +65,8 @@ class Sakyanan {
     // it will work the wheels = ligid
     ) {
         this.maxSpeed = kapaspas;
-        // this.wheels = wheels; // best practice
-        wheels = ligid; // don't work
+        this.wheels = wheels; // best practice
+        // wheels = ligid; // don't work
         // wheels = wheels; // read problem error: ❌ This just assigns the param to itself!
         this.color = c;
         this.fuelCapacity = fuelCapac;

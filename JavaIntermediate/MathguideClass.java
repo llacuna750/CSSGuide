@@ -57,8 +57,7 @@ class MathguideClass {
             }
             else if (answer.trim() == "")  { System.out.print("Don't leave it blank!\n"); }
             else if (!answer.matches("[a-z A-Z]+"))     { System.out.println("\nDon't put any special characters!"); }
-            else if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")) { System.out.println("\nOkay, balik kalang if may solving ka na hindi mo familliar gumamit kanang Math-Class");
-                break;}
+            else if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")) { System.out.println("\nOkay, balik kalang if may solving ka na hindi mo familliar gumamit kanang Math-Class"); break;}
             else { System.out.print("\nPlease enter yes or no\n"); } // con = !true; 
             // System.out.println("Thanks for using our Math-Class");
         }

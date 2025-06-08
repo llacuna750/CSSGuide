@@ -29,6 +29,7 @@ welcomeMsg.style.margin = `3px `;
 
 // Nag ternary2 pako
 welcomeMsg.textContent += username ===  '' ? 'Guest' : username;
+// welcomeMsg.textContent += username;
 
 console.log(welcomeMsg);
 // console.dir(welcomeMsg);

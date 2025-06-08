@@ -1,5 +1,6 @@
 package ExternalPackage;
 
 public class Persona {
-    public static int pCount; 
+    // Outputted through static values data-types
+    public static int pCount;
 }

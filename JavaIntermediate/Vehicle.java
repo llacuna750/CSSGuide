@@ -9,7 +9,7 @@ class Vehicle {
     String color;
     double fuelCapacity;  
 
-    private String mycolor;
+    private String mycolor; // data hiding.
 
     // private 
     String nameofCar;

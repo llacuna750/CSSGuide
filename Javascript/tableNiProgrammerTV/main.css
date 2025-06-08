@@ -50,6 +50,11 @@ th, td , caption {
     /* border-radius: 10px; */
 }
 
+td {
+    margin: 0;
+    padding: 1px 5px;
+}
+
 caption {
     margin-bottom: 5px;
     padding: 5px;

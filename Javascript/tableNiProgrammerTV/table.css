@@ -11,3 +11,12 @@
 .weekD {
   background-color: #e5edf3;
 }/*# sourceMappingURL=table.css.map */
+
+.wekend { background-color: #c8ec24; }
+
+td {
+  margin: 0;
+  padding: -10px 50px
+   /* 5px */
+   ;
+}

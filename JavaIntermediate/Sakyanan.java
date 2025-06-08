@@ -1,10 +1,10 @@
 package JavaIntermediate;
 
 class Sakyanan {
-    private int maxSpeed;
-    private int wheels;
-    private String color;
-    private double fuelCapacity;    
+    private int maxSpeed; // data hiding
+    private int wheels; // data hiding
+    private String color; // data hiding
+    private double fuelCapacity;  // data hiding
     
     // The getter method returns the value of the attribute.
     // Getters start with get, followed by the variable name, with the first letter of the variable name capitalized.

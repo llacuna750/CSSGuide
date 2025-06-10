@@ -81,3 +81,4 @@ console.log(0 == false);   // true   (coerces false to 0)
 console.log(null == undefined); // true
 
 
+console.log(`2`+2+`2`);

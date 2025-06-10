@@ -27,4 +27,15 @@ class A {
     public void setA(String a) {
         this.a = a;
     }
+    
+    // Implement the Overriding Overload
+    /* Without parameter dosomething() method  */
+    public void doSomething() {
+        System.out.println("A");
+    }
+    
+    /* With parameter dosomething() method */
+    public void doSomething(String str) {
+        System.out.println(str);
+    }
 }

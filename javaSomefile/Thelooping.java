@@ -34,7 +34,7 @@ public class Thelooping {
     			System.out.println("\nEnter a legit name!");
     			// System.out.println("\n\nThank You for trying our System! ");
     		}
-			scanner.close();
+			
     	}
     				//Do - while
 //    	do {
@@ -219,5 +219,6 @@ public class Thelooping {
     	 g=0 + 3 = 3 < 3; false
     	 
     	 */
+		scanner.close();
     }
 }

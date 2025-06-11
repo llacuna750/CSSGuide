@@ -31,7 +31,7 @@ public class Myclass {
         System.out.println("\nHello Myclass");
         
         TestAll.main(args);
-
+        
         sc.close();
     }
 }

@@ -34,9 +34,12 @@ class MathguideClass {
 
     void openMathClassorNot(String answer) {
         boolean continueThis = true;
-        System.out.println("\nShow Math-Class? (yes or no?) ");
-        while (true) {
+        boolean valid = false;
+
+        while (!valid) {
+            System.out.println("\nShow Math-Class? (yes or no?) ");
             answer = sc.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
+            // sc.nextLine();
             
             if ("yes".equalsIgnoreCase(answer) || ("y".equalsIgnoreCase(answer) || "ye".equalsIgnoreCase(answer))) { 
                 // String spaces = " ".repeat(20); // Java 11+
@@ -52,11 +55,13 @@ class MathguideClass {
                             continueThis = false; break;
                         default: 
                         System.out.println("Invalid choice.");
+                            break;
                     }
-                }break;
+                }
+                
             }
             else if (answer.trim() == "")  { System.out.print("Don't leave it blank!\n"); }
-            else if (!answer.matches("[a-z A-Z]+"))     { System.out.println("\nDon't put any special characters!"); }
+            else if (!answer.matches("[a-z A-Z 0-9]+")) { System.out.println("\nDon't put any special characters!"); }
             else if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")) { System.out.println("\nOkay, balik kalang if may solving ka na hindi mo familliar gumamit kanang Math-Class"); break;}
             else { System.out.print("\nPlease enter yes or no\n"); } // con = !true; 
             // System.out.println("Thanks for using our Math-Class");

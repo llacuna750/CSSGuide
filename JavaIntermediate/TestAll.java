@@ -194,6 +194,8 @@ public class TestAll {
 
                 Constructors are not member methods, and so are not inherited by subclasses.
                 However, the constructor of the superclass is called when the subclass is instantiated.
+
+                exameple: Go to Class A and B
             */
 
             /* Let's create a subclass & super Class 
@@ -295,11 +297,12 @@ public class TestAll {
                 3 4 5
                 6 7 8 9
             */
-            Floydtriangle("Enter rows: ",sc);
+            Floydtriangle("\nEnter rows: ",sc);
         }
         else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
             switch (choosing) {
+                case 0: main(args); break;
                 case 1: Choosespeci_Code.javaOOP(); break;
                 case 2: Choosespeci_Code.Animalclass(); break;
                 case 3: Choosespeci_Code.Constructors(); break;
@@ -335,30 +338,50 @@ public class TestAll {
         System.out.print(prompt);
         int rows = scanner.nextInt();
         scanner.nextLine(); // consume leftover newline
+        boolean valid = false;
 
-        System.out.println("\nEnter the following to proceed: \n1. Symbol way\n2. Number way");
-        int choose = scanner.nextInt();
-        scanner.nextLine(); // consume leftover newline
-        
-        String symbol = "";
-        if (choose == 1) {
-            System.out.print("Enter the symbol: ");
-            symbol = scanner.nextLine(); // only ask ONCE
-        }
-        
-        int number = 1;
-
-        for (int i=1; i <= rows; i+=1) {
+        while (!valid) {
+            System.out.println("\nEnter the following to proceed: \n1. Symbol way\n2. Number way");
+            String choose = scanner.nextLine();
+            // scanner.nextLine(); // consume leftover newline
             
-            System.out.println();
-            for (int j=1; j<=i;) {
-                if (choose == 1) {
-                    System.out.print(symbol+ " ");
-                }else {
-                    System.out.print(number+ " ");
+            String symbol = "";
+
+            if (choose.equals("1") || choose.equals("2")) {
+                valid = true;
+                int number = 1;
+
+                if (!choose.equals("2")) {
+                    System.out.print("\nEnter the symbol: ");
+                    symbol = scanner.nextLine(); // only ask ONCE
                 }
-                j+=1;
-                number++;
+
+                for (int i=1; i <= rows; i+=1) {
+                    
+                    System.out.println();
+                    for (int j=1; j<=i;) {
+                        if (!choose.equals("1")) {
+                            System.out.print(number+ " ");
+                            
+                        }
+                        else {
+                            System.out.print(symbol+ " ");
+                        }
+                        j+=1;
+                        number++;
+                    }
+                }
+            }
+            else if
+            (choose.isEmpty()) {
+                System.out.println("Requiare to fill the blanks.");
+            }
+            else if 
+            (!choose.matches("[a-z A-Z 0-9]+")) {
+                System.out.println("\nDon't put special characters.");
+            }
+            else {
+                System.out.println("\nEnter (1 or 2) only");
             }
         }
         System.out.println(); // System.out.print(number); // updated: 22
@@ -416,8 +439,8 @@ public class TestAll {
         int choose_number = 0;
 
         while (!valid) {
-            System.out.println("1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
-            System.out.println("11. theInheritance \n12. thePolymorphism \n13. OverridingandOverloading \n14. theAbstract \n15. FloydsTriangle \n16. forloop-basic");
+            System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
+            System.out.println("11. The Inheritance \n12. thePolymorphism \n13. OverridingandOverloading \n14. theAbstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n");
             
             System.out.print("Enter the following number: ");
@@ -430,10 +453,10 @@ public class TestAll {
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 1 && choose_number <= 19) {
+                if (choose_number >= 0 && choose_number <= 19) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (1 up to 19).");
+                    System.out.println("\nEnter the following number only (0 up to 19).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -444,7 +467,7 @@ public class TestAll {
     }
 
     static int pick1to3 (Scanner scanner) {
-        System.out.print("\nEnter the following to proceed: ");
+        System.out.print("Enter the following to proceed: ");
         boolean valid = false;
         int choose_number = 0;
 

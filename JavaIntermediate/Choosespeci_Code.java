@@ -248,6 +248,13 @@ public class Choosespeci_Code extends TestAll {
         Shape myCircle = new Circle();
         myRectangle.draw();
         myCircle.draw();
+
+        Ero iro = new Ero();
+        System.out.print("\nEnter age of your dog: ");
+        int dogAge = sc.nextInt();
+
+        iro.setPrintAge(dogAge);
+        System.out.println("Age of dog from the Absract superclass set to: "+ iro.printAge());
     }
 
     static void FloydsTriangle () {
@@ -382,5 +389,40 @@ public class Choosespeci_Code extends TestAll {
                 System.out.println("\nInvalid input! Please enter numeric values only.");
             }   
         }
+    }
+
+    static void getFactorialRecurs (){
+        // Factorial 
+        System.out.print("\nEnter a number to get the factorial: ");
+        int intput = sc.nextInt();
+        double gidouble = (double)Factorecursive(intput);
+
+        // System.out.println("The factorial of "+20+" is "+Factorecursive(20));
+        System.out.printf("The factorial of %d is %,.2f%n",intput, gidouble);
+
+        int update = intput;
+        int num = 5;
+        int y = update - 1;
+
+        System.out.println();
+        // Outer for row ata
+        for (int i=update; i>=1; i--) {
+            // Inner loop for column ata
+            
+            for (int h=1; h<=1; h++) {
+                int resultRec = update * y;
+                if (h <= num) {
+                    System.out.print(update+" * "+y+" = "+resultRec );
+                }
+                y = y - 1;
+                update = resultRec;
+            }
+            System.out.println();
+        }
+    }
+
+    static void interfaceTestClass () {
+        Ering siOranges = new Ering();
+        siOranges.eat(); siOranges.makeSound();
     }
 }

@@ -1,5 +1,5 @@
 package JavaIntermediate;
-import java.util.Scanner;
+// import java.util.Scanner;
 
 // import ExternalPackage.*; // uses wild Card to import all classes in a package.
 // import ExternalPackage.Persona;
@@ -27,11 +27,9 @@ import java.util.Scanner;
  */
 public class Myclass {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         System.out.println("\nHello Myclass");
         
-        TestAll.main(args);
-        
-        sc.close();
+        // TestAll.main(args);
+       
     }
 }

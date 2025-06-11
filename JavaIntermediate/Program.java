@@ -17,13 +17,13 @@ public class Program {
     /*                                                                Maximum method */
     // int datatype
     public int max (int a, int b) {
-        System.out.printf("\nMethod Overloaded by Integer parameter \nThe Max number between %d and %d is ");
+        System.out.printf("%nMethod Overloaded by Integer parameter %nThe Max number between %d and %d is ",a,b);
         return (a > b) ? a : b;
     }
     
     // double datatype
     public double max (double a, double b) {
-        System.out.printf("\nMethod Overloaded by Double parameter \nThe Max number between %,.2f and %,.2f is ");
+        System.out.printf("%nMethod Overloaded by Double parameter %nThe Max number between %,.2f and %,.2f is ",a ,b);
         return (a > b) ? a : b;
     }
 
@@ -51,7 +51,7 @@ public class Program {
     
     // double datatype
     public double min (double a, double b) {
-        System.out.printf("%nMethod Overloaded by Double parameter %nThe Minimum number between %,.2f and %,.2f is ",a, b);
+        System.out.printf("%nMethod Overloaded by Double parameter %,.2f%nThe Minimum number between %,.2f and %,.2f is ",a, b);
         return (a < b) ? a : b;
     }
 

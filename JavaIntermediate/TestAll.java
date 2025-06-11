@@ -302,6 +302,38 @@ public class TestAll {
                 6 7 8 9
             */
             Floydtriangle("\nEnter rows: ",sc);
+
+            Ering siOranges = new Ering();
+            siOranges.eat(); siOranges.makeSound();
+
+             // Factorial 
+            System.out.print("\nEnter a number to get the factorial: ");
+            int intput = sc.nextInt();
+            double gidouble = (double)Factorecursive(intput);
+
+            // System.out.println("The factorial of "+20+" is "+Factorecursive(20));
+            System.out.printf("The factorial of %d is %,.2f%n",intput, gidouble);
+
+            int update = intput;
+            int num = 5;
+            int y = update - 1;
+
+            System.out.println();
+            // Outer for row ata
+            for (int i=update; i>=1; i--) {
+                // Inner loop for column ata
+                
+                for (int h=1; h<=1; h++) {
+                    int resultRec = update * y;
+                    if (h <= num) {
+                        System.out.print(update+" * "+y+" = "+resultRec );
+                    }
+                    y = y - 1;
+                    update = resultRec;
+                }
+                System.out.println();
+            }
+            sc.close();
         }
         else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
@@ -326,6 +358,8 @@ public class TestAll {
                 case 17: squaroot(zeroTounli_sqroot(sc)); break;
                 case 18: square(zeroTounli_square(sc)); break;
                 case 19: Minandmax.minandmaximum(); break;
+                case 20: Choosespeci_Code.interfaceTestClass(); break;
+                case 21: Choosespeci_Code.getFactorialRecurs(); break;
 
                 default: break;
             }
@@ -333,7 +367,6 @@ public class TestAll {
         else {
             System.out.println("\nBye thanks! \nExiting....");
         }
-
         sc.close();
     }
 
@@ -378,7 +411,7 @@ public class TestAll {
             }
             else if
             (choose.isEmpty()) {
-                System.out.println("Requiare to fill the blanks.");
+                System.out.println("Requiare to fill in the blanks.");
             }
             else if 
             (!choose.matches("[a-z A-Z 0-9]+")) {
@@ -445,7 +478,7 @@ public class TestAll {
         while (!valid) {
             System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
             System.out.println("11. The Inheritance \n12. thePolymorphism \n13. Overriding and Overloading \n14. theAbstract \n15. FloydsTriangle \n16. forloop-basic");
-            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n");
+            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n");
             
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -457,10 +490,10 @@ public class TestAll {
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 19) {
+                if (choose_number >= 0 && choose_number <= 21) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 19).");
+                    System.out.println("\nEnter the following number only (0 up to 21).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -552,5 +585,9 @@ public class TestAll {
     	}
 
         return choose_number;
+    }
+
+    static int Factorecursive(int n) {
+        return (n != 0) ? n *= Factorecursive(n - 1) : 1 ;
     }
 }

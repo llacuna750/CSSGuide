@@ -176,10 +176,13 @@ public class Choosespeci_Code extends TestAll {
         System.out.println();cat.makeSound();
         cow.makeSound();
     }
+
     static void OverridingandOverloading () {
+        System.out.println("\nOverriding method:");
         B obj = new B();
         Cat c = new Cat();
         c.makeSound();
+        boolean valid = false;
 
         /*  show info
                                             Method Overloading
@@ -205,12 +208,39 @@ public class Choosespeci_Code extends TestAll {
             An overloaded method must have a different argument list; the parameters should differ in their type, number, or both.
             Another name for method overloading is compile-time polymorphism.
             */
-        Program pg = new Program();
-        System.out.println("\nOverloading: max method int parameter "+pg.max( 5,10 ));
-        System.out.println("Overloading: max method Double parameter "+pg.max(1.3, 5.2));
+        // Program pg = new Program();
 
+        Program.forLoopTarget();
         obj.doSomething();
+
+        int chooseMaxorMin = select1to2(sc);
+        while (!valid) {
+
+            if (chooseMaxorMin == 1) {
+                defineInput_min();
+                valid = true;
+            }
+            else if (chooseMaxorMin == 2) {
+                defineInput_max();
+                valid = true;
+            }
+        }
+
+        // if-else best to emplement to this one
+        // if (pg.max(pickAh, pickBe) <= 999999999.99 ) {
+        //     System.out.println("\nOverloading: max method int int parameter way "+pg.max(pickAh,pickBe));
+        // }else {
+        //     System.out.printf("%nMax Method%nMethod overload in int parameter %.0f",pg.max(pickAh,pickBe));
+        // }
+
+        // Ternary Version 
+        // String resultMessage = (pg.max(pickAh, pickBe) <= 999999999.99 ) ? "\nOverloading: max method int int parameter way "+pg.max(pickAh,pickBe) : 
+        // "\nOverloading: max method int int parameter way "+pg.max(pickAh,pickBe);
+        // System.out.println(resultMessage);
+        
+        // System.out.println("Overloading: max method in Double parameter way "+pg.max((double)pickA, (double)pickB));
     }
+
     static void theAbstract () {
         /* Read information                                                                    Abstract
             */
@@ -228,5 +258,129 @@ public class Choosespeci_Code extends TestAll {
             6 7 8 9
         */
         Floydtriangle("\nEnter rows: ",sc);
+    }
+
+    static int select1to2 (Scanner scanner) {
+        boolean valid = false;
+        int choose_number = 0;
+        
+
+        while (!valid) {
+            System.out.println("\nMethod Overloading.");
+            System.out.println("\nChoose the following method: \n1. Minimum method \n2. Maximum method");
+            String input = scanner.nextLine();
+
+    		if (input.isBlank()) {
+                System.out.println("Don't leave it blank!");
+                continue; // pag about niya sa try - catch mo false na siya inig try
+            }
+
+            try {
+                choose_number = Integer.parseInt(input);
+                if (choose_number >= 1 && choose_number <= 2) {
+                    valid = true;
+                } else {
+                    System.out.println("\nEnter the number (1 - 2) only.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\nInvalid input. Please enter a number. ");
+            }
+    	}
+
+        return choose_number;
+    }
+
+    static void defineInput_min () {
+        Program pg = new Program();
+        boolean valid = false;
+
+        while (!valid) {
+            System.out.print("\nEnter first number: ");
+            String inputA = sc.nextLine();
+
+            System.out.print("Enter second number: ");
+            String inputB = sc.nextLine();
+
+            // Try parsing both as double first
+            try {
+                if (!inputA.contains(".") && !inputB.contains("."))  {
+                    
+                    int a = Integer.parseInt(inputA);
+                    int b = Integer.parseInt(inputB);
+                    System.out.println(pg.min(a, b));
+                    return;
+                }
+
+                if (inputA.contains(".") && !inputB.contains(".")) {
+                    double a = Double.parseDouble(inputA);
+                    int b = Integer.parseInt(inputB);
+                    System.out.println(pg.min(a, b)); 
+                    return;
+                }
+
+                if (!inputA.contains(".") && inputB.contains(".")) {
+                    int a = Integer.parseInt(inputA);
+                    double b = Double.parseDouble(inputB);
+                    System.out.println(pg.min(a, b));
+                    return;
+                }
+
+                else {
+                    double a = Double.parseDouble(inputA);
+                    double b = Double.parseDouble(inputB);
+                    System.out.println(pg.min(a, b));
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\nInvalid input! Please enter numeric values only.");
+            }
+        }
+    }
+
+    static void defineInput_max () {
+        Program pg = new Program();
+        boolean valid = false;
+
+        while (!valid) {
+            System.out.print("\nEnter first number: ");
+            String inputA = sc.nextLine();
+
+            System.out.print("Enter second number: ");
+            String inputB = sc.nextLine();
+
+            // Try parsing both as double first
+            try {
+                if (!inputA.contains(".") && !inputB.contains("."))  {
+                    
+                    int a = Integer.parseInt(inputA);
+                    int b = Integer.parseInt(inputB);
+                    pg.max(a, b);
+                    return;
+                }
+
+                if (inputA.contains(".") && !inputB.contains(".")) {
+                    double a = Double.parseDouble(inputA);
+                    int b = Integer.parseInt(inputB);
+                    System.out.println(pg.max(a, b)); 
+                    return;
+                }
+
+                if (!inputA.contains(".") && inputB.contains(".")) {
+                    int a = Integer.parseInt(inputA);
+                    double b = Double.parseDouble(inputB);
+                    System.out.println(pg.max(a, b));
+                    return;
+                }
+
+                else {
+                    double a = Double.parseDouble(inputA);
+                    double b = Double.parseDouble(inputB);
+                    System.out.println(pg.max(a, b));
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\nInvalid input! Please enter numeric values only.");
+            }   
+        }
     }
 }

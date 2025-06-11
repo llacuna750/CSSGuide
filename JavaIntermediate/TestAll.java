@@ -202,10 +202,14 @@ public class TestAll {
                 Subclass = Dog
                 Superclass = Animal
             */
-            Dog d = new Dog();
-            System.out.println("\nThe Dog born of "+d.legs+" legs as Animal");
-            d.eat(); System.out.print("He can bark because Dog class inheriting the Animal class "); d.bark();
+            Dog dog = new Dog();
+            System.out.println("\nThe Dog born of "+dog.legs+" legs as Animal");
 
+            /* Subclass Dog is don't have eat method and bark method because of Inheritance / extends keyword he inherite that behavior
+            in the superclass. */ 
+            dog.eat(); System.out.print("He can bark because Dog class inheriting the Animal class "); dog.bark();
+
+            /*  If you declare constructor to the Subclass B you can initialize the protected access modifier attribute or method */
             B obj = new B();
             obj.setB("this is String private B gikan kay superclass Class A"); System.out.println(obj.getB()+"\n"+ obj.getA());
             
@@ -440,7 +444,7 @@ public class TestAll {
 
         while (!valid) {
             System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
-            System.out.println("11. The Inheritance \n12. thePolymorphism \n13. OverridingandOverloading \n14. theAbstract \n15. FloydsTriangle \n16. forloop-basic");
+            System.out.println("11. The Inheritance \n12. thePolymorphism \n13. Overriding and Overloading \n14. theAbstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n");
             
             System.out.print("Enter the following number: ");

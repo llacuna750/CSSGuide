@@ -27,9 +27,24 @@ package JavaIntermediate;
  */
 public class Myclass {
     public static void main(String[] args) {
-        System.out.println("\nHello Myclass");
-        
-        // TestAll.main(args);
-       
+        System.out.println("\nHello Myclass!\n");
+        TestAll.main(args);
+        int num = 5;
+        String symbol = "*";
+        int number = 1;
+
+        // Triangle Shape
+
+        // Outer
+        for (int i=num; i>=1; i-=1) {
+            System.out.println();
+
+            // Inner
+            for (int j=1; j<=i; j+=1) {
+                System.out.print(number+" ");
+                // System.out.print(symbol+" ");
+                number++;
+            }
+        }
     }
 }

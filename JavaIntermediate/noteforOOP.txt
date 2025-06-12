@@ -114,7 +114,7 @@ The static keyword is a non-access modifier used for methods and attributes. Sta
 There are 4 core concepts in OOP: encapsulation, inheritance, polymorphism, and abstraction.
 
 
-/*                                                    inheritance
+/*                                                                                                  inheritance
 ⚠️ Important Notes:
 * A protected attribute or method in a superclass can be accessed and initialized (or used) from a subclass, including inside the subclass constructor.
 * If you don't have any method in your subclass if implementing the inheritance you can do the method() in that superclass.
@@ -142,6 +142,7 @@ Example:
 
 
 /*                        Open this to show Information...                                            Polymorphism  
+
   Polymorphism, which refers to the idea of "having many forms", occurs when there is a hierarchy of classes related to each other through inheritance.
   additional: Same person can have different roles.
 
@@ -244,7 +245,8 @@ Example:
 
   - Any class that contains an abstract method should be defined as abstract.
 
-  An abstract method is a method that is declared without an implementation (without braces, and followed by a semicolon): abstract void walk();
+  An abstract method is a method that is declared without an implementation (without braces, and followed by a semicolon): 
+  example: abstract void walk();
 
 
   For example, we can define our Animal class as abstract:

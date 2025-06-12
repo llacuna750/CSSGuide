@@ -180,8 +180,8 @@ public class Choosespeci_Code extends TestAll {
     static void OverridingandOverloading () {
         System.out.println("\nOverriding method:");
         B obj = new B();
-        Cat c = new Cat();
-        c.makeSound();
+        // Cat c = new Cat();
+        // c.makeSound();
         boolean valid = false;
 
         /*  show info
@@ -401,28 +401,76 @@ public class Choosespeci_Code extends TestAll {
         System.out.printf("The factorial of %d is %,.2f%n",intput, gidouble);
 
         int update = intput;
-        int num = 5;
-        int y = update - 1;
+        int y = update - 1; // update * y - 1 = 4
+        // int y = update; // new Implementation: if x * y
+        // int x = 1; // new implementation
+        int resultRec = 0;
 
         System.out.println();
         // Outer for row ata
         for (int i=update; i>=1; i--) {
             // Inner loop for column ata
-            
+
             for (int h=1; h<=1; h++) {
-                int resultRec = update * y;
-                if (h <= num) {
-                    System.out.print(update+" * "+y+" = "+resultRec );
+                resultRec = update * y; // update * y - 1 = 4
+                // resultRec = x * y; // new Implementation: if x * y 
+
+                if (i == 1) { resultRec = update; } // new Implementation
+
+                if (i != 1) {
+                    // System.out.print(update+" * "+y+" = "+resultRec ); // Old
+                    System.out.print(update+" * "+y+" = "+resultRec ); // new: update * y - 1 = 4 
+                    // System.out.print(x+" * "+y+" = "+resultRec ); // if x * y
                 }
+                // if Implement the new Update
+                
+                update = resultRec; // new
                 y = y - 1;
-                update = resultRec;
+                // x = resultRec; // new implementation
+                
             }
-            System.out.println();
+            System.out.println((i == 1 ) ? "\nTotal: "+resultRec : "");
+            
         }
     }
 
     static void interfaceTestClass () {
+        // Ering Class is a Subclass and inheritted the abstract method from the superclass Interface class
         Ering siOranges = new Ering();
         siOranges.eat(); siOranges.makeSound();
+    }
+    static void type_Casting () {
+        System.out.println("\nType Casting");
+        /*                                                          Type Casting
+         * Assigning a value of one type to a variable of another type is known as Type
+         * Casting.
+         * 
+         * To cast a value to a specific type, place the type in parentheses and
+         * position it in front of the value.
+         * 
+         * Example:
+         */ 
+        
+        double a = 42.571;
+        int b = (int)a;
+
+        double x = -12.25;
+        double y = 2.65;
+        System.out.println(b);
+
+        TestAll t1 = new TestAll();
+        t1.sum_x_y((int)x, (int)y);
+        /*
+         * The code above is casting the value 3.14 to an integer, with 3 as the
+         * resulting value.
+         * 
+         * Another example:
+         * 
+         * Java supports automatic type casting of integers to floating points, since
+         * there is no loss of precision.
+         * 
+         * On the other hand, type casting is mandatory when assigning floating point
+         * values to integer variables.
+         */
     }
 }

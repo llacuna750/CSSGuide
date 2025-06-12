@@ -57,13 +57,13 @@ public class Program {
 
     // Combine double and int
     public double min (double a, int b) {
-        System.out.printf("%nMethod Overloaded with- %n1st parameter Double: %,.2f %n2nd parameter Integer: %d %n%nThe Minimum integer between %,.2f and %d is ",a, b, a, b);
+        System.out.printf("%nMethod Overloaded with- %n1st parameter Double: %,.2f %n2nd parameter Integer: %d %n%nThe Minimum number between %,.2f and %d is ",a, b, a, b);
         return (a < b) ? a : b;
     }
 
     // Combine Int and double
     public double min (int a, double b) {
-        System.out.printf("%nMethod Overloaded with- %n1st parameter Integer: %d %n2nd parameter Double: %,.2f %n%nThe Minimum integer between %d and %,.2f is ",a, b, a, b);
+        System.out.printf("%nMethod Overloaded with- %n1st parameter Integer: %d %n2nd parameter Double: %,.2f %n%nThe Minimum number between %d and %,.2f is ",a, b, a, b);
         return (a < b) ? a : b;                                                                                                                                      // a, b, a, b
     }
 }

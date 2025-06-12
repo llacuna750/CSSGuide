@@ -333,6 +333,18 @@ public class TestAll {
                 }
                 System.out.println();
             }
+
+            /*                                                        Type Casting*/
+            double a = 42.571;
+            int b = (int)a;
+
+            double xDouble = -12.25;
+            double yDouble = 2.65;
+            System.out.println(b);
+
+            TestAll t1 = new TestAll();
+            t1.sum_x_y((int)xDouble, (int)yDouble);
+
             sc.close();
         }
         else if (iChoose == 2) {
@@ -360,14 +372,48 @@ public class TestAll {
                 case 19: Minandmax.minandmaximum(); break;
                 case 20: Choosespeci_Code.interfaceTestClass(); break;
                 case 21: Choosespeci_Code.getFactorialRecurs(); break;
+                case 22: Choosespeci_Code.type_Casting(); break;
 
                 default: break;
             }
         }
         else {
-            System.out.println("\nBye thanks! \nExiting....");
+            System.out.println("\nBye thanks! \nExiting....\n");
         }
         sc.close();
+    }
+
+    static int checkifIntInput (Scanner scanner) {
+        System.out.println();
+        boolean valid = false;
+        int choose_number = 0;
+
+        while (!valid) {
+            System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
+            System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
+            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n");
+            
+            System.out.print("Enter the following number: ");
+            String input = scanner.nextLine();
+
+    		if (input.isBlank()) {
+                System.out.println("\nDon't leave it blank!\n");
+                continue; // pag about niya sa try - catch mo false na siya inig try
+            }
+
+            try {
+                choose_number = Integer.parseInt(input);
+                if (choose_number >= 0 && choose_number <= 22) {
+                    valid = true;
+                } else {
+                    System.out.println("\nEnter the following number only (0 up to 22).");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\nInvalid input. Please enter a number.\n");
+            }
+    	}
+
+        return choose_number;
     }
 
     static void Floydtriangle (String prompt, Scanner scanner) {
@@ -394,7 +440,6 @@ public class TestAll {
                 }
 
                 for (int i=1; i <= rows; i+=1) {
-                    
                     System.out.println();
                     for (int j=1; j<=i;) {
                         if (!choose.equals("1")) {
@@ -409,17 +454,9 @@ public class TestAll {
                     }
                 }
             }
-            else if
-            (choose.isEmpty()) {
-                System.out.println("Requiare to fill in the blanks.");
-            }
-            else if 
-            (!choose.matches("[a-z A-Z 0-9]+")) {
-                System.out.println("\nDon't put special characters.");
-            }
-            else {
-                System.out.println("\nEnter (1 or 2) only");
-            }
+            else if (choose.isEmpty()) { System.out.println("Requiare to fill in the blanks.");}
+            else if (!choose.matches("[a-z A-Z 0-9]+")) { System.out.println("\nDon't put special characters."); }
+            else { System.out.println("\nEnter (1 or 2) only"); }
         }
         System.out.println(); // System.out.print(number); // updated: 22
     }
@@ -469,40 +506,7 @@ public class TestAll {
         (currentYear - timeTravelledPast) result inside the parenthesis  is 10 
         */
     }
-
-    static int checkifIntInput (Scanner scanner) {
-        System.out.println();
-        boolean valid = false;
-        int choose_number = 0;
-
-        while (!valid) {
-            System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
-            System.out.println("11. The Inheritance \n12. thePolymorphism \n13. Overriding and Overloading \n14. theAbstract \n15. FloydsTriangle \n16. forloop-basic");
-            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n");
-            
-            System.out.print("Enter the following number: ");
-            String input = scanner.nextLine();
-
-    		if (input.isBlank()) {
-                System.out.println("\nDon't leave it blank!\n");
-                continue; // pag about niya sa try - catch mo false na siya inig try
-            }
-
-            try {
-                choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 21) {
-                    valid = true;
-                } else {
-                    System.out.println("\nEnter the following number only (0 up to 21).");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("\nInvalid input. Please enter a number.\n");
-            }
-    	}
-
-        return choose_number;
-    }
-
+    
     static int pick1to3 (Scanner scanner) {
         System.out.print("Enter the following to proceed: ");
         boolean valid = false;
@@ -589,5 +593,18 @@ public class TestAll {
 
     static int Factorecursive(int n) {
         return (n != 0) ? n *= Factorecursive(n - 1) : 1 ;
+    }
+
+    int sum_torial(int k) {
+        if (k > 0) {
+            // Recursive style its like factorial But it Sum method
+            return k + sum_torial(k - 1);
+        } else {
+            return 0;
+        }
+    }
+
+    void sum_x_y (int x, int y) {
+        System.out.println(x + y);
     }
 }

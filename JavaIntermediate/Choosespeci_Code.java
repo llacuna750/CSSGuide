@@ -440,7 +440,7 @@ public class Choosespeci_Code extends TestAll {
         siOranges.eat(); siOranges.makeSound();
     }
     static void type_Casting () {
-        System.out.println("\nType Casting");
+        System.out.println("\nType Casting\n");
         /*                                                          Type Casting
          * Assigning a value of one type to a variable of another type is known as Type
          * Casting.
@@ -460,17 +460,39 @@ public class Choosespeci_Code extends TestAll {
 
         TestAll t1 = new TestAll();
         t1.sum_x_y((int)x, (int)y);
+
         /*
-         * The code above is casting the value 3.14 to an integer, with 3 as the
-         * resulting value.
+         * Type Casting
+         * For classes, there are two types of casting.
          * 
-         * Another example:
+         * Upcasting
+         * You can cast an instance of a subclass to its superclass.
          * 
-         * Java supports automatic type casting of integers to floating points, since
-         * there is no loss of precision.
+         * Consider the following example, assuming that Cat is a subclass of Animal
          * 
-         * On the other hand, type casting is mandatory when assigning floating point
-         * values to integer variables.
+         * Animal cat = new Cat();
+         * 
+         * Java automatically upcasted the Cat type variable to the Animal type.
+         * 
+         * Downcasting
+         * Casting an object of a superclass to its subclass is called downcasting.
+         * 
+         * Example:
+         * 
+         * Animal a = new Cat();
+         * ((Cat)a).makeSound();
+         * 
+         * This will try to cast the variable a to the Cat type and call its makeSound()
+         * method.
+         * 
+         * Why is upcasting automatic, downcasting manual? Well, upcasting can never
+         * fail. But if you have a group of different Animals and want to downcast them
+         * all to a Cat, then there's a chance that some of these Animals are actually
+         * Dogs, so the process fails.
          */
+        System.out.println("\nType Casting: for classes");
+        A object = new B(); // Upcasting: A reference to a B object
+        B bb = (B) object; // Downcasting: back to B
+        bb.print(); // Calls B's print()
     }
 }

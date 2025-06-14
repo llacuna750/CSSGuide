@@ -373,6 +373,7 @@ public class TestAll {
                 case 20: Choosespeci_Code.interfaceTestClass(); break;
                 case 21: Choosespeci_Code.getFactorialRecurs(); break;
                 case 22: Choosespeci_Code.type_Casting(); break;
+                case 23: Programa.main(args);
 
                 default: break;
             }
@@ -391,7 +392,7 @@ public class TestAll {
         while (!valid) {
             System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
-            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n");
+            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes\n");
             
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -403,10 +404,10 @@ public class TestAll {
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 22) {
+                if (choose_number >= 0 && choose_number <= 23) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 22).");
+                    System.out.println("\nEnter the following number only (0 up to 23).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");

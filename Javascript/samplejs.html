@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample JS</title>
-
+    <link rel="shortcut icon" href="../images/js-favicon.png" type="image/x-icon">
     <style>
         .containerCard {border: 1px solid; padding: 5px; border-radius: 5px;}
 
@@ -50,7 +50,7 @@
         </div>
 
         <div class="sampleFruits" style="border: 1px solid; margin: 3px; border-radius: 5px;">
-            <p class="fruits">Banana</p>
+            <p class="fruits">Banana</p>   
             <p class="fruits">Orange</p>
             <p class="fruits">Watermelon</p>
             <p class="fruits">Mango</p>
@@ -76,8 +76,17 @@
             1000ms / 20 = 50ms 
             result = 50 millisecond 
             the millisecond of 20times per second is 50 ms
+
+            setinterval(rotate, 500);
+            setInterval Formula: 
+            1 Second === 1000 Millisecond
+
+            execute per Second or you can decrease the second to get faster:
+            the formula is: 1000milli * (1 - 0.50 = 0.50) = 500
+            so, the 0.50 second is 500 Millisecond
         */
-        // button start
+
+        // Button start
         let startClick = document.getElementById(`clickstart`);
         let startCount = document.getElementById(`startcount`);
 
@@ -121,16 +130,64 @@
 
         //class fruits array
         let classFruits = document.getElementsByClassName("fruits");
+        let Banana = classFruits[0].innerHTML;
+
+        console.log(`${classFruits[0].innerText}\n\n`); // Test if it works
+        console.log(`This is ${Banana}\n\n`);
+
+        // Object.assign(classFruits.style, {
+        //     // display: `inline-block`,
+        //     // position: `fixed`,
+        //     // top: `0`,
+        //     // left: `0`,
+        //     // width: `100%`,
+        //     // height: `100%`,
+        //     // backgroundColor: `rgba(0, 0, 0, 0.9)`,
+        //     color: `green`,
+        //     display: `flex`,
+        //     justifyContent: `center`,
+        //     alignItems: `center`,
+        //     // zindex: `9999`,
+        // });
+
+        Array.from(classFruits).forEach(fruit => {
+                fruit.style.backgroundColor = `red`;
+                fruit.style.color = `cyan`;
+                fruit.style.textAlign = `center`;
+                fruit.style.width = `100px`;
+                fruit.style.marginLeft = `10px`;
+                fruit.style.borderRadius = "5px";
+        });
+
         for (let i=0; i<classFruits.length; i++) {
             console.log(classFruits[i].innerHTML);
             classFruits[i].addEventListener("click", move1);
+            // classFruits[0].addEventListener("click", move1);
+            // classFruits[1].addEventListener("click", move1);
+            // classFruits[2].addEventListener("click", move1);
+            // classFruits[3].addEventListener("click", move1);
+
+            let myFruits = classFruits[2].innerHTML;
+            // console.log(myFruits);
 
             function move1 (event) {
-                console.log(`You click one of the fruits`);
+                // 0 Banana
+                // 1 Orange
+                // 2 Watermelon
+                // 3 Mango
+                const fruitName = event.target.innerText;
+                // classFruits[0].addEventListener("click", () => {
+                    // console.log(`You clicked the ${classFruits[event].innerText} fruit`); // Wrong
+                    // console.log(`You clicked the ${event.target.innerText} fruit`);
+                    console.log(`You clicked the ${fruitName} fruit`);
+                // });
+                
                 let position = Number(event.target.style.left);
-                let target = position + 300;
+                console.log(`Starting position: ${position}`);
+                let target = position + 300; // 300
 
-                let movement = setInterval(animate, 50);
+                // let movement = setInterval(animate, 50);
+                let movement = setInterval(animate, 500);
 
                 function animate () {
                     if (position < target) {
@@ -139,6 +196,7 @@
                         console.log(position);
                     }
                     else {
+                        console.log(`End position: ${position}`);
                         console.log(`You remove EventListener moveME function`);
                         clearInterval(movement);
                     }
@@ -160,7 +218,7 @@
                 if (num > 1){
                     clearInterval(timer);
                 } else {
-                    num = num + 0.01;
+                    num = num + 0.0002;
                     object.style.opacity = num;
                 }
             }

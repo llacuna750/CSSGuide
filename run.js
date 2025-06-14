@@ -80,5 +80,25 @@ console.log("\n"+ (5 == "5"));     // true   (coerces the string to number)
 console.log(0 == false);   // true   (coerces false to 0)
 console.log(null == undefined); // true
 
+console.log(`2`+2+`2`+`\n`);
 
-console.log(`2`+2+`2`);
+setTimeout(function () {
+  console.log("This message is displayed after 2 seconds");
+}, 2000);
+
+function showMessage() {
+  console.log("This message is displayed after 3 seconds");
+}
+
+setTimeout(showMessage, 3000);
+
+// setTimeOut executed once
+// setInterval executed repeatedly
+let timeoutID = setTimeout(function () {
+  console.log("This message will not be displayed");
+}, 4000);
+clearTimeout(timeoutID);
+
+
+var pi = Math.PI;
+// console.log(pi);

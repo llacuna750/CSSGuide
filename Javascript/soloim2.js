@@ -70,6 +70,8 @@ function grantedorNot() {
   }
 }
 
+
+// More on the DOM
 let correctPass = document.getElementById("pass1").value;
 console.log(correctPass);
 let display = document.getElementById("result"); // reference the display container
@@ -154,6 +156,7 @@ while (swapped) {
 
 console.log("Sorted array:", number);
 
+// Bubble sort na wa nahuman
 // console.log(number[6] != 15);
 
 // console.log(number);
@@ -191,6 +194,7 @@ console.log("Sorted array:", number);
 let btn = document.createElement("button");
 console.log(btn);
 
+// Creating Elements
 function addSpan() {
   let container = document.getElementById(`container`);
   let newSpan = document.createElement(`span`);
@@ -199,12 +203,14 @@ function addSpan() {
   container.appendChild(newSpan);
 }
 
+// Removing and Replacing Elements
 function removeBubble() {
   let box = document.getElementById(`box`);
   let bubble = document.getElementById(`bubble`);
   box.removeChild(bubble);
 }
 
+// Events 1
 function inMouse(x) {
   x.style.backgroundColor = "green";
   console.log(`In`);
@@ -395,8 +401,22 @@ function replaceButton() {
   containerReplaceButton.replaceChild(newButton, oldButton);
 }
 
-// Timers
-// setinterval(rotate, 500);
+/* Timers
+  to calculate the Ms to second 
+  1000ms = 1second
+  if you want 20times per second just do this formula
+  1000ms / 20 = 50ms 
+  result = 50 millisecond 
+  the millisecond of 20times per second is 50 ms
+
+ setinterval(rotate, 500);
+  setInterval Formula: 
+  1 Second === 1000 Millisecond
+
+  execute per Second or you can decrease the second to get faster:
+  the formula is: 1000milli * (1 - 0.50 = 0.50) = 500
+  so, the 0.50 second is 500 Millisecond
+ */
 let seconds = 0;
 const timerDisplay = document.getElementById("timer");
 
@@ -512,6 +532,7 @@ window.onload = function () {
   };
 };
 
+// Indexing and Traversing
 let colors = ["red", "green", "blue"];
 
 console.log(colors); // ['red', 'green', 'blue']
@@ -691,11 +712,15 @@ buttonPlay.addEventListener("click", playSlamDunk);
 
 function playSlamDunk() {
   console.log(`You play Slamdunk!`);
+
   cover.style.display = "none"; // Hide the cover
+
   myball.style.display = "block"; // Show the ball
-  slamDunk.play();
-  // the position of the ball
+
+  slamDunk.play(); // the position of the ball
+
   let pussytionUpandDown = 0; // Starting or Initial position
+
   // Button UP
   buttonUp.onmousedown = () => {
     let intervalId = setInterval(() => {
@@ -703,15 +728,18 @@ function playSlamDunk() {
         add10 = pussytionUpandDown += 1; // Move
         myball.style.bottom = add10 + "px"; // Move up
         // console.log(`Moving Up by:  ${pussytionUpandDown}px`);
-      } else if (pussytionUpandDown <= 52 && pussytionUpandDown > 50) {
+      } 
+      else if (pussytionUpandDown <= 52 && pussytionUpandDown > 50) {
         add10 = pussytionUpandDown += 0.5; // Move
         myball.style.bottom = add10 + "px"; // Move up
         // console.log(`Moving Up: ${pussytionUpandDown}px`);
         // console.log(`Can't move up anymore!`);
-      } else if (pussytionUpandDown >= 52.5) {
+      } 
+      else if (pussytionUpandDown >= 52.5) {
         add10 = pussytionUpandDown += 0;
         // console.log(`Try other buttons!`);
-      } else {
+      } 
+      else {
         let add10 = (pussytionUpandDown += 10); // Move
         myball.style.bottom = add10 + "px"; // Move up
         // console.log(`Moving Up: ${pussytionUpandDown}px`);

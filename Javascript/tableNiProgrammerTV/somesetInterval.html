@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The Window Object</h1>
+<h2>The setInterval() Method</h2>
+
+<p id="demo"></p>
+<h3>Count: <span id="count">0</span></h3>
+
+
+    <script>
+        const element = document.getElementById("demo");
+        const count = document.getElementById("count");
+        
+        //function() {element.innerHTML += "Hello"}
+        let stopSetInterval = setInterval(createHTMLview , 1000);
+        let num = 0;
+        // let stop = clearInterval(stopSetInterval);
+        
+        function createHTMLview () {
+            element.innerHTML += " Hello Gab";
+            count.innerHTML = (num == 10) ? "Gwapo ko" : num;
+            num++;
+
+            if (num > 13) {
+                clearInterval(stopSetInterval);
+            }
+
+        }
+    </script>
+
+</script>
+</body>
+</html>

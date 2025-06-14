@@ -30,7 +30,7 @@ public class Myclass {
         System.out.println("\nHello Myclass!\n");
         TestAll.main(args);
         int num = 5;
-        String symbol = "*";
+        // String symbol = "*";
         int number = 1;
 
         // Triangle Shape

@@ -134,8 +134,8 @@ public class TestAll {
             // System.out.println("\n"+m);
 
             MathguideClass mathG = new MathguideClass();
-            String answer = sc.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
-            mathG.openMathClassorNot(answer);
+            // String answer = sc.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
+            mathG.openMathClassorNot(sc);
 
             /*                                                                                                       Static*/
             BromWannaride.horn();
@@ -203,13 +203,15 @@ public class TestAll {
                 Superclass = Animal
             */
             Dog dog = new Dog();
-            System.out.println("\nThe Dog born of "+dog.legs+" legs as Animal");
+            String spaces = "-".repeat(30); // Java 11+
+            System.out.println("\n"+spaces+"Inheritance"+spaces+"\nThe Dog born of "+dog.legs+" legs as Animal");
 
             /* Subclass Dog is don't have eat method and bark method because of Inheritance / extends keyword he inherite that behavior
             in the superclass. */ 
-            dog.eat(); System.out.print("He can bark because Dog class inheriting the Animal class "); dog.bark();
+            dog.eat(); System.out.print("The dog can "); dog.bark(); System.out.print("-after inheriting the Animal parent class");
 
             /*  If you declare constructor to the Subclass B you can initialize the protected access modifier attribute or method */
+            System.out.println("\n  \n"+spaces+"Inheritance Constructor"+spaces);
             B obj = new B();
             obj.setB("this is String private B gikan kay superclass Class A"); System.out.println(obj.getB()+"\n"+ obj.getA());
             
@@ -246,15 +248,17 @@ public class TestAll {
             Now, we can call the makeSound() methods.
 
             */
+            System.out.println("\n"+spaces+"Polymorphism"+spaces);
             Animal cat = new Cat();
             Animal cow = new Cow();
-            System.out.println();cat.makeSound();
-            cow.makeSound();
+            System.out.println();cat.makeSound(); // same method makesound() but different Animal
+            cow.makeSound(); 
 
             /* Open this to show Information...                                             Overriding & Overloading
                 
             As we saw in the previous lesson, a subclass can define a behavior that's specific to the subclass type, meaning that a subclass can implement a parent class method based on its requirement.
             This feature is known as method overriding.  */
+            System.out.println("\n" + spaces + "Overriding" + spaces);
             Cat c = new Cat();
             c.makeSound();
 
@@ -282,31 +286,37 @@ public class TestAll {
             An overloaded method must have a different argument list; the parameters should differ in their type, number, or both.
             Another name for method overloading is compile-time polymorphism.
             */
+            System.out.println("\n" + spaces + "Overriding & Overloading" + spaces);
             Program pg = new Program();
             System.out.println("\nOverloading: max method int parameter "+pg.max( 5,10 ));
             System.out.println("Overloading: max method Double parameter "+pg.max(1.3, 5.2));
 
-            obj.doSomething();
+            obj.doSomething();  
 
-            /* Read information                                                                    Abstract
+            /*    Abstraction
+                    Read information                                                                    Abstract
             */
+            System.out.println("\n" + spaces + "Abstraction" + spaces);
             Shape myRectangle = new Rectange();
             Shape myCircle = new Circle();
             myRectangle.draw();
             myCircle.draw();
             
-            /*                                                                                 Floyd's Triangle
+            /*                                         Floyd's Triangle
                 1
                 1 2 
                 3 4 5
                 6 7 8 9
             */
+            System.out.println("\n" + spaces + "Floydtrianlge" + spaces);
             Floydtriangle("\nEnter rows: ",sc);
 
+            System.out.println("\n" + spaces + "Interface" + spaces);
             Ering siOranges = new Ering();
             siOranges.eat(); siOranges.makeSound();
 
-             // Factorial 
+            // Factorial 
+            System.out.println("\n" + spaces + "Factorial" + spaces);
             System.out.print("\nEnter a number to get the factorial: ");
             int intput = sc.nextInt();
             double gidouble = (double)Factorecursive(intput);
@@ -335,6 +345,8 @@ public class TestAll {
             }
 
             /*                                                        Type Casting*/
+            System.out.println("\n" + spaces + "Type Casting" + spaces);
+            sc.nextLine();
             double a = 42.571;
             int b = (int)a;
 
@@ -345,7 +357,109 @@ public class TestAll {
             TestAll t1 = new TestAll();
             t1.sum_x_y((int)xDouble, (int)yDouble);
 
-            sc.close();
+            int pick = Programa.pick1to3(sc);
+            if (pick != 2) {
+                Machine m = new Machine() {
+                    @Override
+                    public void start() {
+                        System.out.println("Wooooo");
+                    }
+                };
+                System.out.println("\nAnnonymous Class \n");
+                m.start();
+            }
+
+            /*
+             * Inner Classes
+             * Java supports nesting classes; a class can be a member of another class.
+             * 
+             * Creating an inner class is quite simple. Just write a class within a class.
+             * Unlike a class, an inner class can be private. Once you declare an inner
+             * class private, it cannot be accessed from an object outside the class.
+             * 
+             * Example:
+             */
+            if (pick != 1) {
+                Robot r = new Robot(3);
+                System.out.println("\nInner Class\nAssign the id. \nid = " + r.id);
+            }
+            /*
+             * Hashcode Calculator
+             * 🧮 Example:
+             * "Cat".hashCode() is calculated by the built-in Java formula:
+             
+             */
+
+            /*  The equals() method
+             * Comparing Objects
+             * Remember that when you create objects, the variables store references to the
+             * objects.
+             * 
+             * So, when you compare objects using the equality testing operator (==), it
+             * actually compares the references and not the object values.
+             * 
+             * Example:
+             * 
+             * Despite having two objects with the same name, the equality testing returns
+             * false, because we have two different objects (two different references or
+             * memory locations).
+             * class A {
+             * 
+             * private int x;
+             * 
+             * public static void main(String[ ] args) {
+             * 
+             * A a = new A();
+             * 
+             * a.x = 5;
+             * 
+             * A b = new A();
+             * 
+             * b.x = 5;
+             * 
+             * System.out.println(a == b);
+             * 
+             * }
+             * 
+             * }
+             */
+            Animalqa a1 = new Animalqa("Robby");
+            Animalqa a2 = new Animalqa("Robby");
+            Animalqa a3 = new Animalqa("Razeyt");
+            System.out.println(a1.equals(a2));
+
+            double a1Update = (double) a1.hashCode();
+            System.out.printf("%s = %,.2f%n", (a1.name), a1Update);
+
+            System.out.println(a2.hashCode());
+            System.out.println(a3.hashCode());
+            System.out.println((int) 'a');
+
+            /*   The automatically generated hashCode() method is used to determine where to
+             * store the object internally. Whenever you implement equals, you MUST also
+             * implement hashCode.
+             * 
+             * We can run the test again, using the equals method:
+             */
+            String[] letters = a1.name.split(""); // splits each character
+            // Alternatively, if you use a char[]:
+            // char[] letters = word.toCharArray();
+
+            System.out.println(letters);
+            System.out.println("a1 length: " + a1.name.length()); // 5
+
+            for (int i = 0; i < letters.length; i++) {
+                char cya = letters[i].charAt(0);
+                System.out.println("The ASCII and Unicode of " + letters[i] + " is " + (int) cya);
+            }
+            System.out.println((int) 'A'); // So 'A' is 65 in both ASCII and Unicode.
+
+            A ah = new A();
+            ah.setX(6);
+
+            A be = new A();
+            be.setX(6);
+            System.out.println(ah.equals(be));
         }
         else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
@@ -373,7 +487,9 @@ public class TestAll {
                 case 20: Choosespeci_Code.interfaceTestClass(); break;
                 case 21: Choosespeci_Code.getFactorialRecurs(); break;
                 case 22: Choosespeci_Code.type_Casting(); break;
-                case 23: Programa.main(args);
+                case 23: Programa.main(args); break;
+                case 24: hashcodeChecker(sc); break;
+                case 25: Choosespeci_Code.The_equals_method(); break;
 
                 default: break;
             }
@@ -381,7 +497,6 @@ public class TestAll {
         else {
             System.out.println("\nBye thanks! \nExiting....\n");
         }
-        sc.close();
     }
 
     static int checkifIntInput (Scanner scanner) {
@@ -392,7 +507,8 @@ public class TestAll {
         while (!valid) {
             System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
-            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes\n");
+            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
+            System.out.println("24. hashCode Calculator \n25. The equals() method \n");
             
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -404,10 +520,10 @@ public class TestAll {
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 23) {
+                if (choose_number >= 0 && choose_number <= 25) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 23).");
+                    System.out.println("\nEnter the following number only (0 up to 25).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -536,6 +652,7 @@ public class TestAll {
 
         return choose_number;
     }
+    
     static int zeroTounli_sqroot (Scanner scanner) {
         boolean valid = false;
         int choose_number = 0;
@@ -606,6 +723,45 @@ public class TestAll {
     }
 
     void sum_x_y (int x, int y) {
-        System.out.println(x + y);
+        System.out.println(x + y);System.out.println();
+    }
+
+    static void hashcodeChecker(Scanner sc) {
+        boolean valid = false;
+
+        while (!valid) {
+            System.out.print("\nType a word to calculate hashCode: ");
+            // sc.nextLine();
+
+            if (!sc.hasNextLine()) {
+                System.out.println("No input found. Exiting...");
+                return;
+            }
+
+            String myWord = sc.nextLine();
+
+            if (myWord.isBlank()) {
+                System.out.println("\nDon't leave it blank!");
+                continue;
+            }
+
+            if (myWord.matches("[a-zA-Z]+")) {
+                char[] letters = myWord.toCharArray();
+                System.out.println("\nNumber length of "+myWord+" = "+letters.length+"\n");
+
+                for (char c : letters) {
+                    System.out.println("The ASCII and Unicode of '" + c + "' = " + (int) c);
+                }
+
+                System.out.println("\nJava hashCode of \"" + myWord + "\" is: " + myWord.hashCode());
+                valid = true;
+            } else {
+                System.out.println("\nInvalid input. Only alphabetic characters are allowed.");
+            }
+        }
+    }
+
+    static void getExponentofaNum () {
+
     }
 }

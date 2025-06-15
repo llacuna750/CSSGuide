@@ -13,7 +13,9 @@ public class Choosespeci_Code extends TestAll {
     }
 
     static void Animalclass () {
-        Animal animal = new Animal(); // Animal class
+        // Animal animal = new Animal(); // Animal class
+        // animal.bark();
+        Animal animal = new Animal(); // Pass required argument(s) to Animal constructor
         animal.bark();
 
         Prinftformat pformat = new Prinftformat(); // Prinftformat
@@ -130,8 +132,8 @@ public class Choosespeci_Code extends TestAll {
         // System.out.println("\n"+m);
 
         MathguideClass mathG = new MathguideClass();
-        String answer = sc.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
-        mathG.openMathClassorNot(answer);
+        // String answer = sc.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
+        mathG.openMathClassorNot(sc);
     }
 
     static void the_Static () {
@@ -434,11 +436,13 @@ public class Choosespeci_Code extends TestAll {
         }
     }
 
+    // interface Animel
     static void interfaceTestClass () {
         // Ering Class is a Subclass and inheritted the abstract method from the superclass Interface class
         Ering siOranges = new Ering();
         siOranges.eat(); siOranges.makeSound();
     }
+
     static void type_Casting () {
         System.out.println("\nType Casting\n");
         /*                                                          Type Casting
@@ -494,5 +498,38 @@ public class Choosespeci_Code extends TestAll {
         A object = new B(); // Upcasting: A reference to a B object
         B bb = (B) object; // Downcasting: back to B
         bb.print(); // Calls B's print()
+    }
+    static void The_equals_method () {
+        Animalqa a1 = new Animalqa("Robby");
+        Animalqa a2 = new Animalqa("Robby");
+        Animalqa a3 = new Animalqa("Razeyt");
+        System.out.println(a1.equals(a2));
+
+        double a1Update = (double) a1.hashCode();
+        System.out.printf("%s = %,.2f%n", (a1.name), a1Update);
+
+        System.out.println(a2.hashCode());
+        System.out.println(a3.hashCode());
+        System.out.println((int) 'a');
+
+        String[] letters = a1.name.split(""); // splits each character
+        // Alternatively, if you use a char[]:
+        // char[] letters = word.toCharArray();
+
+        System.out.println(letters);
+        System.out.println("a1 length: " + a1.name.length()); // 5
+
+        for (int i = 0; i < letters.length; i++) {
+            char cya = letters[i].charAt(0);
+            System.out.println("The ASCII and Unicode of " + letters[i] + " is " + (int) cya);
+        }
+        System.out.println((int) 'A'); // So 'A' is 65 in both ASCII and Unicode.
+
+        A a = new A();
+        a.setX(6);
+
+        A b = new A();
+        b.setX(6);
+        System.out.println(a.equals(b));
     }
 }

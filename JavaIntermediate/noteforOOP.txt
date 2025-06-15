@@ -115,6 +115,55 @@ There are 4 core concepts in OOP: encapsulation, inheritance, polymorphism, and 
 
 
 /*                                                                                                  inheritance
+✅ What is Inheritance?
+Inheritance is a mechanism where one class (child/subclass) can reuse the properties and methods of another class (parent/superclass).
+
+🔁 Inheritance promotes code reusability and establishes an "is-a" relationship.
+
+🧠 Real-Life Analogy
+Think of it like this:
+
+Animal is a general class.
+
+Dog is a specific type of Animal.
+
+Dogs inherit characteristics like "breathing", "eating", and "moving" from Animal, but they can also have their own unique behaviors like "bark".
+
+🔹 Superclass (Parent)
+class Animal {
+    public void eat() {
+        System.out.println("This animal eats food.");
+    }
+
+    public void sleep() {
+        System.out.println("This animal sleeps.");
+    }
+}
+
+🔹 Subclass (Child)
+class Dog extends Animal {
+    public void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+🔹 Main Method to Run It
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+
+        myDog.eat();   // inherited from Animal
+        myDog.sleep(); // inherited from Animal
+        myDog.bark();  // defined in Dog
+    }
+}
+
+🖨️ Output:
+This animal eats food.
+This animal sleeps.
+The dog barks.
+
+
 ⚠️ Important Notes:
 * A protected attribute or method in a superclass can be accessed and initialized (or used) from a subclass, including inside the subclass constructor.
 * If you don't have any method in your subclass if implementing the inheritance you can do the method() in that superclass.
@@ -258,6 +307,7 @@ Example:
 
   The makeSound() method is also abstract, as it has no implementation in the superclass.
 
+
   We can inherit from the Animal class and define the makeSound() method for the subclass:
 
 
@@ -305,3 +355,4 @@ Example:
 
   When you implement an interface, you need to override all of its methods.
 */
+

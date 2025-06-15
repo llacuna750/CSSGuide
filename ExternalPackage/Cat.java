@@ -1,6 +1,6 @@
 package ExternalPackage;
 
-import JavaIntermediate.Animal;
+import JavaIntermediate.*;
 
 public class Cat extends Animal {
 
@@ -9,4 +9,8 @@ public class Cat extends Animal {
         // System.out.println(meow);
         System.out.println("Meow");
     }
+
+    // public Cat () {
+    //     super("Meower"); // Call the appropriate Animal constructor with a name argument
+    // }
 }

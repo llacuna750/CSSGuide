@@ -1,13 +1,13 @@
 package ExternalPackage;
 
-public
-class A {
+public class A {
     protected String a;
     private String b;
+    private int x;
 
     /* Contructor Class A */
     public A() {
-        System.out.println("\nNew A");
+        System.out.println("\nNew A (im from class A as Base Class im declared inside a Constructor and Im not direcly Insantiated)");
     }
 
     // Getters
@@ -18,6 +18,12 @@ class A {
     public void setB(String b) {
         this.b = b;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return ((A) obj).x == this.x;
+    }
+
     // Getters for protected a
     public String getA() {
         return a;
@@ -37,5 +43,9 @@ class A {
     /* With parameter dosomething() method */
     public void doSomething(String str) {
         System.out.println(str);
+    }
+
+    public void setX(int x) {
+        this.x = x;
     }
 }

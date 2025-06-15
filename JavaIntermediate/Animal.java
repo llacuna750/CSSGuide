@@ -1,6 +1,7 @@
 package JavaIntermediate;
 
 public class Animal {
+  String name;
   protected int legs;
   
   public void eat() {
@@ -15,4 +16,8 @@ public class Animal {
     // System.out.println(grrr);
     System.out.println("Grr...");
   }
+
+  // public Animal (String n) {
+  //   name = n;
+  // }
 }

@@ -1,0 +1,25 @@
+Type a word to calculate hashCode: Robby
+The ASCII and Unicode of 'R' = 82
+The ASCII and Unicode of 'o' = 111
+The ASCII and Unicode of 'b' = 98
+The ASCII and Unicode of 'b' = 98
+The ASCII and Unicode of 'y' = 121
+
+s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
+
+82 * 923,521 = 75,728,722
+111 * 29,791 = 3,306,801
+98 * 961 = 94,178
+98 * 31 = 3,038
+121 = 121
+
+final int prime = 31;
+int result = 1;
+result = prime * result + 79,132,860
+final result = 79,132,891
+return result;
+
+
+
+
+

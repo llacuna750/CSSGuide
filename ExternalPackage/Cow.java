@@ -7,4 +7,8 @@ public class Cow extends Animal {
         System.out.println(mooo);
         System.out.println("Mooo...");
     }
+
+    // public Cow() {
+    //     super("cow"); // Call the Animal constructor with the required argument
+    // }
 }

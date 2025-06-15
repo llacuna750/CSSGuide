@@ -32,13 +32,13 @@ class MathguideClass {
         System.out.printf(ans == z ? "\nCongratulations! %nYou got the correct answer %,.2f\n" : "Wrong %nthe correct asnwer is: %,.2f", z);
     }
 
-    void openMathClassorNot(String answer) {
+    void openMathClassorNot(Scanner myAnswer) {
         boolean continueThis = true;
         boolean valid = false;
 
         while (!valid) {
             System.out.println("\nShow Math-Class? (yes or no?) ");
-            answer = sc.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
+            String answer = myAnswer.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
             // sc.nextLine();
             
             if ("yes".equalsIgnoreCase(answer) || ("y".equalsIgnoreCase(answer) || "ye".equalsIgnoreCase(answer))) { 

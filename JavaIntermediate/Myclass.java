@@ -1,8 +1,8 @@
 package JavaIntermediate;
-// import java.util.*;
+// import java.util.;
 
 
-// import ExternalPackage.*; // uses wild Card to import all classes in a package.
+// import ExternalPackage.; // uses wild Card to import all classes in a package.
 // import ExternalPackage.Persona;
 // import ExternalPackage.BromWannaride;
 // import some.other.package.Javainter;
@@ -25,12 +25,17 @@ package JavaIntermediate;
     protected: Provides the same access as the default access modifier, with the addition that subclasses can access protected methods and variables of the superclass (Subclasses and superclasses are covered in upcoming lessons).
 
     private: Accessible only within the declared class itself.
- */
+*/
 public class Myclass {
     public static void main(String[] args) {
         System.out.println("\nHello Myclass!\n");
         TestAll.main(args);
-
         
+        Card a1 = new Valentine("Gabriel", 14);
+        Card a2 = new Holiday();
+        Card a3 = new Birthday();
+        a1.sendCard();
+        a2.sendCard();
+        a3.sendCard();
     }
 }

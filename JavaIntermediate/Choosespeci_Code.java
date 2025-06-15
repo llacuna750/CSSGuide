@@ -1,6 +1,7 @@
 package JavaIntermediate;
 import java.util.Scanner;
 import ExternalPackage.*;
+import JavaIntermediate.Programa.Rank;
 
 public class Choosespeci_Code extends TestAll {
     static Scanner sc = new Scanner(System.in);
@@ -211,6 +212,9 @@ public class Choosespeci_Code extends TestAll {
             Another name for method overloading is compile-time polymorphism.
             */
         // Program pg = new Program();
+        System.out.println("\nOverloading method:");
+        A object = new A();
+        System.out.print("\nBunos: method Overloading -> ");object.print(20); // You can Enter no Parameter, String, int
 
         Program.forLoopTarget();
         obj.doSomething();
@@ -531,5 +535,14 @@ public class Choosespeci_Code extends TestAll {
         A b = new A();
         b.setX(6);
         System.out.println(a.equals(b));
+    }
+    static void Enum () {
+        Rank a_gay = Rank.SOLDIER;
+            switch (a_gay) {
+            case SOLDIER: System.out.println("Soldier says hi!"); break;
+            case SERGEANT: System.out.println("Sergeant says Hello!"); break;
+            case CAPTAIN: System.out.println("Captain says Welcome!"); break;
+            default: break;
+        }
     }
 }

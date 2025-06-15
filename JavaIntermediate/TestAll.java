@@ -2,6 +2,7 @@ package JavaIntermediate;
 import java.util.Scanner;
 
 import ExternalPackage.*;
+import JavaIntermediate.Programa.Rank;
 
 public class TestAll {
     public static void main(String[] args) {
@@ -309,7 +310,7 @@ public class TestAll {
                 6 7 8 9
             */
             System.out.println("\n" + spaces + "Floydtrianlge" + spaces);
-            Floydtriangle("\nEnter rows: ",sc);
+            Floydtriangle("\nEnter rows for Floydtrianlge: ",sc);
 
             System.out.println("\n" + spaces + "Interface" + spaces);
             Ering siOranges = new Ering();
@@ -380,11 +381,11 @@ public class TestAll {
              * Example:
              */
             if (pick != 1) {
+                System.out.println("\nInside a Robot Class have a inner-class Brain");
                 Robot r = new Robot(3);
                 System.out.println("\nInner Class\nAssign the id. \nid = " + r.id);
             }
-            /*
-             * Hashcode Calculator
+            /* Hashcode Calculator
              * 🧮 Example:
              * "Cat".hashCode() is calculated by the built-in Java formula:
              
@@ -423,6 +424,7 @@ public class TestAll {
              * 
              * }
              */
+            System.out.println("\n" + spaces + "Equals-method" + spaces+"\n");
             Animalqa a1 = new Animalqa("Robby");
             Animalqa a2 = new Animalqa("Robby");
             Animalqa a3 = new Animalqa("Razeyt");
@@ -460,6 +462,94 @@ public class TestAll {
             A be = new A();
             be.setX(6);
             System.out.println(ah.equals(be));
+
+            /*  Enums
+                An Enum is a special type used to define collections of constants.
+                
+                Here is a simple Enum example:
+                enum Rank {
+                SOLDIER,
+                SERGEANT,
+                CAPTAIN
+                }
+                
+                Note that the values are comma-separated.
+                
+                You can refer to the constants in the enum above with the dot syntax.
+                
+                Rank a = Rank.SOLDIER;
+                
+                Basically, Enums define variables that represent members of a fixed set.
+                
+                
+                After declaring an Enum, we can check for the corresponding values with, for
+                example, a switch statement.
+                
+                Rank a = Rank.CAPTAIN;
+                switch (a) {
+                case SOLDIER:
+                    System.out.println("Soldier says hi!");
+                    break;
+                case SERGEANT:
+                    System.out.println("Sergeant says Hello!");
+                    break;
+                case CAPTAIN:
+                    System.out.println("Captain says Welcome!");
+                    break;
+                default:
+                    break;
+                }
+                
+                You should always use Enums when a variable (especially a method parameter)
+                can only take one out of a small set of possible values.
+                
+                If you use Enums instead of integers (or String codes), you increase
+                compile-time checking and avoid errors from passing in invalid constants, and
+                you document which values are legal to use.
+                
+                
+                Some sample Enum uses include month names, days of the week, deck of cards,
+                etc.
+            */
+            System.out.println("\n" + spaces + "Enums" + spaces);
+            Rank a_gay = Rank.SOLDIER;
+            switch (a_gay) {
+                case SOLDIER: System.out.println("Soldier says hi!"); break;
+                case SERGEANT: System.out.println("Sergeant says Hello!"); break;
+                case CAPTAIN: System.out.println("Captain says Welcome!"); break;
+                default: break;
+            }
+            System.out.println("\n" + spaces + "Using the Java API" + spaces);
+            /*
+             * Java API
+             * The Java API is a collection of classes and interfaces that have been written
+             * for you to use.
+             * 
+             * The Java API Documentation with all of the available APIs can be located on
+             * the Oracle website at
+             * 
+             * http://docs.oracle.com/javase/7/docs/api/
+             * 
+             * Once you locate the package you want to use, you need to import it into your
+             * code.
+             * 
+             * The package can be imported using the import keyword.
+             * 
+             * For example:
+             * import java.awt.*;
+             * 
+             * The awt package contains all of the classes for creating user interfaces and
+             * for painting graphics and images.
+             * 
+             * The wildcard character (*) is used to import all of the classes in the
+             * package.
+             */
+            System.out.println(
+                    "Java API \n\nThe Java API is a collection of classes and interfaces that have been written for you to use. \n\nThe Java API Documentation with all of the available APIs can be located on the Oracle website at http://docs.oracle.com/javase/7/docs/api/\n");
+            System.out.println(
+                    "Once you locate the package you want to use, you need to import it into your code. \n\nThe package can be imported using the import keyword.  For example: \nimport java.awt.*; \n");
+            System.out.println(
+                    "The awt package contains all of the classes for creating user interfaces and for painting graphics and images. \nThe wildcard character (*) is used to import all of the classes in the package.");
         }
         else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
@@ -490,6 +580,7 @@ public class TestAll {
                 case 23: Programa.main(args); break;
                 case 24: hashcodeChecker(sc); break;
                 case 25: Choosespeci_Code.The_equals_method(); break;
+                case 26: Choosespeci_Code.Enum(); break;
 
                 default: break;
             }
@@ -508,7 +599,7 @@ public class TestAll {
             System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
-            System.out.println("24. hashCode Calculator \n25. The equals() method \n");
+            System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n");
             
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -520,10 +611,10 @@ public class TestAll {
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 25) {
+                if (choose_number >= 0 && choose_number <= 26) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 25).");
+                    System.out.println("\nEnter the following number only (0 up to 26).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");

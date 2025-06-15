@@ -48,4 +48,20 @@ public class A {
     public void setX(int x) {
         this.x = x;
     }
+    
+    // Kind of Method Overloading
+    public void print() {
+        System.out.println("no Parameter");
+    }
+
+    public void print(String str) {
+        System.out.println("You call print() method as String parameter with "+str+"\n");
+    }
+
+    public void print(int x) {
+        System.out.println("You call print() method as Int parameter "+x);
+    }
 }
+
+    
+

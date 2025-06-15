@@ -2,8 +2,14 @@ package JavaIntermediate;
 import java.util.*;
 
 class Programa {
-    public static void main(String[] args) {
 
+    enum Rank {
+        SOLDIER,
+        SERGEANT,
+        CAPTAIN
+    }
+
+    public static void main(String[] args) {
         /*Anonymous Classes
          * Anonymous classes are a way to extend the existing classes on the fly.
          * 
@@ -22,6 +28,21 @@ class Programa {
          * implementation will be the one defined in the class.
          */
         Scanner sc = new Scanner(System.in);
+
+        Rank a = Rank.SOLDIER;
+        switch (a) {
+            case SOLDIER: 
+                System.out.println("Soldier says hi!"); 
+                break;
+            case SERGEANT: 
+                System.out.println("Sergeant says Hello!"); 
+                break;
+            case CAPTAIN: 
+                System.out.println("Captain says Welcome!"); 
+                break;
+            default: 
+                break;
+        }
 
         int pick = pick1to3(sc);
         if (pick != 2) {

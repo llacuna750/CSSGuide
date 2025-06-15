@@ -2,6 +2,7 @@ package JavaIntermediate;
 
 class Robot {
     int id;
+    
     Robot (int i) {
         id = i;
         Brain b = new Brain();

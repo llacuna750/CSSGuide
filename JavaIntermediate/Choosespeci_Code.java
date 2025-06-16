@@ -178,6 +178,13 @@ public class Choosespeci_Code extends TestAll {
         Animal cow = new Cow();
         System.out.println();cat.makeSound();
         cow.makeSound();
+
+        Card a_1 = new Valentine("Gabriel", 14);
+        Card a_2 = new Holiday();
+        Card a_3 = new Birthday();
+        a_1.sendCard();
+        a_2.sendCard();
+        a_3.sendCard();
     }
 
     static void OverridingandOverloading () {
@@ -543,6 +550,73 @@ public class Choosespeci_Code extends TestAll {
             case SERGEANT: System.out.println("Sergeant says Hello!"); break;
             case CAPTAIN: System.out.println("Captain says Welcome!"); break;
             default: break;
+        }
+    }
+
+    static void error_Handling () {
+        /*
+         * An exception is a problem that occurs during program execution. Exceptions
+         * cause abnormal termination of the program.
+         * 
+         * Exception handling is a powerful mechanism that handles runtime errors to
+         * maintain normal application flow.
+         * 
+         * An exception can occur for many different reasons. Some examples:
+         * 
+         * - A user has entered invalid data.
+         * 
+         * - A file that needs to be opened cannot be found.
+         * 
+         * - A network connection has been lost in the middle of communications.
+         * 
+         * - Insufficient memory and other issues related to physical resources.
+         * 
+         * As you can see, exceptions are caused by user error, programmer error, or
+         * physical resource issues. However, a well-written program should handle all
+         * possible exceptions.
+         * 
+         * 
+         * A <b>catch </b>statement involves declaring the type of exception you are
+         * trying to catch. If an exception occurs in the <b>try </b>block, the catch
+         * block that follows the try is checked. If the type of exception that occurred
+         * is listed in a catch block, the exception is passed to the catch block much
+         * as an argument is passed into a method parameter.
+         * 
+         * The Exception type can be used to catch all possible exceptions.
+         * 
+         * The example below demonstrates exception handling when trying to access an
+         * array index that does not exist:
+         * 
+         * try {
+         * // Wrong syntax
+         * int aWrong[ ] = new int[2]; // Error syntax
+         * System.out.println(aWrong[5]);
+         * }
+         * catch (Exception e) {
+         * // some code to handle errors
+         * System.out.println("\nAn error occured");
+         * }
+         */
+        try {
+            /* Once try block have an Error all the block of code is excuted catch() method. */
+            String spaces = "-".repeat(30); // Java 11+
+            System.out.println("\n" + spaces + "Exception Handling" + spaces);
+            int xD = 10;
+            int xB = 0;
+            int z = xD / xB;
+            System.out.println(z);
+
+            // Correct syntax
+            int[] bCorrect = new int[2];
+            bCorrect[1] = 3;
+            System.out.println("\nWrong syntax: \n" + bCorrect[1]);
+
+            // Wrong syntax
+            int aWrong[] = new int[2]; // Error syntax
+            System.out.println(aWrong[5]);
+        } catch (Exception e) {
+            // some code to handle errors
+            System.out.println("\nAn error occured");
         }
     }
 }

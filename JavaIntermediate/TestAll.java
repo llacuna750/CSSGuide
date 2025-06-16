@@ -255,6 +255,13 @@ import JavaIntermediate.Programa.Rank;
             System.out.println();cat.makeSound(); // same method makesound() but different Animal
             cow.makeSound(); 
 
+            Card a_1 = new Valentine("Gabriel", 14);
+            Card a_2 = new Holiday();
+            Card a_3 = new Birthday();
+            a_1.sendCard();
+            a_2.sendCard();
+            a_3.sendCard();
+
             /* Open this to show Information...                                             Overriding & Overloading
                 
             As we saw in the previous lesson, a subclass can define a behavior that's specific to the subclass type, meaning that a subclass can implement a parent class method based on its requirement.
@@ -550,6 +557,135 @@ import JavaIntermediate.Programa.Rank;
                     "Once you locate the package you want to use, you need to import it into your code. \n\nThe package can be imported using the import keyword.  For example: \nimport java.awt.*; \n");
             System.out.println(
                     "The awt package contains all of the classes for creating user interfaces and for painting graphics and images. \nThe wildcard character (*) is used to import all of the classes in the package.");
+
+            /*
+             * An exception is a problem that occurs during program execution. Exceptions
+             * cause abnormal termination of the program.
+             * 
+             * Exception handling is a powerful mechanism that handles runtime errors to
+             * maintain normal application flow.
+             * 
+             * An exception can occur for many different reasons. Some examples:
+             * 
+             * - A user has entered invalid data.
+             * 
+             * - A file that needs to be opened cannot be found.
+             * 
+             * - A network connection has been lost in the middle of communications.
+             * 
+             * - Insufficient memory and other issues related to physical resources.
+             * 
+             * As you can see, exceptions are caused by user error, programmer error, or
+             * physical resource issues. However, a well-written program should handle all
+             * possible exceptions.
+             * 
+             * 
+             * A <b>catch </b>statement involves declaring the type of exception you are
+             * trying to catch. If an exception occurs in the <b>try </b>block, the catch
+             * block that follows the try is checked. If the type of exception that occurred
+             * is listed in a catch block, the exception is passed to the catch block much
+             * as an argument is passed into a method parameter.
+             * 
+             * The Exception type can be used to catch all possible exceptions.
+             * 
+             * The example below demonstrates exception handling when trying to access an
+             * array index that does not exist:
+             * 
+             * try {
+                * // Wrong syntax
+                * int aWrong[ ] = new int[2]; // Error syntax
+                * System.out.println(aWrong[5]);
+             * }
+             * catch (Exception e) {
+                * // some code to handle errors
+                * System.out.println("\nAn error occured");
+             * }
+             */
+            try {
+                System.out.println("\n" + spaces + "Exception Handling" + spaces);
+                int xD = 10;
+                int xB = 0;
+                int z = xD / xB;
+                System.out.println(z);
+
+                // Correct syntax 
+                int[] bCorrect = new int[2];
+                bCorrect[1] = 3;
+                System.out.println("\nWrong syntax: \n"+bCorrect[1]);
+    
+                // Wrong syntax
+                int aWrong[ ] = new int[2]; // Error syntax
+                System.out.println(aWrong[5]);
+            }
+            catch (Exception e) {
+                // some code to handle errors
+                System.out.println("\nAn error occured");
+            }
+            
+            System.out.println("\n" + spaces + "Multiple Exceptions" + spaces);
+            System.out.println("Continue? \n1 = yes \n2 = no?");
+            int finalChoose = sc.nextInt();
+            if (finalChoose == 1) {
+                System.out.println(div(42, 0));
+            }else {
+                System.out.println("\nTry next time!");
+            }
+
+            /*  Threads
+             * Java is a multi-threaded programming language. This means that our program
+             * can make optimal use of available resources by running two or more components
+             * concurrently, with each component handling a different task.
+             * 
+             * You can subdivide specific operations within a single application into
+             * individual threads that all run in parallel.
+             * 
+             * The following diagram shows the life-cycle of a thread.
+             * 
+             * 
+             * There are two ways to create a thread.
+             * 
+             * 1. Extend the Thread class
+             * 
+             * Inherit from the <b>Thread </b>class, override its run() method, and write
+             * the functionality of the thread in the run() method.
+             * 
+             * Loader obj_loader = new Loader();
+             * obj_loader.start();
+             * 
+             * Then you create a new object of your class and call it's <b>start()</b>
+             * method to run the thread.
+             * 
+             * Example:
+             * 
+             * As you can see, our Loader class extends the Thread class and overrides its
+             * run() method.
+             * 
+             * When we create the obj object and call its start() method, the run() method
+             * statements execute on a different thread.
+             * 
+             * Every Java thread is prioritized to help the operating system determine the
+             * order in which to schedule threads. The priorities range from 1 to 10, with
+             * each thread defaulting to priority 5. You can set the thread priority with
+             * the <b>setPriority()</b> method.
+             * 
+             * 
+             * The other way of creating Threads is implementing the Runnable interface.
+             * 
+             * Implement the run() method. Then, create a new Thread object, pass the
+             * Runnable class to its constructor, and start the Thread by calling the
+             * start() method.
+             * 
+             * Thread t = new Thread(new Loader());
+             * t.start();
+             * 
+             * Example:
+             */
+            System.out.println("\n" + spaces + "Threads" + spaces);
+            Loader obj_loader = new Loader();
+            obj_loader.start();
+
+            Thread t = new Thread(new Loader());
+            t.start();
         }
         else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
@@ -581,6 +717,9 @@ import JavaIntermediate.Programa.Rank;
                 case 24: hashcodeChecker(sc); break;
                 case 25: Choosespeci_Code.The_equals_method(); break;
                 case 26: Choosespeci_Code.Enum(); break;
+                case 27: Choosespeci_Code.error_Handling(); break;
+                case 28: div(20,0); break;
+                case 29: ThreadMe(); break;
 
                 default: break;
             }
@@ -599,7 +738,7 @@ import JavaIntermediate.Programa.Rank;
             System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
-            System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n");
+            System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread");
             
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -611,16 +750,15 @@ import JavaIntermediate.Programa.Rank;
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 26) {
+                if (choose_number >= 0 && choose_number <= 29) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 26).");
+                    System.out.println("\nEnter the following number only (0 up to 29).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
             }
     	}
-
         return choose_number;
     }
 
@@ -854,5 +992,116 @@ import JavaIntermediate.Programa.Rank;
 
     static void getExponentofaNum () {
 
+    }
+
+    static int div(int a, int b) throws ArithmeticException {
+        /*   Multiple Exceptions & Exception Handling (many catch())
+         *
+         * throw
+         * The <b>throw </b>keyword allows you to manually generate exceptions from your
+         * methods. Some of the numerous available exception types include the
+         * IndexOutOfBoundsException, IllegalArgumentException, ArithmeticException, and
+         * so on.
+         * 
+         * For example, we can throw an ArithmeticException in our method when the
+         * parameter is 0.
+         * 
+         * The <b>throws </b>statement in the method definition defines the type of
+         * Exception(s) the method can throw.
+         * 
+         * Next, the <b>throw </b>keyword throws the corresponding exception, along with
+         * a custom message.
+         * 
+         * If we call the div method with the second parameter equal to 0, it will throw
+         * an ArithmeticException with the message "Division by Zero".
+         * 
+         * Multiple exceptions can be defined in the throws statement using a
+         * comma-separated list.
+         * 
+         * A single try block can contain multiple catch blocks that handle different
+         * exceptions separately.
+         * 
+         * Example:
+         * 
+         * try {
+         * // some code
+         * } catch (ExceptionType1 e1) {
+         * // Catch block
+         * } catch (ExceptionType2 e2) {
+         * // Catch block
+         * } catch (ExceptionType3 e3) {
+         * // Catch block
+         * }
+         * 
+         * All catch blocks should be ordered from most specific to most general.
+         * 
+         * Following the specific exceptions, you can use the Exception type to handle
+         * all other exceptions as the last catch.
+         */
+        if (b == 0) {
+            throw new ArithmeticException("Division by Zero Gra gra"); // Output Exception in thread "main" java.lang.ArithmeticException: Division by Zero Gra gra
+        } else {
+            return a / b;
+        }
+    }
+
+    static void ThreadMe()  {
+        /*  Threads
+         * Java is a multi-threaded programming language. This means that our program
+         * can make optimal use of available resources by running two or more components
+         * concurrently, with each component handling a different task.
+         * 
+         * You can subdivide specific operations within a single application into
+         * individual threads that all run in parallel.
+         * 
+         * The following diagram shows the life-cycle of a thread.
+         * 
+         * 
+         * There are two ways to create a thread.
+         * 
+         * 1. Extend the Thread class
+         * 
+         * Inherit from the <b>Thread </b>class, override its run() method, and write
+         * the functionality of the thread in the run() method.
+         * 
+         * Loader obj_loader = new Loader();
+         * obj_loader.start();
+         * 
+         * Then you create a new object of your class and call it's <b>start()</b>
+         * method to run the thread.
+         * 
+         * Example:
+         * 
+         * As you can see, our Loader class extends the Thread class and overrides its
+         * run() method.
+         * 
+         * When we create the obj object and call its start() method, the run() method
+         * statements execute on a different thread.
+         * 
+         * Every Java thread is prioritized to help the operating system determine the
+         * order in which to schedule threads. The priorities range from 1 to 10, with
+         * each thread defaulting to priority 5. You can set the thread priority with
+         * the <b>setPriority()</b> method.
+         * 
+         * 
+         * The other way of creating Threads is implementing the Runnable interface.
+         * 
+         * Implement the run() method. Then, create a new Thread object, pass the
+         * Runnable class to its constructor, and start the Thread by calling the
+         * start() method.
+         * 
+         * Thread t = new Thread(new Loader());
+         * t.start();
+         * 
+         * Example:
+         */
+        String spaces = "-".repeat(30); // Java 11+
+        System.out.println("\n" + spaces + "Threads" + spaces);
+        Loader obj_loader = new Loader();
+        obj_loader.start(); 
+        // obj_loader.setPriority(1);
+
+        Thread t = new Thread(new Loader());
+        t.start();
     }
 }

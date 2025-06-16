@@ -9,7 +9,7 @@ public class Valentine extends Card {
     }
 
     public void sendCard() {
-        System.out.println("Valentine message card to "+name);
+        System.out.println("\nValentine message card to "+name);
         System.out.println("The date is "+date);
     }
 }

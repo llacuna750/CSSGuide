@@ -26,10 +26,11 @@ package JavaIntermediate;
 
     private: Accessible only within the declared class itself.
 */
-public class Myclass {
+// public 
+class Myclass {
     public static void main(String[] args) {
         System.out.println("\nHello Myclass!\n");
-        TestAll.main(args);
+        // TestAll.main(args);
         
         Card a1 = new Valentine("Gabriel", 14);
         Card a2 = new Holiday();

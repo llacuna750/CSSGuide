@@ -4,7 +4,7 @@ import java.util.Scanner;
 import ExternalPackage.*;
 import JavaIntermediate.Programa.Rank;
 
-public class TestAll {
+    class TestAll {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // System.out.printf("%-15s This is TEST ALL Class!\n", "Hello");
@@ -545,7 +545,7 @@ public class TestAll {
              * package.
              */
             System.out.println(
-                    "Java API \n\nThe Java API is a collection of classes and interfaces that have been written for you to use. \n\nThe Java API Documentation with all of the available APIs can be located on the Oracle website at http://docs.oracle.com/javase/7/docs/api/\n");
+                    "Java API \n\nThe Java API is a collection of classes and interfaces that have been written for you to use. \n\nThe Java API Documentation with all of the available APIs can be located on the Oracle website at http://docs.oracle.com/javase/7/docs/api \n");
             System.out.println(
                     "Once you locate the package you want to use, you need to import it into your code. \n\nThe package can be imported using the import keyword.  For example: \nimport java.awt.*; \n");
             System.out.println(

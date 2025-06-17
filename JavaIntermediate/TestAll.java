@@ -1,4 +1,5 @@
 package JavaIntermediate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import ExternalPackage.*;
@@ -623,12 +624,24 @@ import JavaIntermediate.Programa.Rank;
             }
             
             System.out.println("\n" + spaces + "Multiple Exceptions" + spaces);
-            System.out.println("Continue? \n1 = yes \n2 = no?");
-            int finalChoose = sc.nextInt();
-            if (finalChoose == 1) {
-                System.out.println(div(42, 0));
-            }else {
-                System.out.println("\nTry next time!");
+            boolean balid = false;
+            while (!balid) {
+                System.out.println("\nContinue? \n1 = yes \n2 = no?");
+                int finalChoose = sc.nextInt();
+
+                if (finalChoose == 1) {
+                    System.out.println(div(42, 0)); 
+                    balid = true;
+                    return;
+                }
+                if (finalChoose == 2) {
+                    System.out.println("\nTry next time!");
+                    balid = true;
+                    return;
+                }
+                else {
+                    System.out.println("\n⚠️ Please enter only 1 or 2.");
+                }
             }
 
             /*  Threads
@@ -680,12 +693,88 @@ import JavaIntermediate.Programa.Rank;
              * 
              * Example:
              */
+            
             System.out.println("\n" + spaces + "Threads" + spaces);
             Loader obj_loader = new Loader();
             obj_loader.start();
 
-            Thread t = new Thread(new Loader());
+            Thread t = new Thread(new Lohder());
             t.start();
+
+        
+
+
+            
+            /*
+             * Types of Exceptions
+             * There are two exception types, checked and unchecked (also called runtime).
+             * The main difference is that checked exceptions are checked when compiled,
+             * while unchecked exceptions are checked at runtime.
+             * 
+             * As mentioned in our previous lesson, Thread.sleep() throws an
+             * InterruptedException. This is an example of a checked exception. Your code
+             * will not compile until you've handled the exception.
+             * 
+             *
+             * public class MyClass {
+             * public static void main(String[ ] args) {
+             * try {
+             * Thread.sleep(1000);
+             * } catch (InterruptedException e) {
+             * //some code
+             * }
+             * }
+             * }
+             * 
+             * We have seen examples of unchecked exceptions, which are checked at runtime,
+             * in previous lessons.
+             * 
+             * Example (when attempting to divide by 0):
+             * 
+             * int value = 7;
+             * value = value / 0;
+             * 
+             * It is good to know the Types of Exceptions because they can help you debug
+             * your code faster.
+             */
+            System.out.println("\n" + spaces + "Runtime vs. Checked Exceptions" + spaces);
+            Thread sleepingThread = new Thread(() -> {
+                try {
+                    System.out.println("Thread is going to sleep for 5 seconds...");
+                    Thread.sleep(5000); // Pauses for 5 seconds
+                    System.out.println("Thread woke up naturally.");
+                } catch (InterruptedException e) {
+                    System.out.println("Thread was interrupted while sleeping!");
+                }
+            });
+
+            sleepingThread.start();
+
+            // Main thread waits 2 seconds before interrupting
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                // Shouldn't happen here
+            }
+
+            System.out.println("Main thread is interrupting the sleeping thread...");
+            sleepingThread.interrupt(); // Interrupts the sleeping thread
+
+            int value = 7;
+            try {
+
+                if (value == 7) {
+                    Thread.sleep(4000);
+                    System.out.println(true);
+                    value = value / 0;
+                    System.out.println(value);
+                }
+
+            } catch (InterruptedException e) {
+                System.out.println("interrupted");
+            } catch (ArithmeticException e) {
+                System.out.println("divide by zero error");
+            }
         }
         else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
@@ -719,7 +808,9 @@ import JavaIntermediate.Programa.Rank;
                 case 26: Choosespeci_Code.Enum(); break;
                 case 27: Choosespeci_Code.error_Handling(); break;
                 case 28: div(20,0); break;
-                case 29: ThreadMe(); break;
+                case 29: Thread_Me(); break;
+                case 30: TypesofExceptions(); break;
+                case 31: TypesofExceptions(); break;
 
                 default: break;
             }
@@ -738,22 +829,23 @@ import JavaIntermediate.Programa.Rank;
             System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
-            System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread");
+            System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread \n30. Types of Exceptions");
+            System.out.println("31. Array_List \n2");
             
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
 
     		if (input.isBlank()) {
                 System.out.println("\nDon't leave it blank!\n");
-                continue; // pag about niya sa try - catch mo false na siya inig try
-            }
+            continue; // pag about niya sa try - catch mo false na siya inig try
+        }
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 29) {
+                if (choose_number >= 0 && choose_number <= 31) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 29).");
+                    System.out.println("\nEnter the following number only (0 up to 31).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -784,7 +876,6 @@ import JavaIntermediate.Programa.Rank;
                     System.out.print("\nEnter the symbol: ");
                     symbol = scanner.nextLine(); // only ask ONCE
                 }
-
                 for (int i=1; i <= rows; i+=1) {
                     System.out.println();
                     for (int j=1; j<=i;) {
@@ -1045,7 +1136,7 @@ import JavaIntermediate.Programa.Rank;
         }
     }
 
-    static void ThreadMe()  {
+    static void Thread_Me()  {
         /*  Threads
          * Java is a multi-threaded programming language. This means that our program
          * can make optimal use of available resources by running two or more components
@@ -1101,7 +1192,166 @@ import JavaIntermediate.Programa.Rank;
         obj_loader.start(); 
         // obj_loader.setPriority(1);
 
-        Thread t = new Thread(new Loader());
+        Thread t = new Thread(new Lohder());
         t.start();
+    }
+    static void TypesofExceptions()  {
+        /*  Types of Exceptions
+         * There are two exception types, checked and unchecked (also called runtime).
+         * The main difference is that checked exceptions are checked when compiled,
+         * while unchecked exceptions are checked at runtime.
+         * 
+         * As mentioned in our previous lesson, Thread.sleep() throws an
+         * InterruptedException. This is an example of a checked exception. Your code
+         * will not compile until you've handled the exception.
+         * 
+         *
+         * public class MyClass {
+         * public static void main(String[ ] args) {
+         * try {
+         * Thread.sleep(1000);
+         * } catch (InterruptedException e) {
+         * //some code
+         * }
+         * }
+         * }
+         * 
+         * We have seen examples of unchecked exceptions, which are checked at runtime,
+         * in previous lessons.
+         * 
+         * Example (when attempting to divide by 0):
+         * 
+         * int value = 7;
+         * value = value / 0;
+         * 
+         * It is good to know the Types of Exceptions because they can help you debug
+         * your code faster.
+         */
+        String spaces = "-".repeat(30); // Java 11+
+        System.out.println("\n" + spaces + "Runtime vs. Checked Exceptions" + spaces);
+        Thread sleepingThread = new Thread(() -> {
+            try {
+                System.out.println("Thread is going to sleep for 5 seconds...");
+                Thread.sleep(5000); // Pauses for 5 seconds
+                System.out.println("Thread woke up naturally.");
+            } catch (InterruptedException e) {
+                System.out.println("Thread was interrupted while sleeping!");
+            }
+        });
+
+        sleepingThread.start();
+
+        // Main thread waits 2 seconds before interrupting
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // Shouldn't happen here
+        }
+
+        System.out.println("Main thread is interrupting the sleeping thread...");
+        sleepingThread.interrupt(); // Interrupts the sleeping thread
+
+        int value = 7;
+        try {
+
+            if (value == 7) {
+                Thread.sleep(4000);
+                System.out.println(true);
+                value = value / 0;
+                System.out.println(value);
+            }
+
+        } catch (InterruptedException e) {
+            System.out.println("interrupted");
+        } catch (ArithmeticException e) {
+            System.out.println("divide by zero error");
+        }
+    }
+
+    static void Array_List()  {
+        /*  Translate course
+         * ArrayList
+         * The Java API provides special classes to store and manipulate groups of
+         * objects.
+         * 
+         * One such class is the ArrayList. Standard Java arrays are of a fixed length,
+         * which means that after they are created, they cannot expand or shrink.
+         * 
+         * On the other hand, ArrayLists are created with an initial size, but when this
+         * size is exceeded, the collection is automatically enlarged.
+         * 
+         * When objects are removed, the ArrayList may shrink in size. Note that the
+         * ArrayList class is in the java.util package, so it's necessary to import it
+         * before using it.
+         * 
+         * Create an ArrayList as you would any object.
+         * 
+         * import java.util.ArrayList;
+         * //...
+         * ArrayList colors = new ArrayList();
+         * 
+         * You can optionally specify a capacity and type of objects the ArrayList will
+         * hold:
+         * 
+         * ArrayList<String> colors = new ArrayList<String>(10);
+         * 
+         * The code above defines an ArrayList of Strings with 10 as its initial size.
+         * 
+         * ArrayLists store objects. Thus, the type specified must be a class type. You
+         * cannot pass, for example, int as the objects' type. Instead, use the special
+         * class types that correspond to the desired value type, such as Integer for
+         * int, Double for double, and so on.
+         * 
+         * The ArrayList class provides a number of useful methods for manipulating its
+         * objects.
+         * 
+         * The <b>add()</b> method adds new objects to the ArrayList. Conversely, the
+         * remove() method removes objects from the ArrayList.
+         * 
+         * Example:
+         * 
+         * ArrayList<String> colors = new ArrayList<String>();
+         * 
+         * colors.add("Yellow");
+         * colors.add("Blue");
+         * colors.add("Red");
+         * colors.add("Green");
+         * 
+         * System.out.println(colors);
+         * 
+         * Other useful methods include the following:
+         * 
+         * - <b>contains()</b>: Returns true if the list contains the specified element
+         * 
+         * - <b>get(int index)</b>: Returns the element at the specified position in the
+         * list
+         * 
+         * - <b>size()</b>: Returns the number of elements in the list
+         * 
+         * - <b>clear()</b>: Removes all of the elements from the list
+         * 
+         * Note: As with arrays, the indexing starts with 0.
+         */
+
+        // ArrayList colors = new ArrayList);
+        ArrayList<String> colors = new ArrayList<String>();
+
+        String spaces = "-".repeat(30); // Java 11
+        colors.add("Yellow");
+        colors.add("Blue");
+        colors.add("Red");
+        colors.add("Green");
+
+        ArrayList<Integer> score = new ArrayList<>();
+        System.out.println("\n" + spaces + "ArrayList Intervget" + spaces);
+        score.add(3);
+        score.add(10);
+        System.out.println(score.contains(3));
+        System.out.println(score);
+
+        System.out.println(spaces + "ArrayList String" + spaces);
+        System.out.println("\n" + colors);
+        System.out.println(colors.size());
+        System.out.println(colors.get(0));
     }
 }

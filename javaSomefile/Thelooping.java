@@ -1,4 +1,4 @@
-
+package javaSomefile;
 import java.util.Scanner;
 
 public class Thelooping {

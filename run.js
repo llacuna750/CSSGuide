@@ -92,7 +92,7 @@ function showMessage() {
 
 setTimeout(showMessage, 3000);
 
-// setTimeOut executed once
+// setTimeOut executed oncecl
 // setInterval executed repeatedly
 let timeoutID = setTimeout(function () {
   console.log("This message will not be displayed");

@@ -1,13 +1,16 @@
 package JavaIntermediate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import ExternalPackage.*;
 import JavaIntermediate.Programa.Rank;
-
+    
     class TestAll {
+        static String spaces = "-".repeat(30); // Java 11+
+        static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        
         // System.out.printf("%-15s This is TEST ALL Class!\n", "Hello");
         // System.out.printf("%15sThis is TEST ALL Class!\n", "");
 
@@ -158,47 +161,59 @@ import JavaIntermediate.Programa.Rank;
             squaroot(sqrthis);
             square(sqrthis);
             
-            /*                        Open this to show Information...                                            Encapsulation  /* 
-            is like data hiding
-            There are 4 core concepts in OOP: encapsulation, inheritance, polymorphism, and abstraction.
-            using private access modifier to it's value data-types
+            /* Open this to show Information... Encapsulation /*
+             * is like data hiding
+             * There are 4 core concepts in OOP: encapsulation, inheritance, polymorphism,
+             * and abstraction.
+             * using private access modifier to it's value data-types
+             * 
+             * In summary, encapsulation provides the following benefits:
+             * - Control of the way data is accessed or modified
+             * 
+             * - More flexible and easily changed code
+             * 
+             * - Ability to change one part of the code without affecting other parts
+             * 
+             * Encapsulation Practice
+             * Create a program to manage art school admission.
+             */
 
-            In summary, encapsulation provides the following benefits:
-            - Control of the way data is accessed or modified
-
-            - More flexible and easily changed code
-
-            - Ability to change one part of the code without affecting other parts
-            */
-
-            /*                        Open this to show Information...                                             Inheritance  
-            is like subclass or derived/child class is class inheriting / gi-liwatan kumbaga or na-liwatan
-            super class or base/parent class is whose inherited in bisaya gikan-naliwat or asa naliwat
-            ex. class Car extends Vehicle{}
-
-            When one class is inherited from another class, it inherits all of the superclass' non-private variables and methods.
-
-                additional: inheritance is like a ability on its class or identity
-
-                Example:
-                class Animal {
-                    protected int legs;
-
-                    public void eat() {
-                        System.out.println("Animal eats");
-                    }
-                }
-                class Dog [b]extends [/b]Animal {
-                    Dog() {
-                        legs = 4;
-                    }
-                }
-
-                Constructors are not member methods, and so are not inherited by subclasses.
-                However, the constructor of the superclass is called when the subclass is instantiated.
-
-                exameple: Go to Class A and B
-            */
+            /* Open this to show Information... Inheritance
+             * is like subclass or derived/child class is class inheriting / gi-liwatan
+             * kumbaga or na-liwatan
+             * super class or base/parent class is whose inherited in bisaya gikan-naliwat
+             * or asa naliwat
+             * ex. class Car extends Vehicle{}
+             * 
+             * When one class is inherited from another class, it inherits all of the
+             * superclass' non-private variables and methods.
+             * 
+             * additional: inheritance is like a ability on its class or identity
+             * 
+             * Example:
+             * class Animal {
+             * protected int legs;
+             * 
+             * public void eat() {
+             * System.out.println("Animal eats");
+             * }
+             * }
+             * class Dog [b]extends [/b]Animal {
+             * Dog() {
+             * legs = 4;
+             * }
+             * }
+             * 
+             * Constructors are not member methods, and so are not inherited by subclasses.
+             * However, the constructor of the superclass is called when the subclass is
+             * instantiated.
+             * 
+             * exameple: Go to Class A and B
+             * 
+             * 
+             * Inheritance Practice:
+             * Complete/fix the given code to develop your own photo editing application.
+             */
 
             /* Let's create a subclass & super Class 
                 Subclass = Dog
@@ -218,38 +233,48 @@ import JavaIntermediate.Programa.Rank;
             obj.setB("this is String private B gikan kay superclass Class A"); System.out.println(obj.getB()+"\n"+ obj.getA());
             
 
-            /*                        Open this to show Information...                                            Polymorphism  
-            Polymorphism, which refers to the idea of "having many forms", occurs when there is a hierarchy of classes related to each other through inheritance.
-            additional: Same person can have different roles.
-
-            A call to a member method will cause a different implementation to be executed, depending on the type of the object invoking the method.
-
-            Here is an example: Dog and Cat are classes that inherit from the Animal class. Each class has its own implementation of the makeSound() method.
-
-            class Animal {
-                public void makeSound() {
-                    System.out.println("Grr...");
-                }
-            }
-            class Cat extends Animal {
-                public void makeSound() {
-                    System.out.println("Meow");
-                }
-            }
-            class Dog extends Animal {
-                public void makeSound() {
-                    System.out.println("Woof");
-                }
-            }
-                As all Cat and Dog objects are Animal objects, we can do the following in main:
-                public static void main(String[ ] args) {
-                    Animal a = new Dog();
-                    Animal b = new Cat();
-                }
-            We've created two reference variables of type Animal, and pointed them to the Cat and Dog objects.
-            Now, we can call the makeSound() methods.
-
-            */
+            /*
+             * Open this to show Information... Polymorphism
+             * Polymorphism, which refers to the idea of "having many forms", occurs when
+             * there is a hierarchy of classes related to each other through inheritance.
+             * additional: Same person can have different roles.
+             * 
+             * A call to a member method will cause a different implementation to be
+             * executed, depending on the type of the object invoking the method.
+             * 
+             * Here is an example: Dog and Cat are classes that inherit from the Animal
+             * class. Each class has its own implementation of the makeSound() method.
+             * 
+             * class Animal {
+             * public void makeSound() {
+             * System.out.println("Grr...");
+             * }
+             * }
+             * class Cat extends Animal {
+             * public void makeSound() {
+             * System.out.println("Meow");
+             * }
+             * }
+             * class Dog extends Animal {
+             * public void makeSound() {
+             * System.out.println("Woof");
+             * }
+             * }
+             * As all Cat and Dog objects are Animal objects, we can do the following in
+             * main:
+             * public static void main(String[ ] args) {
+             * Animal a = new Dog();
+             * Animal b = new Cat();
+             * }
+             * We've created two reference variables of type Animal, and pointed them to the
+             * Cat and Dog objects.
+             * Now, we can call the makeSound() methods.
+             * 
+             * 
+             * Polymorphism Practice:
+             * Complete the program by reimplementing the given method in the inherited
+             * vehicle classes.
+             */
             System.out.println("\n"+spaces+"Polymorphism"+spaces);
             Animal cat = new Cat();
             Animal cow = new Cow();
@@ -302,9 +327,13 @@ import JavaIntermediate.Programa.Rank;
 
             obj.doSomething();  
 
-            /*    Abstraction
-                    Read information                                                                    Abstract
-            */
+            /*  Abstraction
+             * Read information Abstract
+             * 
+             * Abstract Classes
+             * Complete the code by implementing the given methods inherited from abstract
+             * Game class.
+             */
             System.out.println("\n" + spaces + "Abstraction" + spaces);
             Shape myRectangle = new Rectange();
             Shape myCircle = new Circle();
@@ -471,54 +500,59 @@ import JavaIntermediate.Programa.Rank;
             be.setX(6);
             System.out.println(ah.equals(be));
 
-            /*  Enums
-                An Enum is a special type used to define collections of constants.
-                
-                Here is a simple Enum example:
-                enum Rank {
-                SOLDIER,
-                SERGEANT,
-                CAPTAIN
-                }
-                
-                Note that the values are comma-separated.
-                
-                You can refer to the constants in the enum above with the dot syntax.
-                
-                Rank a = Rank.SOLDIER;
-                
-                Basically, Enums define variables that represent members of a fixed set.
-                
-                
-                After declaring an Enum, we can check for the corresponding values with, for
-                example, a switch statement.
-                
-                Rank a = Rank.CAPTAIN;
-                switch (a) {
-                case SOLDIER:
-                    System.out.println("Soldier says hi!");
-                    break;
-                case SERGEANT:
-                    System.out.println("Sergeant says Hello!");
-                    break;
-                case CAPTAIN:
-                    System.out.println("Captain says Welcome!");
-                    break;
-                default:
-                    break;
-                }
-                
-                You should always use Enums when a variable (especially a method parameter)
-                can only take one out of a small set of possible values.
-                
-                If you use Enums instead of integers (or String codes), you increase
-                compile-time checking and avoid errors from passing in invalid constants, and
-                you document which values are legal to use.
-                
-                
-                Some sample Enum uses include month names, days of the week, deck of cards,
-                etc.
-            */
+            /*
+             * Enums
+             * An Enum is a special type used to define collections of constants.
+             * 
+             * Here is a simple Enum example:
+             * enum Rank {
+             * SOLDIER,
+             * SERGEANT,
+             * CAPTAIN
+             * }
+             * 
+             * Note that the values are comma-separated.
+             * 
+             * You can refer to the constants in the enum above with the dot syntax.
+             * 
+             * Rank a = Rank.SOLDIER;
+             * 
+             * Basically, Enums define variables that represent members of a fixed set.
+             * 
+             * 
+             * After declaring an Enum, we can check for the corresponding values with, for
+             * example, a switch statement.
+             * 
+             * Rank a = Rank.CAPTAIN;
+             * switch (a) {
+             * case SOLDIER:
+             * System.out.println("Soldier says hi!");
+             * break;
+             * case SERGEANT:
+             * System.out.println("Sergeant says Hello!");
+             * break;
+             * case CAPTAIN:
+             * System.out.println("Captain says Welcome!");
+             * break;
+             * default:
+             * break;
+             * }
+             * 
+             * You should always use Enums when a variable (especially a method parameter)
+             * can only take one out of a small set of possible values.
+             * 
+             * If you use Enums instead of integers (or String codes), you increase
+             * compile-time checking and avoid errors from passing in invalid constants, and
+             * you document which values are legal to use.
+             * 
+             * 
+             * Some sample Enum uses include month names, days of the week, deck of cards,
+             * etc.
+             * 
+             * Enums
+             * Create a shooter program, where player has a corresponding number of bullets
+             * for each difficulty level.
+             */
             System.out.println("\n" + spaces + "Enums" + spaces);
             Rank a_gay = Rank.SOLDIER;
             switch (a_gay) {
@@ -603,6 +637,10 @@ import JavaIntermediate.Programa.Rank;
              * }
              */
             try {
+                /*  Exception Handling
+                 * Write a program to take N number as input and output the element of the array
+                 * with N index.
+                 */
                 System.out.println("\n" + spaces + "Exception Handling" + spaces);
                 int xD = 10;
                 int xB = 0;
@@ -624,6 +662,9 @@ import JavaIntermediate.Programa.Rank;
             }
             
             System.out.println("\n" + spaces + "Multiple Exceptions" + spaces);
+            /*  Multiple Exceptions Practice
+             * Complete the code to handle two possible exceptions.
+             */
             boolean balid = false;
             while (!balid) {
                 System.out.println("\nContinue? \n1 = yes \n2 = no?");
@@ -701,9 +742,6 @@ import JavaIntermediate.Programa.Rank;
             Thread t = new Thread(new Lohder());
             t.start();
 
-        
-
-
             
             /*
              * Types of Exceptions
@@ -760,6 +798,26 @@ import JavaIntermediate.Programa.Rank;
             System.out.println("Main thread is interrupting the sleeping thread...");
             sleepingThread.interrupt(); // Interrupts the sleeping thread
 
+
+            ArrayList<String> colors = new ArrayList<String>();
+
+            colors.add("Yellow");
+            colors.add("Blue");
+            colors.add("Red");
+            colors.add("Green");
+
+            ArrayList<Integer> score = new ArrayList<>();
+            System.out.println("\n" + spaces + "ArrayList Intervget" + spaces);
+            score.add(3);
+            score.add(10);
+            System.out.println(score.contains(3));
+            System.out.println(score);
+
+            System.out.println(spaces + "ArrayList String" + spaces);
+            System.out.println("\n" + colors);
+            System.out.println(colors.size());
+            System.out.println(colors.get(0));
+
             int value = 7;
             try {
 
@@ -774,6 +832,90 @@ import JavaIntermediate.Programa.Rank;
                 System.out.println("interrupted");
             } catch (ArithmeticException e) {
                 System.out.println("divide by zero error");
+            }
+
+            System.out.println("\n" + spaces + "Ternary Operator" + spaces);
+            int learning_time_speed = 10,
+                    time_average = 5,
+                    Verygood = 9;
+            String Vgood = "Very Good",
+                    average = "Average",
+                    bad = "Bad";
+
+            // Ternary Operator in Java
+            String resultT = learning_time_speed > Verygood ? Vgood
+                    : learning_time_speed > time_average ? average : bad;
+
+            System.out.println(resultT);
+
+            /*
+             * LinkedList
+             * The LinkedList is very similar in syntax to the ArrayList.
+             * 
+             * You can easily change an ArrayList to a LinkedList by changing the object
+             * type.
+             * 
+             * You cannot specify an initial capacity for the LinkedList.
+             * 
+             * LinkedList vs. ArrayList
+             * The most notable difference between the LinkedList and the ArrayList is in
+             * the way they store objects.
+             * 
+             * The ArrayList is better for storing and accessing data, as it is very similar
+             * to a normal array.
+             * 
+             * The LinkedList is better for manipulating data, such as making numerous
+             * inserts and deletes.
+             * 
+             * In addition to storing the object, the LinkedList stores the memory address
+             * (or link) of the element that follows it. It's called a LinkedList because
+             * each element contains a link to the neighboring element.
+             * 
+             * img-component
+             * You can use the enhanced for loop to iterate over its elements.
+             * 
+             * 
+             * Summary:
+             * 
+             * - Use an ArrayList when you need rapid access to your data.
+             * 
+             * - Use a LinkedList when you need to make a large number of inserts and/or
+             * deletes.
+             */
+            System.out.println("\n" + spaces + "LinkList" + spaces);
+            LinkedList<String> linkc = new LinkedList<>();
+            linkc.add("Red");
+            linkc.add("Blue");
+            linkc.add("Green");
+            linkc.add("Orange");
+            linkc.add("Pink");
+            System.out.println(linkc);
+
+            for (String s : linkc ) {
+                System.out.println(s);
+            }
+
+            // LinkedLists Practice quiz
+            LinkedList<String> word = new LinkedList<>();
+            String spaceC = "_".repeat(30);
+            boolean valid = false;
+            String wordList;
+
+            while (!valid) {
+                System.out.println("\n" + spaceC);
+                System.out.println("\nCurrent size: " + word.size());
+                System.out.println(word.size() == 4 ? "\nYou can add last items for your LinkList. \n" : "");
+
+                if (word.size() == 5) {
+                    System.out.println(word + "\n");
+                    valid = true;
+                }
+
+                if (word.size() < word.size() + 1 && word.size() < 5) {
+                    System.out.print("add " + (word.size() + 1) + " LinkList: ");
+                    wordList = sc.nextLine();
+                    word.add(wordList);
+                }
             }
         }
         else if (iChoose == 2) {
@@ -810,7 +952,9 @@ import JavaIntermediate.Programa.Rank;
                 case 28: div(20,0); break;
                 case 29: Thread_Me(); break;
                 case 30: TypesofExceptions(); break;
-                case 31: TypesofExceptions(); break;
+                case 31: Array_List(); break;
+                case 32: Ternary_Operator(); break;
+                case 33: LinkedList_v0(); break;
 
                 default: break;
             }
@@ -830,7 +974,7 @@ import JavaIntermediate.Programa.Rank;
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
             System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread \n30. Types of Exceptions");
-            System.out.println("31. Array_List \n2");
+            System.out.println("31. Array_List \n32. Ternary Operator \n33. LinkList \n");
             
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -842,10 +986,10 @@ import JavaIntermediate.Programa.Rank;
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 31) {
+                if (choose_number >= 0 && choose_number <= 33) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 31).");
+                    System.out.println("\nEnter the following number only (0 up to 33).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -1081,10 +1225,6 @@ import JavaIntermediate.Programa.Rank;
         }
     }
 
-    static void getExponentofaNum () {
-
-    }
-
     static int div(int a, int b) throws ArithmeticException {
         /*   Multiple Exceptions & Exception Handling (many catch())
          *
@@ -1192,11 +1332,13 @@ import JavaIntermediate.Programa.Rank;
         obj_loader.start(); 
         // obj_loader.setPriority(1);
 
+
         Thread t = new Thread(new Lohder());
         t.start();
     }
     static void TypesofExceptions()  {
-        /*  Types of Exceptions
+        /*
+         * Types of Exceptions
          * There are two exception types, checked and unchecked (also called runtime).
          * The main difference is that checked exceptions are checked when compiled,
          * while unchecked exceptions are checked at runtime.
@@ -1226,6 +1368,9 @@ import JavaIntermediate.Programa.Rank;
          * 
          * It is good to know the Types of Exceptions because they can help you debug
          * your code faster.
+         * 
+         * Threads Practice
+         * Complete the registration program to output the messages in correct order.
          */
         String spaces = "-".repeat(30); // Java 11+
         System.out.println("\n" + spaces + "Runtime vs. Checked Exceptions" + spaces);
@@ -1343,7 +1488,7 @@ import JavaIntermediate.Programa.Rank;
         colors.add("Green");
 
         ArrayList<Integer> score = new ArrayList<>();
-        System.out.println("\n" + spaces + "ArrayList Intervget" + spaces);
+        System.out.println("\n" + spaces + "ArrayList " + spaces);
         score.add(3);
         score.add(10);
         System.out.println(score.contains(3));
@@ -1351,7 +1496,93 @@ import JavaIntermediate.Programa.Rank;
 
         System.out.println(spaces + "ArrayList String" + spaces);
         System.out.println("\n" + colors);
-        System.out.println(colors.size());
+        System.out.println("Size of an Arraylist: "+colors.size());
         System.out.println(colors.get(0));
+    }
+    
+    static void Ternary_Operator()  {
+        System.out.println("\n" + spaces + "" + spaces);
+        int learning_time_speed = 10, 
+            time_average = 5, 
+            Verygood = 9;
+        String Vgood = "Very Good",
+                average = "Average",
+                bad = "Bad";
+
+        // Ternary Operator in Java
+        String result = learning_time_speed > Verygood ? Vgood
+                : learning_time_speed > time_average ? average : bad;
+
+        System.out.println(result);
+    }
+
+    static void LinkedList_v0()  {
+        /*   LinkedList
+         * The LinkedList is very similar in syntax to the ArrayList.
+         * 
+         * You can easily change an ArrayList to a LinkedList by changing the object
+         * type.
+         * 
+         * You cannot specify an initial capacity for the LinkedList.
+         * 
+         * LinkedList vs. ArrayList
+         * The most notable difference between the LinkedList and the ArrayList is in
+         * the way they store objects.
+         * 
+         * The ArrayList is better for storing and accessing data, as it is very similar
+         * to a normal array.
+         * 
+         * The LinkedList is better for manipulating data, such as making numerous
+         * inserts and deletes.
+         * 
+         * In addition to storing the object, the LinkedList stores the memory address
+         * (or link) of the element that follows it. It's called a LinkedList because
+         * each element contains a link to the neighboring element.
+         * 
+         * img-component
+         * You can use the enhanced for loop to iterate over its elements.
+         * 
+         * 
+         * Summary:
+         * 
+         * - Use an ArrayList when you need rapid access to your data.
+         * 
+         * - Use a LinkedList when you need to make a large number of inserts and/or
+         * deletes.
+         */
+        LinkedList<String>  c = new LinkedList<>();
+        c.add("Red");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Orange");
+        c.add("Pink");
+        System.out.println(c);
+
+        for (String s: c) {
+            System.out.println(s);
+        }
+
+        // LinkedLists Practice quiz
+        LinkedList<String> word = new LinkedList<>();
+        String spaceC = "_".repeat(30);
+        boolean valid = false;
+        String wordList;
+        
+        
+        while (!valid) {
+            System.out.println("\n"+spaceC); System.out.println("\nCurrent size: "+word.size());
+            System.out.println(word.size() == 4 ? "\nYou can add last items for your LinkList. \n" : "");
+            
+            if (word.size() == 5) {
+                System.out.println(word+"\n");
+                valid = true;
+            }
+
+            if (word.size() < word.size()+1 && word.size() < 5)  {
+                System.out.print("add "+(word.size()+1)+" LinkList: " );
+                wordList = sc.nextLine();
+                word.add(wordList);
+            }
+        }
     }
 }

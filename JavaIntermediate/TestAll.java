@@ -1,14 +1,23 @@
 package JavaIntermediate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
+import static java.lang.System.out;
 
 import ExternalPackage.*;
 import JavaIntermediate.Programa.Rank;
     
-    class TestAll {
-        static String spaces = "-".repeat(30); // Java 11+
-        static Scanner sc = new Scanner(System.in);
+class TestAll {
+    static String spaces = "-".repeat(30); // Java 11+
+    static Scanner sc = new Scanner(System.in);
+    static  Choosespeci_Code specificode = new Choosespeci_Code();
+
     public static void main(String[] args) {
         
         // System.out.printf("%-15s This is TEST ALL Class!\n", "Hello");
@@ -233,8 +242,7 @@ import JavaIntermediate.Programa.Rank;
             obj.setB("this is String private B gikan kay superclass Class A"); System.out.println(obj.getB()+"\n"+ obj.getA());
             
 
-            /*
-             * Open this to show Information... Polymorphism
+            /* Open this to show Information... Polymorphism
              * Polymorphism, which refers to the idea of "having many forms", occurs when
              * there is a hierarchy of classes related to each other through inheritance.
              * additional: Same person can have different roles.
@@ -296,30 +304,40 @@ import JavaIntermediate.Programa.Rank;
             Cat c = new Cat();
             c.makeSound();
 
-            /*  show info
-                                            Method Overloading
-            When methods have the same name, but different parameters, it is known as method overloading.
-
-            This can be very useful when you need the same method functionality for different types of parameters.
-
-            The following example illustrates a method that returns the maximum of its two parameters.
-            
-            int max(int a, int b) {
-            if(a > b) { 
-                return a;
-                }
-                else {
-                    return b;
-                }
-            }
-                
-            The method shown above will only work for parameters of type integer.
-            However, we might want to use it for doubles, as well. For that, you need to overload the max method:
-            
-            Now, our max method will also work with doubles.
-            An overloaded method must have a different argument list; the parameters should differ in their type, number, or both.
-            Another name for method overloading is compile-time polymorphism.
-            */
+            /*
+             * show info
+             * Method Overloading
+             * When methods have the same name, but different parameters, it is known as
+             * method overloading.
+             * 
+             * This can be very useful when you need the same method functionality for
+             * different types of parameters.
+             * 
+             * The following example illustrates a method that returns the maximum of its
+             * two parameters.
+             * 
+             * int max(int a, int b) {
+             * if(a > b) {
+             * return a;
+             * }
+             * else {
+             * return b;
+             * }
+             * }
+             * 
+             * The method shown above will only work for parameters of type integer.
+             * However, we might want to use it for doubles, as well. For that, you need to
+             * overload the max method:
+             * 
+             * Now, our max method will also work with doubles.
+             * An overloaded method must have a different argument list; the parameters
+             * should differ in their type, number, or both.
+             * Another name for method overloading is compile-time polymorphism.
+             * 
+             * Overloading Practice:
+             *  Complete and overload the given method to calculate the double of provided
+             * variables.
+             */
             System.out.println("\n" + spaces + "Overriding & Overloading" + spaces);
             Program pg = new Program();
             System.out.println("\nOverloading: max method int parameter "+pg.max( 5,10 ));
@@ -330,7 +348,7 @@ import JavaIntermediate.Programa.Rank;
             /*  Abstraction
              * Read information Abstract
              * 
-             * Abstract Classes
+             * Abstract Classes Practice:
              * Complete the code by implementing the given methods inherited from abstract
              * Game class.
              */
@@ -673,12 +691,10 @@ import JavaIntermediate.Programa.Rank;
                 if (finalChoose == 1) {
                     System.out.println(div(42, 0)); 
                     balid = true;
-                    return;
                 }
                 if (finalChoose == 2) {
                     System.out.println("\nTry next time!");
                     balid = true;
-                    return;
                 }
                 else {
                     System.out.println("\n⚠️ Please enter only 1 or 2.");
@@ -848,8 +864,7 @@ import JavaIntermediate.Programa.Rank;
 
             System.out.println(resultT);
 
-            /*
-             * LinkedList
+            /*   LinkedList
              * The LinkedList is very similar in syntax to the ArrayList.
              * 
              * You can easily change an ArrayList to a LinkedList by changing the object
@@ -899,26 +914,224 @@ import JavaIntermediate.Programa.Rank;
             LinkedList<String> word = new LinkedList<>();
             String spaceC = "_".repeat(30);
             boolean valid = false;
-            String wordList;
 
             while (!valid) {
                 System.out.println("\n" + spaceC);
-                System.out.println("\nCurrent size: " + word.size());
-                System.out.println(word.size() == 4 ? "\nYou can add last items for your LinkList. \n" : "");
+                System.out.println("Current size: " + word.size());
+
+                if (word.size() == 4) {
+                    System.out.println("You can add the last item to your LinkedList.\n");
+                }
 
                 if (word.size() == 5) {
-                    System.out.println(word + "\n");
-                    valid = true;
-                }
-
-                if (word.size() < word.size() + 1 && word.size() < 5) {
-                    System.out.print("add " + (word.size() + 1) + " LinkList: ");
-                    wordList = sc.nextLine();
-                    word.add(wordList);
+                    System.out.println("\nFinal LinkedList: " + word + "\n");
+                    valid = true; // exit the loop
+                } else {
+                    System.out.print("Add item " + (word.size() + 1) + " to LinkedList: ");
+                    String wordList = sc.nextLine().trim();
+                    if (!wordList.isEmpty()) {
+                        word.add(wordList);
+                    } else {
+                        System.out.println("❌ Input cannot be empty. Try again.");
+                    }
                 }
             }
-        }
-        else if (iChoose == 2) {
+
+            System.out.println("\n" + spaces + "HashMap" + spaces);
+            /*  HashMap
+             * Arrays and Lists store elements as ordered collections, with each element
+             * given an integer index.
+             * 
+             * HashMap is used for storing data collections as key and value pairs. One
+             * object is used as a key (index) to another object (the value).
+             * 
+             * The put, remove, and get methods are used to add, delete, and access values
+             * in the HashMap.
+             * 
+             * Example:
+             */
+            HashMap<String, Integer> points = new HashMap<String, Integer>();
+            points.put("Amy", 154);
+            points.put("Gab", 17);
+            points.put("Oranges", 16);
+            points.put("Dave", 42);
+            points.put("Rob", 733);
+            points.put("Rob", 500); // Rob re-asssign value to 500
+            System.out.println(points.get("Dave"));
+            System.out.println(points.keySet()); // no "733" key returns the value of null.
+            System.out.println(points);
+            /* We have created a HashMap with Strings as its keys and Integers as its
+             * values.
+             * 
+             * Use the get method and the corresponding key to access the HashMap elements.
+             * 
+             * HashMap Practice:
+             * Write code to delete all the employees whose age is less than N number.
+             */
+
+            HashMap<String, Integer> employees = new HashMap<>();
+            Scanner scanner = new Scanner(System.in);
+
+            // Sample employees added
+            employees.put("Alice", 25);
+            employees.put("Bob", 19);
+            employees.put("Charlie", 32);
+            employees.put("Diana", 21);
+            employees.put("Eve", 17);
+
+            System.out.println("\nOriginal Employees:");
+            for (Map.Entry<String, Integer> entry : employees.entrySet()) {
+                System.out.println(entry.getKey() + " - Age: " + entry.getValue());
+            }
+
+            System.out.print("\nEnter age limit (N): ");
+            int N = scanner.nextInt();
+
+            // Remove employees whose age is less than N
+            Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String, Integer> entry = iterator.next();
+                if (entry.getValue() < N) {
+                    iterator.remove(); // Safe removal during iteration
+                }
+            }
+
+            System.out.println("\nEmployees with age >= " + N + ":");
+            for (Map.Entry<String, Integer> entry : employees.entrySet()) {
+                System.out.println(entry.getKey() + " - Age: " + entry.getValue());
+            }
+
+            scanner.close();
+            
+            System.out.println("\n" + spaces + "HashSet & HashLinks" + spaces);
+            /*  Sets
+             * A Set is a collection that cannot contain duplicate elements. It models the
+             * mathematical set abstraction.
+             * 
+             * One of the implementations of the Set is the HashSet class.
+             * 
+             * Example
+             */
+            HashSet<String> set = new HashSet<>();
+            set.add("A");
+            set.add("B");
+            set.add("C");
+            set.add("C"); // cannot contain duplicate elements2
+            System.out.println(set);
+
+            /*  You can use the <b>size()</b> method to get the number of elements in the
+             * 
+             * HashSet.
+             * 
+             * 
+             * LinkedHashSet
+             * The HashSet class does not automatically retain the order of the elements as
+             * they're added. To order the elements, use a LinkedHashSet, which maintains a
+             * linked list of the set's elements in the order in which they were inserted.
+             * 
+             * What is hashing?
+             * 
+             * A hash table stores information through a mechanism called hashing, in which
+             * a key's informational content is used to determine a unique value called a
+             * hash code.
+             * 
+             * So, basically, each element in the HashSet is associated with its unique hash
+             * code.
+             * 
+             * (i)
+             * You've learned about the various collection types that are available in Java,
+             * including Lists, Maps, and Sets. The choice of which one to use is specific
+             * to the data you need to store and manipulate.
+             */
+            /* Random Classs */
+            System.out.println("\n" + spaces + "Random Class" + spaces);
+            Random myRandom = new Random();
+            int randomInt = myRandom.nextInt(10)+1; // 0-9 to 1-10
+
+            // Rock, Paper, Scissor
+            String[] playChoice = {"Scissor", "Rock", "Paper"};
+            
+            out.println("Choose: \n1. Scissor\n2. Rock\n3. Paper\n");
+            boolean validMe = false;
+
+            while (!validMe) {
+                try {
+                    out.print("Your choice (1-3): ");
+                    sc.nextLine(); // Add this after reading number input
+                    int ind = sc.nextInt()-1; // expect 1-3 input from user
+
+                    String player1 = playChoice[ind]; // convert 1-based to 0-based index
+                    out.println(player1);
+                    String computer = playChoice[myRandom.nextInt(playChoice.length)];
+
+                    out.println("\nPlayer\t  VS\tComputer");
+
+                    for (int pc = 0; pc < playChoice.length; pc++) {
+                        if (player1.equals(playChoice[pc])) {
+                            out.println(player1 +"\t\t"+ computer);
+                        }
+                    }
+
+                    if (player1.equals(computer)) {
+                        out.println("\n   It's a tie.\n");
+                    } else if ((player1.equals("Rock") && computer.equals("Scissor")) ||
+                            (player1.equals("Scissor") && computer.equals("Paper")) ||
+                            (player1.equals("Paper") && computer.equals("Rock"))) {
+                        out.println("\n    You Wins!\n");
+                    } else {
+                        out.println("\n    Computer Wins!\n");
+                    }
+
+                    validMe = true; // end loop after a valid round
+
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    out.println("Invalid number! Enter between 1 and 3 only.\n");
+                    sc.nextLine(); // Clear the invalid input buffer
+                } catch (Exception e) {
+                    out.println("Invalid input! Enter a number.\n");
+                    sc.nextLine(); // ← this throws NoSuchElementException if no line exists
+                }
+            }   
+
+            String symbol1 = "|"; // |
+            String symbol2 = "+".repeat(50); // +
+
+            double why = myRandom.nextDouble(10)+1; 
+            boolean z = myRandom.nextBoolean();
+            // out.print(symbol1+symbol2+"\n"+symbol1+"\tRandom integer: "+ randomInt+"\n"+symbol1+"\tRandom Double: "+y+"\n"+symbol1+"\tRandom Boolean: "+z+"\n"+symbol1+symbol2);
+            out.printf("%s%s%s%n%-15sRandom integer: %d%20s %n%-15sRandom double: %,.5f%15s%n%-15sRandom boolean: %b%17s%n%s%s%s",symbol1, symbol2, symbol1, 
+            symbol1, randomInt, symbol1, symbol1, why, symbol1 ,symbol1, z, symbol1, symbol1, symbol2, symbol1);
+            
+            System.out.println("\n" + spaces + "Normal array (Sorted using Arrays class)" + spaces);
+            // Normal array Sort using Arrays Class
+            int[] numArray = { 5, 10, 2, 3, 7, 15, 20, 11, 1, 8, 22};
+            System.out.println();
+
+            System.out.print("Original Array: ");
+            for (int s=0; s<numArray.length; s++) {
+                
+                if (numArray[s] == numArray[0]) {
+                    System.out.print("[");
+                }
+                if (numArray[s] < 99 && numArray[s] != numArray[numArray.length - 1]) {
+                    System.out.print(numArray[s] + ",  ");
+                }
+                else {
+                    System.out.print(numArray[s]);
+                }
+                if (numArray[s] == numArray[numArray.length -1]) {
+                    System.out.print("]");
+                }
+            }
+
+            Arrays.sort(numArray); // Sort once
+
+            System.out.println("\nSorted Array:");
+            for (int s : numArray) {
+                System.out.println(s);
+            }
+
+        }else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
             switch (choosing) {
                 case 0: main(args); break;
@@ -955,6 +1168,9 @@ import JavaIntermediate.Programa.Rank;
                 case 31: Array_List(); break;
                 case 32: Ternary_Operator(); break;
                 case 33: LinkedList_v0(); break;
+                case 34: HashMap_Method(); break;
+                case 35: specificode.rand0mClass();
+                case 36: specificode.arraySort();
 
                 default: break;
             }
@@ -974,7 +1190,7 @@ import JavaIntermediate.Programa.Rank;
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
             System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread \n30. Types of Exceptions");
-            System.out.println("31. Array_List \n32. Ternary Operator \n33. LinkList \n");
+            System.out.println("31. Array_List \n32. Ternary Operator \n33. LinkList \n34. HashMap_Method \n35. Random Class \n36. Array Sort (nomral array)");
             
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -986,10 +1202,10 @@ import JavaIntermediate.Programa.Rank;
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 33) {
+                if (choose_number >= 0 && choose_number <= 36) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 33).");
+                    System.out.println("\nEnter the following number only (0 up to 36).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -1584,5 +1800,113 @@ import JavaIntermediate.Programa.Rank;
                 word.add(wordList);
             }
         }
+    }
+    
+    static void HashMap_Method()  {
+        HashMap<String,Integer> points = new HashMap<String, Integer>();
+        /*  HashMap
+         * Arrays and Lists store elements as ordered collections, with each element
+         * given an integer index.
+         * 
+         * HashMap is used for storing data collections as key and value pairs. One
+         * object is used as a key (index) to another object (the value).
+         * 
+         * The put, remove, and get methods are used to add, delete, and access values
+         * in the HashMap.
+         * 
+         * Example:
+         */
+        System.out.println("\n" + spaces + "HashMap" + spaces);
+        points.put("Amy", 154);
+        points.put("Gab", 17);
+        points.put("Oranges", 16);
+        points.put("Dave", 42);
+        points.put("Rob", 733);
+        points.put("Rob", 500); // Rob re-asssign value to 500
+        System.out.println(points.get("Dave"));
+        System.out.println(points.keySet()); // no "733" key returns the value of null.
+        System.out.println(points);
+        /*  We have created a HashMap with Strings as its keys and Integers as its
+         * values.
+         * 
+         * Use the get method and the corresponding key to access the HashMap elements.
+         */
+
+
+          HashMap<String, Integer> employees = new HashMap<>();
+        Scanner scanner = new Scanner(System.in);
+
+        // Sample employees added
+        employees.put("Alice", 25);
+        employees.put("Bob", 19);
+        employees.put("Charlie", 32);
+        employees.put("Diana", 21);
+        employees.put("Eve", 17);
+
+        System.out.println("\nOriginal Employees:");
+        for (Map.Entry<String, Integer> entry : employees.entrySet()) {
+            System.out.println(entry.getKey() + " - Age: " + entry.getValue());
+        }
+
+        System.out.print("\nEnter age limit (N): ");
+        int N = scanner.nextInt();
+
+        // Remove employees whose age is less than N
+        Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Integer> entry = iterator.next();
+            if (entry.getValue() < N) {
+                iterator.remove();  // Safe removal during iteration
+            }
+        }
+
+        System.out.println("\nEmployees with age >= " + N + ":");
+        for (Map.Entry<String, Integer> entry : employees.entrySet()) {
+            System.out.println(entry.getKey() + " - Age: " + entry.getValue());
+        }
+
+        scanner.close();
+    }
+    static void HashSets_LinkedHashSet()  {
+        /*  Sets
+         * A Set is a collection that cannot contain duplicate elements. It models the
+         * mathematical set abstraction.
+         * 
+         * One of the implementations of the Set is the HashSet class.
+         * 
+         * Example
+         */
+        HashSet<String> set = new HashSet<>();
+        set.add("A");
+        set.add("B");
+        set.add("C");
+        set.add("C"); // cannot contain duplicate elements2
+        System.out.println(set);
+
+        /* You can use the <b>size()</b> method to get the number of elements in the
+        
+         * HashSet.
+         * 
+         * 
+         * LinkedHashSet
+         * The HashSet class does not automatically retain the order of the elements as
+         * they're added. To order the elements, use a LinkedHashSet, which maintains a
+         * linked list of the set's elements in the order in which they were inserted.
+         * 
+         * What is hashing?
+         * 
+         * A hash table stores information through a mechanism called hashing, in which
+         * a key's informational content is used to determine a unique value called a
+         * hash code.
+         * 
+         * So, basically, each element in the HashSet is associated with its unique hash
+         * code.
+         * 
+         * (i)
+         * You've learned about the various collection types that are available in Java,
+         * including Lists, Maps, and Sets. The choice of which one to use is specific
+         * to the data you need to store and manipulate.
+         */
+    
     }
 }

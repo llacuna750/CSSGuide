@@ -81,9 +81,9 @@ public class SaksiNiJava {
 //         //         //#8  Random Type
 //         // Random random = new Random();
 
-//         // int x = random.nextInt(2)+1;   System.out.println("\nYou picked: "+x);     //Random Whole number between 1 to 90
-//         // double y = random.nextInt(5);  System.out.println("You picked: "+y);     // Random double number between 1.00  to  19.00
-//         // Boolean z = random.nextBoolean();       System.out.println("You picked: "+z);  // Random Boolean value between  True or False
+//         // int x = random.nextInt(2)+1;            System.out.println("\nYou picked: "+x);      //Random Whole number between 1 to 90
+//         // double y = random.nextInt(5);           System.out.println("You picked: "+y);        // Random double number between 1.00  to  19.00
+//         // Boolean z = random.nextBoolean();       System.out.println("You picked: "+z);        // Random Boolean value between  True or False
 
 //                         //#9  If else statement performs a block of code if it's condition evaluates to be true
 //         // int age;

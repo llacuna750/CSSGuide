@@ -1,9 +1,12 @@
 package JavaIntermediate;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Iterator;
+// import java.util.LinkedHashSet;
 import java.util.Scanner;
+
+// import static java.lang.System.in;
+// import static java.lang.System.in;
+// import java.util.InputMismatchException;
+
 
 // import ExternalPackage.; // uses wild Card to import all classes in a package.
 // import ExternalPackage.Persona;
@@ -36,67 +39,8 @@ class Myclass {
         System.out.println("\nHello Myclass!\n");
         TestAll.main(args);
 
-        /*  HashMap
-         * Arrays and Lists store elements as ordered collections, with each element
-         * given an integer index.
-         * 
-         * HashMap is used for storing data collections as key and value pairs. One
-         * object is used as a key (index) to another object (the value).
-         * 
-         * The put, remove, and get methods are used to add, delete, and access values
-         * in the HashMap.
-         * 
-         * Example:
-         */
-        HashMap<String,Integer> points = new HashMap<String, Integer>();
-        points.put("Amy", 154);
-        points.put("Gab", 17);
-        points.put("Oranges", 16);
-        points.put("Dave", 42);
-        points.put("Rob", 733);
-        points.put("Rob", 500); // Rob re-asssign value to 500
-        System.out.println(points.get("Dave"));
-        System.out.println(points.keySet()); // no "733" key returns the value of null.
-        System.out.println(points);
-        /*  We have created a HashMap with Strings as its keys and Integers as its
-         * values.
-         * 
-         * Use the get method and the corresponding key to access the HashMap elements.
-         */
 
 
-          HashMap<String, Integer> employees = new HashMap<>();
-        Scanner scanner = new Scanner(System.in);
-
-        // Sample employees added
-        employees.put("Alice", 25);
-        employees.put("Bob", 19);
-        employees.put("Charlie", 32);
-        employees.put("Diana", 21);
-        employees.put("Eve", 17);
-
-        System.out.println("\nOriginal Employees:");
-        for (Map.Entry<String, Integer> entry : employees.entrySet()) {
-            System.out.println(entry.getKey() + " - Age: " + entry.getValue());
-        }
-
-        System.out.print("\nEnter age limit (N): ");
-        int N = scanner.nextInt();
-
-        // Remove employees whose age is less than N
-        Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, Integer> entry = iterator.next();
-            if (entry.getValue() < N) {
-                iterator.remove();  // Safe removal during iteration
-            }
-        }
-
-        System.out.println("\nEmployees with age >= " + N + ":");
-        for (Map.Entry<String, Integer> entry : employees.entrySet()) {
-            System.out.println(entry.getKey() + " - Age: " + entry.getValue());
-        }
-
-        scanner.close();
+        
     }
 }

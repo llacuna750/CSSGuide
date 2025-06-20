@@ -1,7 +1,10 @@
 package JavaIntermediate;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 import ExternalPackage.*;
 import JavaIntermediate.Programa.Rank;
+import static java.lang.System.out;
 
 public class Choosespeci_Code extends TestAll {
     static Scanner sc = new Scanner(System.in);
@@ -617,6 +620,100 @@ public class Choosespeci_Code extends TestAll {
         } catch (Exception e) {
             // some code to handle errors
             System.out.println("\nAn error occured");
+        }
+    }
+    
+    void rand0mClass () {
+        /* Random Classs */
+        System.out.println("\n" + spaces + "Random Class" + spaces);
+        Random myRandom = new Random();
+        int randomInt = myRandom.nextInt(10)+1; // 0-9 to 1-10
+
+        // Rock, Paper, Scissor
+        String[] playChoice = {"Scissor", "Rock", "Paper"};
+        
+        out.println("Choose: \n1. Scissor\n2. Rock\n3. Paper\n");
+        boolean valid = false;
+
+        while (!valid) {
+            try {
+                out.print("Your choice (1-3): ");
+                int ind = sc.nextInt()-1; // expect 1-3 input from user
+
+                String player1 = playChoice[ind]; // convert 1-based to 0-based index
+                out.println(player1);
+                String computer = playChoice[myRandom.nextInt(playChoice.length)];
+
+                out.println("\nPlayer\t  VS\tComputer");
+
+                for (int pc = 0; pc < playChoice.length; pc++) {
+                    if (player1.equals(playChoice[pc])) {
+                        out.println(player1 +"\t\t"+ computer);
+                    }
+                }
+
+                if (player1.equals(computer)) {
+                    out.println("\n   It's a tie.\n");
+                } else if ((player1.equals("Rock") && computer.equals("Scissor")) ||
+                        (player1.equals("Scissor") && computer.equals("Paper")) ||
+                        (player1.equals("Paper") && computer.equals("Rock"))) {
+                    out.println("\n    You Wins!\n");
+                } else {
+                    out.println("\n    Computer Wins!\n");
+                }
+
+                valid = true; // end loop after a valid round
+
+            } catch (ArrayIndexOutOfBoundsException e) {
+                out.println("Invalid number! Enter between 1 and 3 only.\n");
+                sc.nextLine(); // Clear the invalid input buffer
+            } catch (Exception e) {
+                out.println("Invalid input! Enter a number.\n");
+                sc.nextLine(); // Clear input buffer
+            }
+        }
+
+        String symbol1 = "|"; // 
+        String symbol2 = "+".repeat(50); // +
+
+        double y = myRandom.nextDouble(10)+1; 
+        boolean z = myRandom.nextBoolean();
+        // out.print(symbol1+symbol2+"\n"+symbol1+"\tRandom integer: "+ randomInt+"\n"+symbol1+"\tRandom Double: "+y+"\n"+symbol1+"\tRandom Boolean: "+z+"\n"+symbol1+symbol2);
+        out.printf("%s%s%s%n%-15sRandom integer: %d%20s %n%-15sRandom double: %,.5f%15s%n%-15sRandom boolean: %b%17s%n%s%s%s",symbol1, symbol2, symbol1, 
+        symbol1, randomInt, symbol1, symbol1, y, symbol1 ,symbol1, z, symbol1, symbol1, symbol2, symbol1);
+    }
+
+    void arraySort () {
+        System.out.println("\n" + spaces + "Normal array (Sorted using Arrays class)" + spaces);
+        // Normal array Sort using Arrays Class
+        int[] numArray = { 5, 10, 2, 3, 7, 15, 20, 11, 1, 8, 22};
+        System.out.println();
+
+        System.out.print("Original Array: ");
+        for (int s=0; s<numArray.length; s++) {
+            
+            if (numArray[s] == numArray[0]) {
+                System.out.print("[");
+            }
+
+            if (numArray[s] < 99 && numArray[s] != numArray[numArray.length - 1]) {
+                System.out.print(numArray[s] + ",  ");
+            }
+
+            else {
+                System.out.print(numArray[s]);
+            }
+
+            if (numArray[s] == numArray[numArray.length -1]) {
+                System.out.print("]");
+            }
+        }
+
+        Arrays.sort(numArray); // Sort once
+
+        System.out.println("\nSorted Array:");
+        for (int s : numArray) {
+            System.out.println(s);
         }
     }
 }

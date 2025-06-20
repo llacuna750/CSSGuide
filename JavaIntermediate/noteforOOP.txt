@@ -132,7 +132,7 @@ Dogs inherit characteristics like "breathing", "eating", and "moving" from Anima
 🔹 Superclass (Parent)
 class Animal {
     public void eat() {
-        System.out.println("This animal eats food.");
+      System.out.println("This animal eats food.");
     }
 
     public void sleep() {
@@ -143,18 +143,18 @@ class Animal {
 🔹 Subclass (Child)
 class Dog extends Animal {
     public void bark() {
-        System.out.println("The dog barks.");
+      System.out.println("The dog barks.");
     }
 }
 
 🔹 Main Method to Run It
 public class Main {
     public static void main(String[] args) {
-        Dog myDog = new Dog();
+      Dog myDog = new Dog();
 
-        myDog.eat();   // inherited from Animal
-        myDog.sleep(); // inherited from Animal
-        myDog.bark();  // defined in Dog
+      myDog.eat();   // inherited from Animal
+      myDog.sleep(); // inherited from Animal
+      myDog.bark();  // defined in Dog
     }
 }
 

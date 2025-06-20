@@ -1,7 +1,7 @@
 package ExternalPackage;
 
 public class A {
-    protected String a;
+    protected String a = "gwapo ko";
     private String b;
     private int x;
 

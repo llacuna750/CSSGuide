@@ -1,14 +1,18 @@
 package JavaIntermediate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import static java.lang.System.out;
+import static java.util.Collections.sort;
+
 
 import ExternalPackage.*;
 import JavaIntermediate.Programa.Rank;
@@ -1131,7 +1135,121 @@ class TestAll {
                 System.out.println(s);
             }
 
-        }else if (iChoose == 2) {
+
+            /*   Sorting Lists
+             * For the manipulation of data in different collection types, the Java API
+             * provides a <b>Collections </b>class, which is included in the java.util
+             * package.
+             * 
+             * One of the most popular <b>Collections </b>class methods is <b>sort()</b>,
+             * which sorts the elements of your collection type. The methods in the
+             * Collections class are static, so you don't need a Collections object to call
+             * them.
+             * 
+             * Example:
+             */
+            System.out.println("\n" + spaces + "ArrayList Sorting (and some method)" + spaces);
+            ArrayList<String> animals = new ArrayList<>();
+            animals.add("tiger");
+            animals.add("cat");
+            animals.add("snake");
+
+            out.println("Not sorted: " + animals);
+            Collections.sort(animals);
+            out.println("Sorted: " + animals);
+            out.println(animals.get(0));
+            /* As you can see, the elements have been sorted alphabetically. */
+
+            /*
+             * Sorting Lists
+             * You can call the <b>sort()</b> methods on different types of Lists, such as
+             * Integers.
+             */
+            ArrayList<Integer> nums = new ArrayList<>();
+            nums.add(3);
+            nums.add(36);
+            nums.add(73);
+            nums.add(40);
+            nums.add(15);
+
+            out.println("\nNot sorted yet: " + nums);
+            Collections.sort(nums);
+            out.println("Sorted: " + nums);
+            /*
+             * Other useful methods in the <b>Collections </b>class:
+             * 
+             * <b>max(Collection c):</b> Returns the maximum element in c as determined by
+             * natural ordering.
+             * 
+             * <b>min(Collection c):</b> Returns the minimum element in c as determined by
+             * natural ordering.
+             * 
+             * <b>reverse(List list):</b> Reverses the sequence in list.
+             * 
+             * <b>shuffle(List list):</b> Shuffles (i.e., randomizes) the elements in list.
+             * 
+             * Sorting Lists Practice:
+             * Complete the code to output ArrayList's maximum and minimum values.
+             */
+
+            out.println("Max: " + Collections.max(nums));
+            out.println("Min: " + Collections.min(nums));
+
+            /*
+             * Sets
+             * A Set is a collection that cannot contain duplicate elements. It models the
+             * mathematical set abstraction.
+             * 
+             * One of the implementations of the Set is the HashSet class.
+             * 
+             * Example
+             */
+            System.out.println("\n" + spaces + "HashSet or Sets & LinkHashSet" + spaces);
+            HashSet<String> hashset = new HashSet<>();
+            hashset.add("A");
+            hashset.add("B");
+            hashset.add("B");
+            hashset.add("Z"); // new Added
+            hashset.add("F"); // new added
+            hashset.add("M"); // new Added
+            hashset.add("C");
+            hashset.add("E");
+            hashset.add("C"); // cannot contain duplicate elements2
+            System.out.println(hashset);
+
+            LinkedHashSet<String> linkset = new LinkedHashSet<>();
+            linkset.add("Aaa");
+            linkset.add("Bbb");
+            linkset.add("new Add"); // new add
+            linkset.add("latest"); // new add
+            linkset.add("Bbb");
+            linkset.add("Ccc");
+            System.out.println(linkset);
+
+            /*   You can use the <b>size()</b> method to get the number of elements in the
+             * 
+             * HashSet.
+             * 
+             * LinkedHashSet
+             * The HashSet class does not automatically retain the order of the elements as
+             * they're added. To order the elements, use a LinkedHashSet, which maintains a
+             * linked list of the set's elements in the order in which they were inserted.
+             * 
+             * What is hashing?
+             * 
+             * A hash table stores information through a mechanism called hashing, in which
+             * a key's informational content is used to determine a unique value called a
+             * hash code.
+             * 
+             * So, basically, each element in the HashSet is associated with its unique hash
+             * code.
+             * 
+             * (i)
+             * You've learned about the various collection types that are available in Java,
+             * including Lists, Maps, and Sets. The choice of which one to use is specific
+             * to the data you need to store and manipulate.
+             */
+        } else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
             switch (choosing) {
                 case 0: main(args); break;
@@ -1169,8 +1287,10 @@ class TestAll {
                 case 32: Ternary_Operator(); break;
                 case 33: LinkedList_v0(); break;
                 case 34: HashMap_Method(); break;
-                case 35: specificode.rand0mClass();
-                case 36: specificode.arraySort();
+                case 35: specificode.rand0mClass(); break;
+                case 36: specificode.arraySort(); break;
+                case 37: ArrayListSort(); break;
+                case 38: HashSets_LinkedHashSet(); break;
 
                 default: break;
             }
@@ -1190,8 +1310,9 @@ class TestAll {
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
             System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread \n30. Types of Exceptions");
-            System.out.println("31. Array_List \n32. Ternary Operator \n33. LinkList \n34. HashMap_Method \n35. Random Class \n36. Array Sort (nomral array)");
-            
+            System.out.println("31. Array_List \n32. Ternary Operator \n33. LinkList \n34. HashMap_Method \n35. Random Class \n36. Array Sort (nomral array) \n37. ArrayListSort");
+            System.out.println("38. HashSets & LinkedHashSet \n");
+
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
 
@@ -1202,10 +1323,10 @@ class TestAll {
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 36) {
+                if (choose_number >= 0 && choose_number <= 38) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 36).");
+                    System.out.println("\nEnter the following number only (0 up to 38).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -1833,7 +1954,7 @@ class TestAll {
          */
 
 
-          HashMap<String, Integer> employees = new HashMap<>();
+        HashMap<String, Integer> employees = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
         // Sample employees added
@@ -1876,17 +1997,31 @@ class TestAll {
          * 
          * Example
          */
+        System.out.println("\n" + spaces + "HashSet or Sets & LinkHashSet" + spaces);
         HashSet<String> set = new HashSet<>();
         set.add("A");
         set.add("B");
+        set.add("B");
+        set.add("Z"); // new Added 
+        set.add("F"); // new added 
+        set.add("M"); // new Added
         set.add("C");
+        set.add("E");
         set.add("C"); // cannot contain duplicate elements2
         System.out.println(set);
+
+        LinkedHashSet<String> linkset = new LinkedHashSet<>();
+        linkset.add("Aaa");
+        linkset.add("Bbb");
+        linkset.add("new Add"); // new add
+        linkset.add("latest"); // new add 
+        linkset.add("Bbb");
+        linkset.add("Ccc");
+        System.out.println(linkset);
 
         /* You can use the <b>size()</b> method to get the number of elements in the
         
          * HashSet.
-         * 
          * 
          * LinkedHashSet
          * The HashSet class does not automatically retain the order of the elements as
@@ -1907,6 +2042,69 @@ class TestAll {
          * including Lists, Maps, and Sets. The choice of which one to use is specific
          * to the data you need to store and manipulate.
          */
+    }
     
+    static void ArrayListSort () {
+        /*   Sorting Lists
+         * For the manipulation of data in different collection types, the Java API
+         * provides a <b>Collections </b>class, which is included in the java.util
+         * package.
+         * 
+         * One of the most popular <b>Collections </b>class methods is <b>sort()</b>,
+         * which sorts the elements of your collection type. The methods in the
+         * Collections class are static, so you don't need a Collections object to call
+         * them.
+         * 
+         * Example:
+         */
+        System.out.println("\n" + spaces + "ArrayList Sorting (and some method)" + spaces);
+        ArrayList<String> animals = new ArrayList<>();
+        animals.add("tiger");
+        animals.add("cat");
+        animals.add("snake");
+
+        out.println("Not sorted: "+animals);
+        Collections.sort(animals);
+        out.println("Sorted: "+ animals);
+        out.println(animals.get(0));
+        /* As you can see, the elements have been sorted alphabetically. */
+
+        /*  Sorting Lists
+         * You can call the <b>sort()</b> methods on different types of Lists, such as
+         * Integers.
+         */
+        ArrayList<Integer> nums = new ArrayList<>();
+        nums.add(3);
+        nums.add(36);
+        nums.add(73);
+        nums.add(40);
+        nums.add(15);
+
+        out.println("\nNot sorted yet: "+nums);
+        Collections.sort(nums);
+        out.println("Sorted: " + nums);
+        /* Other useful methods in the <b>Collections </b>class:
+         * 
+         * <b>max(Collection c):</b> Returns the maximum element in c as determined by
+         * natural ordering.
+         * 
+         * <b>min(Collection c):</b> Returns the minimum element in c as determined by
+         * natural ordering.
+         * 
+         * <b>reverse(List list):</b> Reverses the sequence in list.
+         * 
+         * <b>shuffle(List list):</b> Shuffles (i.e., randomizes) the elements in list.
+         * 
+         * Sorting Lists Practice:
+         * Complete the code to output ArrayList's maximum and minimum values.
+         */
+
+        out.println("Max: "+Collections.max(nums));
+        out.println("Min: "+Collections.min(nums));
+
+    }
+
+    static void method(ArrayList<String> list) {
+        sort(list);
     }
 }

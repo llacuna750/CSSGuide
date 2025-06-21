@@ -5,11 +5,11 @@ import java.util.*;
 
 public class sampleClass {
     public static void main(String[] args) {
-        // Date cd = new Date();
-        // System.out.println("\nToday is "+cd);
+        Date cd = new Date();
+        System.out.println("\nToday is "+cd);
 
         String md = new SimpleDateFormat("yyyy.MM.dd. HH.mm.ss").format(new Date());
         System.out.println(md);
+        // md.format(new Date())
     }
-    
 }

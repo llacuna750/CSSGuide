@@ -2,16 +2,22 @@ package JavaIntermediate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Formatter;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
 import static java.lang.System.out;
 import static java.util.Collections.sort;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 
 import ExternalPackage.*;
@@ -233,7 +239,6 @@ class TestAll {
                 Superclass = Animal
             */
             Dog dog = new Dog();
-            String spaces = "-".repeat(30); // Java 11+
             System.out.println("\n"+spaces+"Inheritance"+spaces+"\nThe Dog born of "+dog.legs+" legs as Animal");
 
             /* Subclass Dog is don't have eat method and bark method because of Inheritance / extends keyword he inherite that behavior
@@ -1155,7 +1160,7 @@ class TestAll {
             animals.add("snake");
 
             out.println("Not sorted: " + animals);
-            Collections.sort(animals);
+            sort(animals);
             out.println("Sorted: " + animals);
             out.println(animals.get(0));
             /* As you can see, the elements have been sorted alphabetically. */
@@ -1249,6 +1254,317 @@ class TestAll {
              * including Lists, Maps, and Sets. The choice of which one to use is specific
              * to the data you need to store and manipulate.
              */
+            /*
+             * Iterators
+             * An Iterator is an object that enables to cycle through a collection, obtain
+             * or remove elements.
+             * 
+             * Before you can access a collection through an iterator, you must obtain one.
+             * Each of the collection classes provides an <b>iterator()</b> method that
+             * returns an iterator to the start of the collection. By using this iterator
+             * object, you can access each element in the collection, one element at a time.
+             * 
+             * The Iterator class provides the following methods:
+             * 
+             * <b>hasNext()</b>: Returns true if there is at least one more element;
+             * otherwise, it returns false.
+             * 
+             * <b>next()</b>: Returns the next object and advances the iterator.
+             * 
+             * <b>remove()</b>: Removes the last object that was returned by next from the
+             * collection.
+             * 
+             * The Iterator class must be imported from the java.util package.
+             * 
+             * -----------------------------------------------------------------------------
+             * ------------
+             * 🔄 What is an Iterator?
+             * An Iterator is a Java interface used to traverse (loop through) elements in a
+             * collection like ArrayList, HashSet, LinkedList, etc.
+             * 
+             * Instead of using a for loop or for-each, you can use an Iterator to go
+             * through elements one by one, and optionally remove them during iteration.
+             * 
+             * 🔧 Iterator Methods
+             * 1. hasNext()
+             * Purpose: Checks if there's another element to visit.
+             * 
+             * Returns: true if there's another element, false otherwise.
+             * 
+             * if (iterator.hasNext()) {
+             * // safe to call next()
+             * }
+             * 
+             * 2. next()
+             * Purpose: Returns the next element in the collection and moves the cursor
+             * forward.
+             * 
+             * Throws: NoSuchElementException if no more elements.
+             * String value = iterator.next(); // gets current item and moves to next
+             * 
+             * 
+             * 3. remove()
+             * Purpose: Removes the last element returned by next() from the collection.
+             * 
+             * Can only be called once per next().
+             * 
+             * Throws: IllegalStateException if you call it before next() or call it twice
+             * without another next().
+             * 
+             * iterator.next(); // get the current element
+             * iterator.remove(); // remove it from the original collection
+             * 
+             * 
+             * import java.util.*;
+             * 
+             * public class Main {
+             * public static void main(String[] args) {
+             * List<String> fruits = new ArrayList<>(Arrays.asList("Apple", "Banana",
+             * "Cherry"));
+             * 
+             * Iterator<String> iterator = fruits.iterator();
+             * 
+             * while (iterator.hasNext()) {
+             * String fruit = iterator.next();
+             * if (fruit.equals("Banana")) {
+             * iterator.remove(); // removes "Banana"
+             * }
+             * }
+             * 
+             * System.out.println(fruits); // Output: [Apple, Cherry]
+             * }
+             * }
+             * 
+             * ❗Important Notes:
+             * You must call next() before calling remove().
+             * 
+             * remove() affects the original collection.
+             * 
+             * It's safer than removing elements inside a for-each loop (which throws
+             * ConcurrentModificationException).
+             * -----------------------------------------------------------------------------
+             * 
+             * Example:
+             * Iterators
+             * An Iterator is an object that enables to cycle through a collection, obtain
+             * or remove elements.
+             * 
+             * Before you can access a collection through an iterator, you must obtain one.
+             * Each of the collection classes provides an <b>iterator()</b> method that
+             * returns an iterator to the start of the collection. By using this iterator
+             * object, you can access each element in the collection, one element at a time.
+             * 
+             * The Iterator class provides the following methods:
+             * 
+             * <b>hasNext()</b>: Returns true if there is at least one more element;
+             * otherwise, it returns false.
+             * 
+             * <b>next()</b>: Returns the next object and advances the iterator.
+             * 
+             * <b>remove()</b>: Removes the last object that was returned by next from the
+             * collection.
+             * 
+             * The Iterator class must be imported from the java.util package.
+             * 
+             * Example:
+             */
+            System.out.println("\n" + spaces + "Iterators" + spaces);
+            LinkedList<String> animalni = new LinkedList<>();
+            animalni.add("fox");
+            animalni.add("cat");
+            animalni.add("dog");
+            animalni.add("rabbit");
+
+            out.println(animalni);
+            String valval;
+
+            Iterator<String> it = animalni.iterator();
+            valval = it.next(); // first element Fox
+            valval = it.next(); // second element Cat
+            out.println(valval);
+            out.println(it);
+
+            /*   <b>it.next()</b> returns the first element in the list and then moves the
+             * iterator on to the next element.
+             * 
+             * Each time you call <b>it.next()</b>, the iterator moves to the next element
+             * of the list.
+             * 
+             * 
+             * Typically, iterators are used in loops. At each iteration of the loop, you
+             * can access the corresponding list element.
+             * 
+             * Example:
+             */
+            LinkedList<String> animalka = new LinkedList<>();
+            animalka.add("foxxy");
+            animalka.add("pussycat");
+            animalka.add("doggy");
+            animalka.add("rabby");
+
+            Iterator<String> itt = animalka.iterator();
+
+            out.println();
+            while (itt.hasNext()) {
+                String mvalue = itt.next();
+                out.println(mvalue);
+            }
+            /*  Here, the while loop determines whether the iterator has additional elements,
+             * prints the value of the element, and advances the iterator to the next.
+             * 
+             * Iterators Practice:
+             * Write a code to calculate and output the sum of LinkedList elements.
+             */
+
+            List<Integer> listMe = new ArrayList<Integer>();
+            listMe.add(10);
+            listMe.add(20);
+            listMe.add(30);
+            Iterator<Integer> ittt = listMe.iterator();
+
+            int total = 0;
+            int val = 0;
+            try {
+                out.println();
+                while (ittt.hasNext()) {
+                    val = ittt.next(); // Get the next value
+                    total += val; // Add it to the total
+                    out.println("Current Value: " + val);
+                    out.println("Total so far: " + total);
+                }
+            } catch (NoSuchElementException e) {
+                out.println("No more elements to iterate over.");
+            } catch (Exception e) {
+                out.println("An error occurred: " + e.getMessage());
+            } finally {
+                ittt.remove(); // This will throw an exception if not called after next()
+            }
+
+            System.out.println("\n" + spaces + "Working with Files" + spaces);
+            /*
+             * Working with Files
+             * The java.io package includes a File class that allows you to work with files.
+             * 
+             * To start, create a <b>File </b>object and specify the path of the file in the
+             * constructor.
+             */
+
+            // File file = new File("C:\\data\\input-file.txt");
+            /* With the <b>exists()</b> method, you can determine whether a file exists. */
+
+            File xkana = new File("D:\\Javascriptbiggener\\javaSomefile\\Java_Datetime_API");
+
+            if (xkana.exists()) {
+                System.out.println(xkana.getName() + " exists!");
+            } else {
+                System.out.println("The file does not exist");
+            }
+            /*  The code above prints a message stating whether or not the file exists at the
+             * specified path.
+             * 
+             * The <b>getName()</b> method returns the name of the file.
+             * 
+             * Note that we used double backslashes in the path, as one backslash should be
+             * escaped in the path String.
+             */
+        
+            /*  Reading a File
+             * Files are useful for storing and retrieving data, and there are a number of
+             * ways to read from a file.
+             * 
+             * One of the simplest ways is to use the <b>Scanner </b>class from the
+             * java.util package.
+             * 
+             * The constructor of the <b>Scanner </b>class can take a File object as input.
+             * 
+             * To read the contents of a text file at the path "C:\\sololearn\\test.txt", we
+             * would need to create a File object with the corresponding path and pass it to
+             * the Scanner object.
+             */
+            out.println("\n" + spaces + "Reading Files" + spaces);
+            try {
+                File xx = new File("D:\\Javascriptbiggener\\JavaIntermediate\\Practice_Area\\Anak.java");
+                Scanner sc = new Scanner(xx);
+                // String firstL = sc.nextLine();
+                // System.out.println(firstL);
+                while (sc.hasNextLine()) {
+                    String line = sc.nextLine();
+                    out.println(line);
+                    /* The <b>hasNextLine()</b> method checks if there is another line in the file,
+                     * and the <b>nextLine()</b> method reads the next line from the file.
+                     */
+                }
+                sc.close();
+            } catch (FileNotFoundException e) {
+                out.println("File not found: " + e.getMessage());
+            }
+            /* We surrounded the code with a try/catch block, because there's a chance that
+             * the file may not exist.
+             * 
+             * {i}
+             * It is always good practice to close a file when finished working with it. One
+             * way to do this is to use the Scanner's <b>close()</b> method.
+             */
+
+            /*  Creating Files
+             * Formatter, another useful class in the java.util package, is used to create
+             * content and write it to files.
+             * 
+             * Example:
+             */
+            out.println("\n" + spaces + "Creating & Writing Files" + spaces);
+            String filePath = "D:/Javascriptbiggener/JavaIntermediate/Practice_Area/MyFile.txt";
+            String filePath1 = "D:/Javascriptbiggener/JavaIntermediate/Practice_Area/MyFile1.txt";
+            try {
+                Formatter f = new Formatter(filePath);
+                Formatter f1 = new Formatter(filePath1);
+
+                out.print("Enter some content to write to the file: ");
+                String content = sc.nextLine(); // Assuming you want to take input from the user
+
+                // for (int i = 0; i < 5; i++) {
+                // out.print("Enter line " + (i + 1) + ": ");
+                // content += sc.nextLine() + "\n"; // Collecting multiple lines of input
+                // }
+                // int nm = 1;
+                // f.format("%d: %s",nm ,content);
+                f.format(content);
+
+                f1.format("It is located at: %s%n", filePath);
+                f.close(); // Always close the Formatter to release resources
+                f1.close();
+                sc.close(); // Close the Scanner to release resources
+
+                File file = new File(filePath);
+                Scanner mysc = new Scanner(file);
+                // int i=1;
+                while (mysc.hasNext()) {
+                    System.out.println(mysc.nextLine());
+                    // i++;
+                }
+                mysc.close(); // Close the Scanner to release resources
+
+            } catch (Exception e) {
+                out.println("Error: " + e.getMessage());
+            }
+
+            /*  This creates an empty file at the specified path. If the file already exists,
+             * this will overwrite it.
+             * 
+             * (i)
+             * Again, you need to surround the code with a try/catch block, as the operation
+             * can fail.
+             * 
+             * Once the file is created, you can write content to it using the same
+             * Formatter object's <b>format()</b> method.
+             * 
+             * Example:
+             * 
+             * Creating & Writing Files Practice:
+             * Complete the code to take the names of N tasks and write down them in the
+             * file.
+             */
+
         } else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
             switch (choosing) {
@@ -1291,6 +1607,11 @@ class TestAll {
                 case 36: specificode.arraySort(); break;
                 case 37: ArrayListSort(); break;
                 case 38: HashSets_LinkedHashSet(); break;
+                case 39: methodIterator(); break;
+                case 40: wwF(); break;
+                case 41: readingFile(); break;
+                case 42: Creating_Writing_Files(); break;
+                case 43: Java_2_Module_3_Quiz(); break;
 
                 default: break;
             }
@@ -1311,7 +1632,8 @@ class TestAll {
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
             System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread \n30. Types of Exceptions");
             System.out.println("31. Array_List \n32. Ternary Operator \n33. LinkList \n34. HashMap_Method \n35. Random Class \n36. Array Sort (nomral array) \n37. ArrayListSort");
-            System.out.println("38. HashSets & LinkedHashSet \n");
+            System.out.println("38. HashSets & LinkedHashSet \n39. Iterator\n40. Work with Files \n41. Reading File \n42. Creating and Writing Files");
+            System.out.println("43. Java 2 Module 3 Quiz\n");
 
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -1323,10 +1645,10 @@ class TestAll {
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 38) {
+                if (choose_number >= 0 && choose_number <= 43) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 38).");
+                    System.out.println("\nEnter the following number only (0 up to 43).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -1663,7 +1985,7 @@ class TestAll {
          * 
          * Example:
          */
-        String spaces = "-".repeat(30); // Java 11+
+        
         System.out.println("\n" + spaces + "Threads" + spaces);
         Loader obj_loader = new Loader();
         obj_loader.start(); 
@@ -1709,7 +2031,7 @@ class TestAll {
          * Threads Practice
          * Complete the registration program to output the messages in correct order.
          */
-        String spaces = "-".repeat(30); // Java 11+
+        
         System.out.println("\n" + spaces + "Runtime vs. Checked Exceptions" + spaces);
         Thread sleepingThread = new Thread(() -> {
             try {
@@ -1989,11 +2311,87 @@ class TestAll {
         scanner.close();
     }
     static void HashSets_LinkedHashSet()  {
-        /*  Sets
+        /*   Sets
          * A Set is a collection that cannot contain duplicate elements. It models the
          * mathematical set abstraction.
          * 
          * One of the implementations of the Set is the HashSet class.
+         * 
+         * Great question! LinkedHashSet and LinkedList are both part of Java's
+         * Collection Framework, but they serve very different purposes and have
+         * different behaviors.
+         * 
+         * 1. Purpose
+         * Additional:
+         * | Feature | `LinkedHashSet` | `LinkedList` |
+         * | ---------------------- | --------------------------- |
+         * ----------------------- |
+         * | **Type** | A **Set** | A **List** |
+         * | **Allows duplicates?** | ❌ No (only unique elements) | ✅ Yes |
+         * | **Maintains order?** | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
+         * | **Access by index?** | ❌ No | ✅ Yes (`get(index)`) |
+         * 
+         * 🔸 2. Use Cases
+         * LinkedHashSet is used when:
+         * 
+         * You want no duplicates.
+         * 
+         * You want to maintain the order of insertion.
+         * 
+         * You don’t need indexed access.
+         * 
+         * LinkedList is used when:
+         * 
+         * You need a sequential list of items (with duplicates allowed).
+         * 
+         * You want to add/remove elements from both ends efficiently.
+         * 
+         * You need to access elements by position (index).
+         * 
+         * 
+         * 🔸 3. Example Comparison
+         * ✅ LinkedHashSet Example:
+         * java
+         * Copy
+         * Edit
+         * import java.util.LinkedHashSet;
+         * 
+         * LinkedHashSet<String> set = new LinkedHashSet<>();
+         * set.add("A");
+         * set.add("B");
+         * set.add("B"); // duplicate ignored
+         * set.add("C");
+         * System.out.println(set); // [A, B, C]
+         * 
+         * ✅ LinkedList Example:
+         * java
+         * Copy
+         * Edit
+         * import java.util.LinkedList;
+         * 
+         * LinkedList<String> list = new LinkedList<>();
+         * list.add("A");
+         * list.add("B");
+         * list.add("B"); // duplicate allowed
+         * list.add("C");
+         * System.out.println(list); // [A, B, B, C]
+         * System.out.println(list.get(1)); // B
+         * 
+         * 🔸 4. Performance Differences
+         * Operation LinkedHashSet LinkedList
+         * Add/remove (middle) ❌ Not supported by index ⚠️ Slower (O(n))
+         * Add/remove (ends) ✅ Efficient ✅ Efficient (esp. ends)
+         * Check if element exists ✅ Fast (O(1)) ❌ Slower (O(n))
+         * Access by index ❌ Not supported ✅ Yes (O(n)) *
+         * 
+         * ✅ Summary
+         * | Feature | LinkedHashSet | LinkedList |
+         * | ------------------ | ----------------------- | ------------------------ |
+         * | Duplicate elements | ❌ No | ✅ Yes |
+         * | Maintains order | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
+         * | Random access | ❌ No | ✅ Yes (`get(index)`) |
+         * | Implements | `Set`, `Collection` | `List`, `Deque`, `Queue` |
+         * 
          * 
          * Example
          */
@@ -2081,7 +2479,7 @@ class TestAll {
         nums.add(15);
 
         out.println("\nNot sorted yet: "+nums);
-        Collections.sort(nums);
+        sort(nums);
         out.println("Sorted: " + nums);
         /* Other useful methods in the <b>Collections </b>class:
          * 
@@ -2104,7 +2502,385 @@ class TestAll {
 
     }
 
-    static void method(ArrayList<String> list) {
-        sort(list);
+    static void methodIterator() {
+        /*  Iterators
+         * An Iterator is an object that enables to cycle through a collection, obtain
+         * or remove elements.
+         * 
+         * Before you can access a collection through an iterator, you must obtain one.
+         * Each of the collection classes provides an <b>iterator()</b> method that
+         * returns an iterator to the start of the collection. By using this iterator
+         * object, you can access each element in the collection, one element at a time.
+         * 
+         * The Iterator class provides the following methods:
+         * 
+         * <b>hasNext()</b>: Returns true if there is at least one more element;
+         * otherwise, it returns false.
+         * 
+         * <b>next()</b>: Returns the next object and advances the iterator.
+         * 
+         * <b>remove()</b>: Removes the last object that was returned by next from the
+         * collection.
+         * 
+         * The Iterator class must be imported from the java.util package.
+         * 
+         * -----------------------------------------------------------------------------
+         * ------------
+         * 🔄 What is an Iterator?
+         * An Iterator is a Java interface used to traverse (loop through) elements in a
+         * collection like ArrayList, HashSet, LinkedList, etc.
+         * 
+         * Instead of using a for loop or for-each, you can use an Iterator to go
+         * through elements one by one, and optionally remove them during iteration.
+         * 
+         * 🔧 Iterator Methods
+         * 1. hasNext()
+         * Purpose: Checks if there's another element to visit.
+         * 
+         * Returns: true if there's another element, false otherwise.
+         * 
+         * if (iterator.hasNext()) {
+         * // safe to call next()
+         * }
+         * 
+         * 2. next()
+         * Purpose: Returns the next element in the collection and moves the cursor
+         * forward.
+         * 
+         * Throws: NoSuchElementException if no more elements.
+         * String value = iterator.next(); // gets current item and moves to next
+         * 
+         * 
+         * 3. remove()
+         * Purpose: Removes the last element returned by next() from the collection.
+         * 
+         * Can only be called once per next().
+         * 
+         * Throws: IllegalStateException if you call it before next() or call it twice
+         * without another next().
+         * 
+         * iterator.next(); // get the current element
+         * iterator.remove(); // remove it from the original collection
+         * 
+         * 
+         * import java.util.*;
+         * 
+         * public class Main {
+         * public static void main(String[] args) {
+         * List<String> fruits = new ArrayList<>(Arrays.asList("Apple", "Banana",
+         * "Cherry"));
+         * 
+         * Iterator<String> iterator = fruits.iterator();
+         * 
+         * while (iterator.hasNext()) {
+         * String fruit = iterator.next();
+         * if (fruit.equals("Banana")) {
+         * iterator.remove(); // removes "Banana"
+         * }
+         * }
+         * 
+         * System.out.println(fruits); // Output: [Apple, Cherry]
+         * }
+         * }
+         * 
+         * ❗Important Notes:
+         * You must call next() before calling remove().
+         * 
+         * remove() affects the original collection.
+         * 
+         * It's safer than removing elements inside a for-each loop (which throws
+         * ConcurrentModificationException).
+         * -----------------------------------------------------------------------------
+         * 
+         * Example:
+         * Iterators
+         * An Iterator is an object that enables to cycle through a collection, obtain
+         * or remove elements.
+         * 
+         * Before you can access a collection through an iterator, you must obtain one.
+         * Each of the collection classes provides an <b>iterator()</b> method that
+         * returns an iterator to the start of the collection. By using this iterator
+         * object, you can access each element in the collection, one element at a time.
+         * 
+         * The Iterator class provides the following methods:
+         * 
+         * <b>hasNext()</b>: Returns true if there is at least one more element;
+         * otherwise, it returns false.
+         * 
+         * <b>next()</b>: Returns the next object and advances the iterator.
+         * 
+         * <b>remove()</b>: Removes the last object that was returned by next from the
+         * collection.
+         * 
+         * The Iterator class must be imported from the java.util package.
+         * 
+         * Example:
+         */
+        System.out.println("\n" + spaces + "Iterators" + spaces);
+        LinkedList<String> animalni = new LinkedList<>();
+        animalni.add("fox");
+        animalni.add("cat");
+        animalni.add("dog");
+        animalni.add("rabbit");
+
+        out.println(animalni);
+        String value;
+
+        Iterator<String> it = animalni.iterator();
+        value = it.next(); // first element Fox 
+        value = it.next(); // second element Cat
+        out.println(value);
+        out.println(it);
+
+        /*  <b>it.next()</b> returns the first element in the list and then moves the
+         * iterator on to the next element.
+         * 
+         * Each time you call <b>it.next()</b>, the iterator moves to the next element
+         * of the list.
+         * 
+         * 
+        Typically, iterators are used in loops. At each iteration of the loop, you
+         * can access the corresponding list element.
+         * 
+         * Example:
+         */
+        LinkedList<String> animalka = new LinkedList<>();
+        animalka.add("foxxy");
+        animalka.add("pussycat");
+        animalka.add("doggy");
+        animalka.add("rabby");
+
+        Iterator<String> itt = animalka.iterator();
+
+        out.println(); while (itt.hasNext()) {
+            String mvalue = itt.next();
+            out.println(mvalue);
+        }
+        /* Here, the while loop determines whether the iterator has additional elements,
+         * prints the value of the element, and advances the iterator to the next.
+         * 
+         * Iterators Practice:
+         * Write a code to calculate and output the sum of LinkedList elements.
+         */
+        
+        List<Integer> listMe = new ArrayList<Integer>();
+        listMe.add(10);
+        listMe.add(20);
+        listMe.add(30);
+        Iterator<Integer> ittt = listMe.iterator();
+
+        int total = 0;
+        int val = 0;
+        try {
+            out.println(); while (ittt.hasNext()) {
+                val = ittt.next(); // Get the next value
+                total += val; // Add it to the total
+                out.println("Current Value: " + val);
+                out.println("Total so far: " + total);  
+            }
+        }catch (NoSuchElementException e) {
+            out.println("No more elements to iterate over.");
+        } catch (Exception e) {
+            out.println("An error occurred: " + e.getMessage());
+        } finally {
+            ittt.remove(); // This will throw an exception if not called after next()
+        }
+    }
+
+    static void wwF () {
+        out.println("\n" + spaces + "Working with Files" + spaces);
+        /* Working with Files
+         * The java.io package includes a File class that allows you to work with files.
+         * 
+         * To start, create a <b>File </b>object and specify the path of the file in the
+         * constructor.
+         */
+        
+        // File file = new File("C:\\data\\input-file.txt");
+        /* With the <b>exists()</b> method, you can determine whether a file exists. */
+
+        File x = new File("D:\\Javascriptbiggener\\javaSomefile\\Java_Datetime_API");
+
+        if (x.exists()) {
+            System.out.println(x.getName() + " exists!");
+        } else {
+            System.out.println("The file does not exist");
+        }
+        /* The code above prints a message stating whether or not the file exists at the
+         * specified path.
+         * 
+         * The <b>getName()</b> method returns the name of the file.
+         * 
+         * Note that we used double backslashes in the path, as one backslash should be
+         * escaped in the path String.
+         */
+
+    }
+
+    static void readingFile () {
+        /*  Reading a File
+         * Files are useful for storing and retrieving data, and there are a number of
+         * ways to read from a file.
+         * 
+         * One of the simplest ways is to use the <b>Scanner </b>class from the
+         * java.util package.
+         * 
+         * The constructor of the <b>Scanner </b>class can take a File object as input.
+         * 
+         * To read the contents of a text file at the path "C:\\sololearn\\test.txt", we
+         * would need to create a File object with the corresponding path and pass it to
+         * the Scanner object.
+         */
+        out.println("\n" + spaces + "Reading Files" + spaces);
+        try {
+        File x = new File("D:\\Javascriptbiggener\\JavaIntermediate\\Practice_Area\\Anak.java");
+        Scanner sc = new Scanner(x);
+        // String firstL = sc.nextLine();
+        // System.out.println(firstL);
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                out.println(line);
+                /* The <b>hasNextLine()</b> method checks if there is another line in the file,
+                * and the <b>nextLine()</b> method reads the next line from the file.
+                */
+            }
+            sc.close();
+        }
+        catch (FileNotFoundException e) {
+            out.println("File not found: " + e.getMessage());   
+        }
+        /*  We surrounded the code with a try/catch block, because there's a chance that
+         * the file may not exist.
+         * 
+         * {i}
+         * It is always good practice to close a file when finished working with it. One
+         * way to do this is to use the Scanner's <b>close()</b> method.
+         */
+    }
+
+    static void Creating_Writing_Files () {
+        /*  Creating Files
+         * Formatter, another useful class in the java.util package, is used to create
+         * content and write it to files.
+         * 
+         * Example:
+         */
+        out.println("\n" + spaces + "Creating & Writing Files" + spaces);
+        String filePath = "D:/Javascriptbiggener/JavaIntermediate/Practice_Area/MyFile.txt";
+        String filePath1 = "D:/Javascriptbiggener/JavaIntermediate/Practice_Area/MyFile1.txt";
+        try {
+            Formatter f = new Formatter(filePath);
+            Formatter f1 = new Formatter(filePath1);
+
+            out.print("Enter some content to write to the file: ");
+            String content = sc.nextLine(); // Assuming you want to take input from the user
+
+            // for (int i = 0; i < 5; i++) {
+            //     out.print("Enter line " + (i + 1) + ": ");
+            //     content += sc.nextLine() + "\n"; // Collecting multiple lines of input
+            // }
+            // int nm = 1;
+            // f.format("%d: %s",nm ,content);
+            f.format(content);
+            
+            f1.format("It is located at: %s%n", filePath);
+            f.close(); // Always close the Formatter to release resources
+            f1.close();
+            sc.close(); // Close the Scanner to release resources
+
+            File file = new File(filePath);
+            Scanner mysc = new Scanner(file);
+
+            // int i=1;
+            while (mysc.hasNext()) {
+                System.out.println(mysc.nextLine());
+                // i++;
+            }
+            mysc.close(); // Close the Scanner to release resources
+
+        } catch (Exception e) {
+            out.println("Error: " + e.getMessage());    
+        }
+
+        /*  This creates an empty file at the specified path. If the file already exists,
+         * this will overwrite it.
+         * 
+         * (i)
+         * Again, you need to surround the code with a try/catch block, as the operation
+         * can fail.
+         * 
+         * Once the file is created, you can write content to it using the same
+         * Formatter object's <b>format()</b> method.
+         * 
+         * Example:
+         * 
+         * Creating & Writing Files Practice:
+         * Complete the code to take the names of N tasks and write down them in the
+         * file.
+         */
+    
+        }
+
+    static void Java_2_Module_3_Quiz() {
+        out.println("\n" + spaces + "Java_2_Module_3_Quiz#1" + spaces);
+        String filepathN = "D:/Javascriptbiggener/JavaIntermediate/Practice_Area/Java 2 Module 3 Quiz.txt";
+        File fmtReadFile = new File(filepathN); // for Reading a File
+        try (
+                Scanner forReading = fmtReadFile.exists() && fmtReadFile.length() > 0
+                        ? new Scanner(fmtReadFile) // only create Scanner if file exists and is not empty
+                        : null;) {
+
+            if (!fmtReadFile.exists()) { // Check if the file is empty
+                Formatter fmtCreate = new Formatter(filepathN); // for Creating a File
+                fmtCreate.format(
+                        "ArrayList<Integer> list = new ArrayList<Integer>();\r\n" +
+                                "for (int i = 0; i < 6; i++) {\r\n" +
+                                "\tlist.add(i);\r\n" +
+                                "}\r\n" +
+                                "int x = 0;\r\n" +
+                                "\r\n" +
+                                "Iterator<Integer> it = list.iterator();\r\n" +
+                                "while (it.hasNext()) {\r\n" +
+                                "\tx += it.next();\r\n" +
+                                "}\r\n" +
+                                "System.out.println(x);");
+
+                out.println("File created successfully.");
+
+                out.println("\nRun it again.");
+                fmtCreate.close(); // Always close the Formatter to release resources
+                return; // Exit the method after creating the file
+            } else {
+                out.printf("%nWhat is the Output of the following code?%n");
+                while (forReading.hasNext()) {
+                    out.println(forReading.nextLine());
+                }
+
+                out.printf("%nQ1 answer: ");
+                int answer1 = sc.nextInt(); // Read user input
+                if (answer1 == 15) {
+                    out.println("Correct! The output is 15.");
+                } else {
+                    out.println("Incorrect. try again. (Don't use chatGPT)");
+                }
+
+                out.printf("%nQ2 answer: ");
+                int answer2 = sc.nextInt(); // Read user input
+                if (answer2 == 12) {
+                    out.println("Correct! The output is 12.");
+                } else {
+                    out.println("Incorrect. try again. (Don't use chatGPT)");
+                }
+                forReading.close(); // Close the Scanner to release resources
+            }
+
+        } catch (FileNotFoundException e) {
+            out.println("An error occurred: " + e.getMessage() + " try again.");
+        } catch (InputMismatchException e) {
+            out.printf("%nInvalid input. Please enter a valid integer answer.%n");
+        }
+    }
+
+    static void method() {
     }
 }

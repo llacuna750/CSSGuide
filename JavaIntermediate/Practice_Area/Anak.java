@@ -14,6 +14,4 @@ public class Anak extends Ginikanan {
     void displayB() {
         System.out.println("Accessed: "+ b);
     }
-
-    
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="jsAdbans.css">
+    <link rel="shortcut icon" href="../images/js-favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div  class="mydiv">
+        <h1 id="gwapoq">JQuery <span><h3 class="thisish3">Vanilla JS</h3></span></h1>
+    </div>
+
+    <div class="container q1">
+        <h5>What is the capital of Peru?</h5>
+        <div>
+            <p>Your answer: 
+                <span><b id="myAnswer"></b></span>
+            </p>
+            <h6 class="result"><b><i></i></b></h6>
+            <p class="canceled"></p>
+        </div>
+        <div class="choice">
+            <h6>Timer: <span><b class="seconds"></b></span>
+            
+            <h6><b>Are u sure in your answer?</b>  
+                <span><button id="buttonYes" class="btn-success btn-lg" onclick="yesMe()">Yes</button> 
+                <button id="buttonNo" class="btn-warning btn-lg" onclick="noMe()">No</button></span>   
+            </h6>
+        </div>
+    </div>  
+
+    <div class="container q2">
+        <button class="btn btn-warning" onclick="startCountdown()">Log out</button>
+    </div>
+
+    <script src="jsAdvance.js"></script>
+</body>
+</html>

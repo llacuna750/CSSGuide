@@ -83,22 +83,27 @@ console.log(null == undefined); // true
 console.log(`2`+2+`2`+`\n`);
 
 setTimeout(function () {
-  console.log("This message is displayed after 2 seconds");
+  console.log("\nThis message is displayed after 2 seconds");
 }, 2000);
 
 function showMessage() {
   console.log("This message is displayed after 3 seconds");
+  displayMessage(); // executed the displayMEssage function
 }
 
 setTimeout(showMessage, 3000);
 
-// setTimeOut executed oncecl
+// setTimeOut executed once
 // setInterval executed repeatedly
-let timeoutID = setTimeout(function () {
+var timeoutID = setTimeout(() => {
   console.log("This message will not be displayed");
-}, 4000);
-clearTimeout(timeoutID);
+}, 2000);
+
+function displayMessage() {
+  clearTimeout(timeoutID);
+}
+
 
 
 var pi = Math.PI;
-// console.log(pi);
+console.log(pi);

@@ -237,6 +237,7 @@ function out() {
   console.log(`out of the coin`);
 }
 
+// Events 4
 let pieChart = document.getElementById("pieChart1");
 
 pieChart.onmouseover = () => {

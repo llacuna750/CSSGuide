@@ -1613,7 +1613,7 @@ class TestAll {
                 case 42: Creating_Writing_Files(); break;
                 case 43: Java_2_Module_3_Quiz(); break;
 
-                default: break;
+                default:
             }
         }
         else {

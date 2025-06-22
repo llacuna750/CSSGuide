@@ -1,0 +1,32 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --border-radius: 5px;
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+.thisish3 {
+    display: inline;
+}   
+
+.q1 { // Parent container
+    background-color: #2ecc71;
+    border-radius: var(--border-radius);
+}
+
+.choice { display: none; }
+
+.q2 {
+    background-color: #3498db;
+    border-radius: var(--border-radius);
+}

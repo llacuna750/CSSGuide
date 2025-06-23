@@ -31,4 +31,8 @@ body {
 .q2 {
   background-color: #3498db;
   border-radius: var(--border-radius);
+}
+
+.Logout {
+  margin: 5px;
 }/*# sourceMappingURL=jsAdbans.css.map */

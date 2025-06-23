@@ -10,12 +10,18 @@ const correctAnswer = 7;
 
 const message =
   playerGuess === correctAnswer
-  ? "Exactly correct" : playerGuess < 4
-  ? "Too low" : playerGuess > 10
-  ? "Too high" : playerGuess >= 5 || playerGuess <= 8
-  ? "Too close" : "Incorrect guess";
+    ? "Exactly correct"
+    : playerGuess < 4
+    ? "Too low"
+    : playerGuess > 10
+    ? "Too high"
+    : playerGuess >= 5 || playerGuess <= 8
+    ? "Too close"
+    : "Incorrect guess";
 
-  console.log("\n",spaceMe, "Ternary Operator", spaceMe, "\n"); console.log("Player guess: " + playerGuess); console.log(message);
+console.log("\n", spaceMe, "Ternary Operator", spaceMe, "\n");
+console.log("Player guess: " + playerGuess);
+console.log(message);
 
 /* Switch Statement - Select one of many code blocks to execute
     Challenge 
@@ -50,7 +56,8 @@ function selectItem(item) {
   return `Your selected ${item}. That will be ${price}`;
 }
 
-console.log("\n",spaceMe,"Switch Statement",spaceMe,"\n"); console.log(selectItem("d"));
+console.log("\n", spaceMe, "Switch Statement", spaceMe, "\n");
+console.log(selectItem("d"));
 
 /* Object Destructuring - extract properties from objects 
   OD - enables us to extract properties from objects into distinct variables. 
@@ -58,11 +65,11 @@ console.log("\n",spaceMe,"Switch Statement",spaceMe,"\n"); console.log(selectIte
 console.log("\n", spaceMe, "Object Destructuring", spaceMe, "\n");
 
 const dreamHoliday = {
-  destination: 'Austin Texas',
-  activity: 'visit the Tesla HQ',
-  accomodation: 'luxury ranch',
-  companion: 'Elon Musk'
-}
+  destination: "Austin Texas",
+  activity: "visit the Tesla HQ",
+  accomodation: "luxury ranch",
+  companion: "Elon Musk",
+};
 
 const { destination, activity, accomodation, companion } = dreamHoliday;
 console.log(`I  would love to go to ${destination} to ${activity}.
@@ -70,9 +77,9 @@ I'd sleep in a ${accomodation} and hang out with ${companion} all day.`);
 
 /* setTimeout - The method you've been waiting for! */
 console.log("\n", spaceMe, "setTimeout", spaceMe, "\n");
-console.log('What is the capital of Peru?');
+console.log("What is the capital of Peru?");
 
-function logAnswer(answer, points) {  
+function logAnswer(answer, points) {
   console.log(
     `The answer is ${answer} of course! If you got that right, giver yourself ${points} points`
   );
@@ -81,8 +88,8 @@ function logAnswer(answer, points) {
 setTimeout(logAnswer, 3000, "Lima", 10);
 
 setTimeout(() => {
-  console.log('\nReady for next question?');
-}, 4000 );
+  console.log("\nReady for next question?");
+}, 4000);
 
 setTimeout(() => {
   console.log("\n🔴");
@@ -94,5 +101,25 @@ function displayTrafficLight(light) {
   console.log("Green light ", light);
 }
 
+// The Event Loop
+const start = performance.now();
 
+setTimeout(() => {
+  // Get the ending timestamp
+  const end = performance.now();
+  console.log(`Execution time: ${end - start} milliseconds`);
+}, 1000);
 
+for (let i = 0; i < 1000000; i++) {
+  let answer = ((i * 2000000) / 67.8) * (45.7 / 3.2);
+}
+// Time without slow executing code: 1000.8999999761581  milliseconds
+// Time with slow executing code: 1001.5 milliseconds
+
+//Import and Export - A deeper dive
+
+// Make sure to use the correct relative path and file extension for your module
+
+/* import { interplanetaryDestinationsArr } from "./data.js";
+console.log(interplanetaryDestinationsArr); 
+got to the data.js */ 

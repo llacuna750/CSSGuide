@@ -313,8 +313,7 @@ class TestAll {
             Cat c = new Cat();
             c.makeSound();
 
-            /*
-             * show info
+            /* show info
              * Method Overloading
              * When methods have the same name, but different parameters, it is known as
              * method overloading.
@@ -434,8 +433,7 @@ class TestAll {
                 m.start();
             }
 
-            /*
-             * Inner Classes
+            /* Inner Classes
              * Java supports nesting classes; a class can be a member of another class.
              * 
              * Creating an inner class is quite simple. Just write a class within a class.
@@ -527,8 +525,7 @@ class TestAll {
             be.setX(6);
             System.out.println(ah.equals(be));
 
-            /*
-             * Enums
+            /* Enums
              * An Enum is a special type used to define collections of constants.
              * 
              * Here is a simple Enum example:
@@ -589,8 +586,7 @@ class TestAll {
                 default: break;
             }
             System.out.println("\n" + spaces + "Using the Java API" + spaces);
-            /*
-             * Java API
+            /*  Java API
              * The Java API is a collection of classes and interfaces that have been written
              * for you to use.
              * 
@@ -620,8 +616,7 @@ class TestAll {
             System.out.println(
                     "The awt package contains all of the classes for creating user interfaces and for painting graphics and images. \nThe wildcard character (*) is used to import all of the classes in the package.");
 
-            /*
-             * An exception is a problem that occurs during program execution. Exceptions
+            /* An exception is a problem that occurs during program execution. Exceptions
              * cause abnormal termination of the program.
              * 
              * Exception handling is a powerful mechanism that handles runtime errors to
@@ -768,8 +763,7 @@ class TestAll {
             t.start();
 
             
-            /*
-             * Types of Exceptions
+            /* Types of Exceptions
              * There are two exception types, checked and unchecked (also called runtime).
              * The main difference is that checked exceptions are checked when compiled,
              * while unchecked exceptions are checked at runtime.

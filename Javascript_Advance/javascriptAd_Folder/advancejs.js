@@ -1,4 +1,5 @@
-spaceMe = "-".repeat(30);
+const spaceMe = "-".repeat(30);
+// export default spaceMe;
 /* Ternary Operator - An alternative to if/else (sometimes) 
   Challenge
     1. Now improve the functionality of this code by letting the player know 
@@ -19,7 +20,7 @@ const message =
     ? "Too close"
     : "Incorrect guess";
 
-console.log("\n", spaceMe, "Ternary Operator", spaceMe, "\n");
+console.log("\n", spaceMe, "1. Ternary Operator", spaceMe, "\n");
 console.log("Player guess: " + playerGuess);
 console.log(message);
 
@@ -31,7 +32,7 @@ console.log(message);
     Hot Chocolate = $3.00
     Sandwich = $5.00
 
-    For Example: "You selected Coffee. The will be $2.50"
+  For Example: "You selected Coffee. The will be $2.50"
 */
 
 function selectItem(item) {
@@ -56,13 +57,13 @@ function selectItem(item) {
   return `Your selected ${item}. That will be ${price}`;
 }
 
-console.log("\n", spaceMe, "Switch Statement", spaceMe, "\n");
+console.log("\n", spaceMe, "2. Switch Statement", spaceMe, "\n");
 console.log(selectItem("d"));
 
 /* Object Destructuring - extract properties from objects 
   OD - enables us to extract properties from objects into distinct variables. 
 */
-console.log("\n", spaceMe, "Object Destructuring", spaceMe, "\n");
+console.log("\n", spaceMe, "3. Object Destructuring", spaceMe, "\n");
 
 const dreamHoliday = {
   destination: "Austin Texas",
@@ -76,7 +77,7 @@ console.log(`I  would love to go to ${destination} to ${activity}.
 I'd sleep in a ${accomodation} and hang out with ${companion} all day.`);
 
 /* setTimeout - The method you've been waiting for! */
-console.log("\n", spaceMe, "setTimeout", spaceMe, "\n");
+console.log("\n", spaceMe, "4. setTimeout", spaceMe, "\n");
 console.log("What is the capital of Peru?");
 
 function logAnswer(answer, points) {
@@ -123,3 +124,12 @@ for (let i = 0; i < 1000000; i++) {
 /* import { interplanetaryDestinationsArr } from "./data.js";
 console.log(interplanetaryDestinationsArr); 
 got to the data.js */ 
+let countme = 0;
+const stopsetInt = setInterval(function () {
+  countme += 1;
+  // console.log(countme);
+  console.log("\n", spaceMe, "5. setInterval", spaceMe, "\nGo to jsAdvance.js file");
+  if (countme === 1) {
+    clearInterval(stopsetInt);
+  } 
+}, 6000);

@@ -51,3 +51,5 @@ const shortSpaceTripsArr = [
 ];
 
 export { interplanetaryDestinationsArr, shortSpaceTripsArr };
+
+// console.log(`Type:`,typeof interplanetaryDestinationsArr);

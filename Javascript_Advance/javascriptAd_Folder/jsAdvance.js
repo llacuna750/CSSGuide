@@ -1,3 +1,5 @@
+
+
 const spaceMe = "-".repeat(30);
 document.title = "JavaScript Advance";
 
@@ -129,3 +131,45 @@ function startShutdown(device) {
 }
 //Import and Export - A deeper dive
 console.log("\n", spaceMe, "6. Import and Export", spaceMe, "\nGo to importing.js file");
+
+// 12. Super Challeng: Stock Ticker
+import getStockData from "./fakeStockAPI.js";
+console.log("\n", spaceMe, "12. Super Challeng: Stock Ticker", spaceMe, "\n");
+
+setInterval(() => {
+  const stockData = getStockData();
+  renderStockTicker(stockData);
+},  1000);
+
+let prevPrice = null;
+
+function renderStockTicker(stockData) {
+  const stockDisplayName = $("#name");
+  const stockDisplaySymbol = $("#Symbol");
+  const stockDisplayPrice = $("#price");
+  const stockDisplayTime = $("#Time");
+  const stockDisplayPriceIcon = $("#PriceIcon");
+
+  const { name, sym, price, time } = stockData;
+  
+  const priceDirectionIcon =
+    price > prevPrice
+      ? "GreenArrow.svg" // ✅ Green when price increased
+      : price < prevPrice
+      ? "RedArrow.svg" // ✅ Red when price decreased
+      : "GreyArrow.svg"; // ⚪ Grey when price unchanged
+
+  const priceIconElement = document.createElement("img");
+  priceIconElement.src = `./svg/${priceDirectionIcon}`;
+  priceIconElement.alt = "Price direction icon";
+
+  // Clear previous icon and add new one
+  stockDisplayPriceIcon.innerHTML = "";
+  stockDisplayPriceIcon.appendChild(priceIconElement);
+
+
+  stockDisplayName.innerText = name;
+  stockDisplaySymbol.innerText = sym;
+  stockDisplayPrice.innerText = `${price} ${stockDisplayPriceIcon.innerText}`;
+  stockDisplayTime.innerText = time;
+}

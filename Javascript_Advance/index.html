@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <title>Document</title>
     <link rel="stylesheet" href="jsAdbans.css">
     <link rel="shortcut icon" href="../images/js-favicon.png" type="image/x-icon">
@@ -19,7 +20,7 @@
         <h5>What is the capital of Peru?</h5>
         <div>
             <p>Your answer: 
-                <span><b id="myAnswer"></b></span>
+            <span><b id="myAnswer"></b></span>
             </p>
             <h6 class="result"><b><i></i></b></h6>
             <p class="canceled"><b></b></p>
@@ -34,12 +35,23 @@
                 <button id="buttonNo" class="btn-warning btn-lg" >No</button></span>   
             </h6>
         </div>
-    </div>  
+    </div>
 
     <div class="container q2">
         <button class="btn btn-warning Logout" onclick="startShutdown('Mac Book')">Log out</button>
     </div>
 
-    <script src="jsAdvance.js"></script>
+    <div class="container">
+        <h1>Name: <span id="name"></span></h1>
+        <h1>Symbol: <span id="Symbol"></span></h1>
+        <h1>Price:  
+            <span id="price"></span>
+            <span id="PriceIcon"></span>
+        </h1>
+        <h1>Time: <span id="Time"></span></h1>
+        <!-- <img id="imagePrice"> -->
+        
+    </div>
+    <script src="./javascriptAd_Folder/jsAdvance.js" type="module"></script>
 </body>
 </html>

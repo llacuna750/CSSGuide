@@ -37,16 +37,19 @@ console.log(`Copyright ${dateSnapshot.getFullYear().toString()} all rights reser
 /* The Error() Constructor */
 console.log("\n", spaceMe, "8.2 Constructors", spaceMe, "\n");
 function checkUsername(userName) {
-  if (userName) {
-    console.log(userName);
-  } else {
-    console.log("I execute");
-    // throw new Error('No username provided');
-    console.log("No username provided"); // as if throw Error
-    // console.log("I do not execute");
+  try {
+    if (userName) {
+      console.log(userName);
+    } else {
+      console.log("I execute");
+      throw new Error('No username provided');
+      console.log("I do not execute");
+    }
+  } catch (error) {
+    console.log("Error an occur:",error.message);
   }
 }
-checkUsername();
+checkUsername(); // Blank parameters
 
 String();
 Number();
@@ -75,5 +78,44 @@ console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
 console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
 console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
 
-/* Numeric Separators & Bight */
+/* Numeric Separators & BigInt */
 /* Challenge: 1. Use numeric separators (_) to separate out the digits into chunks of 3 so they are easier to read. */
+console.log("\n", spaceMe, "10. Numeric Separators & BigInt", spaceMe, "\n");
+
+// const tomsBankBalanceGBP = 9_007_199_254_740_991 * 2; // multiply by 2
+const tomsBankBalanceGBP = BigInt(9_007_199_254_740_991_345); // bigInt
+
+console.log(typeof tomsBankBalanceGBP);
+console.log(tomsBankBalanceGBP);
+
+try {
+  console.log(Math.sqrt(tomsBankBalanceGBP));
+} catch (err) {
+  console.log("Error an occur:", err.message);
+} finally {
+  // Optional: Code that always executes
+  console.log("This block always runs.");
+}
+
+/* Hoisting */
+console.log("\n",spaceMe, "11. Hoisting", spaceMe, "\n");
+
+function getWeather(){
+  return "Today's weather is warm and sunny";
+}
+console.log(getWeather()); // What will this log?
+console.log(getNews()); // What will this log?
+
+function getNews() {
+  return "A new swimming pool has opened in the town centre...";
+}
+try {
+  console.log(trafficInfo); // What will this log?
+} catch (err) {
+  console.log(`Error message:`,err.message);
+}
+const trafficInfo = 'All roads are busy right now';
+
+// Super Challeng: Stock Ticker
+console.log("\n",spaceMe,"12. Super Challeng: Stock Ticker",spaceMe,"\nGo to fakeStockAPI.js file"
+);

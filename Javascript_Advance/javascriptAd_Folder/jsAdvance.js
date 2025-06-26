@@ -170,7 +170,7 @@ function renderStockTicker(stockData) {
       : `GreyArrow.svg`; // ⚪ Grey when price unchanged
 
   const priceIconElement = document.createElement("img");
-  priceIconElement.src = `/Javascript_Advance/javascriptAd_Folder/svg/${priceDirectionIcon}`;
+  priceIconElement.src = `javascriptAd_Folder/svg/${priceDirectionIcon}`; // Pwede na dili i-apil ang root sa Folder sa file [rootFile: Javascript_Advance]
   priceIconElement.alt = "Price direction icon";
   priceIconElement.style.width = `30px`;
 

@@ -600,12 +600,14 @@ function resetButton() {
 
 // You can use for loop, forEach, or map to achieve this.
 let names = ["John", "Jane", "Doe", "Alice", "Bob"];
+
 console.log(names);
 //  change all names in the list to "sololearn"
-// Array.from(names).forEach((name, index) => {
-//   names[index] = "sololearn";
-//   console.log(`Name at index ${index} changed to: ${names[index]}`);
-// });
+Array.from(names).forEach((name, index) => {
+
+  names[index] = "sololearn"; // identifier of let is using & all names assign as `sololearn`
+  console.log(`Name at index ${index} changed to: ${names[index]}`); // 
+});
 
 let namesList = document.getElementById("Classlist");
 for (let i = 0; i < names.length; i++) {
@@ -901,4 +903,4 @@ function moveThis(event) {
 
 
 const shapes =["circle", "square", "triangle"];
-const animalsNako = ["Lion", "Elephant", "Giraffe", "Zebra"]; 
+const animalsNako = ["Lion", "Elephant", "Giraffe", "Zebra"];

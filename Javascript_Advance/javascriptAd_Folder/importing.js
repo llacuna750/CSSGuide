@@ -10,7 +10,8 @@ console.log("\n", spaceMe, "7. Import and Export - ", spaceMe, "\n");
 // console.log('Destination: ',destination,'\nTrip: ', spaceTrip);
 console.log(getMatchingTripsArr(interplanetaryDestinationsArr, "exotic"));
 
-/* const num = [10, 2, 50, 3, 5];
+/* for of 
+const num = [10, 2, 50, 3, 5]; 
 for (const a of num){
     console.log(a);
 } */
@@ -114,8 +115,111 @@ try {
 } catch (err) {
   console.log(`Error message:`,err.message);
 }
-const trafficInfo = 'All roads are busy right now';
+const trafficInfo = 'All roads are busy right now'; 
 
 // Super Challeng: Stock Ticker
-console.log("\n",spaceMe,"12. Super Challeng: Stock Ticker",spaceMe,"\nGo to fakeStockAPI.js file"
-);
+console.log("\n",spaceMe,"12. Super Challeng: Stock Ticker",spaceMe,"\nGo to fakeStockAPI.js file");
+
+// For of - A nicer way of iterating
+console.log("\n",spaceMe,"13. For of",spaceMe,"\n");
+// characters have multiple (4) Objects
+const charaters = [
+  {
+    title: "Ninja",
+    emoji: "🐱‍👤",
+    powers: ["agility", "stealth", "aggression"],
+  },
+  {
+    title: "Sorcerer",
+    emoji: "🧙‍♂️",
+    powers: ["magic", "invisibility", "necromacy"],
+  },
+  {
+    title: "Ogre",
+    emoji: "👹",
+    powers: ["power", "stamina", "shapeshifting"],
+  },
+  {
+    title: "Unicorn",
+    emoji: "🦄",
+    powers: ["flight", "power", "purity"],
+  } 
+];
+
+console.log(`Type:`,typeof charaters);
+console.log( charaters); // print the array
+
+/* Challenge: 
+  1. Nest a for of inside this for of to iterate over 
+  the powers array for each character. Log out each power. 
+*/
+
+for (let character of charaters) {
+  // console.log(character.powers); // print only objects of Power
+  // console.log(character); // Print all objects inside the array
+  for (let power of character.powers ) {
+    console.log(power); // Accessing the array each character power
+  }
+}
+
+console.log("\n", spaceMe, "14. for in", spaceMe, "\n");
+
+// We have single Object
+const character1 = {
+  title: "Ninja",
+  emoji: '🐱‍👤',
+  powers: ["agility", "stealth", "aggression"],
+}
+
+const ninJa = 'Ninja';
+try {
+  for (const property in character1){
+    // console.log(property); // Print the key index
+    console.log(character1[property]); // print the Object value
+  }
+
+  for (const letter of ninJa){
+    console.log(letter);
+  }
+} catch (err) {
+  console.log('Error an occur:',err.message);
+}
+
+/*  [for of]     VS     [for in]
+  - They both iterate over object data structures
+  - Arrays are objects too!
+
+  [ for..in ]                                    [ for..of ]
+  - iterates over all enumerable           - iterates over the values of an iterable object.
+  property keys of an object               ( examples of iterable objects include arrays, strings) 
+*/
+
+console.log("\n", spaceMe, "14. .forEach()", spaceMe, "\n");
+
+/* A method for iterating over arrays 
+  Challenge:
+  1. Nest a forEach to Log out each individual power in each 
+  characters powers array.
+*/
+
+charaters.forEach((myChar)=> {
+  console.log(myChar.title,'=',myChar.powers); // same output as For of (only single for of.)
+  // console.log(myChar.powers); // same output as For of (only single for of.)
+
+  // myChar.powers.forEach((pawer)=> {
+  //   console.log(pawer);
+  // });
+});
+
+console.log("\n", spaceMe, "14.2 another feature of .forEach()", spaceMe, "\n");
+charaters.forEach((myChar,index)=> {
+  // another feature of .forEach()
+  console.log(index,myChar);
+});
+
+console.log("\n", spaceMe, "15 .includes()", spaceMe, "\n");
+
+const emojis = ['🦒','🦁','🐼'];
+console.log(emojis.includes('🐼')); // return boolean value
+
+

@@ -1990,8 +1990,7 @@ class TestAll {
         t.start();
     }
     static void TypesofExceptions()  {
-        /*
-         * Types of Exceptions
+        /* Types of Exceptions
          * There are two exception types, checked and unchecked (also called runtime).
          * The main difference is that checked exceptions are checked when compiled,
          * while unchecked exceptions are checked at runtime.

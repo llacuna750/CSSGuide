@@ -1,4 +1,4 @@
-
+import getStockData from "./fakeStockAPI.js";
 
 const spaceMe = "-".repeat(30);
 document.title = "JavaScript Advance";
@@ -110,36 +110,46 @@ function logAnswer(answer, points) {
 
 /* setInterval() */
 console.log("\n", spaceMe, "5. setInterval", spaceMe, "\n");
+
+const startShut = document.getElementById("startShutdownMe");
+
 let secondRemaining = 3;
 
-function startShutdown(device) {
+startShut.onclick = function () {
+  const deviceName = "Macbook"; // Define deviceName here
   const logoutPrompt = confirm("Do you want to Log out?");
 
   if (logoutPrompt) {
-    let startSC = setInterval(() => {
+    const startSC = setInterval(() => {
       if (secondRemaining < 0) {
         clearInterval(startSC);
-        console.log(`You're  ${device} is Shutdown.`);
+        console.log(`Your ${deviceName} is Shutdown.`);
       } else {
         console.log(
-          `Your ${device} will shut down in ${secondRemaining} seconds`
+          `Your ${deviceName} will shut down in ${secondRemaining} seconds`
         );
         secondRemaining -= 1;
       }
     }, 1000);
   }
-}
+};
+
 //Import and Export - A deeper dive
-console.log("\n", spaceMe, "6. Import and Export", spaceMe, "\nGo to importing.js file");
+console.log(
+  "\n",
+  spaceMe,
+  "6. Import and Export",
+  spaceMe,
+  "\nGo to importing.js file"
+);
 
 // 12. Super Challeng: Stock Ticker
-import getStockData from "./fakeStockAPI.js";
 console.log("\n", spaceMe, "12. Super Challeng: Stock Ticker", spaceMe, "\n");
 
 setInterval(() => {
   const stockData = getStockData();
   renderStockTicker(stockData);
-},  1000);
+}, 1000);
 
 let prevPrice = null;
 
@@ -151,25 +161,36 @@ function renderStockTicker(stockData) {
   const stockDisplayPriceIcon = $("#PriceIcon");
 
   const { name, sym, price, time } = stockData;
-  
+
   const priceDirectionIcon =
     price > prevPrice
-      ? "GreenArrow.svg" // ✅ Green when price increased
+      ? `GreenArrow.svg` // ✅ Green when price increased
       : price < prevPrice
-      ? "RedArrow.svg" // ✅ Red when price decreased
-      : "GreyArrow.svg"; // ⚪ Grey when price unchanged
+      ? `RedArrow.svg` // ✅ Red when price decreased
+      : `GreyArrow.svg`; // ⚪ Grey when price unchanged
 
   const priceIconElement = document.createElement("img");
-  priceIconElement.src = `./svg/${priceDirectionIcon}`;
+  priceIconElement.src = `/Javascript_Advance/javascriptAd_Folder/svg/${priceDirectionIcon}`;
   priceIconElement.alt = "Price direction icon";
+  priceIconElement.style.width = `30px`;
 
   // Clear previous icon and add new one
   stockDisplayPriceIcon.innerHTML = "";
   stockDisplayPriceIcon.appendChild(priceIconElement);
 
-
   stockDisplayName.innerText = name;
   stockDisplaySymbol.innerText = sym;
-  stockDisplayPrice.innerText = `${price} ${stockDisplayPriceIcon.innerText}`;
+  stockDisplayPrice.innerText = `${price}`;
   stockDisplayTime.innerText = time;
+
+  prevPrice = price;
 }
+
+/* Javascript Use
+  import /export
+  Date()
+  Math()
+  setInterval()
+  The ternary operator
+  Object destructuring
+*/

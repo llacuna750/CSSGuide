@@ -36,17 +36,17 @@ noChange: T-pointRight (grey)
 // console.log("\n", spaceMe, "12. Super Challeng: Stock Ticker", spaceMe, "\n");
 
 function getStockData() {
-    const myphdate = new Date();
-    const localTime = myphdate.toDateString(); 
-    const localTime2 = myphdate.toLocaleTimeString(); 
+  const myphdate = new Date();
+  const localTime = myphdate.toDateString(); 
+  const localTime2 = myphdate.toLocaleTimeString();
 
-    return {
-      name: "QtechAI",
-      sym: "QTA",
-      price: (Math.random() * 3).toFixed(2) /* return a random between 0 to 3 to two decimal places */,
-      time: localTime+", "+localTime2 /* return a timestamp in this format: hh/mm/ss */,
-      //   time: new Date().getTime()  /* return a timestamp in this format: hh/mm/ss */
-    };
+  return {
+    name: "QtechAI",
+    sym: "QTA",
+    price: (Math.random() * 3).toFixed(2) /* return a random between 0 to 3 to two decimal places */,
+    time: localTime+", "+localTime2 /* return a timestamp in this format: hh/mm/ss */,
+    //   time: new Date().getTime()  /* return a timestamp in this format: hh/mm/ss */
+  };
 }
 
 export default getStockData;

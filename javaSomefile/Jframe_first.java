@@ -4,7 +4,7 @@ package javaSomefile;
 // import javax.swing.*;
 
 public class Jframe_first {
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
         new Myframe();
     }
 }

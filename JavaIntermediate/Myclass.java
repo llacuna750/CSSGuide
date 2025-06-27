@@ -33,8 +33,5 @@ class Myclass {
 
         out.printf("%n%55s!%n", "Hello Myclass");
         TestAll.main(args);
-
-        
-        
     }
 }

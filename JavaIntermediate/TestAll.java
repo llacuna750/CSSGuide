@@ -14,16 +14,17 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
+
 import static java.lang.System.out;
 import static java.util.Collections.sort;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-
 import ExternalPackage.*;
+import JavaIntermediate.ListofObject.Listobject;
 import JavaIntermediate.Programa.Rank;
     
-class TestAll {
+class TestAll extends Listobject {
     static String spaces = "-".repeat(30); // Java 11+
     static Scanner sc = new Scanner(System.in);
     static  Choosespeci_Code specificode = new Choosespeci_Code();
@@ -34,7 +35,7 @@ class TestAll {
         // System.out.printf("%15sThis is TEST ALL Class!\n", "");
 
         int iChoose = pick1to3(sc);
-
+        Listobject runMe = new Listobject();
         if (iChoose == 1) {
         /*                                                          javaOOP Class                                                               */   
         
@@ -1561,53 +1562,62 @@ class TestAll {
 
         } else if (iChoose == 2) {
             int choosing = checkifIntInput(sc);
-            switch (choosing) {
-                case 0: main(args); break;
-                case 1: Choosespeci_Code.javaOOP(); break;
-                case 2: Choosespeci_Code.Animalclass(); break;
-                case 3: Choosespeci_Code.Constructors(); break;
-                case 4: Choosespeci_Code.Javainter_Class(); break;
-                case 5: Choosespeci_Code.Sakyanan_Class(); break;
-                case 6: Choosespeci_Code.Person_Class(); break;
-                case 7: Choosespeci_Code.The_Math_Class(); break;
-                case 8: Choosespeci_Code.the_Static(); break;
-                case 9: Choosespeci_Code.Final(); break;
-                case 10: Choosespeci_Code.Encapsulating(); break;
-                case 11: Choosespeci_Code.theInheritance(); break;
-                case 12: Choosespeci_Code.thePolymorphism(); break;
-                case 13: Choosespeci_Code.OverridingandOverloading(); break;
-                case 14: Choosespeci_Code.theAbstract(); break;
-                case 15: Choosespeci_Code.FloydsTriangle(); break;
-                case 16: Kindsofforloop.main(args); break;
-                case 17: squaroot(zeroTounli_sqroot(sc)); break;
-                case 18: square(zeroTounli_square(sc)); break;
-                case 19: Minandmax.minandmaximum(); break;
-                case 20: Choosespeci_Code.interfaceTestClass(); break;
-                case 21: Choosespeci_Code.getFactorialRecurs(); break;
-                case 22: Choosespeci_Code.type_Casting(); break;
-                case 23: Programa.main(args); break;
-                case 24: hashcodeChecker(sc); break;
-                case 25: Choosespeci_Code.The_equals_method(); break;
-                case 26: Choosespeci_Code.Enum(); break;
-                case 27: Choosespeci_Code.error_Handling(); break;
-                case 28: div(20,0); break;
-                case 29: Thread_Me(); break;
-                case 30: TypesofExceptions(); break;
-                case 31: Array_List(); break;
-                case 32: Ternary_Operator(); break;
-                case 33: LinkedList_v0(); break;
-                case 34: HashMap_Method(); break;
-                case 35: specificode.rand0mClass(); break;
-                case 36: specificode.arraySort(); break;
-                case 37: ArrayListSort(); break;
-                case 38: HashSets_LinkedHashSet(); break;
-                case 39: methodIterator(); break;
-                case 40: wwF(); break;
-                case 41: readingFile(); break;
-                case 42: Creating_Writing_Files(); break;
-                case 43: Java_2_Module_3_Quiz(); break;
+            try {
+                switch (choosing) {
+                    case 0: main(args); break;
+                    case 1: Choosespeci_Code.javaOOP(); break;
+                    case 2: Choosespeci_Code.Animalclass(); break;
+                    case 3: Choosespeci_Code.Constructors(); break;
+                    case 4: Choosespeci_Code.Javainter_Class(); break;
+                    case 5: Choosespeci_Code.Sakyanan_Class(); break;
+                    case 6: Choosespeci_Code.Person_Class(); break;
+                    case 7: Choosespeci_Code.The_Math_Class(); break;
+                    case 8: Choosespeci_Code.the_Static(); break;
+                    case 9: Choosespeci_Code.Final(); break;
+                    case 10: Choosespeci_Code.Encapsulating(); break;
+                    case 11: Choosespeci_Code.theInheritance(); break;
+                    case 12: Choosespeci_Code.thePolymorphism(); break;
+                    case 13: Choosespeci_Code.OverridingandOverloading(); break;
+                    case 14: Choosespeci_Code.theAbstract(); break;
+                    case 15: Choosespeci_Code.FloydsTriangle(); break;
+                    case 16: Kindsofforloop.main(args); break;
+                    case 17: squaroot(zeroTounli_sqroot(sc)); break;
+                    case 18: square(zeroTounli_square(sc)); break;
+                    case 19: Minandmax.minandmaximum(); break;
+                    case 20: Choosespeci_Code.interfaceTestClass(); break;
+                    case 21: Choosespeci_Code.getFactorialRecurs(); break;
+                    case 22: Choosespeci_Code.type_Casting(); break;
+                    case 23: Programa.main(args); break;
+                    case 24: hashcodeChecker(sc); break;
+                    case 25: Choosespeci_Code.The_equals_method(); break;
+                    case 26: Choosespeci_Code.Enum(); break;
+                    case 27: Choosespeci_Code.error_Handling(); break;
+                    case 28: div(20,0); break;
+                    case 29: Thread_Me(); break;
+                    case 30: TypesofExceptions(); break;
+                    case 31: Ternary_Operator(); break;
+                    case 32: specificode.rand0mClass(); break;
+                    
+                    case 33: Array_List(); break;
+                    case 34: LinkedList_v0(); break;
+                    case 35: HashMap_Method(); break;
+                    case 36: specificode.arraySort(); break;
+                    case 37: ArrayListSort(); break;
+                    case 38: HashSets_LinkedHashSet(); break;
+                    case 39: methodIterator(); break;
 
-                default:
+                    case 40: wwF(); break;
+                    case 41: readingFile(); break;
+                    case 42: Creating_Writing_Files(); break;
+                    case 43: Java_2_Module_3_Quiz(); break;
+                    case 44: runMe.run(); break;
+
+                    default:
+                }
+            }  catch(ExceptionInInitializerError e) {
+                System.out.println("Error an occur: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Error an occur: " + e.getMessage());
             }
         }
         else {
@@ -1625,9 +1635,9 @@ class TestAll {
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
             System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread \n30. Types of Exceptions");
-            System.out.println("31. Array_List \n32. Ternary Operator \n33. LinkList \n34. HashMap_Method \n35. Random Class \n36. Array Sort (nomral array) \n37. ArrayListSort");
-            System.out.println("38. HashSets & LinkedHashSet \n39. Iterator\n40. Work with Files \n41. Reading File \n42. Creating and Writing Files");
-            System.out.println("43. Java 2 Module 3 Quiz\n");
+            System.out.println("31. Ternary Operator \n32. Random Class \n\n33. Array_List \n34. LinkList \n35. HashMap_Method \n36. Array Sort (nomral array) \n37. ArrayListSort");
+            System.out.println("38. HashSets & LinkedHashSet \n39. Iterator (LinkList + List)\n\n40. Work with Files \n41. Reading File \n42. Creating and Writing Files");
+            System.out.println("43. Java 2 Module 3 Quiz\n44. Listobject (HashMap + List.ArrayList<>() )\n");
 
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
@@ -1639,10 +1649,10 @@ class TestAll {
 
             try {
                 choose_number = Integer.parseInt(input);
-                if (choose_number >= 0 && choose_number <= 43) {
+                if (choose_number >= 0 && choose_number <= 44) {
                     valid = true;
                 } else {
-                    System.out.println("\nEnter the following number only (0 up to 43).");
+                    System.out.println("\nEnter the following number only (0 up to 44).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
@@ -2240,7 +2250,7 @@ class TestAll {
     
     static void HashMap_Method()  {
         HashMap<String,Integer> points = new HashMap<String, Integer>();
-        /*  HashMap
+        /* HashMap
          * Arrays and Lists store elements as ordered collections, with each element
          * given an integer index.
          * 
@@ -2250,18 +2260,28 @@ class TestAll {
          * The put, remove, and get methods are used to add, delete, and access values
          * in the HashMap.
          * 
+         * 1. HashMap is Unordered
+         * HashMap does not preserve insertion order.
+         * 
+         * The output order of points.keySet() and points.toString() is not guaranteed.
+         * 
+         * If you need insertion order, use LinkedHashMap.
+         * 
+         * 
          * Example:
          */
         System.out.println("\n" + spaces + "HashMap" + spaces);
+        points.put("Jordan", 32);
         points.put("Amy", 154);
         points.put("Gab", 17);
         points.put("Oranges", 16);
         points.put("Dave", 42);
         points.put("Rob", 733);
         points.put("Rob", 500); // Rob re-asssign value to 500
-        System.out.println(points.get("Dave"));
-        System.out.println(points.keySet()); // no "733" key returns the value of null.
-        System.out.println(points);
+
+        out.println(points.get("Dave"));
+        out.println(points.keySet()); // no "733" key returns the value of null.
+        out.println(points);
         /*  We have created a HashMap with Strings as its keys and Integers as its
          * values.
          * 
@@ -2278,6 +2298,8 @@ class TestAll {
         employees.put("Charlie", 32);
         employees.put("Diana", 21);
         employees.put("Eve", 17);
+
+        out.println("\nExample Entry set:"+employees.entrySet());
 
         System.out.println("\nOriginal Employees:");
         for (Map.Entry<String, Integer> entry : employees.entrySet()) {
@@ -2303,6 +2325,7 @@ class TestAll {
 
         scanner.close();
     }
+
     static void HashSets_LinkedHashSet()  {
         /*   Sets
          * A Set is a collection that cannot contain duplicate elements. It models the
@@ -2389,17 +2412,17 @@ class TestAll {
          * Example
          */
         System.out.println("\n" + spaces + "HashSet or Sets & LinkHashSet" + spaces);
-        HashSet<String> set = new HashSet<>();
-        set.add("A");
-        set.add("B");
-        set.add("B");
-        set.add("Z"); // new Added 
-        set.add("F"); // new added 
-        set.add("M"); // new Added
-        set.add("C");
-        set.add("E");
-        set.add("C"); // cannot contain duplicate elements2
-        System.out.println(set);
+        HashSet<String> hashset = new HashSet<>();
+        hashset.add("A");
+        hashset.add("B");
+        hashset.add("B");
+        hashset.add("Z"); // new Added 
+        hashset.add("F"); // new added 
+        hashset.add("M"); // new Added
+        hashset.add("C");
+        hashset.add("E");
+        hashset.add("C"); // cannot contain duplicate elements2
+        System.out.println(hashset);
 
         LinkedHashSet<String> linkset = new LinkedHashSet<>();
         linkset.add("Aaa");
@@ -2518,7 +2541,6 @@ class TestAll {
          * The Iterator class must be imported from the java.util package.
          * 
          * -----------------------------------------------------------------------------
-         * ------------
          * 🔄 What is an Iterator?
          * An Iterator is a Java interface used to traverse (loop through) elements in a
          * collection like ArrayList, HashSet, LinkedList, etc.
@@ -2560,8 +2582,7 @@ class TestAll {
          * 
          * public class Main {
          * public static void main(String[] args) {
-         * List<String> fruits = new ArrayList<>(Arrays.asList("Apple", "Banana",
-         * "Cherry"));
+         * List<String> fruits = new ArrayList<>(Arrays.asList("Apple", "Banana", "Cherry"));
          * 
          * Iterator<String> iterator = fruits.iterator();
          * 

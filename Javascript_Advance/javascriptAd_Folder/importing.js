@@ -143,7 +143,7 @@ const charaters = [
     title: "Unicorn",
     emoji: "🦄",
     powers: ["flight", "power", "purity"],
-  } 
+  }
 ];
 
 console.log(`Type:`,typeof charaters);
@@ -194,12 +194,12 @@ try {
   property keys of an object               ( examples of iterable objects include arrays, strings) 
 */
 
-console.log("\n", spaceMe, "14. .forEach()", spaceMe, "\n");
+console.log("\n", spaceMe, "15.1 .forEach()", spaceMe, "\n");
 
 /* A method for iterating over arrays 
   Challenge:
   1. Nest a forEach to Log out each individual power in each 
-  characters powers array.
+  characters powers array.f
 */
 
 charaters.forEach((myChar)=> {
@@ -211,7 +211,7 @@ charaters.forEach((myChar)=> {
   // });
 });
 
-console.log("\n", spaceMe, "14.2 another feature of .forEach()", spaceMe, "\n");
+console.log("\n", spaceMe, "15.2 another feature of .forEach()", spaceMe, "\n");
 charaters.forEach((myChar,index)=> {
   // another feature of .forEach()
   console.log(index,myChar);

@@ -32,7 +32,7 @@ public class Main {
         while (it.hasNext()) {
             x+= it.next();	
         }
-        System.out.println(x);          
+        System.out.println("Final: "+x);          
         
         int f=1, i=2;
         while(++i<5)

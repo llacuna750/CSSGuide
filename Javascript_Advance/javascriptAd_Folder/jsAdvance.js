@@ -194,3 +194,49 @@ function renderStockTicker(stockData) {
   The ternary operator
   Object destructuring
 */
+
+console.log("\n", spaceMe, "15 .includes()", spaceMe, "\n");
+/* A method for checking if an array holds a given value?  */
+const emojis = ['🦒','🦁','🐼'];
+console.log(emojis.includes('🐼')); // return boolean value
+
+const shoppingList = []; // Our Container of Shopping List
+
+const addItemButton = $(`#addButton`);
+const itemInput = $("#itemName");
+const list = $("#list");
+
+let numThat = shoppingList.map((disNum)=> {
+  return disNum * 5;
+});
+
+addItemButton.onclick = () => {
+ 
+  /* Challenge: 
+  1. Add an if else to the event listener's function.
+  2. Only add an item to the shoppingList array if it 
+    is not already in the shoppingList array.
+  3. If an item is a duplicate, clear the field and log out "no duplicates". */
+  
+  if (!shoppingList.includes(itemInput.value)){
+    shoppingList.push(itemInput.value);
+    render();
+    console.log("NumThat:", shoppingList);
+    itemInput.value = ""; // remove last item Add
+  } else {
+    alert(`no duplicates `);
+    console.warn("no duplikit plis.");
+  }
+}
+
+function render(){
+  let html = ''; 
+  for (let item of shoppingList){
+    html += `<li class="w-100 py-0 px-2 m-2 list-unstyled text-black rounded bg-light">${item}</li> `;
+    console.log("Item add: ",item);
+  }
+  list.innerHTML = html;
+}
+
+console.log("\n", spaceMe, "16 The .map() Method", spaceMe, "\nGo to importing.js file");
+/* Iterating Over arrays */

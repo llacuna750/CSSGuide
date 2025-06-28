@@ -305,8 +305,8 @@ function inserRegFormtData(email, password, isSubscribed) {
   cell3.textContent = isSubscribed ? "Yes" : "No";
 }// document.getElementById(`myregForm`).addEventListener(`submit`, processregFormData);
 
-function processPaymentFormData() {
-  event.defaultPrevented;
+function processPaymentFormData(event) {
+  event.defaultPrevented();
   let form = document.getElementById(`myFormpayment`);
 
   let cardNumber = form.elements.number.value;
@@ -547,8 +547,7 @@ function CheckifStudent (event) {
   else if (!Number.isInteger(Number(age))) {
     alert(`Ayaw pag insert ug dili number!`);
     console.log(`Enter only a number!`);
-  } 
-  else {
+  } else {
     if (isNumber(age) && age < 18) {
       performCheckBoth(name, sors);
       alert(`20% Discount!`);

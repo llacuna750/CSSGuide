@@ -217,9 +217,31 @@ charaters.forEach((myChar,index)=> {
   console.log(index,myChar);
 });
 
-console.log("\n", spaceMe, "15 .includes()", spaceMe, "\n");
-
+console.log("\n", spaceMe, "15 .includes()", spaceMe, "\nGo to jsAdvance.js file");
+/* A method for checking if an array holds a given value?  */
 const emojis = ['🦒','🦁','🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
+ 
+console.log("\n", spaceMe, "16 The .map() Method", spaceMe, "\n");
+/* Iterating Over arrays */
 
+const distanceWalkedMilesArr = [140, 153, 161, 153, 128, 148];
+const conversionFactorMilesToKm = 1.6;
 
+try {
+  const distanceWalkedKmArr = distanceWalkedMilesArr.map(function (distanceMiles, index) {
+    // return (distanceMiles * conversionFactorMilesToKm);
+    return `Month ${index}: ${distanceMiles * conversionFactorMilesToKm}KM`;
+  });
+  console.log(distanceWalkedKmArr);
+} catch (error) {
+  console.log(error.message);
+}
+
+function converMilesToKms (){
+  return distanceWalkedMilesArr.map(function (distanceMiles, index) {
+    // return (distanceMiles * conversionFactorMilesToKm);
+    return `Month ${index}: ${distanceMiles * conversionFactorMilesToKm}KM`;
+  });
+}
+console.log(converMilesToKms()); // same Ouput from above

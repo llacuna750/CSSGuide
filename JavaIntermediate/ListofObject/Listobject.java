@@ -51,8 +51,7 @@ public class Listobject {
             // out.println(displayYoungerPersoninTheList(listofPerson)); // Expected Output
             // Jobert age 18
             for (Map.Entry<Integer, String> entry : displayYoungerPersoninTheList(listofPerson).entrySet()) {
-                System.out.println("The youngest in the List of Person is " + entry.getValue() + " and he is "
-                        + entry.getKey() + " years old.");
+                System.out.println("The youngest in the List of Person is " + entry.getValue() + " and he is "+ entry.getKey() + " years old.");
             }
 
             for (int x = 0; x < listofPerson.size() - 1; x++) {

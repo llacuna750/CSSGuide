@@ -694,7 +694,7 @@ class TestAll extends Listobject {
                 int finalChoose = sc.nextInt();
 
                 if (finalChoose == 1) {
-                    System.out.println(div(42, 0)); 
+                    System.out.println(Multiple_Exceptions(42, 0)); 
                     balid = true;
                 }
                 if (finalChoose == 2) {
@@ -993,7 +993,8 @@ class TestAll extends Listobject {
 
             // Remove employees whose age is less than N
             Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator();
-            while (iterator.hasNext()) {
+
+            while (iterator.hasNext()) { // it runs the while-Loop statement if 
                 Map.Entry<String, Integer> entry = iterator.next();
                 if (entry.getValue() < N) {
                     iterator.remove(); // Safe removal during iteration
@@ -1592,7 +1593,7 @@ class TestAll extends Listobject {
                     case 25: Choosespeci_Code.The_equals_method(); break;
                     case 26: Choosespeci_Code.Enum(); break;
                     case 27: Choosespeci_Code.error_Handling(); break;
-                    case 28: div(20,0); break;
+                    case 28: Multiple_Exceptions(20,0); break;
                     case 29: Thread_Me(); break;
                     case 30: TypesofExceptions(); break;
                     case 31: Ternary_Operator(); break;
@@ -1634,7 +1635,7 @@ class TestAll extends Listobject {
             System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
-            System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions \n29. Thread \n30. Types of Exceptions");
+            System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions ( has throws ArithmeticException )\n29. Thread \n30. Types of Exceptions");
             System.out.println("31. Ternary Operator \n32. Random Class \n\n33. Array_List \n34. LinkList \n35. HashMap_Method \n36. Array Sort (nomral array) \n37. ArrayListSort");
             System.out.println("38. HashSets & LinkedHashSet \n39. Iterator (LinkList + List)\n\n40. Work with Files \n41. Reading File \n42. Creating and Writing Files");
             System.out.println("43. Java 2 Module 3 Quiz\n44. Listobject (HashMap + List.ArrayList<>() )\n");
@@ -1888,7 +1889,7 @@ class TestAll extends Listobject {
         }
     }
 
-    static int div(int a, int b) throws ArithmeticException {
+    static int Multiple_Exceptions(int a, int b) throws ArithmeticException {
         /*   Multiple Exceptions & Exception Handling (many catch())
          *
          * throw
@@ -1932,6 +1933,7 @@ class TestAll extends Listobject {
          * Following the specific exceptions, you can use the Exception type to handle
          * all other exceptions as the last catch.
          */
+        System.out.println("\n" + spaces + "Multiple_Exceptions" + spaces);
         if (b == 0) {
             throw new ArithmeticException("Division by Zero Gra gra"); // Output Exception in thread "main" java.lang.ArithmeticException: Division by Zero Gra gra
         } else {
@@ -2310,9 +2312,17 @@ class TestAll extends Listobject {
         int N = scanner.nextInt();
 
         // Remove employees whose age is less than N
-        Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, Integer> entry = iterator.next();
+        Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator(); // get the HashMap objects using employees, .entrySet(), .iterator();
+
+        System.out.println(iterator.next());
+            
+        
+
+        
+        out.println();
+
+        while (iterator.hasNext()) { // it runs the while-Loop statement if was more than or one elements in Iterator Class
+            Map.Entry<String, Integer> entry = iterator.next(); 
             if (entry.getValue() < N) {
                 iterator.remove();  // Safe removal during iteration
             }
@@ -2692,7 +2702,7 @@ class TestAll extends Listobject {
                 out.println("Current Value: " + val);
                 out.println("Total so far: " + total);  
             }
-        }catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             out.println("No more elements to iterate over.");
         } catch (Exception e) {
             out.println("An error occurred: " + e.getMessage());

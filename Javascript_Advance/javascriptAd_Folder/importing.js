@@ -173,9 +173,9 @@ const character1 = {
 
 const ninJa = 'Ninja';
 try {
-  for (const property in character1){
-    // console.log(property); // Print the key index
-    console.log(character1[property]); // print the Object value
+  for (const property in character1){ // using for in
+    // console.log(property); // Print the key index of Objects  (means it likes printing the index 0 1 2 3)
+    console.log(character1[property]); // print the Object value 
   }
 
   for (const letter of ninJa){
@@ -225,8 +225,8 @@ console.log(emojis.includes('🐼')); // return boolean value
 console.log("\n", spaceMe, "16 The .map() Method", spaceMe, "\n");
 /* Iterating Over arrays */
 
-const distanceWalkedMilesArr = [140, 153, 161, 153, 128, 148];
-const conversionFactorMilesToKm = 1.6;
+const distanceWalkedMilesArr = [140, 153, 161, 153, 128, 148]; // Elemnents of Array
+const conversionFactorMilesToKm = 1.6; // Trying to multiply by it
 
 try {
   const distanceWalkedKmArr = distanceWalkedMilesArr.map(function (distanceMiles, index) {
@@ -245,3 +245,4 @@ function converMilesToKms (){
   });
 }
 console.log(converMilesToKms()); // same Ouput from above
+

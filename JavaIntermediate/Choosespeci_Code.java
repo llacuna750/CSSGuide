@@ -644,7 +644,7 @@ public class Choosespeci_Code extends TestAll {
                 out.println(player1);
                 String computer = playChoice[myRandom.nextInt(playChoice.length)];
 
-                out.println("\nPlayer\t  VS\tComputer");
+                out.println("\nYou\t  VS\tComputer");
 
                 for (int pc = 0; pc < playChoice.length; pc++) {
                     if (player1.equals(playChoice[pc])) {
@@ -668,8 +668,9 @@ public class Choosespeci_Code extends TestAll {
                 out.println("Invalid number! Enter between 1 and 3 only.\n");
                 sc.nextLine(); // Clear the invalid input buffer
             } catch (Exception e) {
-                out.println("Invalid input! Enter a number.\n");
+                // out.println("Invalid input! Enter a number.\n");
                 sc.nextLine(); // Clear input buffer
+                out.println("\nError an occur: "+e.getMessage());
             }
         }
 

@@ -356,3 +356,49 @@ Example:
   When you implement an interface, you need to override all of its methods.
 */
 
+Great! Let's explore an example using both an abstract class and an interface to show how they can work together in Java — plus a diagram for better understanding. (search into chatGPT sinerach mo ito.)
+
+✅ Scenario: Vehicle System
+Let’s model a vehicle system where:
+
+All vehicles have some common behavior (abstract class).
+
+Some vehicles are electric, so they must also support charging (interface).
+
+🔷 Step 1: Interface — Chargeable
+interface Chargeable {
+    void chargeBattery(); // All electric vehicles must implement this
+}
+
+🔷 Step 2: Abstract Class — Vehicle
+abstract class Vehicle {
+    abstract void startEngine(); // All vehicles must start, but differently
+
+    public void fuelUp() {
+        System.out.println("Fueling up the vehicle...");
+    }
+}
+
+🔷 Step 3: Concrete Class — ElectricCar using both
+class ElectricCar extends Vehicle implements Chargeable {
+
+    @Override
+    void startEngine() {
+        System.out.println("Electric Car starts silently...");
+    }
+
+    @Override
+    public void chargeBattery() {
+        System.out.println("Charging the electric car...");
+    }
+}
+
+🔷 Step 4: Main Method
+public class Main {
+    public static void main(String[] args) {
+        ElectricCar tesla = new ElectricCar();
+        tesla.startEngine();     // Output: Electric Car starts silently...
+        tesla.chargeBattery();   // Output: Charging the electric car...
+        tesla.fuelUp();          // Output: Fueling up the vehicle...
+    }
+}

@@ -16,7 +16,7 @@ for (const a of num){
     console.log(a);
 } */
 
-console.log("\n", spaceMe, "8.1 Constructors", spaceMe, "\n");
+console.log("\n", spaceMe, "8.1 Date() Constructors", spaceMe, "\n");
 /* Intro to Constructors
 Two types of Constructor
     ------Inbuilt-----                                ----Custom-----
@@ -26,7 +26,7 @@ Data objects and Error objections,
 and Objects for each data type.
 */
 
-// Date Constructors
+// Date() Constructors
 const dateSnapshot = new Date();
 // console.log(typeof dateSnapshot);
 console.log(dateSnapshot);  
@@ -36,12 +36,13 @@ console.log(`Copyright ${dateSnapshot.getFullYear().toString()} all rights reser
 1. Search online to find out how we can get just the year using the Date() constructor. Then update the code in the console. */
 
 /* The Error() Constructor */
-console.log("\n", spaceMe, "8.2 Constructors", spaceMe, "\n");
+console.log("\n", spaceMe, "8.2 The Error() Constructor", spaceMe, "\n");
 function checkUsername(userName) {
   try {
     if (userName) {
       console.log(userName);
-    } else {
+    } 
+    else {
       console.log("I execute");
       throw new Error('No username provided');
       console.log("I do not execute");
@@ -222,7 +223,7 @@ console.log("\n", spaceMe, "15 .includes()", spaceMe, "\nGo to jsAdvance.js file
 const emojis = ['🦒','🦁','🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
  
-console.log("\n", spaceMe, "16 The .map() Method", spaceMe, "\n");
+console.log("\n", spaceMe, "16.1 The .map() Method", spaceMe, "\n");
 /* Iterating Over arrays */
 
 const distanceWalkedMilesArr = [140, 153, 161, 153, 128, 148]; // Elemnents of Array
@@ -245,4 +246,6 @@ function converMilesToKms (){
   });
 }
 console.log(converMilesToKms()); // same Ouput from above
+
+console.log("\n", spaceMe, "16.2 The .map() Method Challenge", spaceMe, "\nGo to jsAdvance.js file");
 

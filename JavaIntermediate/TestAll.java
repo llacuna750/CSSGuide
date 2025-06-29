@@ -1636,7 +1636,7 @@ class TestAll extends Listobject {
             System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
             System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
             System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions ( has throws ArithmeticException )\n29. Thread \n30. Types of Exceptions");
-            System.out.println("31. Ternary Operator \n32. Random Class \n\n33. Array_List \n34. LinkList \n35. HashMap_Method \n36. Array Sort (nomral array) \n37. ArrayListSort");
+            System.out.println("31. Ternary Operator \n32. Random Class \n\n33. Array_List \n34. LinkList \n35. HashMap_Method (has Iterator Class imple.)\n36. Array Sort (nomral array) \n37. ArrayListSort");
             System.out.println("38. HashSets & LinkedHashSet \n39. Iterator (LinkList + List)\n\n40. Work with Files \n41. Reading File \n42. Creating and Writing Files");
             System.out.println("43. Java 2 Module 3 Quiz\n44. Listobject (HashMap + List.ArrayList<>() )\n");
 
@@ -2272,7 +2272,7 @@ class TestAll extends Listobject {
          * 
          * Example:
          */
-        System.out.println("\n" + spaces + "HashMap" + spaces);
+        System.out.println("\n" + spaces + "HashMap (has Iterator Class)" + spaces);
         points.put("Jordan", 32);
         points.put("Amy", 154);
         points.put("Gab", 17);
@@ -2907,4 +2907,4 @@ class TestAll extends Listobject {
 
     static void method() {
     }
-}
+} 

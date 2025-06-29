@@ -186,7 +186,7 @@ function renderStockTicker(stockData) {
   prevPrice = price;
 }
 
-/* Javascript Use
+/* Javascript Use: (in Making View QtechAI web status)
   import /export
   Date()
   Math()
@@ -237,6 +237,71 @@ function render(){
   }
   list.innerHTML = html;
 }
+/* Implements on Shopping List:
+  1. Array of ShoppingList
+  2. onclick (arrow function) Event handler
+  3. Render function (that can add Items the ShoppingList)
+  4. .include() method to identify if the item is already exists. */
 
-console.log("\n", spaceMe, "16 The .map() Method", spaceMe, "\nGo to importing.js file");
+
+console.log("\n", spaceMe, "16.2 The .map() Method Challenge", spaceMe, "\n");
 /* Iterating Over arrays */
+
+/* Copy & Paste this one later */
+
+const containerPlaylist = $(`#playlistSong`);
+import {playlistArr} from "./playlist.js";
+const playlistHTML = [];
+
+// id: playlistSong
+console.log(playlistHTML);
+
+// Using basic for loop to Iterate over array of My playlist
+  // for (let i=0; i<playlistArr.length; i++){ 
+  //   playlistHTML.push(
+  //     `<section class="card d-flex flex-row align-items-center border-0 border-dark rounded p-3 w-100 mb-1">
+  //   <div class="me-3">
+  //     <img src="./javascriptAd_Folder/svg/${playlistArr[i].albumArt}"
+  //           class="img-fluid"
+  //           style="width: 5rem;"
+  //           alt="Fix You artwork">
+  //   </div>
+  //   <div class="flex-grow-1">
+  //     <h4 class="mb-1">${playlistArr[i].title}</h4> 
+  //     <p class="mb-0 text-muted">${playlistArr[i].artist}</p>
+  //   </div>
+  //   <div>
+  //     <button class="btn btn-link p-0 text-dark text-decoration-none" aria-label="More">
+  //       <h2 style="transform: rotate(90deg);">...</h2>
+  //     </button>
+  //   </div>
+  // </section>`
+  //   );
+  // }
+
+const playListMap = playlistArr.map((playListNako)=> { // Using map() function to Iterate over array of My playlist
+  return ` <section class="card d-flex flex-row align-items-center border-0 border-dark rounded p-3 w-100 mb-1">
+    <div class="me-3">
+      <img src="./javascriptAd_Folder/svg/${playListNako.albumArt}"
+            class="img-fluid"
+            style="width: 5rem;"
+            alt="Fix You artwork">
+    </div>
+    <div class="flex-grow-1">
+      <h4 class="mb-1">${playListNako.title}</h4> 
+      <p class="mb-0 text-muted">${playListNako.artist}</p>
+    </div>
+    <div>
+      <button class="btn btn-link p-0 text-dark text-decoration-none" aria-label="More">
+        <h2 style="transform: rotate(90deg);">...</h2>
+      </button>
+    </div>
+  </section>`;
+});
+  
+
+console.log('Array elements now: ',playlistHTML);
+
+// containerPlaylist.innerHTML = playlistHTML; // using basic for loop
+containerPlaylist.innerHTML = playListMap; // using map() function
+

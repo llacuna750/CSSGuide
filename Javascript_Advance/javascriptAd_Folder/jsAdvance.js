@@ -258,8 +258,8 @@ console.log("\n", spaceMe, "16.2 The .map() Method Challenge", spaceMe, "\n");
 /* Copy & Paste this one later */
 
 const containerPlaylist = $(`#playlistSong`);
-import {playlistArr} from "./playlist.js";
-const playlistHTML = [];
+import {playlistArr} from "./playlist.js"; // We import the playlistArr from playlist.js file
+const playlistHTML = []; // PlayList Array
 
 // id: playlistSong
 console.log(playlistHTML);
@@ -287,7 +287,9 @@ console.log(playlistHTML);
 //   );
 // }
 
-const playListMap = playlistArr.map((playListNako)=> { // Using map() function to Iterate over array of My playlist
+
+// Using map() function to Iterate over array of My playlist
+const playListMap = playlistArr.map((playListNako)=> { 
   return ` <section class="card d-flex flex-row align-items-center border-0 border-dark rounded p-3 w-100 mb-1">
     <div class="me-3">
       <img src="./javascriptAd_Folder/svg/${playListNako.albumArt}"
@@ -307,20 +309,59 @@ const playListMap = playlistArr.map((playListNako)=> { // Using map() function t
   </section>`;
 }).join(''); // <- .join() function implemented to remove commas String
 
+
+/* Use forEach() function*/
+const bagOplayList = []; // We create new Array for forEach() function implementation.
+const playListMapforEach = playlistArr.forEach((playListNako)=> { // How about we use forEach() function?
+  bagOplayList.push(
+    ` <section class="card d-flex flex-row align-items-center border-0 border-dark rounded p-3 w-100 mb-1">
+      <div class="me-3">
+        <img src="./javascriptAd_Folder/svg/${playListNako.albumArt}"
+              class="img-fluid"
+              style="width: 5rem;"
+              alt="Fix You artwork">
+      </div>
+      <div class="flex-grow-1">
+        <h4 class="mb-1">${playListNako.title}</h4> 
+        <p class="mb-0 text-muted">${playListNako.artist}</p>
+      </div>
+      <div>
+        <button class="btn btn-link p-0 text-dark text-decoration-none" aria-label="More">
+          <h2 style="transform: rotate(90deg);">...</h2>
+        </button>
+      </div>
+    </section>`
+  );
+}); // <- Were not using .join() function here because we use forEach()
+
+
+
+
+
 /* we use .join() function because if we add the playlistHtml Array in the innerHTML, 
 it could be print like this ['', '', '' ] in our html page
 
-What we implemented on my Playlist song web ?
-1. import / Export the 
+What we implemented on making my Playlist web ?
+1. Export / import the the object playlistArr in playlist.js file
+2. Create array called: playlistHTML = []
+3. In making rendering the playlistHTML to our HTML we use:
+- for loop to Iterate over Array of Objects
+- you can also use .map() function to Iterate over Arrays of Objects
 */
   
 
 console.log('Array elements now: ',playlistHTML);
+console.log("Array elements now ( .forEach() ): ", bagOplayList);
 
-// containerPlaylist.innerHTML = playlistHTML; // using basic for loop
-containerPlaylist.innerHTML = playListMap; // using map() function
+// containerPlaylist.innerHTML = playlistHTML;       // using basic for loop
+// containerPlaylist.innerHTML = playListMap;        // using map() function
+containerPlaylist.innerHTML = bagOplayList.join(''); // using forEach() function
 
-console.log("\n", spaceMe, "17 The .join() Method Challenge", spaceMe, "\n");
+/* In Summery: 
+Use .map() if you need to make use of the new array it returns
+Use .forEach() if you don't need to create a new array. */
+
+console.log("\n", spaceMe, "17. The .join() Method Challenge", spaceMe, "\n");
 /* Strings from arrays 
 - Concatenates elements of array into a string*
 - You choose how elements   are separated 
@@ -332,3 +373,6 @@ those annoying commas You will need to chain two methods
 together to complete the challenge.
 
 document.getElementById(`container).classList.toggle(`hidden`) */
+
+console.log("\n", spaceMe, "18. The .filter() Method", spaceMe, "\nGo to Importing.js file");
+/* Getting only the elements we want from an array */

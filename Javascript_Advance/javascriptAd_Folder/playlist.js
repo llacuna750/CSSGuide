@@ -21,4 +21,4 @@ const playlistArr = [
   },
 ];
 
-export {playlistArr};
+export {playlistArr}; // Exporting the object playlistArr

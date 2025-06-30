@@ -264,3 +264,19 @@ const guestArr = ['Amy', 'Clare', 'Keith', 'Dan'];
 
 // console.log(guestArr); // Printing by default
 console.log(guestArr.join(`, `)); // Printing by .join()
+
+console.log("\n", spaceMe, "18. The .filter() Method", spaceMe, "\n");
+/* Getting only the elements we want from an array */
+
+const ages = [1, 5, 9, 23, 56, 10, 47, 70, 10, 19, 23, 18];
+
+const adults = ages.filter(function (ages) {
+  /* 
+  Challenge:
+    1. Get rid of the statement and reduce the 
+    logic in this function to just one line of code. 
+  */
+ return ages >= 18;
+});
+
+console.log(adults);

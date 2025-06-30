@@ -550,7 +550,8 @@ let kulay = colors.map(
 
 console.log(kulay); // ['Red', 'Green', 'Blue']
 
-const shoppingCart = ["Eggs", "Milk", "Bread"];
+const shoppingCart = ["Eggs", "Milk", "Bread"]; // ShoppingList array
+
 const animals = ["cat", "dog"];
 const person = ["Sina", 32, true];
 let sc = document.getElementById("mainText");

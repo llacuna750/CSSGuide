@@ -201,6 +201,7 @@ const emojis = ['🦒','🦁','🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
 
 const shoppingList = []; // Our Container of Shopping List
+console.log(`ShoppingList empty?`,shoppingList.length === 0); // Check if the shoppingList is Empty
 
 const addItemButton = $(`#addButton`);
 const itemInput = $("#itemName");
@@ -211,22 +212,29 @@ let numThat = shoppingList.map((disNum)=> {
 });
 
 addItemButton.onclick = () => {
- 
   /* Challenge: 
   1. Add an if else to the event listener's function.
   2. Only add an item to the shoppingList array if it 
     is not already in the shoppingList array.
   3. If an item is a duplicate, clear the field and log out "no duplicates". */
-  
-  if (!shoppingList.includes(itemInput.value)){
+
+  if (!shoppingList.includes(itemInput.value) && !itemInput.value.trim() == "") {
     shoppingList.push(itemInput.value);
     render();
     console.log("NumThat:", shoppingList);
-    itemInput.value = ""; // remove last item Add
-  } else {
+  } 
+  else if (itemInput.value.trim() === "") 
+  {
+    alert(`Can't add Blank items.`);
+    console.warn(`Can't add Blank items.`);
+    console.log(shoppingList);
+  } 
+  else 
+  {
     alert(`no duplicates `);
     console.warn("no duplikit plis.");
   }
+  itemInput.value = ""; // remove last item Add
 }
 
 function render(){
@@ -256,28 +264,28 @@ const playlistHTML = [];
 // id: playlistSong
 console.log(playlistHTML);
 
-// Using basic for loop to Iterate over array of My playlist
-  // for (let i=0; i<playlistArr.length; i++){ 
-  //   playlistHTML.push(
-  //     `<section class="card d-flex flex-row align-items-center border-0 border-dark rounded p-3 w-100 mb-1">
-  //   <div class="me-3">
-  //     <img src="./javascriptAd_Folder/svg/${playlistArr[i].albumArt}"
-  //           class="img-fluid"
-  //           style="width: 5rem;"
-  //           alt="Fix You artwork">
-  //   </div>
-  //   <div class="flex-grow-1">
-  //     <h4 class="mb-1">${playlistArr[i].title}</h4> 
-  //     <p class="mb-0 text-muted">${playlistArr[i].artist}</p>
-  //   </div>
-  //   <div>
-  //     <button class="btn btn-link p-0 text-dark text-decoration-none" aria-label="More">
-  //       <h2 style="transform: rotate(90deg);">...</h2>
-  //     </button>
-  //   </div>
-  // </section>`
-  //   );
-  // }
+/* Using basic for loop to Iterate over array of My playlist */
+// for (let i=0; i<playlistArr.length; i++){ 
+//   playlistHTML.push(
+//     `<section class="card d-flex flex-row align-items-center border-0 border-dark rounded p-3 w-100 mb-1">
+//   <div class="me-3">
+//     <img src="./javascriptAd_Folder/svg/${playlistArr[i].albumArt}"
+//           class="img-fluid"
+//           style="width: 5rem;"
+//           alt="Fix You artwork">
+//   </div>
+//   <div class="flex-grow-1">
+//     <h4 class="mb-1">${playlistArr[i].title}</h4> 
+//     <p class="mb-0 text-muted">${playlistArr[i].artist}</p>
+//   </div>
+//   <div>
+//     <button class="btn btn-link p-0 text-dark text-decoration-none" aria-label="More">
+//       <h2 style="transform: rotate(90deg);">...</h2>
+//     </button>
+//   </div>
+// </section>`
+//   );
+// }
 
 const playListMap = playlistArr.map((playListNako)=> { // Using map() function to Iterate over array of My playlist
   return ` <section class="card d-flex flex-row align-items-center border-0 border-dark rounded p-3 w-100 mb-1">
@@ -297,7 +305,14 @@ const playListMap = playlistArr.map((playListNako)=> { // Using map() function t
       </button>
     </div>
   </section>`;
-});
+}).join(''); // <- .join() function implemented to remove commas String
+
+/* we use .join() function because if we add the playlistHtml Array in the innerHTML, 
+it could be print like this ['', '', '' ] in our html page
+
+What we implemented on my Playlist song web ?
+1. import / Export the 
+*/
   
 
 console.log('Array elements now: ',playlistHTML);
@@ -305,3 +320,15 @@ console.log('Array elements now: ',playlistHTML);
 // containerPlaylist.innerHTML = playlistHTML; // using basic for loop
 containerPlaylist.innerHTML = playListMap; // using map() function
 
+console.log("\n", spaceMe, "17 The .join() Method Challenge", spaceMe, "\n");
+/* Strings from arrays 
+- Concatenates elements of array into a string*
+- You choose how elements   are separated 
+- Returns the new String 
+
+Challenge:
+1. Use the .join() method to remove
+those annoying commas You will need to chain two methods
+together to complete the challenge.
+
+document.getElementById(`container).classList.toggle(`hidden`) */

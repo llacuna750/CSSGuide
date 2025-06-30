@@ -249,3 +249,18 @@ console.log(converMilesToKms()); // same Ouput from above
 
 console.log("\n", spaceMe, "16.2 The .map() Method Challenge", spaceMe, "\nGo to jsAdvance.js file");
 
+console.log(
+  "\n",
+  spaceMe,
+  "17 The .join() Method",
+  spaceMe,
+  "\nGo to jsAdvance.js file"
+);
+/* Strings from arrays 
+- Concatenates elements of array into a string*
+- You choose how elements   are separated 
+- Returns the new String */
+const guestArr = ['Amy', 'Clare', 'Keith', 'Dan'];
+
+// console.log(guestArr); // Printing by default
+console.log(guestArr.join(`, `)); // Printing by .join()

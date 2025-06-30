@@ -1,0 +1,75 @@
+----------------------Classes and Objects:----------------------
+1.Object-Oriented Programming
+2. Creating Classes & Objects
+3. Class Attributes
+4. Access Modifiers
+5. Getters and Setters
+6. Constructors
+7. Value & Reference Types
+8. The Math Class
+9. Static
+10. Final
+11. Packages
+12. Java 2 Module 1 Quiz
+
+----------------------More on Classes:-----------------
+1. Encapsulation
+2. Inheritance
+3. Polymorphism
+4. Overriding & Overloading
+5. Abstract Classes
+6. Interfaces
+7. Casting
+8. Downcasting
+9. Anonymous Classes
+10. Inner Classes
+11. The equals() method
+12. Enums
+13. Using the Java API
+14. Java 2 Module 2 Quiz
+
+----------------------Exceptions, Lists, Threads & Files:----------------------
+1. Exception Handling
+2. Multiple Exceptions
+3. Threads
+4. Runtime vs. Checked Exceptions
+5. ArrayList
+6. LinkedLists
+7. HashMap
+8. Sets
+9. Sorting Lists
+10. Iterators
+11. Working with Files
+12. Reading a File
+13. Creating & Writing Files
+14. Java 2 Module 3 Quiz
+
+
+
+---------------------------------------------------------------------------------------------------
+In Java, there is no direct equivalent of the setInterval() function found in JavaScript. However, similar functionality can be achieved using various mechanisms:
+java.util.Timer and java.util.TimerTask:
+This is a common and straightforward way to schedule recurring tasks in Java.
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class IntervalExample {
+    public static void main(String[] args) {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("Task executed at interval!");
+            }
+        }, 0, 1000); // Delay 0, repeat every 1000 milliseconds (1 second)
+
+        // To stop the timer after some time (optional)
+        // try {
+        //     Thread.sleep(5000); // Run for 5 seconds
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
+        // timer.cancel(); // Stop the timer
+    }
+}

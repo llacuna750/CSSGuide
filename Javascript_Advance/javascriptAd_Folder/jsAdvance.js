@@ -307,11 +307,11 @@ const playListMap = playlistArr.map((playListNako)=> {
       </button>
     </div>
   </section>`;
-}).join(''); // <- .join() function implemented to remove commas String
+}).join(''); // <- .join() method implemented to remove commas String
 
 
-/* Use forEach() function*/
-const bagOplayList = []; // We create new Array for forEach() function implementation.
+/* Use forEach() method */
+const bagOplayList = []; // We create new Array for forEach() method implementation.
 const playListMapforEach = playlistArr.forEach((playListNako)=> { // How about we use forEach() function?
   bagOplayList.push(
     ` <section class="card d-flex flex-row align-items-center border-0 border-dark rounded p-3 w-100 mb-1">
@@ -332,7 +332,7 @@ const playListMapforEach = playlistArr.forEach((playListNako)=> { // How about w
       </div>
     </section>`
   );
-}); // <- Were not using .join() function here because we use forEach()
+}); // <- Were not using .join() method here because we use forEach() method
 
 
 
@@ -354,8 +354,8 @@ console.log('Array elements now: ',playlistHTML);
 console.log("Array elements now ( .forEach() ): ", bagOplayList);
 
 // containerPlaylist.innerHTML = playlistHTML;       // using basic for loop
-// containerPlaylist.innerHTML = playListMap;        // using map() function
-containerPlaylist.innerHTML = bagOplayList.join(''); // using forEach() function
+// containerPlaylist.innerHTML = playListMap;        // using map() method
+containerPlaylist.innerHTML = bagOplayList.join(''); // using forEach() method
 
 /* In Summery: 
 Use .map() if you need to make use of the new array it returns

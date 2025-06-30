@@ -240,7 +240,7 @@ try {
 }
 
 function converMilesToKms (){
-  return distanceWalkedMilesArr.map(function (distanceMiles, index) {
+  return distanceWalkedMilesArr.map(function (distanceMiles, index) { //have inner
     // return (distanceMiles * conversionFactorMilesToKm);
     return `Month ${index}: ${distanceMiles * conversionFactorMilesToKm}KM`;
   });
@@ -276,7 +276,59 @@ const adults = ages.filter(function (ages) {
     1. Get rid of the statement and reduce the 
     logic in this function to just one line of code. 
   */
- return ages >= 18;
+ return ages >= 18; // Adult
+//  return ages < 18; // Child
 });
 
-console.log(adults);
+console.log(adults); // Output the adults that ages >= 18
+
+import {series} from '../javascriptAd_Folder/series.js'; // Imported from series.js
+
+/* Filter and find the specific info. 
+Challenge:
+1. Use the .filter() method 
+to create an array of all the thrillers */
+
+const NewyorkSeries = series.filter(function (show) {
+  return show.location === ("New York");
+});
+
+const thrillerSeries = series.filter(function (show) {
+  return show.genres.includes("thriller");
+});
+
+console.log(NewyorkSeries);
+console.log(thrillerSeries);
+
+console.log("\n", spaceMe, "19. The .reduce() Method", spaceMe, "\n");
+/* Give me just one thing */
+
+const rainJanuaryByWeek = [10, 20, 0, 122];
+
+const totalRainfallJanuary = rainJanuaryByWeek.reduce((total, currentElement) => {
+    console.log("total:", total, "currentElement:", currentElement);
+    return total + currentElement;
+  }
+);
+
+console.log(totalRainfallJanuary);
+
+const grades = [75, 83, 66, 43, 55, 99, 87, 16, 89, 64, 70, 80, 94, 77, 66, 73];
+
+/* Challenge:
+1. Use the .reduce() method to find the total of all of the students grades 
+2. Do some simple maths to log out the class average */ 
+
+
+const TotaloverAllGrades = grades.reduce(function (tots, addMe) {
+  console.log(`Tots: ${tots} addMe: ${addMe}`);
+  return tots + addMe;
+});
+
+const averagegrades = grades.reduce(function (tots, addMe) {
+  return (tots + addMe);
+}); 
+
+console.log(grades.length);
+console.log(`Total overall grade: ${TotaloverAllGrades}`);
+console.log(`The class average is ${averagegrades / grades.length}`);

@@ -1663,12 +1663,13 @@ class TestAll extends Listobject {
     }
 
     static void Floydtriangle (String prompt, Scanner scanner) {
-
+        
         System.out.print(prompt);
         int rows = scanner.nextInt();
         scanner.nextLine(); // consume leftover newline
         boolean valid = false;
 
+        
         while (!valid) {
             System.out.println("\nEnter the following to proceed: \n1. Symbol way\n2. Number way");
             String choose = scanner.nextLine();
@@ -1690,8 +1691,7 @@ class TestAll extends Listobject {
                         if (!choose.equals("1")) {
                             System.out.print(number+ " ");
                             
-                        }
-                        else {
+                        } else {
                             System.out.print(symbol+ " ");
                         }
                         j+=1;

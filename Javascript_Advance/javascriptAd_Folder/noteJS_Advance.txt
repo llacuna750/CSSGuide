@@ -1,0 +1,28 @@
+1. Ternary Operator
+2. Switch Statement
+3. Object Destructuring
+4. setTimeout
+5. setInterval
+6. Import and Export              (name) - A deeper dive
+7. Import and Export           (default) - A deeper dive
+8.1 Date() Constructors
+8.2 The Error() Constructor
+9. Pre-increment
+10. Numeric Separators & BigInt
+11. Hoisting
+12. Super Challeng: Stock Ticker
+13. for of                               - (A nicer way of iterating)
+14. for in
+15.1 .forEach() method                  
+15.2 another feature of .forEach()
+16 .includes()                           - A method for checking if an array holds a given value?
+17.1 The .map() Method                   - Iterating Over arrays
+17.2 The .map() Method Challenge
+18 The .join() Method                    - Strings from arrays
+19. The .filter() Method                 - Getting only the elements we want from an array
+20.1 The .reduce() Method                - Give me just one thing
+20.2 The .reduce() Method with Objects   - Give me just one thing
+21. For loop Break and Continue          - For Loops Revisted - With break and continue
+22. Various Array Methods                - .every()  .some()  .find()  .findIndex()  .indexOf()  .at()
+
+

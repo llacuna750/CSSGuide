@@ -1,11 +1,14 @@
 const spaceMe = "-".repeat(30);
 //Import and Export - A deeper dive
 /*import  spaceMe  from "./advancejs.js";*/
+
 import { interplanetaryDestinationsArr as destination, shortSpaceTripsArr as spaceTrip } from "./data.js";
 import { interplanetaryDestinationsArr, shortSpaceTripsArr} from "./data.js";
 import getMatchingTripsArr from "./getMatchingTripsArr.js";
 
-console.log("\n", spaceMe, "7. Import and Export - ", spaceMe, "\n");
+console.log("\n", spaceMe, "7. Import and Export (name)- ", spaceMe, "\n");
+console.log("\n", spaceMe, "7. Import and Export - (default)", spaceMe, "\nGo to importing.js file");
+
 // console.log(interplanetaryDestinationsArr);
 // console.log('Destination: ',destination,'\nTrip: ', spaceTrip);
 console.log(getMatchingTripsArr(interplanetaryDestinationsArr, "exotic"));
@@ -218,12 +221,12 @@ charaters.forEach((myChar,index)=> {
   console.log(index,myChar);
 });
 
-console.log("\n", spaceMe, "15 .includes()", spaceMe, "\nGo to jsAdvance.js file");
+console.log("\n", spaceMe, "16 .includes()", spaceMe, "\nGo to jsAdvance.js file");
 /* A method for checking if an array holds a given value?  */
 const emojis = ['🦒','🦁','🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
  
-console.log("\n", spaceMe, "16.1 The .map() Method", spaceMe, "\n");
+console.log("\n", spaceMe, "17.1 The .map() Method", spaceMe, "\n");
 /* Iterating Over arrays */
 
 const distanceWalkedMilesArr = [140, 153, 161, 153, 128, 148]; // Elemnents of Array
@@ -247,15 +250,9 @@ function converMilesToKms (){
 }
 console.log(converMilesToKms()); // same Ouput from above
 
-console.log("\n", spaceMe, "16.2 The .map() Method Challenge", spaceMe, "\nGo to jsAdvance.js file");
+console.log("\n", spaceMe, "17.2 The .map() Method Challenge", spaceMe, "\nGo to jsAdvance.js file");
 
-console.log(
-  "\n",
-  spaceMe,
-  "17 The .join() Method",
-  spaceMe,
-  "\nGo to jsAdvance.js file"
-);
+console.log("\n",spaceMe,"18 The .join() Method",spaceMe,"\nGo to jsAdvance.js file");
 /* Strings from arrays 
 - Concatenates elements of array into a string*
 - You choose how elements   are separated 
@@ -265,7 +262,7 @@ const guestArr = ['Amy', 'Clare', 'Keith', 'Dan'];
 // console.log(guestArr); // Printing by default
 console.log(guestArr.join(`, `)); // Printing by .join()
 
-console.log("\n", spaceMe, "18. The .filter() Method", spaceMe, "\n");
+console.log("\n", spaceMe, "19. The .filter() Method", spaceMe, "\n");
 /* Getting only the elements we want from an array */
 
 const ages = [1, 5, 9, 23, 56, 10, 47, 70, 10, 19, 23, 18];
@@ -300,10 +297,11 @@ const thrillerSeries = series.filter(function (show) {
 console.log(NewyorkSeries);
 console.log(thrillerSeries);
 
-console.log("\n", spaceMe, "19. The .reduce() Method", spaceMe, "\n");
+console.log("\n", spaceMe, "20.1 The .reduce() Method", spaceMe, "\n");
 /* Give me just one thing */
 
 const rainJanuaryByWeek = [10, 20, 0, 122];
+console.log(rainJanuaryByWeek);
 
 const totalRainfallJanuary = rainJanuaryByWeek.reduce((total, currentElement) => {
     console.log("total:", total, "currentElement:", currentElement);
@@ -332,3 +330,95 @@ const averagegrades = grades.reduce(function (tots, addMe) {
 console.log(grades.length);
 console.log(`Total overall grade: ${TotaloverAllGrades}`);
 console.log(`The class average is ${averagegrades / grades.length}`);
+
+console.log("\n", spaceMe, "20.2 The .reduce() Method with Objects", spaceMe, "\n");
+import { studentsArr } from "./studentsArr.js";
+
+console.log(calcClassAvg(studentsArr));
+
+function calcClassAvg(thisStudents) { 
+  /* Previous value: number = thisStudents (Array object)          
+    Current Value: currentStudent { name: string; grade: number; } 
+    
+  reduce(callbackfn: (previousValue: { name: string; grade: number; }, currentValue: { name: string; grade: number; }, 
+  currentIndex: number, array: { name: string; grade: number; }[]) => { name: string; grade: number; },
+  initialValue: { name: string; grade: number; }): { name: string; grade: number; }*/
+
+  const totalGrades = studentsArr.reduce(function (total, currentStudent) {
+    return total + currentStudent.grade; // I think total is the 1st index. So, the total is updating each Iteration when algorithm done.
+  }, 0); // currentIndex: number = 0
+  console.log("Total Grades:", totalGrades);
+  return `Class Average: ${totalGrades / studentsArr.length}`;
+}
+
+// For Loops Revisted - With break and continue
+console.log("\n", spaceMe, "21. For loop Break and Continue", spaceMe, "\n");
+import {expensesAndRefunds} from './expensesAndRefunds.js';
+
+let totalSpent = 0;
+const cutOffDate = 2024;
+
+for (let i=0; i<expensesAndRefunds.length; i++){
+  const currentExpenseOrRefund = expensesAndRefunds[i];
+
+  // The iteration is Stop because of break statement, it stop in index 5 of Array Objects
+  if (currentExpenseOrRefund.year >= cutOffDate){ 
+    console.log(`Reach cutoff date, existing loop             ( break )`);
+    break;
+  }
+
+  if (currentExpenseOrRefund.amount < 0){
+    console.log(
+      `Skipping ${currentExpenseOrRefund.description} due to refund         ( continue )`
+    );
+    continue; // skipping the condition if true
+  }
+
+  totalSpent += currentExpenseOrRefund.amount; // totalSpent will update when the condition is reach this statement
+}
+console.log(`The amount spent on items in 2023: $${totalSpent}`);
+
+console.log("\n", spaceMe, "22. Various Array Methods", spaceMe, "\n");
+/* .every()  .some()  .find()  .findIndex()  .indexOf()  .at() */
+
+const dailyStepsArr = [10000, 12000, 18000, 15000, 11000, 19000, 13000];
+
+// .every() returns true if every item passes the test.
+const areAllOver10k = dailyStepsArr.every(function (stepCount) {
+  return stepCount >= 10000; // return boolean value : TRUE
+});
+
+// .some() returns true if one or more items pass the test.
+const areSomeOver10k = dailyStepsArr.some(function (stepCount) {
+  return stepCount >= 10000; // return boolean value : TRUE
+});
+
+console.log(`areAllOver10k  .every():`, areAllOver10k);
+console.log("areSomeOver10k .some():", areSomeOver10k);
+
+const invoiceUSDArr = [201, 354, 26, 1299, 1400, 60, 76];
+console.log(`\ninvoiceUSD_Array:`,invoiceUSDArr);
+
+// .find() method returns the value of the first item that passes the test.     => value
+console.log(
+  `Return the value of first Over 1000:`,
+  invoiceUSDArr.find((invoice) => {
+    return invoice > 1000; // returns the value first one that over 1000 is 1299
+  }),`        .find() `
+);
+
+// .findIndex() method returns the index of the first item that passes the test.  => index
+console.log(`Return the index of first Over 1000:`,
+ invoiceUSDArr.findIndex((invoice) => {
+    return invoice > 1000; // returns the index 
+  }),`        .findIndex() `
+);
+
+// .indexOf() gives us the index of a given item in the array.
+console.log(`Index of 26:`, invoiceUSDArr.indexOf(26), `                                .indexOf()`);
+
+// .at() takes a positive or negative integer and returns the item at that index.
+// Negative integers count back from the end of the array.
+console.log(`.at(-1) :`, invoiceUSDArr.at(-1), `                                   .at()`);
+
+console.log("\n", spaceMe, "23. string.replace() and string.replaceAll() method", spaceMe, "\n");

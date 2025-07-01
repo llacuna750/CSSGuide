@@ -1,0 +1,1 @@
+// const dailyStepsArr = [10000];

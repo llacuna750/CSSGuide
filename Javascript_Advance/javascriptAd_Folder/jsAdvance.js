@@ -376,3 +376,8 @@ document.getElementById(`container).classList.toggle(`hidden`) */
 
 console.log("\n", spaceMe, "18. The .filter() Method", spaceMe, "\nGo to Importing.js file");
 /* Getting only the elements we want from an array */
+
+/************************************************/console.log("\n", spaceMe, "25. Super Challenge: Contact Search", spaceMe, "\nGo to jsAdvance.js file");/************************************************/
+import contactsArr from './fileExported_May_you_canUse.js';
+
+console.log(contactsArr);

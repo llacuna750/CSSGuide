@@ -6,8 +6,8 @@ import { interplanetaryDestinationsArr as destination, shortSpaceTripsArr as spa
 import { interplanetaryDestinationsArr, shortSpaceTripsArr} from "./data.js";
 import getMatchingTripsArr from "./getMatchingTripsArr.js";
 
-console.log("\n", spaceMe, "7. Import and Export (name)- ", spaceMe, "\n");
-console.log("\n", spaceMe, "7. Import and Export - (default)", spaceMe, "\nGo to importing.js file");
+/************************************************/ console.log("\n", spaceMe, "7. Import and Export (name)- ", spaceMe, "\n"); /************************************************/
+/************************************************/ console.log("\n", spaceMe, "7. Import and Export - (default)", spaceMe, "\nGo to importing.js file"); /************************************************/
 
 // console.log(interplanetaryDestinationsArr);
 // console.log('Destination: ',destination,'\nTrip: ', spaceTrip);
@@ -19,7 +19,7 @@ for (const a of num){
     console.log(a);
 } */
 
-console.log("\n", spaceMe, "8.1 Date() Constructors", spaceMe, "\n");
+/************************************************/ console.log("\n", spaceMe, "8.1 Date() Constructors", spaceMe, "\n"); /************************************************/
 /* Intro to Constructors
 Two types of Constructor
     ------Inbuilt-----                                ----Custom-----
@@ -38,8 +38,8 @@ console.log(`Copyright ${dateSnapshot.getFullYear().toString()} all rights reser
 /* Challenge: 
 1. Search online to find out how we can get just the year using the Date() constructor. Then update the code in the console. */
 
+/************************************************/ console.log("\n", spaceMe, "8.2 The Error() Constructor", spaceMe, "\n"); /************************************************/
 /* The Error() Constructor */
-console.log("\n", spaceMe, "8.2 The Error() Constructor", spaceMe, "\n");
 function checkUsername(userName) {
   try {
     if (userName) {
@@ -68,8 +68,8 @@ person.name = 'Tom';
 
 console.log(person);
 
+/************************************************/ console.log("\n", spaceMe, "9. Pre-increment", spaceMe, "\n"); /************************************************/
 /* Pre-increment */
-console.log("\n", spaceMe, "9. Pre-increment", spaceMe, "\n");
 let currentTicketNumber = 0;
 
 function getNextTicketNumber() {
@@ -83,9 +83,10 @@ console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
 console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
 console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
 
+
+/************************************************/ console.log("\n", spaceMe, "10. Numeric Separators & BigInt", spaceMe, "\n"); /************************************************/
 /* Numeric Separators & BigInt */
 /* Challenge: 1. Use numeric separators (_) to separate out the digits into chunks of 3 so they are easier to read. */
-console.log("\n", spaceMe, "10. Numeric Separators & BigInt", spaceMe, "\n");
 
 // const tomsBankBalanceGBP = 9_007_199_254_740_991 * 2; // multiply by 2
 const tomsBankBalanceGBP = BigInt(9_007_199_254_740_991_345); // bigInt
@@ -103,7 +104,7 @@ try {
 }
 
 /* Hoisting */
-console.log("\n",spaceMe, "11. Hoisting", spaceMe, "\n");
+/************************************************/ console.log("\n",spaceMe, "11. Hoisting", spaceMe, "\n"); /************************************************/
 
 function getWeather(){
   return "Today's weather is warm and sunny";
@@ -122,10 +123,10 @@ try {
 const trafficInfo = 'All roads are busy right now'; 
 
 // Super Challeng: Stock Ticker
-console.log("\n",spaceMe,"12. Super Challeng: Stock Ticker",spaceMe,"\nGo to fakeStockAPI.js file");
+/************************************************/ console.log("\n",spaceMe,"12. Super Challeng: Stock Ticker",spaceMe,"\nGo to fakeStockAPI.js file"); /************************************************/
 
 // For of - A nicer way of iterating
-console.log("\n",spaceMe,"13. For of",spaceMe,"\n");
+/************************************************/ console.log("\n",spaceMe,"13. For of",spaceMe,"\n"); /************************************************/
 // characters have multiple (4) Objects
 const charaters = [
   {
@@ -166,7 +167,7 @@ for (let character of charaters) {
   }
 }
 
-console.log("\n", spaceMe, "14. for in", spaceMe, "\n");
+/************************************************/ console.log("\n", spaceMe, "14. for in", spaceMe, "\n"); /************************************************/
 
 // We have single Object
 const character1 = {
@@ -198,7 +199,7 @@ try {
   property keys of an object               ( examples of iterable objects include arrays, strings) 
 */
 
-console.log("\n", spaceMe, "15.1 .forEach()", spaceMe, "\n");
+/************************************************/ console.log("\n", spaceMe, "15.1 .forEach()", spaceMe, "\n"); /************************************************/
 
 /* A method for iterating over arrays 
   Challenge:
@@ -215,18 +216,18 @@ charaters.forEach((myChar)=> {
   // });
 });
 
-console.log("\n", spaceMe, "15.2 another feature of .forEach()", spaceMe, "\n");
+/************************************************/ console.log("\n", spaceMe, "15.2 another feature of .forEach()", spaceMe, "\n"); /************************************************/
 charaters.forEach((myChar,index)=> {
   // another feature of .forEach()
   console.log(index,myChar);
 });
 
-console.log("\n", spaceMe, "16 .includes()", spaceMe, "\nGo to jsAdvance.js file");
+/************************************************/ console.log("\n", spaceMe, "16 .includes()", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
 /* A method for checking if an array holds a given value?  */
 const emojis = ['🦒','🦁','🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
  
-console.log("\n", spaceMe, "17.1 The .map() Method", spaceMe, "\n");
+/************************************************/ console.log("\n", spaceMe, "17.1 The .map() Method", spaceMe, "\n"); /************************************************/
 /* Iterating Over arrays */
 
 const distanceWalkedMilesArr = [140, 153, 161, 153, 128, 148]; // Elemnents of Array
@@ -250,9 +251,9 @@ function converMilesToKms (){
 }
 console.log(converMilesToKms()); // same Ouput from above
 
-console.log("\n", spaceMe, "17.2 The .map() Method Challenge", spaceMe, "\nGo to jsAdvance.js file");
+/************************************************/ console.log("\n", spaceMe, "17.2 The .map() Method Challenge", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
 
-console.log("\n",spaceMe,"18 The .join() Method",spaceMe,"\nGo to jsAdvance.js file");
+/************************************************/ console.log("\n",spaceMe,"18 The .join() Method",spaceMe,"\nGo to jsAdvance.js file"); /************************************************/
 /* Strings from arrays 
 - Concatenates elements of array into a string*
 - You choose how elements   are separated 
@@ -262,7 +263,7 @@ const guestArr = ['Amy', 'Clare', 'Keith', 'Dan'];
 // console.log(guestArr); // Printing by default
 console.log(guestArr.join(`, `)); // Printing by .join()
 
-console.log("\n", spaceMe, "19. The .filter() Method", spaceMe, "\n");
+/************************************************/ console.log("\n", spaceMe, "19. The .filter() Method", spaceMe, "\n"); /************************************************/
 /* Getting only the elements we want from an array */
 
 const ages = [1, 5, 9, 23, 56, 10, 47, 70, 10, 19, 23, 18];
@@ -297,7 +298,7 @@ const thrillerSeries = series.filter(function (show) {
 console.log(NewyorkSeries);
 console.log(thrillerSeries);
 
-console.log("\n", spaceMe, "20.1 The .reduce() Method", spaceMe, "\n");
+/************************************************/ console.log("\n", spaceMe, "20.1 The .reduce() Method", spaceMe, "\n"); /************************************************/
 /* Give me just one thing */
 
 const rainJanuaryByWeek = [10, 20, 0, 122];
@@ -331,7 +332,8 @@ console.log(grades.length);
 console.log(`Total overall grade: ${TotaloverAllGrades}`);
 console.log(`The class average is ${averagegrades / grades.length}`);
 
-console.log("\n", spaceMe, "20.2 The .reduce() Method with Objects", spaceMe, "\n");
+
+/************************************************/ console.log("\n", spaceMe, "20.2 The .reduce() Method with Objects", spaceMe, "\n"); /************************************************/
 import { studentsArr } from "./studentsArr.js";
 
 console.log(calcClassAvg(studentsArr));
@@ -351,8 +353,8 @@ function calcClassAvg(thisStudents) {
   return `Class Average: ${totalGrades / studentsArr.length}`;
 }
 
+/************************************************/ console.log("\n", spaceMe, "21. For loop Break and Continue", spaceMe, "\n"); /************************************************/
 // For Loops Revisted - With break and continue
-console.log("\n", spaceMe, "21. For loop Break and Continue", spaceMe, "\n");
 import {expensesAndRefunds} from './expensesAndRefunds.js';
 
 let totalSpent = 0;
@@ -378,8 +380,9 @@ for (let i=0; i<expensesAndRefunds.length; i++){
 }
 console.log(`The amount spent on items in 2023: $${totalSpent}`);
 
-console.log("\n", spaceMe, "22. Various Array Methods", spaceMe, "\n");
-/* .every()  .some()  .find()  .findIndex()  .indexOf()  .at() */
+
+/************************************************/ console.log("\n", spaceMe, "22. Various Array Methods", spaceMe, "\n"); /************************************************/
+/* .every()  .some()  . )  .findIndex()  .indexOf()  .at() */
 
 const dailyStepsArr = [10000, 12000, 18000, 15000, 11000, 19000, 13000];
 
@@ -421,4 +424,69 @@ console.log(`Index of 26:`, invoiceUSDArr.indexOf(26), `                        
 // Negative integers count back from the end of the array.
 console.log(`.at(-1) :`, invoiceUSDArr.at(-1), `                                   .at()`);
 
-console.log("\n", spaceMe, "23. string.replace() and string.replaceAll() method", spaceMe, "\n");
+
+/************************************************/console.log("\n", spaceMe, "23. string.replace() and string.replaceAll() method", spaceMe, "\n");/************************************************/
+
+const paragraph = "js is backbone of the internet. It was created in 1995. Before js, websites were so boring.";
+/* Challenge: 
+1. Change to lowercase i's to uppercase */
+
+const parGap = paragraph.replace('js', 'JS');
+console.log(parGap); // .replace() change the first lowercase js to Uppercase JS 
+console.log(paragraph.replaceAll('js', 'JS')); // .replaceAll() change all the lowercase js to Uppercase JS 
+
+const sentence = 'i went to Australia and i saw a shark';
+console.log(sentence.replaceAll('i', 'I')); // I went to AustralIa and I saw a shark
+/* 
+Regex (regular expression) is a sequence of 
+characters that specifies a match pattern in text 
+*/
+const senTence = 'I love you with all my heart love!';
+try {
+  console.log();
+  console.log(
+    senTence.replaceAll(
+      /\b(love|heart)\b/g,
+      // function (match) { console.log(match); // change into undefined
+
+      function () {
+        return `💙`;
+      }
+    )
+  );
+
+  const paragraph2nd = "javascript is the backbone of the internet. it was created in 1995. before JS, website were so boring";
+  /* Challenge: 
+  1. Use replaceAll and regex to ensure the first character of each 
+  sentence is uppercase. You will need to use a string method 
+which converts characters to uppercase */
+
+  console.log(
+    paragraph2nd.replaceAll(/(?:^|\.\s)([A-Za-z])/g, function (match) {
+      return match.toUpperCase();
+    })
+  );
+} catch (err) {
+  console.log("Error an occur:", err.message); // This will execute when /\b(love|heart)\b/, missing g
+}
+
+/************************************************/console.log("\n", spaceMe, "24. Regex flags and constructors", spaceMe, "\n");/************************************************/
+const text = "Please switch off the Wifi before you leave.";
+/* 
+g = global
+i = case sensitive 
+*/
+const regex = /wifi/ig;
+
+// The RegExp Constructor
+const userInput = "wifi";
+const regex2 = new RegExp(userInput, "gi"); // gi = global & i = case sensitive
+
+try {
+  console.log(regex2.test(text)); // return true
+  console.log(regex.test(text)); // return true
+} catch (err) {
+  console.log(`Error an occur:`,err.message);
+}
+
+/************************************************/console.log("\n", spaceMe, "25. Super Challenge: Contact Search", spaceMe, "\nGo to jsAdvance.js file");/************************************************/

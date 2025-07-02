@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
@@ -35,4 +36,18 @@ body {
 
 .Logout {
   margin: 5px;
+}
+
+.myh3 {
+  color: rgba(22, 21, 21, 0.87);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.contact-card {
+  padding: 3rem; /* Bootstrap's p-5 = 3rem */
+  margin-block: 1rem; /* Bootstrap's my-3 = 1rem top & bottom */
+  border-radius: 1rem; /* Bootstrap's rounded-4 ≈ 1rem */
+  width: 59%;
+  background-color: rgb(116, 138, 138);
 }/*# sourceMappingURL=jsAdbans.css.map */

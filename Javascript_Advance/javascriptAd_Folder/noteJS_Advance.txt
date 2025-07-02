@@ -11,18 +11,20 @@
 10. Numeric Separators & BigInt
 11. Hoisting
 12. Super Challeng: Stock Ticker
-13. for of                               - (A nicer way of iterating)
+13. for of                                                  - (A nicer way of iterating)
 14. for in
 15.1 .forEach() method                  
 15.2 another feature of .forEach()
-16 .includes()                           - A method for checking if an array holds a given value?
-17.1 The .map() Method                   - Iterating Over arrays
-17.2 The .map() Method Challenge
-18 The .join() Method                    - Strings from arrays
-19. The .filter() Method                 - Getting only the elements we want from an array
-20.1 The .reduce() Method                - Give me just one thing
-20.2 The .reduce() Method with Objects   - Give me just one thing
-21. For loop Break and Continue          - For Loops Revisted - With break and continue
-22. Various Array Methods                - .every()  .some()  .find()  .findIndex()  .indexOf()  .at()
-
+16 .includes()                                              - A method for checking if an array holds a given value?
+17.1 The .map() Method                                      - Iterating Over arrays
+17.2 The .map() Method Challenge                    
+18 The .join() Method                                       - Strings from arrays
+19. The .filter() Method                                    - Getting only the elements we want from an array
+20.1 The .reduce() Method                                   - Give me just one thing
+20.2 The .reduce() Method with Objects                      - Give me just one thing
+21. For loop Break and Continue                             - For Loops Revisted - With break and continue
+22. Various Array Methods                                   - .every()  .some()  .find()  .findIndex()  .indexOf()  .at()
+23. string.replace() and string.replaceAll() method
+24. Regex flags and constructors
+25. Super Challenge: Contact Search
 

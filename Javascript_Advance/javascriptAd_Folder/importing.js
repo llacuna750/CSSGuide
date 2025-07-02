@@ -480,11 +480,11 @@ const regex = /wifi/ig;
 
 // The RegExp Constructor
 const userInput = "wifi";
-const regex2 = new RegExp(userInput, "gi"); // gi = global & i = case sensitive
+const regex2 = new RegExp(userInput, "gi"); // gi = global & case sensitive
 
 try {
-  console.log(regex2.test(text)); // return true
-  console.log(regex.test(text)); // return true
+  console.log(`regex1:`,regex.test(text)); // return boolean true
+  console.log(`regex2:`,regex2.test(text)); // return boolean true
 } catch (err) {
   console.log(`Error an occur:`,err.message);
 }

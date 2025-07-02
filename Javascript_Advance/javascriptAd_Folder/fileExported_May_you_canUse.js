@@ -32,4 +32,3 @@ const contactsArr = [
 ];
 
 export default contactsArr;
-  

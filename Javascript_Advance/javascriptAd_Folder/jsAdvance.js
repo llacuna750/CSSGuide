@@ -160,7 +160,7 @@ function renderStockTicker(stockData) {
   const stockDisplayTime = $("#Time");
   const stockDisplayPriceIcon = $("#PriceIcon");
 
-  const { name, sym, price, time } = stockData;
+  const { name, sym, price, time} = stockData;
 
   const priceDirectionIcon =
     price > prevPrice
@@ -381,3 +381,80 @@ console.log("\n", spaceMe, "18. The .filter() Method", spaceMe, "\nGo to Importi
 import contactsArr from './fileExported_May_you_canUse.js';
 
 console.log(contactsArr);
+/* Challenge: 
+1. Wire up this search pattern app so that inputting a full or partial name brings up the matching
+  contact or contacts 
+*/
+
+const myInput = document.getElementById(`pattern-search-input`);
+const mysearchButton = document.getElementById(`pattern-search-submit`);
+const contactDisplay = document.getElementById(`contact-display`);
+
+mysearchButton.addEventListener('click', function (){
+  findMatchingContact(contactsArr, myInput.value);
+});
+
+function findMatchingContact (contactsArr, pattern){
+  if (!pattern.trim() == ''){
+    contactDisplay.innerHTML = "";
+    const regex = new RegExp(pattern, "i"); // i = case sensitive
+    contactsArr.filter(function (contact) {
+      return regex.test(contact.name); // gi return niya tanan Object value sa kadtong naay parihas na pattern.
+    })
+    .forEach(function (contact) {
+      // gi kuha ra ang naas babaw na mga Object value tas, gi render na into HTML page
+      renderContact(contact);
+    });  
+  } else {
+    alert("Don't leave empty, when you search.");
+  }
+}
+
+function renderContact (conTact){
+  console.log(conTact);
+  const { name, email, phone } = conTact; // use Object destructuring is like conTact.name = john;
+
+  const contactCard = document.createElement(`aside`);
+  contactCard.classList.add("contact-card"); // new Container
+
+  const nameElem = document.createElement(`p`); // for nameElement
+  const emailElem = document.createElement(`p`); // for emailElement
+  const phoneElem = document.createElement(`p`); // for phoneElement
+
+  // gi write lang niya conTact Object value sa atong HTML.
+  nameElem.innerText = name;
+  emailElem.innerText = email;
+  phoneElem.innerText = phone;
+
+  // gibutang sa aside Element atong mga nameElem, emailElem andphoneElem.
+  contactCard.appendChild(nameElem);
+  contactCard.appendChild(emailElem);
+  contactCard.appendChild(phoneElem);
+
+  // final is ibutang ang container sa section Nato which is ang contactDisplay
+  contactDisplay.appendChild(contactCard);
+}
+
+// function renderContact(conTact) {
+//   const { name, email, phone } = conTact;
+//   const contactDisplay = document.getElementById("contact-display");
+
+  
+
+//   const html = `
+//     <div class="p-5 my-3 rounded-4" style="width: 59%; background-color: rgb(116, 138, 138);">
+//       <h3 class="myh3">${name}</h3>
+//       <h3 class="myh3">${email}</h3>
+//       <h3 class="myh3">${phone}</h3>
+//     </div>
+//   `;
+//   contactDisplay.innerHTML += html; // append instead of overwrite
+// }
+
+/* Javascript to Use
+- import / export 
+- regex
+- filter() 
+- forEach()
+- Object destructuring 
+*/

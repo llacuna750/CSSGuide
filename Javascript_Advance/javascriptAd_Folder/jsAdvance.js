@@ -208,7 +208,7 @@ const itemInput = $("#itemName");
 const list = $("#list");
 
 let numThat = shoppingList.map((disNum)=> {
-  return disNum * 5;
+  return disNum * 5; // Multiply the Array Element by 5
 });
 
 addItemButton.onclick = () => {
@@ -222,15 +222,11 @@ addItemButton.onclick = () => {
     shoppingList.push(itemInput.value);
     render();
     console.log("NumThat:", shoppingList);
-  } 
-  else if (itemInput.value.trim() === "") 
-  {
+  } else if (itemInput.value.trim() === "") {
     alert(`Can't add Blank items.`);
     console.warn(`Can't add Blank items.`);
     console.log(shoppingList);
-  } 
-  else 
-  {
+  } else {
     alert(`no duplicates `);
     console.warn("no duplikit plis.");
   }
@@ -358,8 +354,8 @@ console.log("Array elements now ( .forEach() ): ", bagOplayList);
 containerPlaylist.innerHTML = bagOplayList.join(''); // using forEach() method
 
 /* In Summery: 
-Use .map() if you need to make use of the new array it returns
-Use .forEach() if you don't need to create a new array. */
+Use .map() method if you need to make use of the new array it returns
+Use .forEach() method if you don't need to create a new array. */
 
 console.log("\n", spaceMe, "17. The .join() Method Challenge", spaceMe, "\n");
 /* Strings from arrays 
@@ -389,24 +385,101 @@ console.log(contactsArr);
 const myInput = document.getElementById(`pattern-search-input`);
 const mysearchButton = document.getElementById(`pattern-search-submit`);
 const contactDisplay = document.getElementById(`contact-display`);
+const notFoundParent = $(`.divfornoFound`); // our divfornoFound Pinaka Parent
+const notFound = $(`.notFound`); // Not Found Container for our p Element
 
 mysearchButton.addEventListener('click', function (){
+  console.log(`True or False:`,isMatchFound(contactsArr, myInput.value));
   findMatchingContact(contactsArr, myInput.value);
+
+  console.log(`User Input:`, myInput.value);
+  myInput.value = ``; // remove last Input
 });
 
+// function isMatchFound(dataArray, input) {
+// .some() method
+//   const pattern = input.trim();
+//   if (pattern === "") return false;
+
+//   const regex = new RegExp(pattern, "i"); // case-insensitive
+
+//   return dataArray.some(
+//     (contact) =>
+//       regex.test(contact.name) ||
+//       regex.test(contact.email) ||
+//       regex.test(contact.phone)
+//   );
+// }
+
+function isMatchFound(dataArray, input) {
+  // .filter() method
+  const pattern = input.trim();
+  if (pattern === "") return false;
+
+  const regex = new RegExp(pattern, "i"); // case-insensitive
+
+  const matches = dataArray.filter(
+    (contact) =>
+      regex.test(contact.name) ||
+      regex.test(contact.email) ||
+      regex.test(contact.phone)
+  );
+  return matches.length > 0;
+}
+
+
 function findMatchingContact (contactsArr, pattern){
-  if (!pattern.trim() == ''){
-    contactDisplay.innerHTML = "";
-    const regex = new RegExp(pattern, "i"); // i = case sensitive
-    contactsArr.filter(function (contact) {
-      return regex.test(contact.name); // gi return niya tanan Object value sa kadtong naay parihas na pattern.
-    })
-    .forEach(function (contact) {
-      // gi kuha ra ang naas babaw na mga Object value tas, gi render na into HTML page
-      renderContact(contact);
-    });  
-  } else {
-    alert("Don't leave empty, when you search.");
+  try {
+    if (pattern.trim() !== "") {
+      if (isMatchFound(contactsArr, pattern)) {
+        contactDisplay.innerHTML = "";
+        contactsArr
+          .filter((contact) => new RegExp(pattern, "i").test(contact.name))
+          .forEach((contact) => renderContact(contact));
+      } else {
+        alert(`Walay match sa ${pattern}`);
+      }
+    } else {
+      // Clear any existing message first
+      notFoundParent.innerHTML = "";
+      const div = document.createElement("div");
+      div.className = "notFound";
+
+      const p = document.createElement("p");
+
+      p.className = "colormyP";
+      p.textContent = "No contact Found";
+
+      div.appendChild(p);
+      notFoundParent.appendChild(div);
+
+      setTimeout(() => {
+        div.remove();
+      }, 1500); // cleaner Version of rendering the Not found contacts
+
+      // let html = ``; // for reseting the html Form Input
+      // const newPElement = document.createElement(`p`);
+      // const newPElement = `<div class="notFound"><p class="colormyP">No contact Found</p></div>`;
+
+      // const text = document.createTextNode(`No contact Found.`);
+      // newPElement.appendChild(text); // gi write atong pharagraph Element ug text = No contact Found!.
+      // newPElement.classList.add(`colormyP`);
+      // newPElement.style.color = `red`;// let's make the color of text red
+
+      // html += ` <div class="notFound">
+      //   ${newPElement}
+      // </div> `; // new Pharagraph add to html
+
+      // notFoundParent.innerHTML = html; // Container dire ibutang ang ang new Elem.
+      // alert("Don't leave empty, when you search.");
+
+      // setTimeout(() => {
+      //   // // box.removeChild(bubble);
+      //   notFoundParent.innerHTML = ``;
+      // }, 2000); // remove the element after 3 seconds.
+    }
+  } catch (err) {
+    console.log(`Error an occur:`, err.message);
   }
 }
 

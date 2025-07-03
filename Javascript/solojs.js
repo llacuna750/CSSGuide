@@ -127,7 +127,7 @@ document.getElementById(`userName`).textContent = userName;
 
 console.log(`Hi! ${userName}`);
 
-
+// User Input
 function processFormData() {
   event.preventDefault(); // Prevent form from reloading the page
 
@@ -267,7 +267,7 @@ function checkTicked () {
 }
 
 
-function processregFormData () {
+function processregFormData (event) {
   event.preventDefault(); // Prevent form from reloading the page
   let form = document.getElementById(`myregForm`);
   // let email = document.getElementById(`email`).value;

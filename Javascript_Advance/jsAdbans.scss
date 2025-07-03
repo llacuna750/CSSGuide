@@ -42,9 +42,48 @@ body {
 }
 
 .contact-card {
+    color: #070707;
     padding: 3rem;             /* Bootstrap's p-5 = 3rem */
     margin-block: 1rem;        /* Bootstrap's my-3 = 1rem top & bottom */
     border-radius: 1rem;       /* Bootstrap's rounded-4 ≈ 1rem */
     width: 59%;
     background-color: rgb(116, 138, 138);
+    font-weight: bolder;
+    font-size: 2em;
+    flex-wrap: wrap;
+    box-shadow: 
+    0 0 3px cyan,
+    0 0 5px cyan,
+    /* 0 0 9px cyan, */
+    0 2px 15px cyan;
+
+    // border: 1px solid #3498db;
 }
+
+.colormyP {
+    // border: 1px solid;
+    color: #be4242;
+    font-weight: normal;
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.divfornoFound {
+    // border: 1px solid;
+    margin: 0;
+    padding: 0;
+    .notFound {
+        // border: 1px solid;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin-bottom: 5px;
+        width: 60%;
+        height: 0;
+        display: inline-block;
+        justify-content: start;
+        align-items: center;
+    }
+}
+

@@ -298,7 +298,7 @@ const thrillerSeries = series.filter(function (show) {
 console.log(NewyorkSeries);
 console.log(thrillerSeries);
 
-/************************************************/ console.log("\n", spaceMe, "20.1 The .reduce() Method", spaceMe, "\n"); /************************************************/
+/************************************************/ console.log("\n", spaceMe, "20.1 The . ) Method", spaceMe, "\n"); /************************************************/
 /* Give me just one thing */
 
 const rainJanuaryByWeek = [10, 20, 0, 122];

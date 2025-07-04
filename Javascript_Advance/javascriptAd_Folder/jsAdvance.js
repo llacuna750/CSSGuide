@@ -355,8 +355,7 @@ containerPlaylist.innerHTML = bagOplayList.join(''); // using forEach() method
 
 /* In Summery: 
 Use .map() method if you need to make use of the new array it returns
-Use .forEach() method if you don't need to create a new array. */
-
+Use .forEach() method if you don't need to create a new array. */ 
 console.log("\n", spaceMe, "17. The .join() Method Challenge", spaceMe, "\n");
 /* Strings from arrays 
 - Concatenates elements of array into a string*
@@ -530,4 +529,38 @@ function renderContact (conTact){
 - filter() 
 - forEach()
 - Object destructuring 
+*/
+
+/************************************************/ console.log("\n",spaceMe,"8. The Rest Parameter Challenge",spaceMe,"\n"); /************************************************/
+/* The Rest Parameter Challenge 
+1. Add parameters.
+2. Update the HTML template where you see **NAME** 
+3. Return  HTML template for each label 
+*/
+const text = `Thank you for all your hard work throughout the year! 🎉🙏🏽`;
+const sender = `Gab`;
+function getLabelsHtml(textMessage, gaSend, ...staffNames){
+  return staffNames.map( staffName => `
+    <div class="col-md-6">
+      <div class="p-4 bg-primary text-white rounded-3 fs-3">
+        <p><strong>Dear ${staffName.name},</strong></p>
+        <p>${textMessage}</p>
+        <p>Best wishes,<br>${gaSend}</p>
+      </div>
+    </div>
+    `
+  ).join(``);
+}
+
+document.getElementById(`contenerSurprise`).innerHTML = getLabelsHtml(
+  text, 
+  sender, {name: `Sally`}, {name: `Mike`}, {name: `Rob`}, {name: `Harriet`}
+); 
+/* Javascript to Use - The Rest Param eter Challenge
+  - String message
+  - Sender name
+  - .map() method [create new Array]
+  - rendering
+  - .join() method
+  - dom-access #container (parent) + getLabelsHtml() -> Child
 */

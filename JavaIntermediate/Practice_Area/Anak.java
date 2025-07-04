@@ -15,3 +15,4 @@ public class Anak extends Ginikanan {
         System.out.println("Accessed: "+ b);
     }
 }
+

@@ -226,7 +226,7 @@ p.capitalize {
     /* Ordered-list*/
     ol {
         /* */
-        list-style: ;
+        /* list-style: ; */
         /* list-style-type: decimal, decimal-leading-zero, lower-roman, upper-roman, upper-alpha; */
         /* list-style-type: decimal-leading-zero; */
         /* list-style-type: lower-roman; */
@@ -1168,7 +1168,7 @@ div.transform1 p.afterclick {
 }
 
 .Guidetransform .combinecontainer {
-    /* border: 1px solid; */
+    border: 1px solid;
 }
 .Guidetransform .combinecontainer p {
     /* border: 1px solid; */

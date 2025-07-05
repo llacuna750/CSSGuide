@@ -208,12 +208,12 @@ try {
 */
 
 charaters.forEach((myChar)=> {
-  console.log(myChar.title,'=',myChar.powers); // same output as For of (only single for of.)
+  // console.log(myChar.title,'=',myChar.powers); // same output as For of (only single for of.)
   // console.log(myChar.powers); // same output as For of (only single for of.)
 
-  // myChar.powers.forEach((pawer)=> {
-  //   console.log(pawer);
-  // });
+  myChar.powers.forEach((pawer)=> {
+    console.log(pawer);
+  });
 });
 
 /************************************************/ console.log("\n", spaceMe, "15.2 another feature of .forEach()", spaceMe, "\n"); /************************************************/

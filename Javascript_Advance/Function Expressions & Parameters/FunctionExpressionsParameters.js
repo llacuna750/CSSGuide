@@ -1,6 +1,6 @@
 const spaceMe = "-".repeat(30);
-// Function Expressions - Different syntax & behaviour
 /************************************************/ console.log("\n",spaceMe,"1.1 Function Expressions",spaceMe,"\n"); /************************************************/
+// Function Expressions - Different syntax & behaviour
 try {
   // function getSpendAlert(amount) { return `Warning! You just spent L$${amount}!`; } // Normal function
 
@@ -174,7 +174,22 @@ setPermissionLevel('admin', 'Dave', 'Sally', 'Mike');
 * -> Functions can be passed as arguments to other functions
 *.2 -> We have already seen that several times
 
-Quiz: list some times that we haved 
-passed functions as arguments to other functions
+Quiz: list some times that we haved passed functions as arguments to other functions.
+1. Array methods: map, forEach(), reduce
+2. setTimeout and setInterval
+3. Event Listeners
 */
+try {
+  function notifyUser(noticationFn) {
+    noticationFn();
+  }
+  const emailNotification = () => console.log("Email sent");
+  const smsNotification = () => console.log("SMS sent");
 
+  notifyUser(emailNotification);
+  notifyUser(smsNotification);
+} catch (err) {
+  console.log('Error an occur:',err.message);
+}
+
+/************************************************/ console.log("\n",spaceMe,"10. Super Challenge: Real State",spaceMe,"\nGo to jsAdvance.js file"); /************************************************/

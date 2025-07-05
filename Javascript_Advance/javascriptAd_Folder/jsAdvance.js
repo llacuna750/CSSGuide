@@ -483,7 +483,7 @@ function findMatchingContact (contactsArr, pattern){
 }
 
 function renderContact (conTact){
-  console.log(conTact);
+  console.log(`Contact:`,conTact);
   const { name, email, phone } = conTact; // use Object destructuring is like conTact.name = john;
 
   const contactCard = document.createElement(`aside`);
@@ -554,7 +554,11 @@ function getLabelsHtml(textMessage, gaSend, ...staffNames){
 
 document.getElementById(`contenerSurprise`).innerHTML = getLabelsHtml(
   text, 
-  sender, {name: `Sally`}, {name: `Mike`}, {name: `Rob`}, {name: `Harriet`}
+  sender, 
+  {name: `Sally`}, 
+  {name: `Mike`}, 
+  {name: `Rob`}, 
+  {name: `Harriet`}
 ); 
 /* Javascript to Use - The Rest Param eter Challenge
   - String message
@@ -564,3 +568,103 @@ document.getElementById(`contenerSurprise`).innerHTML = getLabelsHtml(
   - .join() method
   - dom-access #container (parent) + getLabelsHtml() -> Child
 */
+
+/************************************************/ console.log("\n",spaceMe,"10. Super Challenge: Real State",spaceMe,"\n"); /************************************************/
+/*
+SUPER CHALLENGE 💪
+
+Render out a card for each of the properties in the propertyForSaleArr array (in the 'properties' folder). 
+Each card should have an image, a property location, a price, a comment and the TOTAL property size in square metres 
+(each object has an array with the size in square metres of the individual rooms).
+
+If no array of properties is passed to getPropertyHtml, the placeholder property stored in placeholderPropertyObj (in the 'properties' folder) should be rendered instead.
+
+This is the JS I want you to use to complete this challenge 👇
+- import/export / 
+- .map() / 
+- .join() /
+- Object destructuring /
+- .reduce() / 
+- Default parameters /
+
+The HTML and CSS have been done for you.
+This is the HTML template 👇. Replace everything in UPPERCASE with property data.
+*/
+
+
+import propertyForSaleArr  from '../Function Expressions & Parameters/properties/propertyforSaleArr.js';
+import placeholderPropertyObj from "../Function Expressions & Parameters/properties/placeholdePropertyObject.js";
+
+console.log(`placeholderPropertyObj: `, placeholderPropertyObj);
+// Object.assign(.style, {
+//   // backgroundSize: `contain`,
+// });
+
+
+function getPropertyHtml(propertyArr = [placeholderPropertyObj]) { // the placeholderPropertyObj is set to Default Paramter and push inside an Array of Object.
+// function getPropertyHtml(placeholderPropertyObj, propertyForSaleArr) {
+  let myPropertyLoc, myPriceGBP, myRoomsM2, myComment, myImage;
+  
+  if (!propertyForSaleArr) {
+    const { propertyLocation, priceGBP, roomsM2, comment, image } =placeholderPropertyObj; // Object Destructuring
+
+    console.log(`myPropertyLoc:`, propertyLocation); // Expected Output in Line 606
+
+    // alert(`This is ${propertyForSaleArr} \nDefault Parameter (used)`);
+    console.log(`propertyLocation:`, roomsM2);
+
+    const placeHObj = roomsM2.reduce((total, currentElement) => {
+      console.log(
+        `Total: ${total}  ++++++++++  CurrentElemen: ${currentElement}`
+      );
+      return total + currentElement;
+    });
+    console.log(`placeHObj: `, placeHObj); // placeholderPropertyObj Expected Ouput in Total roomsM2: 50
+
+    myPropertyLoc = propertyLocation;
+    myPriceGBP = priceGBP;
+    myRoomsM2 = placeHObj;
+    myComment = comment;
+    myImage = image;
+  } else {
+    return propertyArr.map((theProperty) => { // using Default Parameter -> propertyArr = [placeholderPropertyObj]
+    // return propertyForSaleArr.map((theProperty) => {
+
+        const totProp = theProperty.roomsM2.reduce(function (
+          total ,
+          currentElement
+        ) {
+          console.log(`Total: ${total} CurrentElement: ${currentElement}`);
+          return total + currentElement;
+        });
+
+        return `<section class="p-0 realStateCont">
+        <img class="realStateImage img-fluid" src="/Javascript_Advance/Function Expressions & Parameters/Images/${theProperty.image}" alt="imagRender">
+        <div class="card-right">
+            <h1><b>${theProperty.propertyLocation}</b></h1>
+            <h3><b>£${theProperty.priceGBP}</b></h3>
+            <p>${theProperty.comment}</p>
+            <h2><b>${totProp} m²</b></h2>
+        </div>
+      </section> 
+      `;
+    }).join("");
+  }
+
+    return `<section class="p-0 realStateCont">
+    <img class="realStateImage img-fluid" src="/Javascript_Advance/Function Expressions & Parameters/Images/${myImage}" alt="imagRender">
+    <div class="card-right">
+        <h1><b>${myPropertyLoc}</b></h1>
+        <h3><b>£${myPriceGBP}</b></h3>
+        <p>${myComment}</p>
+        <h2><b>${myRoomsM2} m²</b></h2>
+    </div>
+  </section> 
+  `;
+}
+
+document.getElementById("containerRealStaet").innerHTML = getPropertyHtml(
+  // placeholderPropertyObj
+  // ,
+  // propertyForSaleArr // Try to Empty parameter
+);

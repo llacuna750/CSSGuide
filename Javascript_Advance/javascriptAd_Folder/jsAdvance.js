@@ -602,11 +602,32 @@ console.log(`placeholderPropertyObj: `, placeholderPropertyObj);
 
 
 function getPropertyHtml(propertyArr = [placeholderPropertyObj]) { // the placeholderPropertyObj is set to Default Paramter and push inside an Array of Object.
-// function getPropertyHtml(placeholderPropertyObj, propertyForSaleArr) {
+  // function getPropertyHtml(placeholderPropertyObj, propertyForSaleArr) {
   let myPropertyLoc, myPriceGBP, myRoomsM2, myComment, myImage;
   
+  const propPerper = [propertyArr]; // the placeholderPropertyObj is set to Default Paramter and push inside an Array of Object.// the placeholderPropertyObj is set to Default Paramter and push inside an Array of Object.
+  return propertyArr.map((property) => {
+    const { propertyLocation, priceGBP, roomsM2, comment, image } = property;
+    // alert(`priceGBP: ${roomsM2}`);
+
+    const totalRM2 = roomsM2.reduce(
+      (total, currentElement) => total + currentElement
+    );
+    // alert(`Total Meter square: ${totalRM2}`);
+    return `<section class="p-0 realStateCont">
+        <img class="realStateImage img-fluid" src="./Function Expressions & Parameters/Images/${image}" alt="imagRender">
+        <div class="card-right">
+            <h1><b>${propertyLocation}</b></h1>
+            <h3><b>£${priceGBP}</b></h3>
+            <p>${comment}</p>
+            <h2><b>${totalRM2} m²</b></h2>
+        </div>
+      </section>  `;
+  });
+
   if (!propertyForSaleArr) {
-    const { propertyLocation, priceGBP, roomsM2, comment, image } =placeholderPropertyObj; // Object Destructuring
+    const { propertyLocation, priceGBP, roomsM2, comment, image } =
+      placeholderPropertyObj; // Object Destructuring
 
     console.log(`myPropertyLoc:`, propertyLocation); // Expected Output in Line 606
 
@@ -627,11 +648,13 @@ function getPropertyHtml(propertyArr = [placeholderPropertyObj]) { // the placeh
     myComment = comment;
     myImage = image;
   } else {
-    return propertyArr.map((theProperty) => { // using Default Parameter -> propertyArr = [placeholderPropertyObj]
-    // return propertyForSaleArr.map((theProperty) => {
+    return propertyArr
+      .map((theProperty) => {
+        // using Default Parameter -> propertyArr = [placeholderPropertyObj]
+        // return propertyForSaleArr.map((theProperty) => {
 
         const totProp = theProperty.roomsM2.reduce(function (
-          total ,
+          total,
           currentElement
         ) {
           console.log(`Total: ${total} CurrentElement: ${currentElement}`);
@@ -639,7 +662,7 @@ function getPropertyHtml(propertyArr = [placeholderPropertyObj]) { // the placeh
         });
 
         return `<section class="p-0 realStateCont">
-        <img class="realStateImage img-fluid" src="/Javascript_Advance/Function Expressions & Parameters/Images/${theProperty.image}" alt="imagRender">
+        <img class="realStateImage img-fluid" src="./Function Expressions & Parameters/Images/${theProperty.image}" alt="imagRender">
         <div class="card-right">
             <h1><b>${theProperty.propertyLocation}</b></h1>
             <h3><b>£${theProperty.priceGBP}</b></h3>
@@ -648,11 +671,12 @@ function getPropertyHtml(propertyArr = [placeholderPropertyObj]) { // the placeh
         </div>
       </section> 
       `;
-    }).join("");
+      })
+      .join("");
   }
 
-    return `<section class="p-0 realStateCont">
-    <img class="realStateImage img-fluid" src="/Javascript_Advance/Function Expressions & Parameters/Images/${myImage}" alt="imagRender">
+  return `<section class="p-0 realStateCont">
+    <img class="realStateImage img-fluid" src="./Function Expressions & Parameters/Images/${myImage}" alt="imagRender">
     <div class="card-right">
         <h1><b>${myPropertyLoc}</b></h1>
         <h3><b>£${myPriceGBP}</b></h3>
@@ -666,5 +690,5 @@ function getPropertyHtml(propertyArr = [placeholderPropertyObj]) { // the placeh
 document.getElementById("containerRealStaet").innerHTML = getPropertyHtml(
   // placeholderPropertyObj
   // ,
-  // propertyForSaleArr // Try to Empty parameter
+  propertyForSaleArr // Try to Empty parameter
 );

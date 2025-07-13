@@ -32,6 +32,8 @@ class Myclass {
     public static void main(String[] args) {
 
         out.printf("%n%55s!%n", "Hello Myclass");
-        TestAll.main(args);
-    }
+        // TestAll.main(args);
+
+
+    }   
 }

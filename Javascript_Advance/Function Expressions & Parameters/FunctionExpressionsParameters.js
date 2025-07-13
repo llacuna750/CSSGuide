@@ -141,7 +141,7 @@ try {
       (total, currentItem) => total + currentItem.priceUSD,
       0
     );
-    // set as Default value when false parameter
+    // set as Default value when false parameters
     if (!discount) {
       discount = total * 0.3; // let's say discounted 30% OFF
     }
@@ -180,9 +180,10 @@ Quiz: list some times that we haved passed functions as arguments to other funct
 3. Event Listeners
 */
 try {
-  function notifyUser(noticationFn) {
+  function notifyUser(noticationFn) { 
     noticationFn();
   }
+  
   const emailNotification = () => console.log("Email sent");
   const smsNotification = () => console.log("SMS sent");
 
@@ -193,3 +194,13 @@ try {
 }
 
 /************************************************/ console.log("\n",spaceMe,"10. Super Challenge: Real State",spaceMe,"\nGo to jsAdvance.js file"); /************************************************/
+/*  
+Challenge:  
+1. Make a fetch request to the "Bored" API:  
+   Base URL: https://apis.scrimba.com/bored/api  
+   Endpoint: /activity  
+
+2. Log an object containing an activity suggestion to the console:  
+   @ hint.md for help!  
+
+*/  

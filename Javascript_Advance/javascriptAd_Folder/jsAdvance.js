@@ -692,3 +692,30 @@ document.getElementById("containerRealStaet").innerHTML = getPropertyHtml(
   // ,
   propertyForSaleArr // Try to Empty parameter
 );
+
+
+/************************************************/ console.log("\n",spaceMe,"6. fetch().then()", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
+
+fetch(`https://dog.ceo/api/breeds/image/random`)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  // .then((data) => console.log(data));
+  .then((data) => {
+    [data].forEach((element) => {
+      console.log(`element:`, element.message);
+
+      const imageElemApi = document.createElement("img");
+      imageElemApi.src = element.message;
+      imageElemApi.alt = "ImageApiAlt";
+      document.getElementById("imageContainer").appendChild(imageElemApi);
+    });
+  }) // We use curly braces with more complex algorithm or logic
+  .catch((error) => {
+    console.error("Fetch error:", error);
+  });
+
+/************************************************/ console.log("\n",spaceMe,"7. fetch().then() Challenge", spaceMe, ""); /************************************************/

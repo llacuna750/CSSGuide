@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
+// import java.util.Set;
 
 import static java.lang.System.out;
 import static java.util.Collections.sort;
@@ -30,7 +31,7 @@ class TestAll extends Listobject {
     static  Choosespeci_Code specificode = new Choosespeci_Code();
 
     public static void main(String[] args) {
-        
+            
         // System.out.printf("%-15s This is TEST ALL Class!\n", "Hello");
         // System.out.printf("%15sThis is TEST ALL Class!\n", "");
 
@@ -38,7 +39,7 @@ class TestAll extends Listobject {
         Listobject runMe = new Listobject();
         if (iChoose == 1) {
         /*                                                          javaOOP Class                                                               */   
-        
+            
             javaOOP java = new javaOOP(); // javaOOP class
             // System.out.printf("%s",java.javaYearCreated);
             System.out.println(java.javaYearCreated);
@@ -50,7 +51,7 @@ class TestAll extends Listobject {
             Prinftformat pformat = new Prinftformat(); // Prinftformat
             System.out.println("True or False? "+ pformat.myBoolean+"\n");
             System.out.printf("Double digit: %,.2f\n\n", pformat.myDouble); // access the attribute myDouble in class Prinftformat
-
+            
 
             /*                                                          Constructors
                 Constructors are special methods invoked when an object is created and are used to initialize them.     
@@ -830,7 +831,7 @@ class TestAll extends Listobject {
             System.out.println("\n" + spaces + "ArrayList Intervget" + spaces);
             score.add(3);
             score.add(10);
-            System.out.println(score.contains(3));
+            System.out.println("Contain? "+score.contains(3)); 
             System.out.println(score);
 
             System.out.println(spaces + "ArrayList String" + spaces);
@@ -2155,13 +2156,13 @@ class TestAll extends Listobject {
         System.out.println("\n" + spaces + "ArrayList " + spaces);
         score.add(3);
         score.add(10);
-        System.out.println(score.contains(3));
+        System.out.println("Is number exist / contain? "+score.contains(3));
         System.out.println(score);
 
         System.out.println(spaces + "ArrayList String" + spaces);
         System.out.println("\n" + colors);
         System.out.println("Size of an Arraylist: "+colors.size());
-        System.out.println(colors.get(0));
+        System.out.println("Color in index: " +colors.get(0)); // Output: Yellow
     }
     
     static void Ternary_Operator()  {
@@ -2349,14 +2350,15 @@ class TestAll extends Listobject {
          * 
          * 1. Purpose
          * Additional:
-         * | Feature | `LinkedHashSet` | `LinkedList` |
-         * | ---------------------- | --------------------------- |
-         * ----------------------- |
-         * | **Type** | A **Set** | A **List** |
-         * | **Allows duplicates?** | ❌ No (only unique elements) | ✅ Yes |
-         * | **Maintains order?** | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
-         * | **Access by index?** | ❌ No | ✅ Yes (`get(index)`) |
-         * 
+          _____________________________________________________________________________________
+          |         Feature        |       `LinkedHashSet`         |       `LinkedList`       |
+          | ---------------------- |-------------------------------|--------------------------|
+          | **Type** | A **Set**   | A **List**                    |                          |
+          | **Allows duplicates?** | ❌ No (only unique elements) | ✅ Yes                   |
+          | **Maintains order?**   | ✅ Yes (insertion order)     | ✅ Yes (insertion order) |
+          | **Access by index?**   | ❌ No                        | ✅ Yes (`get(index)`)    |
+          |________________________|_______________________________|__________________________|
+          
          * 🔸 2. Use Cases
          * LinkedHashSet is used when:
          * 

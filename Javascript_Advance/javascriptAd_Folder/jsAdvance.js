@@ -706,7 +706,7 @@ fetch(`https://dog.ceo/api/breeds/image/random`)
   // .then((data) => console.log(data));
   .then((data) => {
     [data].forEach((element) => {
-      console.log(`element:`, element.message);
+      console.log(`Dog element:`, element.message);
 
       const imageElemApi = document.createElement("img");
       imageElemApi.src = element.message;
@@ -718,4 +718,71 @@ fetch(`https://dog.ceo/api/breeds/image/random`)
     console.error("Fetch error:", error);
   });
 
-/************************************************/ console.log("\n",spaceMe,"7. fetch().then() Challenge", spaceMe, ""); /************************************************/
+// fetch(`https://api.thecatapi.com/v1/images/MTg3NzMwMA`)
+fetch(`https://api.thecatapi.com/v1/images/search`)
+
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  // .then((data) => console.log(data));
+  .then((data) => {
+    console.log("Status: 200 OK");
+    console.log(`Cat api:`, data);
+    console.log(typeof data);
+
+    // For Each
+    // [data].forEach((dataCat) => {
+    //   console.log(`Get element (using forEach):`, dataCat.url);
+    // });
+
+    // For of
+    for (const catApi of data) {
+      console.log(`Get element (using for of):`, catApi.url);
+      console.log(`Height of img:`, catApi.height);
+
+      const imageCatElemApi = document.createElement("img");
+      imageCatElemApi.src = catApi.url;
+
+      if (catApi.height === 960) {
+        imageCatElemApi.width = 300;
+        imageCatElemApi.height = 375;
+
+        console.log(`Updated of img:`, catApi.height);
+      }
+
+      imageCatElemApi.alt = "ImageApiAltEring";
+      document.getElementById("catImageContainer1").appendChild(imageCatElemApi);
+    }
+  }) // We use curly braces with more complex algorithm or logic
+  .catch((error) => {
+    console.error("Fetch error:", error);
+  });
+
+/************************************************/ console.log("\n",spaceMe,"7. fetch().then() Challenge", spaceMe, "Go back to Starting.js file"); /************************************************/
+/*  
+Challenge:  
+1. Make a fetch request to the "Bored" API:  
+   Base URL: https://apis.scrimba.com/bored/api  
+   Endpoint: /activity  
+
+2. Log an object containing an activity suggestion to the console:  
+   @ hint.md for help!  
+
+*/  
+/************************************************/ console.log("\n",spaceMe,"8. Fetching with async/await", spaceMe, "\n"); /************************************************/  
+/*
+const response = await fetch(`https://api.thecatapi.com/v1/images/search`);
+const data = await response.json();
+
+data.forEach(dataCat => {
+  console.log(`\nData Image:`, dataCat);
+
+  const catElementimg = document.createElement(`img`);
+  catElementimg.src = dataCat.url;
+  catElementimg.alt = `Cat element img api`;
+  document.getElementById(`catImageContainer2`).appendChild(catElementimg);
+});
+*/

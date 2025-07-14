@@ -193,14 +193,4 @@ try {
   console.log('Error an occur:',err.message);
 }
 
-/************************************************/ console.log("\n",spaceMe,"10. Super Challenge: Real State",spaceMe,"\nGo to jsAdvance.js file"); /************************************************/
-/*  
-Challenge:  
-1. Make a fetch request to the "Bored" API:  
-   Base URL: https://apis.scrimba.com/bored/api  
-   Endpoint: /activity  
-
-2. Log an object containing an activity suggestion to the console:  
-   @ hint.md for help!  
-
-*/  
+/************************************************/ console.log("\n",spaceMe,"10. Super Challenge: Real State",spaceMe,"\nGo back to Starting.js file"); /************************************************/

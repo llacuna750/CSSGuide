@@ -101,4 +101,36 @@ Challenge:
 `); 
 
 /************************************************/ console.log("\n",spaceMe,"6. fetch().then()", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
-  /************************************************/ console.log("\n",spaceMe,"7. fetch().then() Challenge", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/  
+/************************************************/ console.log("\n",spaceMe,"7. fetch().then() Challenge", spaceMe, "\n"); /************************************************/  
+/*  
+Challenge:  
+1. Make a fetch request to the "Bored" API:  
+   Base URL: https://apis.scrimba.com/bored/api  
+   Endpoint: /activity  
+
+2. Log an object containing an activity suggestion to the console:  
+   @ hint.md for help!  
+*/
+fetch(`https://apis.scrimba.com/bored/api/activity`)
+.then(response => response.json())
+.then(data => console.log(data.activity));
+/************************************************/ console.log("\n",spaceMe,"8. Fetching with async/await", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/  
+// const response = await fetch(`https://apis.scrimba.com/bored/api/activity`);
+// const data = await response.json();
+// console.log(`\nData:`,data.activity);
+
+const response = await fetch(`https://api.thecatapi.com/v1/images/search`);
+const data = await response.json();
+
+async function getDogImage() {
+  data.forEach((dataCat) => {
+    console.log(`\nData Image:`, dataCat);
+
+    const catElementimg = document.createElement(`img`);
+    catElementimg.src = dataCat.url;
+    catElementimg.alt = `Cat element img api`;
+    document.getElementById(`catImageContainer2`).appendChild(catElementimg);
+  });
+}
+
+getDogImage();

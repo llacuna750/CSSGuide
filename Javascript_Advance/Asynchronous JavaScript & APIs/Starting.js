@@ -1,5 +1,5 @@
 const spaceMe = "-".repeat(30);
-/************************************************/ console.log("\n",spaceMe,"1. What is an API",spaceMe,"\nRead the comment"); /************************************************/
+/************************************************/ console.log("\n", spaceMe, "1. What is an API", spaceMe, "\nRead the comment"); /************************************************/
 /* 
 1) What is an API?    
 Application Programming Interface
@@ -13,7 +13,7 @@ someone else's code. (Web APIs, 3rd-party package, etc.)
 * Local Storage (localStorage)
 */
 
-/************************************************/ console.log("\n",spaceMe,"2. Clients & Servers", spaceMe,"\nRead the comment"
+/************************************************/ console.log("\n", spaceMe, "2. Clients & Servers", spaceMe, "\nRead the comment"
 ); /************************************************/
 /* 
 ---------------------------------------------------------------- What is a Client? ----------------------------------------------------------------
@@ -41,8 +41,8 @@ A computer that sends my own computer things when I ask it to.
 
 3) In what way do clients and servers interact with each other? 
 Client sends a request to a server, and the server sends back a response.
-*/ 
-/************************************************/ console.log("\n",spaceMe,"3. Requests & Responses", spaceMe, "\nRead the comment"); /************************************************/
+*/
+/************************************************/ console.log("\n", spaceMe, "3. Requests & Responses", spaceMe, "\nRead the comment"); /************************************************/
 /* What is Requests - Responses Cycle
 What is a Request?
 -> When a device asks for a "resource" (data, image, HTML page, authentication token, etc.).
@@ -68,7 +68,7 @@ Receive a request from a client and return a response.
 500 Internal Server Error
 */
 
-/************************************************/ console.log("\n",spaceMe,"4. JSON Review", spaceMe, "\nRead the comment"); /************************************************/
+/************************************************/ console.log("\n", spaceMe, "4. JSON Review", spaceMe, "\nRead the comment"); /************************************************/
 /* 
 - Open JSON lint Validator
 - Go to Developer Options  
@@ -77,7 +77,7 @@ Receive a request from a client and return a response.
   2. Preview tab 
 */
 
-/************************************************/ console.log("\n",spaceMe,"5. URLS and Endpoints", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n", spaceMe, "5. URLS and Endpoints", spaceMe, ""); /************************************************/
 console.log(`The makeup of a URL\n📁 The Base URL\n📁 The endpoint \n\nif Scrimba had an API
     📁  The base URL: 
         📁 https://scrimba.com/api
@@ -98,10 +98,10 @@ https://apis.scrimba.com/dog.ceo/api
 
 Challenge:  
 1. Take the base url and the endpoint that gets you a list of all dogs and paste the full URL into your regular browser (not the Scrimba mini-browser) and see what you get.  
-`); 
+`);
 
-/************************************************/ console.log("\n",spaceMe,"6. fetch().then()", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
-/************************************************/ console.log("\n",spaceMe,"7. fetch().then() Challenge", spaceMe, "\n"); /************************************************/  
+/************************************************/ console.log("\n", spaceMe, "6. fetch().then()", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
+/************************************************/ console.log("\n", spaceMe, "7. fetch().then() Challenge", spaceMe, "\n"); /************************************************/
 /*  
 Challenge:  
 1. Make a fetch request to the "Bored" API:  
@@ -112,25 +112,68 @@ Challenge:
    @ hint.md for help!  
 */
 fetch(`https://apis.scrimba.com/bored/api/activity`)
-.then(response => response.json())
-.then(data => console.log(data.activity));
-/************************************************/ console.log("\n",spaceMe,"8. Fetching with async/await", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/  
-// const response = await fetch(`https://apis.scrimba.com/bored/api/activity`);
-// const data = await response.json();
-// console.log(`\nData:`,data.activity);
+  .then(response => response.json())
+  .then(data => console.log(`no. 7:`, data.activity));
+/************************************************/ console.log("\n", spaceMe, "8. Fetching with async/await", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
 
-const response = await fetch(`https://api.thecatapi.com/v1/images/search`);
-const data = await response.json();
-
-async function getDogImage() {
-  data.forEach((dataCat) => {
-    console.log(`\nData Image:`, dataCat);
-
-    const catElementimg = document.createElement(`img`);
-    catElementimg.src = dataCat.url;
-    catElementimg.alt = `Cat element img api`;
-    document.getElementById(`catImageContainer2`).appendChild(catElementimg);
-  });
+const getActivityIdea = async () => {
+  const response1 = fetch(`https://apis.scrimba.com/bored/api/activity`);
+  // const data1 = await response1.json();
+  console.log(`Promises (without await):`, response1);  // try remove await and comment out the data1 & it console first
+  // console.log(`\nData:`, data1.activity);  
 }
+getActivityIdea(); // Call the function
 
-getDogImage();
+/************************************************/ console.log("\n", spaceMe, "9. Promises", spaceMe, ""); /************************************************/
+/*
+Promises: 
+"We'll let you know within a week"
+
+Pending:
+The promises has yet to be completed
+
+Resolved/Fulfilled 
+The promise was completed as promised
+
+Rejected:
+The promises was not completed as promised
+*/
+/************************************************/ console.log("\n", spaceMe, "10. Handling Rejected Promises", spaceMe, ""); /************************************************/
+
+const url = "https://apis.scrimba.com/bored/api/activity";
+const baseUrl = "https://dog.ceo/api/breeds/image/random";
+/*
+fetch(url)
+.then((res) => res.json())
+.then((data) => console.log(data.activity))
+.catch((err) => {
+  console.error("Fetch failed:", err.message);
+  // update the DOM to warn the user
+  // access an alternative API
+})
+.finally(()=> console.log(`The operation completed.`));
+
+*------------------------------------------------------------------------------------------------------*
+|   1. Convert the above code to use async/await, handle errors with "try/catch" blocks, and add a     |
+|   Challenge:                                                                                         |
+|   "finally" block.                                                                                   |
+*------------------------------------------------------------------------------------------------------*
+*/
+const getMessage = async () => {
+
+  try {
+    const response = await fetch(baseUrl);
+    console.log(response.ok);
+    const data = await response.json();
+    console.log(`get message:`,data);
+  } catch (err) {
+    console.log(`Error an occur:`,err);
+    throw new Error(`This is a network error!`);
+    // update the DOM to warn the user
+    // access an alternative API
+  } finally {
+    console.log(`The operation completed.`);
+  }
+};
+
+getMessage();

@@ -43,7 +43,7 @@ function displayAnswer(answer) {
     }
 
     seconds.innerHTML = count;
-    console.log(`Are u sure in your answer?: `, count);
+    // console.log(`Are u sure in your answer?: `, count); // Uncomment this if you want to log count down to your console
     count--;
   }, 1500);
 
@@ -770,7 +770,6 @@ Challenge:
 
 2. Log an object containing an activity suggestion to the console:  
    @ hint.md for help!  
-
 */  
 /************************************************/ console.log("\n",spaceMe,"8. Fetching with async/await", spaceMe, "\n"); /************************************************/  
 /*
@@ -786,3 +785,59 @@ data.forEach(dataCat => {
   document.getElementById(`catImageContainer2`).appendChild(catElementimg);
 });
 */
+async function getDogImage() {
+  const response = await fetch(`https://api.thecatapi.com/v1/images/search`);
+  const data = await response.json();
+
+  data.forEach((dataCat) => {
+    console.log(`\nData Image:`, dataCat);
+
+    const catElementimg = document.createElement(`img`);
+    catElementimg.src = dataCat.url;
+    catElementimg.alt = `Cat element img api`;
+    document.getElementById(`catImageContainer2`).appendChild(catElementimg);
+  });
+}
+
+getDogImage();
+
+/************************************************/ console.log("\n",spaceMe,"10. Handling Rejected Promises", spaceMe, ""); /************************************************/  
+const baseUrl = "https://dog.ceo/api/breeds/image/randomm";
+// try {
+//   fetch(baseUrl)
+//     .then((res) => res.json())
+//     .then((data) => console.log(`Full response:`, data.message));
+// } catch (err) {
+//   console.log(`Error an occur:`, err.message);
+//   // throw new Error(`This is a network error!`);
+// } finally {
+//   console.log(`The operation completed.`);
+// }
+
+/************************************************/ console.log("\n",spaceMe,"11. response.ok", spaceMe, ""); /************************************************/
+/*
+
+*-------------------------------------------------------------------------------------------------------*
+|   Status Code Basics                                                                                 |
+|   🟢 200 - 299 successful response: TRUE                                                             |
+|   🔴 404 = not found: FALSE                                                                          |
+|   🔴 500 = server errors: FALSE                                                                      |
+*-------------------------------------------------------------------------------------------------------*
+*/
+
+try {
+  const response = await fetch(baseUrl);
+  console.log(`Response ok:`,response.ok);
+  if (!response.ok) {
+    throw new Error(`This is a network error!`);
+  }
+  const data = await response.json();
+  console.log(data);
+} catch (error) {
+  console.log(`Error an occur:`, error);
+} finally {
+  console.log(`The operation completed.`);
+}
+
+
+// getBaseUrlAPI();

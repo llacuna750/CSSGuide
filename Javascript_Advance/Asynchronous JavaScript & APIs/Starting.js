@@ -177,3 +177,57 @@ const getMessage = async () => {
 };
 
 getMessage();
+
+/************************************************/ console.log("\n", spaceMe, "12. Taking APIs to the Next Level", spaceMe, ""); /************************************************/
+/*
+Base URL: https://apis.scrimba.com/jsonplaceholder
+Endpoint: /posts
+Challenge:
+1. Make a fetch request to get all of the available posts.
+Remember to handle all errors!
+ */
+const getJsonPlaceholderApi = async () => {
+  try {
+    const response = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, {method: `post`});
+    if (!response.ok) {
+      throw new Error(`This is a network error!`);
+    }
+    const data = await response.json();
+    console.log(`Data:`,data);
+  } catch (err) {
+    console.log("Error an occur:", err.message);
+  } finally {
+    console.log(`The operation completed.`);
+  }
+}
+getJsonPlaceholderApi();
+/* 
+Methods
+1. GET - getting data
+2. POST - posting data
+3. PUT - updating data
+4. DELETE - deleting data
+5. PATCH and OPTIONS
+*/
+/************************************************/ console.log("\n", spaceMe, "13. API request: the body", spaceMe, ""); /************************************************/
+async function getPostAPI () {
+  try {
+    const respo = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, {
+      method: 'post',
+      body: JSON.stringify({
+        title: `Holiday Nightmares`,
+        body: 'When I was kidnapped in Scotland...',
+        userId: 500,
+      })
+    });
+    if (!respo.ok) {
+      throw new Error(`This is a network error!`);
+    }
+    const data = await respo.json();
+    console.log(`Data gathered: `, data);
+  } catch (err) {
+    console.log(`Error an occur:`, err.message);
+  }
+}
+
+getPostAPI();

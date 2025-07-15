@@ -802,7 +802,7 @@ async function getDogImage() {
 getDogImage();
 
 /************************************************/ console.log("\n",spaceMe,"10. Handling Rejected Promises", spaceMe, ""); /************************************************/  
-const baseUrl = "https://dog.ceo/api/breeds/image/randomm";
+const baseUrl = "https://dog.ceo/api/breeds/image/random";
 // try {
 //   fetch(baseUrl)
 //     .then((res) => res.json())
@@ -818,7 +818,7 @@ const baseUrl = "https://dog.ceo/api/breeds/image/randomm";
 /*
 
 *-------------------------------------------------------------------------------------------------------*
-|   Status Code Basics                                                                                 |
+|     Status Code Basics                                                                                |
 |   🟢 200 - 299 successful response: TRUE                                                             |
 |   🔴 404 = not found: FALSE                                                                          |
 |   🔴 500 = server errors: FALSE                                                                      |
@@ -826,7 +826,7 @@ const baseUrl = "https://dog.ceo/api/breeds/image/randomm";
 */
 
 try {
-  const response = await fetch(baseUrl);
+  const response = await fetch(`https://dog.ceo/api/breeds/image/random`);
   console.log(`Response ok:`,response.ok);
   if (!response.ok) {
     throw new Error(`This is a network error!`);
@@ -834,10 +834,26 @@ try {
   const data = await response.json();
   console.log(data);
 } catch (error) {
-  console.log(`Error an occur:`, error);
+  console.log(`Error an occur:`, error.message);
 } finally {
   console.log(`The operation completed.`);
 }
 
-
-// getBaseUrlAPI();
+/*
+In Summary
+          try/catch                               response.ok
+    Catches exceptions and                    Checks the success of the 
+  errors that occur during                      HTTP response status,
+the execution of the code,                    which might not throw an 
+  including network errors                    error but still indicates a
+    and other unexpected                            failure
+        issues
+*/
+/************************************************/ console.log("\n", spaceMe, "12. Taking APIs to the Next Level", spaceMe, ""); /************************************************/
+/*
+Base URL: https://apis.scrimba.com/jsonplaceholder
+Endpoint: /posts
+Challenge:
+1. Make a fetch request to get all of the available posts.
+Remember to handle all errors!
+ */

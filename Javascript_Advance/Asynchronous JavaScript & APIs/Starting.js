@@ -197,7 +197,7 @@ const getJsonPlaceholderApi = async () => {
   } catch (err) {
     console.log("Error an occur:", err.message);
   } finally {
-    console.log(`The operation completed.`);
+    console.log(`The operation completed. ✔`);
   }
 }
 getJsonPlaceholderApi();
@@ -210,24 +210,88 @@ Methods
 5. PATCH and OPTIONS
 */
 /************************************************/ console.log("\n", spaceMe, "13. API request: the body", spaceMe, ""); /************************************************/
+/* Headers contain
+💨 Extra (meta) info about the request
+💨 Authentication
+💨 The type of data being sent
+💨 This is not an exhaustive list
+
+Challenge:
+1. Add a headers object, setting the "Content-Type" to application/json.
+
+Explanation:
+method: Specifies the HTTP method (e.g., POST).
+headers: An object where keys are header names and values are header values. Here, 'Content-Type': 'application/json' explicitly sets the content type.
+body: The data to be sent in the request body. For JSON, you must use JSON.stringify() to convert your JavaScript object into a JSON string before sending it.
+*/
+const dataToSend = {
+  title: `Holiday Nightmares`,
+  body: 'When I was kidnapped in Scotland...',
+  userId: 500,
+}; // These object can sent into a API database
+
 async function getPostAPI () {
   try {
-    const respo = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, {
+    const respo = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, { 
       method: 'post',
-      body: JSON.stringify({
-        title: `Holiday Nightmares`,
-        body: 'When I was kidnapped in Scotland...',
-        userId: 500,
-      })
+      body: JSON.stringify(dataToSend), // can Directly asign inside, the Object
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
     if (!respo.ok) {
-      throw new Error(`This is a network error!`);
+      throw new Error(`There was a problem with the API!`);
     }
     const data = await respo.json();
-    console.log(`Data gathered: `, data);
+    console.log(`\nData gathered: `, data);
   } catch (err) {
     console.log(`Error an occur:`, err.message);
   }
 }
 
 getPostAPI();
+
+/************************************************/ console.log("\n", spaceMe, "14. The Promise Constructor - Building Our Own Async Actions", spaceMe, ""); /************************************************/
+/*comment
+const promise = new Promise((resolve, reject)=> {
+  const success = Math.random() > 0.5;
+  if (success) {
+    resolve(`Operation successful✔`);
+  } else {
+    reject(`Operation failed🔴`);
+  }
+});
+
+promise.then(response => console.log(response)).catch(error => {
+  console.log(error);
+});
+*/
+
+/*
+Challenge:
+1. Get the promise working so it returns "Operation successful!"
+  if it resolves and "Operations failed." if it rejects.
+
+
+promise.then(response => console.log(response)).catch(error => {
+  console.log(error);
+});
+*/
+const promise = new Promise((resolve, reject) => {
+  const success = Math.random() > 0.5;
+  if (success) {
+    resolve(`Operation successful✔`);
+  } else {
+    reject(`Operation failed🔴`);
+  } 
+});
+
+try {
+  const response = await promise;
+  console.log(response);
+} catch (error) {
+  console.log(error);
+}
+/************************************************/ console.log("\n", spaceMe, "15. Working with images asynchronously", spaceMe, "Go to jsAdvance.js file"); /************************************************/
+
+

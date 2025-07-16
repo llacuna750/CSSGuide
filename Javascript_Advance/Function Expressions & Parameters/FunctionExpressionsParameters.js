@@ -193,4 +193,5 @@ try {
   console.log('Error an occur:',err.message);
 }
 
-/************************************************/ console.log("\n",spaceMe,"10. Super Challenge: Real State",spaceMe,"\nGo back to Starting.js file"); /************************************************/
+/************************************************/ console.log("\n", spaceMe, "10. Super Challenge: Real State", spaceMe,"\nGo back to jsAdvance.js file"); /************************************************/
+ 

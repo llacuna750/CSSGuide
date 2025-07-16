@@ -875,8 +875,8 @@ letsMove.addEventListener(`click`, () => {
 // }
 
 //  Animations with Events
-let card = document.getElementById(`card`);
-card.addEventListener(`click`, moveMe);
+let card = document.getElementById(`card`); // i think the event item is card
+card.addEventListener(`click`, moveMe); 
 
 function moveMe (event) {
   console.log(`You click moveME!`);

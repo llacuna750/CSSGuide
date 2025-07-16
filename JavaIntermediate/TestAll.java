@@ -1,4 +1,5 @@
 package JavaIntermediate;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,165 +25,183 @@ import java.io.FileNotFoundException;
 import ExternalPackage.*;
 import JavaIntermediate.ListofObject.Listobject;
 import JavaIntermediate.Programa.Rank;
-    
+
 class TestAll extends Listobject {
     static String spaces = "-".repeat(30); // Java 11+
     static Scanner sc = new Scanner(System.in);
-    static  Choosespeci_Code specificode = new Choosespeci_Code();
+    static Choosespeci_Code specificode = new Choosespeci_Code();
 
     public static void main(String[] args) {
-            
+
         // System.out.printf("%-15s This is TEST ALL Class!\n", "Hello");
         // System.out.printf("%15sThis is TEST ALL Class!\n", "");
 
         int iChoose = pick1to3(sc);
         Listobject runMe = new Listobject();
         if (iChoose == 1) {
-        /*                                                          javaOOP Class                                                               */   
-            
+            /* javaOOP Class */
+
             javaOOP java = new javaOOP(); // javaOOP class
             // System.out.printf("%s",java.javaYearCreated);
             System.out.println(java.javaYearCreated);
             System.out.println(java.javaFounder);
-    /*                                                                   Animal `Class                                                               */ 
+            /* Animal `Class */
             Animal animal = new Animal(); // Animal class
             animal.bark();
 
             Prinftformat pformat = new Prinftformat(); // Prinftformat
-            System.out.println("True or False? "+ pformat.myBoolean+"\n");
-            System.out.printf("Double digit: %,.2f\n\n", pformat.myDouble); // access the attribute myDouble in class Prinftformat
-            
+            System.out.println("True or False? " + pformat.myBoolean + "\n");
+            System.out.printf("Double digit: %,.2f\n\n", pformat.myDouble); // access the attribute myDouble in class
+                                                                            // Prinftformat
 
-            /*                                                          Constructors
-                Constructors are special methods invoked when an object is created and are used to initialize them.     
-
-                A constructor can be used to provide initial values for object attributes.      
-                    in bisaya - pwede ka maka initial ug values sa usa ka attribute / variable  
-                    two type of initial values:
-                    1. inside Constructor class assign the value of attributes
-                    2. with Constructor class in its paramet
-
-
-                - A constructor name must be same as its class name.
-
-                - A constructor must have no explicit return type. 
-                Example of a constructor:
-                public class Vehicle {
-                    private String color;
-                    Vehicle() {
-                        color = "Red";
-                    }
-                }
-
-                The Vehicle() method is the constructor of our class, so whenever an object of that class is created, the color attribute will be set to "Red".
-                A constructor can also take parameters to initialize attributes.
-
-                public class Vehicle {
-                    private String color;
-                    Vehicle(String c) {
-                        color = c;
-                    }
-                }
-                You can think of constructors as methods that will set up your class by default, so you don’t need to repeat the same code every time.
-            */
-            /*                                                          Vehicle Class                                                               */        
+            /*
+             * Constructors
+             * Constructors are special methods invoked when an object is created and are
+             * used to initialize them.
+             * 
+             * A constructor can be used to provide initial values for object attributes.
+             * in bisaya - pwede ka maka initial ug values sa usa ka attribute / variable
+             * two type of initial values:
+             * 1. inside Constructor class assign the value of attributes
+             * 2. with Constructor class in its paramet
+             * 
+             * 
+             * - A constructor name must be same as its class name.
+             * 
+             * - A constructor must have no explicit return type.
+             * Example of a constructor:
+             * public class Vehicle {
+             * private String color;
+             * Vehicle() {
+             * color = "Red";
+             * }
+             * }
+             * 
+             * The Vehicle() method is the constructor of our class, so whenever an object
+             * of that class is created, the color attribute will be set to "Red".
+             * A constructor can also take parameters to initialize attributes.
+             * 
+             * public class Vehicle {
+             * private String color;
+             * Vehicle(String c) {
+             * color = c;
+             * }
+             * }
+             * You can think of constructors as methods that will set up your class by
+             * default, so you don’t need to repeat the same code every time.
+             */
+            /* Vehicle Class */
             // Vehicle v1 = new Vehicle();
             // Vehicle v2 = new Vehicle();
             // Vehicle brom2 = new Vehicle();
 
             Vehicle tarak2 = new Vehicle("Dumtruck");
-            System.out.println("My tarak-tarak "+tarak2.nameofCar);
+            System.out.println("My tarak-tarak " + tarak2.nameofCar);
 
             // Vehicle mynameofCar = new Vehicle("Toyota");
             // v1.color = "red";
-            // v2.color = "gold";  
+            // v2.color = "gold";
             // v2.horn();
             // System.out.println("The color of Vehicle 1: "+v1.color);
             // System.out.println("The color of Vehicle 2: "+v2.color);
 
-            // System.out.println("My name of my car is "+mynameofCar.getNameofCar()); // We use this one, if we use a Getters and Setters for a private attribute
+            // System.out.println("My name of my car is "+mynameofCar.getNameofCar()); // We
+            // use this one, if we use a Getters and Setters for a private attribute
             // System.out.println("\nname of this car: "+brom2.nameofCar+" Love it\n"); //
 
             // String colorOfbrom2 = "Blue";
             // brom2.setMycolor(colorOfbrom2);
-            // System.out.printf("this is my Color of vehicle 1: %s %nand the brom2 will ", brom2.getMycolor());
+            // System.out.printf("this is my Color of vehicle 1: %s %nand the brom2 will ",
+            // brom2.getMycolor());
             // brom2.horn();
 
-            /*                                                          Javainter Class                                                               */ 
+            /* Javainter Class */
 
             Javainter owner = new Javainter(); // Javainter class with the package name: PrintFormat
-            System.out.println("owner: "+ owner.name);
+            System.out.println("owner: " + owner.name);
 
-
-            /*                                                          Sakyanan Class                                                               */ 
+            /* Sakyanan Class */
 
             Sakyanan akongSakyanan = new Sakyanan(50, 4, "Black", 50, 21);
             // Sakyanan specificFeature = new Sakyanan();
-            System.out.println("Ilan ang gulong nang sasakyan? "+akongSakyanan.getWheels());
+            System.out.println("Ilan ang gulong nang sasakyan? " + akongSakyanan.getWheels());
 
             // specificFeature.setColor("Pink");
             // System.out.println(specificFeature.getColor());
 
-            /*                                                           Person Class                                                               */
+            /* Person Class */
             // Value & Reference Types
-            // Value 
+            // Value
             Double x = 4.0;
-            // square(x); // Square method 
+            // square(x); // Square method
             System.out.println(x); // Output: 4
             System.out.println(x.getClass().getName());
 
             // Reference Types
-            Person j; Person p;
+            Person j;
+            Person p;
             j = new Person("Gabdevs");
             p = new Person("programmerDab");
 
             p.setAge(21); // the private age of Person p setted (age = 21)
-            j.setAge(21);     // setAge = 21    usng the Setters: method   private int age = 21; updated
+            j.setAge(21); // setAge = 21 usng the Setters: method private int age = 21; updated
 
             celebrateBirthday(j); // Call the method celebBirth...() and takes the Person object as its parameter
-            System.out.print("\n1. It's time for quiz!\n\nWhat is the age of Person j after calling the celebBirth.. method()? ");
+            System.out.print(
+                    "\n1. It's time for quiz!\n\nWhat is the age of Person j after calling the celebBirth.. method()? ");
             int personJ = sc.nextInt();
 
             // Ternary Systax/Operator || Shorthand if-else
-            String result = personJ == j.getAge() ? "You're answer: Correct!\n" :  "You're answer: Wrong answer.\n";
+            String result = personJ == j.getAge() ? "You're answer: Correct!\n" : "You're answer: Wrong answer.\n";
             System.out.println(result);
 
-            /*  he use to time Time travelled
-                timeTravel();
-            Another quiz */
-            
-            System.out.printf("2. Another quiz%n%nIf current age of %s is %d years old. %nHow old is Person p/%s after time travelled from 2025 to 2015  the method? ",p.getName(), p.getAge(), p.getName()); // Output 11
+            /*
+             * he use to time Time travelled
+             * timeTravel();
+             * Another quiz
+             */
+
+            System.out.printf(
+                    "2. Another quiz%n%nIf current age of %s is %d years old. %nHow old is Person p/%s after time travelled from 2025 to 2015  the method? ",
+                    p.getName(), p.getAge(), p.getName()); // Output 11
             timeTravel(p);
-            int hisageof2015 = sc.nextInt(); System.out.println((hisageof2015 == p.getAge()) ? "You're right he is "+p.getAge()+" years old." : "You're answer: Wrong.");
+            int hisageof2015 = sc.nextInt();
+            System.out.println((hisageof2015 == p.getAge()) ? "You're right he is " + p.getAge() + " years old."
+                    : "You're answer: Wrong.");
 
             // The Math Class
             // int m = Math.min(5, 2);
             // System.out.println("\n"+m);
 
             MathguideClass mathG = new MathguideClass();
-            // String answer = sc.nextLine();  // Make sure the input variable is inside the While loop condition or else it don't repeat the input You response inside
+            // String answer = sc.nextLine(); // Make sure the input variable is inside the
+            // While loop condition or else it don't repeat the input You response inside
             mathG.openMathClassorNot(sc);
 
-            /*                                                                                                       Static*/
+            /* Static */
             BromWannaride.horn();
-            Persona.pCount = 1; 
+            Persona.pCount = 1;
             Persona.pCount++;
-            System.out.println(Persona.pCount); 
+            System.out.println(Persona.pCount);
 
-            /*                                                                                                       Final */
-            System.out.println("final variable: "+ PI); 
+            /* Final */
+            System.out.println("final variable: " + PI);
 
             // Java 2 Module 1 Quiz
-            //                                                                                                     Min and Max
+            // Min and Max
 
-            int res  = Minandmax.min(5, 2); System.out.println("Min: "+res); System.out.println("Max: "+Minandmax.max(hisageof2015, res));
-            
-                                                                                                                // Trying making sqroot & square
-            System.out.print("\nFind the squaroot of n: "); int sqrthis = sc.nextInt(); 
+            int res = Minandmax.min(5, 2);
+            System.out.println("Min: " + res);
+            System.out.println("Max: " + Minandmax.max(hisageof2015, res));
+
+            // Trying making sqroot & square
+            System.out.print("\nFind the squaroot of n: ");
+            int sqrthis = sc.nextInt();
             squaroot(sqrthis);
             square(sqrthis);
-            
-            /* Open this to show Information... Encapsulation /*
+
+            /*
+             * Open this to show Information... Encapsulation /*
              * is like data hiding
              * There are 4 core concepts in OOP: encapsulation, inheritance, polymorphism,
              * and abstraction.
@@ -199,7 +218,8 @@ class TestAll extends Listobject {
              * Create a program to manage art school admission.
              */
 
-            /* Open this to show Information... Inheritance
+            /*
+             * Open this to show Information... Inheritance
              * is like subclass or derived/child class is class inheriting / gi-liwatan
              * kumbaga or na-liwatan
              * super class or base/parent class is whose inherited in bisaya gikan-naliwat
@@ -236,24 +256,36 @@ class TestAll extends Listobject {
              * Complete/fix the given code to develop your own photo editing application.
              */
 
-            /* Let's create a subclass & super Class 
-                Subclass = Dog
-                Superclass = Animal
-            */
+            /*
+             * Let's create a subclass & super Class
+             * Subclass = Dog
+             * Superclass = Animal
+             */
             Dog dog = new Dog();
-            System.out.println("\n"+spaces+"Inheritance"+spaces+"\nThe Dog born of "+dog.legs+" legs as Animal");
+            System.out.println(
+                    "\n" + spaces + "Inheritance" + spaces + "\nThe Dog born of " + dog.legs + " legs as Animal");
 
-            /* Subclass Dog is don't have eat method and bark method because of Inheritance / extends keyword he inherite that behavior
-            in the superclass. */ 
-            dog.eat(); System.out.print("The dog can "); dog.bark(); System.out.print("-after inheriting the Animal parent class");
+            /*
+             * Subclass Dog is don't have eat method and bark method because of Inheritance
+             * / extends keyword he inherite that behavior
+             * in the superclass.
+             */
+            dog.eat();
+            System.out.print("The dog can ");
+            dog.bark();
+            System.out.print("-after inheriting the Animal parent class");
 
-            /*  If you declare constructor to the Subclass B you can initialize the protected access modifier attribute or method */
-            System.out.println("\n  \n"+spaces+"Inheritance Constructor"+spaces);
+            /*
+             * If you declare constructor to the Subclass B you can initialize the protected
+             * access modifier attribute or method
+             */
+            System.out.println("\n  \n" + spaces + "Inheritance Constructor" + spaces);
             B obj = new B();
-            obj.setB("this is String private B gikan kay superclass Class A"); System.out.println(obj.getB()+"\n"+ obj.getA());
-            
+            obj.setB("this is String private B gikan kay superclass Class A");
+            System.out.println(obj.getB() + "\n" + obj.getA());
 
-            /* Open this to show Information... Polymorphism
+            /*
+             * Open this to show Information... Polymorphism
              * Polymorphism, which refers to the idea of "having many forms", occurs when
              * there is a hierarchy of classes related to each other through inheritance.
              * additional: Same person can have different roles.
@@ -294,11 +326,12 @@ class TestAll extends Listobject {
              * Complete the program by reimplementing the given method in the inherited
              * vehicle classes.
              */
-            System.out.println("\n"+spaces+"Polymorphism"+spaces);
+            System.out.println("\n" + spaces + "Polymorphism" + spaces);
             Animal cat = new Cat();
             Animal cow = new Cow();
-            System.out.println();cat.makeSound(); // same method makesound() but different Animal
-            cow.makeSound(); 
+            System.out.println();
+            cat.makeSound(); // same method makesound() but different Animal
+            cow.makeSound();
 
             Card a_1 = new Valentine("Gabriel", 14);
             Card a_2 = new Holiday();
@@ -307,15 +340,20 @@ class TestAll extends Listobject {
             a_2.sendCard();
             a_3.sendCard();
 
-            /* Open this to show Information...                                             Overriding & Overloading
-                
-            As we saw in the previous lesson, a subclass can define a behavior that's specific to the subclass type, meaning that a subclass can implement a parent class method based on its requirement.
-            This feature is known as method overriding.  */
+            /*
+             * Open this to show Information... Overriding & Overloading
+             * 
+             * As we saw in the previous lesson, a subclass can define a behavior that's
+             * specific to the subclass type, meaning that a subclass can implement a parent
+             * class method based on its requirement.
+             * This feature is known as method overriding.
+             */
             System.out.println("\n" + spaces + "Overriding" + spaces);
             Cat c = new Cat();
             c.makeSound();
 
-            /* show info
+            /*
+             * show info
              * Method Overloading
              * When methods have the same name, but different parameters, it is known as
              * method overloading.
@@ -345,17 +383,18 @@ class TestAll extends Listobject {
              * Another name for method overloading is compile-time polymorphism.
              * 
              * Overloading Practice:
-             *  Complete and overload the given method to calculate the double of provided
+             * Complete and overload the given method to calculate the double of provided
              * variables.
              */
             System.out.println("\n" + spaces + "Overriding & Overloading" + spaces);
             Program pg = new Program();
-            System.out.println("\nOverloading: max method int parameter "+pg.max( 5,10 ));
-            System.out.println("Overloading: max method Double parameter "+pg.max(1.3, 5.2));
+            System.out.println("\nOverloading: max method int parameter " + pg.max(5, 10));
+            System.out.println("Overloading: max method Double parameter " + pg.max(1.3, 5.2));
 
-            obj.doSomething();  
+            obj.doSomething();
 
-            /*  Abstraction
+            /*
+             * Abstraction
              * Read information Abstract
              * 
              * Abstract Classes Practice:
@@ -367,28 +406,30 @@ class TestAll extends Listobject {
             Shape myCircle = new Circle();
             myRectangle.draw();
             myCircle.draw();
-            
-            /*                                         Floyd's Triangle
-                1
-                1 2 
-                3 4 5
-                6 7 8 9
-            */
+
+            /*
+             * Floyd's Triangle
+             * 1
+             * 1 2
+             * 3 4 5
+             * 6 7 8 9
+             */
             System.out.println("\n" + spaces + "Floydtrianlge" + spaces);
-            Floydtriangle("\nEnter rows for Floydtrianlge: ",sc);
+            Floydtriangle("\nEnter rows for Floydtrianlge: ", sc);
 
             System.out.println("\n" + spaces + "Interface" + spaces);
             Ering siOranges = new Ering();
-            siOranges.eat(); siOranges.makeSound();
+            siOranges.eat();
+            siOranges.makeSound();
 
-            // Factorial 
+            // Factorial
             System.out.println("\n" + spaces + "Factorial" + spaces);
             System.out.print("\nEnter a number to get the factorial: ");
             int intput = sc.nextInt();
-            double gidouble = (double)Factorecursive(intput);
+            double gidouble = (double) Factorecursive(intput);
 
             // System.out.println("The factorial of "+20+" is "+Factorecursive(20));
-            System.out.printf("The factorial of %d is %,.2f%n",intput, gidouble);
+            System.out.printf("The factorial of %d is %,.2f%n", intput, gidouble);
 
             int update = intput;
             int num = 5;
@@ -396,13 +437,13 @@ class TestAll extends Listobject {
 
             System.out.println();
             // Outer for row ata
-            for (int i=update; i>=1; i--) {
+            for (int i = update; i >= 1; i--) {
                 // Inner loop for column ata
-                
-                for (int h=1; h<=1; h++) {
+
+                for (int h = 1; h <= 1; h++) {
                     int resultRec = update * y;
                     if (h <= num) {
-                        System.out.print(update+" * "+y+" = "+resultRec );
+                        System.out.print(update + " * " + y + " = " + resultRec);
                     }
                     y = y - 1;
                     update = resultRec;
@@ -410,18 +451,18 @@ class TestAll extends Listobject {
                 System.out.println();
             }
 
-            /*                                                        Type Casting*/
+            /* Type Casting */
             System.out.println("\n" + spaces + "Type Casting" + spaces);
             sc.nextLine();
             double a = 42.571;
-            int b = (int)a;
+            int b = (int) a;
 
             double xDouble = -12.25;
             double yDouble = 2.65;
             System.out.println(b);
 
             TestAll t1 = new TestAll();
-            t1.sum_x_y((int)xDouble, (int)yDouble);
+            t1.sum_x_y((int) xDouble, (int) yDouble);
 
             int pick = Programa.pick1to3(sc);
             if (pick != 2) {
@@ -435,7 +476,8 @@ class TestAll extends Listobject {
                 m.start();
             }
 
-            /* Inner Classes
+            /*
+             * Inner Classes
              * Java supports nesting classes; a class can be a member of another class.
              * 
              * Creating an inner class is quite simple. Just write a class within a class.
@@ -449,13 +491,15 @@ class TestAll extends Listobject {
                 Robot r = new Robot(3);
                 System.out.println("\nInner Class\nAssign the id. \nid = " + r.id);
             }
-            /* Hashcode Calculator
+            /*
+             * Hashcode Calculator
              * 🧮 Example:
              * "Cat".hashCode() is calculated by the built-in Java formula:
-             
+             * 
              */
 
-            /*  The equals() method
+            /*
+             * The equals() method
              * Comparing Objects
              * Remember that when you create objects, the variables store references to the
              * objects.
@@ -488,7 +532,7 @@ class TestAll extends Listobject {
              * 
              * }
              */
-            System.out.println("\n" + spaces + "Equals-method" + spaces+"\n");
+            System.out.println("\n" + spaces + "Equals-method" + spaces + "\n");
             Animalqa a1 = new Animalqa("Robby");
             Animalqa a2 = new Animalqa("Robby");
             Animalqa a3 = new Animalqa("Razeyt");
@@ -501,7 +545,8 @@ class TestAll extends Listobject {
             System.out.println(a3.hashCode());
             System.out.println((int) 'a');
 
-            /*   The automatically generated hashCode() method is used to determine where to
+            /*
+             * The automatically generated hashCode() method is used to determine where to
              * store the object internally. Whenever you implement equals, you MUST also
              * implement hashCode.
              * 
@@ -527,7 +572,8 @@ class TestAll extends Listobject {
             be.setX(6);
             System.out.println(ah.equals(be));
 
-            /* Enums
+            /*
+             * Enums
              * An Enum is a special type used to define collections of constants.
              * 
              * Here is a simple Enum example:
@@ -582,13 +628,21 @@ class TestAll extends Listobject {
             System.out.println("\n" + spaces + "Enums" + spaces);
             Rank a_gay = Rank.SOLDIER;
             switch (a_gay) {
-                case SOLDIER: System.out.println("Soldier says hi!"); break;
-                case SERGEANT: System.out.println("Sergeant says Hello!"); break;
-                case CAPTAIN: System.out.println("Captain says Welcome!"); break;
-                default: break;
+                case SOLDIER:
+                    System.out.println("Soldier says hi!");
+                    break;
+                case SERGEANT:
+                    System.out.println("Sergeant says Hello!");
+                    break;
+                case CAPTAIN:
+                    System.out.println("Captain says Welcome!");
+                    break;
+                default:
+                    break;
             }
             System.out.println("\n" + spaces + "Using the Java API" + spaces);
-            /*  Java API
+            /*
+             * Java API
              * The Java API is a collection of classes and interfaces that have been written
              * for you to use.
              * 
@@ -618,7 +672,8 @@ class TestAll extends Listobject {
             System.out.println(
                     "The awt package contains all of the classes for creating user interfaces and for painting graphics and images. \nThe wildcard character (*) is used to import all of the classes in the package.");
 
-            /* An exception is a problem that occurs during program execution. Exceptions
+            /*
+             * An exception is a problem that occurs during program execution. Exceptions
              * cause abnormal termination of the program.
              * 
              * Exception handling is a powerful mechanism that handles runtime errors to
@@ -651,17 +706,18 @@ class TestAll extends Listobject {
              * array index that does not exist:
              * 
              * try {
-                * // Wrong syntax
-                * int aWrong[ ] = new int[2]; // Error syntax
-                * System.out.println(aWrong[5]);
+             * // Wrong syntax
+             * int aWrong[ ] = new int[2]; // Error syntax
+             * System.out.println(aWrong[5]);
              * }
              * catch (Exception e) {
-                * // some code to handle errors
-                * System.out.println("\nAn error occured");
+             * // some code to handle errors
+             * System.out.println("\nAn error occured");
              * }
              */
             try {
-                /*  Exception Handling
+                /*
+                 * Exception Handling
                  * Write a program to take N number as input and output the element of the array
                  * with N index.
                  */
@@ -671,22 +727,22 @@ class TestAll extends Listobject {
                 int z = xD / xB;
                 System.out.println(z);
 
-                // Correct syntax 
+                // Correct syntax
                 int[] bCorrect = new int[2];
                 bCorrect[1] = 3;
-                System.out.println("\nWrong syntax: \n"+bCorrect[1]);
-    
+                System.out.println("\nWrong syntax: \n" + bCorrect[1]);
+
                 // Wrong syntax
-                int aWrong[ ] = new int[2]; // Error syntax
+                int aWrong[] = new int[2]; // Error syntax
                 System.out.println(aWrong[5]);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 // some code to handle errors
                 System.out.println("\nAn error occured");
             }
-            
+
             System.out.println("\n" + spaces + "Multiple Exceptions" + spaces);
-            /*  Multiple Exceptions Practice
+            /*
+             * Multiple Exceptions Practice
              * Complete the code to handle two possible exceptions.
              */
             boolean balid = false;
@@ -695,19 +751,19 @@ class TestAll extends Listobject {
                 int finalChoose = sc.nextInt();
 
                 if (finalChoose == 1) {
-                    System.out.println(Multiple_Exceptions(42, 0)); 
+                    System.out.println(Multiple_Exceptions(42, 0));
                     balid = true;
                 }
                 if (finalChoose == 2) {
                     System.out.println("\nTry next time!");
                     balid = true;
-                }
-                else {
+                } else {
                     System.out.println("\n⚠️ Please enter only 1 or 2.");
                 }
             }
 
-            /*  Threads
+            /*
+             * Threads
              * Java is a multi-threaded programming language. This means that our program
              * can make optimal use of available resources by running two or more components
              * concurrently, with each component handling a different task.
@@ -756,7 +812,7 @@ class TestAll extends Listobject {
              * 
              * Example:
              */
-            
+
             System.out.println("\n" + spaces + "Threads" + spaces);
             Loader obj_loader = new Loader();
             obj_loader.start();
@@ -764,8 +820,8 @@ class TestAll extends Listobject {
             Thread t = new Thread(new Lohder());
             t.start();
 
-            
-            /* Types of Exceptions
+            /*
+             * Types of Exceptions
              * There are two exception types, checked and unchecked (also called runtime).
              * The main difference is that checked exceptions are checked when compiled,
              * while unchecked exceptions are checked at runtime.
@@ -819,7 +875,6 @@ class TestAll extends Listobject {
             System.out.println("Main thread is interrupting the sleeping thread...");
             sleepingThread.interrupt(); // Interrupts the sleeping thread
 
-
             ArrayList<String> colors = new ArrayList<String>();
 
             colors.add("Yellow");
@@ -831,7 +886,7 @@ class TestAll extends Listobject {
             System.out.println("\n" + spaces + "ArrayList Intervget" + spaces);
             score.add(3);
             score.add(10);
-            System.out.println("Contain? "+score.contains(3)); 
+            System.out.println("Contain? " + score.contains(3));
             System.out.println(score);
 
             System.out.println(spaces + "ArrayList String" + spaces);
@@ -869,7 +924,8 @@ class TestAll extends Listobject {
 
             System.out.println(resultT);
 
-            /*   LinkedList
+            /*
+             * LinkedList
              * The LinkedList is very similar in syntax to the ArrayList.
              * 
              * You can easily change an ArrayList to a LinkedList by changing the object
@@ -911,7 +967,7 @@ class TestAll extends Listobject {
             linkc.add("Pink");
             System.out.println(linkc);
 
-            for (String s : linkc ) {
+            for (String s : linkc) {
                 System.out.println(s);
             }
 
@@ -943,7 +999,8 @@ class TestAll extends Listobject {
             }
 
             System.out.println("\n" + spaces + "HashMap" + spaces);
-            /*  HashMap
+            /*
+             * HashMap
              * Arrays and Lists store elements as ordered collections, with each element
              * given an integer index.
              * 
@@ -965,7 +1022,8 @@ class TestAll extends Listobject {
             System.out.println(points.get("Dave"));
             System.out.println(points.keySet()); // no "733" key returns the value of null.
             System.out.println(points);
-            /* We have created a HashMap with Strings as its keys and Integers as its
+            /*
+             * We have created a HashMap with Strings as its keys and Integers as its
              * values.
              * 
              * Use the get method and the corresponding key to access the HashMap elements.
@@ -995,7 +1053,7 @@ class TestAll extends Listobject {
             // Remove employees whose age is less than N
             Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator();
 
-            while (iterator.hasNext()) { // it runs the while-Loop statement if 
+            while (iterator.hasNext()) { // it runs the while-Loop statement if
                 Map.Entry<String, Integer> entry = iterator.next();
                 if (entry.getValue() < N) {
                     iterator.remove(); // Safe removal during iteration
@@ -1008,9 +1066,10 @@ class TestAll extends Listobject {
             }
 
             scanner.close();
-            
+
             System.out.println("\n" + spaces + "HashSet & HashLinks" + spaces);
-            /*  Sets
+            /*
+             * Sets
              * A Set is a collection that cannot contain duplicate elements. It models the
              * mathematical set abstraction.
              * 
@@ -1025,7 +1084,8 @@ class TestAll extends Listobject {
             set.add("C"); // cannot contain duplicate elements2
             System.out.println(set);
 
-            /*  You can use the <b>size()</b> method to get the number of elements in the
+            /*
+             * You can use the <b>size()</b> method to get the number of elements in the
              * 
              * HashSet.
              * 
@@ -1052,11 +1112,11 @@ class TestAll extends Listobject {
             /* Random Classs */
             System.out.println("\n" + spaces + "Random Class" + spaces);
             Random myRandom = new Random();
-            int randomInt = myRandom.nextInt(10)+1; // 0-9 to 1-10
+            int randomInt = myRandom.nextInt(10) + 1; // 0-9 to 1-10
 
             // Rock, Paper, Scissor
-            String[] playChoice = {"Scissor", "Rock", "Paper"};
-            
+            String[] playChoice = { "Scissor", "Rock", "Paper" };
+
             out.println("Choose: \n1. Scissor\n2. Rock\n3. Paper\n");
             boolean validMe = false;
 
@@ -1064,7 +1124,7 @@ class TestAll extends Listobject {
                 try {
                     out.print("Your choice (1-3): ");
                     sc.nextLine(); // Add this after reading number input
-                    int ind = sc.nextInt()-1; // expect 1-3 input from user
+                    int ind = sc.nextInt() - 1; // expect 1-3 input from user
 
                     String player1 = playChoice[ind]; // convert 1-based to 0-based index
                     out.println(player1);
@@ -1074,7 +1134,7 @@ class TestAll extends Listobject {
 
                     for (int pc = 0; pc < playChoice.length; pc++) {
                         if (player1.equals(playChoice[pc])) {
-                            out.println(player1 +"\t\t"+ computer);
+                            out.println(player1 + "\t\t" + computer);
                         }
                     }
 
@@ -1097,35 +1157,38 @@ class TestAll extends Listobject {
                     out.println("Invalid input! Enter a number.\n");
                     sc.nextLine(); // ← this throws NoSuchElementException if no line exists
                 }
-            }   
+            }
 
             String symbol1 = "|"; // |
             String symbol2 = "+".repeat(50); // +
 
-            double why = myRandom.nextDouble(10)+1; 
+            double why = myRandom.nextDouble(10) + 1;
             boolean z = myRandom.nextBoolean();
-            // out.print(symbol1+symbol2+"\n"+symbol1+"\tRandom integer: "+ randomInt+"\n"+symbol1+"\tRandom Double: "+y+"\n"+symbol1+"\tRandom Boolean: "+z+"\n"+symbol1+symbol2);
-            out.printf("%s%s%s%n%-15sRandom integer: %d%20s %n%-15sRandom double: %,.5f%15s%n%-15sRandom boolean: %b%17s%n%s%s%s",symbol1, symbol2, symbol1, 
-            symbol1, randomInt, symbol1, symbol1, why, symbol1 ,symbol1, z, symbol1, symbol1, symbol2, symbol1);
-            
+            // out.print(symbol1+symbol2+"\n"+symbol1+"\tRandom integer: "+
+            // randomInt+"\n"+symbol1+"\tRandom Double: "+y+"\n"+symbol1+"\tRandom Boolean:
+            // "+z+"\n"+symbol1+symbol2);
+            out.printf(
+                    "%s%s%s%n%-15sRandom integer: %d%20s %n%-15sRandom double: %,.5f%15s%n%-15sRandom boolean: %b%17s%n%s%s%s",
+                    symbol1, symbol2, symbol1,
+                    symbol1, randomInt, symbol1, symbol1, why, symbol1, symbol1, z, symbol1, symbol1, symbol2, symbol1);
+
             System.out.println("\n" + spaces + "Normal array (Sorted using Arrays class)" + spaces);
             // Normal array Sort using Arrays Class
-            int[] numArray = { 5, 10, 2, 3, 7, 15, 20, 11, 1, 8, 22};
+            int[] numArray = { 5, 10, 2, 3, 7, 15, 20, 11, 1, 8, 22 };
             System.out.println();
 
             System.out.print("Original Array: ");
-            for (int s=0; s<numArray.length; s++) {
-                
+            for (int s = 0; s < numArray.length; s++) {
+
                 if (numArray[s] == numArray[0]) {
                     System.out.print("[");
                 }
                 if (numArray[s] < 99 && numArray[s] != numArray[numArray.length - 1]) {
                     System.out.print(numArray[s] + ",  ");
-                }
-                else {
+                } else {
                     System.out.print(numArray[s]);
                 }
-                if (numArray[s] == numArray[numArray.length -1]) {
+                if (numArray[s] == numArray[numArray.length - 1]) {
                     System.out.print("]");
                 }
             }
@@ -1137,8 +1200,8 @@ class TestAll extends Listobject {
                 System.out.println(s);
             }
 
-
-            /*   Sorting Lists
+            /*
+             * Sorting Lists
              * For the manipulation of data in different collection types, the Java API
              * provides a <b>Collections </b>class, which is included in the java.util
              * package.
@@ -1228,7 +1291,8 @@ class TestAll extends Listobject {
             linkset.add("Ccc");
             System.out.println(linkset);
 
-            /*   You can use the <b>size()</b> method to get the number of elements in the
+            /*
+             * You can use the <b>size()</b> method to get the number of elements in the
              * 
              * HashSet.
              * 
@@ -1381,7 +1445,8 @@ class TestAll extends Listobject {
             out.println(valval);
             out.println(it);
 
-            /*   <b>it.next()</b> returns the first element in the list and then moves the
+            /*
+             * <b>it.next()</b> returns the first element in the list and then moves the
              * iterator on to the next element.
              * 
              * Each time you call <b>it.next()</b>, the iterator moves to the next element
@@ -1406,7 +1471,8 @@ class TestAll extends Listobject {
                 String mvalue = itt.next();
                 out.println(mvalue);
             }
-            /*  Here, the while loop determines whether the iterator has additional elements,
+            /*
+             * Here, the while loop determines whether the iterator has additional elements,
              * prints the value of the element, and advances the iterator to the next.
              * 
              * Iterators Practice:
@@ -1456,7 +1522,8 @@ class TestAll extends Listobject {
             } else {
                 System.out.println("The file does not exist");
             }
-            /*  The code above prints a message stating whether or not the file exists at the
+            /*
+             * The code above prints a message stating whether or not the file exists at the
              * specified path.
              * 
              * The <b>getName()</b> method returns the name of the file.
@@ -1464,8 +1531,9 @@ class TestAll extends Listobject {
              * Note that we used double backslashes in the path, as one backslash should be
              * escaped in the path String.
              */
-        
-            /*  Reading a File
+
+            /*
+             * Reading a File
              * Files are useful for storing and retrieving data, and there are a number of
              * ways to read from a file.
              * 
@@ -1487,7 +1555,8 @@ class TestAll extends Listobject {
                 while (sc.hasNextLine()) {
                     String line = sc.nextLine();
                     out.println(line);
-                    /* The <b>hasNextLine()</b> method checks if there is another line in the file,
+                    /*
+                     * The <b>hasNextLine()</b> method checks if there is another line in the file,
                      * and the <b>nextLine()</b> method reads the next line from the file.
                      */
                 }
@@ -1495,7 +1564,8 @@ class TestAll extends Listobject {
             } catch (FileNotFoundException e) {
                 out.println("File not found: " + e.getMessage());
             }
-            /* We surrounded the code with a try/catch block, because there's a chance that
+            /*
+             * We surrounded the code with a try/catch block, because there's a chance that
              * the file may not exist.
              * 
              * {i}
@@ -1503,7 +1573,8 @@ class TestAll extends Listobject {
              * way to do this is to use the Scanner's <b>close()</b> method.
              */
 
-            /*  Creating Files
+            /*
+             * Creating Files
              * Formatter, another useful class in the java.util package, is used to create
              * content and write it to files.
              * 
@@ -1545,7 +1616,8 @@ class TestAll extends Listobject {
                 out.println("Error: " + e.getMessage());
             }
 
-            /*  This creates an empty file at the specified path. If the file already exists,
+            /*
+             * This creates an empty file at the specified path. If the file already exists,
              * this will overwrite it.
              * 
              * (i)
@@ -1566,88 +1638,183 @@ class TestAll extends Listobject {
             int choosing = checkifIntInput(sc);
             try {
                 switch (choosing) {
-                    case 0: main(args); break;
-                    case 1: Choosespeci_Code.javaOOP(); break;
-                    case 2: Choosespeci_Code.Animalclass(); break;
-                    case 3: Choosespeci_Code.Constructors(); break;
-                    case 4: Choosespeci_Code.Javainter_Class(); break;
-                    case 5: Choosespeci_Code.Sakyanan_Class(); break;
-                    case 6: Choosespeci_Code.Person_Class(); break;
-                    case 7: Choosespeci_Code.The_Math_Class(); break;
-                    case 8: Choosespeci_Code.the_Static(); break;
-                    case 9: Choosespeci_Code.Final(); break;
-                    case 10: Choosespeci_Code.Encapsulating(); break;
-                    case 11: Choosespeci_Code.theInheritance(); break;
-                    case 12: Choosespeci_Code.thePolymorphism(); break;
-                    case 13: Choosespeci_Code.OverridingandOverloading(); break;
-                    case 14: Choosespeci_Code.theAbstract(); break;
-                    case 15: Choosespeci_Code.FloydsTriangle(); break;
-                    case 16: Kindsofforloop.main(args); break;
-                    case 17: squaroot(zeroTounli_sqroot(sc)); break;
-                    case 18: square(zeroTounli_square(sc)); break;
-                    case 19: Minandmax.minandmaximum(); break;
-                    case 20: Choosespeci_Code.interfaceTestClass(); break;
-                    case 21: Choosespeci_Code.getFactorialRecurs(); break;
-                    case 22: Choosespeci_Code.type_Casting(); break;
-                    case 23: Programa.main(args); break;
-                    case 24: hashcodeChecker(sc); break;
-                    case 25: Choosespeci_Code.The_equals_method(); break;
-                    case 26: Choosespeci_Code.Enum(); break;
-                    case 27: Choosespeci_Code.error_Handling(); break;
-                    case 28: Multiple_Exceptions(20,0); break;
-                    case 29: Thread_Me(); break;
-                    case 30: TypesofExceptions(); break;
-                    case 31: Ternary_Operator(); break;
-                    case 32: specificode.rand0mClass(); break;
-                    
-                    case 33: Array_List(); break;
-                    case 34: LinkedList_v0(); break;
-                    case 35: HashMap_Method(); break;
-                    case 36: specificode.arraySort(); break;
-                    case 37: ArrayListSort(); break;
-                    case 38: HashSets_LinkedHashSet(); break;
-                    case 39: methodIterator(); break;
+                    case 0:
+                        main(args);
+                        break;
+                    case 1:
+                        Choosespeci_Code.javaOOP();
+                        break;
+                    case 2:
+                        Choosespeci_Code.Animalclass();
+                        break;
+                    case 3:
+                        Choosespeci_Code.Constructors();
+                        break;
+                    case 4:
+                        Choosespeci_Code.Javainter_Class();
+                        break;
+                    case 5:
+                        Choosespeci_Code.Sakyanan_Class();
+                        break;
+                    case 6:
+                        Choosespeci_Code.Person_Class();
+                        break;
+                    case 7:
+                        Choosespeci_Code.The_Math_Class();
+                        break;
+                    case 8:
+                        Choosespeci_Code.the_Static();
+                        break;
+                    case 9:
+                        Choosespeci_Code.Final();
+                        break;
+                    case 10:
+                        Choosespeci_Code.Encapsulating();
+                        break;
+                    case 11:
+                        Choosespeci_Code.theInheritance();
+                        break;
+                    case 12:
+                        Choosespeci_Code.thePolymorphism();
+                        break;
+                    case 13:
+                        Choosespeci_Code.OverridingandOverloading();
+                        break;
+                    case 14:
+                        Choosespeci_Code.theAbstract();
+                        break;
+                    case 15:
+                        Choosespeci_Code.FloydsTriangle();
+                        break;
+                    case 16:
+                        Kindsofforloop.main(args);
+                        break;
+                    case 17:
+                        squaroot(zeroTounli_sqroot(sc));
+                        break;
+                    case 18:
+                        square(zeroTounli_square(sc));
+                        break;
+                    case 19:
+                        Minandmax.minandmaximum();
+                        break;
+                    case 20:
+                        Choosespeci_Code.interfaceTestClass();
+                        break;
+                    case 21:
+                        Choosespeci_Code.getFactorialRecurs();
+                        break;
+                    case 22:
+                        Choosespeci_Code.type_Casting();
+                        break;
+                    case 23:
+                        Programa.main(args);
+                        break;
+                    case 24:
+                        hashcodeChecker(sc);
+                        break;
+                    case 25:
+                        Choosespeci_Code.The_equals_method();
+                        break;
+                    case 26:
+                        Choosespeci_Code.Enum();
+                        break;
+                    case 27:
+                        Choosespeci_Code.error_Handling();
+                        break;
+                    case 28:
+                        Multiple_Exceptions(20, 0);
+                        break;
+                    case 29:
+                        Thread_Me();
+                        break;
+                    case 30:
+                        TypesofExceptions();
+                        break;
+                    case 31:
+                        Ternary_Operator();
+                        break;
+                    case 32:
+                        specificode.rand0mClass();
+                        break;
 
-                    case 40: wwF(); break;
-                    case 41: readingFile(); break;
-                    case 42: Creating_Writing_Files(); break;
-                    case 43: Java_2_Module_3_Quiz(); break;
-                    case 44: runMe.run(); break;
+                    case 33:
+                        Array_List();
+                        break;
+                    case 34:
+                        LinkedList_v0();
+                        break;
+                    case 35:
+                        HashMap_Method();
+                        break;
+                    case 36:
+                        specificode.arraySort();
+                        break;
+                    case 37:
+                        ArrayListSort();
+                        break;
+                    case 38:
+                        HashSets_LinkedHashSet();
+                        break;
+                    case 39:
+                        methodIterator();
+                        break;
+
+                    case 40:
+                        wwF();
+                        break;
+                    case 41:
+                        readingFile();
+                        break;
+                    case 42:
+                        Creating_Writing_Files();
+                        break;
+                    case 43:
+                        Java_2_Module_3_Quiz();
+                        break;
+                    case 44:
+                        runMe.run();
+                        break;
 
                     default:
                 }
-            }  catch(ExceptionInInitializerError e) {
+            } catch (ExceptionInInitializerError e) {
                 System.out.println("Error an occur: " + e.getMessage());
             } catch (Exception e) {
                 System.out.println("Error an occur: " + e.getMessage());
             }
-        }
-        else {
+        } else {
             System.out.println("\nBye thanks! \nExiting....\n");
         }
     }
 
-    static int checkifIntInput (Scanner scanner) {
+    static int checkifIntInput(Scanner scanner) {
         System.out.println();
         boolean valid = false;
         int choose_number = 0;
 
         while (!valid) {
-            System.out.println("0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
-            System.out.println("11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
-            System.out.println("17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
-            System.out.println("24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions ( has throws ArithmeticException )\n29. Thread \n30. Types of Exceptions");
-            System.out.println("31. Ternary Operator \n32. Random Class \n\n33. Array_List \n34. LinkList \n35. HashMap_Method (has Iterator Class imple.)\n36. Array Sort (nomral array) \n37. ArrayListSort");
-            System.out.println("38. HashSets & LinkedHashSet \n39. Iterator (LinkList + List)\n\n40. Work with Files \n41. Reading File \n42. Creating and Writing Files");
+            System.out.println(
+                    "0. Back to main \n1. Java OOP \n2. Animal Class \n3. Constructors \n4. Java Inter \n5. Sakyanan Class \n6. Person Class \n7. The Math Class \n8. The Static \n9. Final \n10. Encapsulating");
+            System.out.println(
+                    "11. The Inheritance \n12. The Polymorphism \n13. Overriding and Overloading \n14. The Abstract \n15. FloydsTriangle \n16. forloop-basic");
+            System.out.println(
+                    "17. Find the Square-Root of a Number \n18. Find the Square of a Number \n19. Minimum and Maximum \n20. Interfaces Basic\n21. Facotorial Recursive \n22. Type Casting \n23. Anonymous Classes and Inner Classes");
+            System.out.println(
+                    "24. hashCode Calculator \n25. The equals() method \n26. Enum \n27. Error_Handling \n28. Multiple Exceptions ( has throws ArithmeticException )\n29. Thread \n30. Types of Exceptions");
+            System.out.println(
+                    "31. Ternary Operator \n32. Random Class \n\n33. Array_List \n34. LinkList \n35. HashMap_Method (has Iterator Class imple.)\n36. Array Sort (nomral array) \n37. ArrayListSort");
+            System.out.println(
+                    "38. HashSets & LinkedHashSet \n39. Iterator (LinkList + List)\n\n40. Work with Files \n41. Reading File \n42. Creating and Writing Files");
             System.out.println("43. Java 2 Module 3 Quiz\n44. Listobject (HashMap + List.ArrayList<>() )\n");
 
             System.out.print("Enter the following number: ");
             String input = scanner.nextLine();
 
-    		if (input.isBlank()) {
+            if (input.isBlank()) {
                 System.out.println("\nDon't leave it blank!\n");
-            continue; // pag about niya sa try - catch mo false na siya inig try
-        }
+                continue; // pag about niya sa try - catch mo false na siya inig try
+            }
 
             try {
                 choose_number = Integer.parseInt(input);
@@ -1659,23 +1826,22 @@ class TestAll extends Listobject {
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number.\n");
             }
-    	}
+        }
         return choose_number;
     }
 
-    static void Floydtriangle (String prompt, Scanner scanner) {
-        
+    static void Floydtriangle(String prompt, Scanner scanner) {
+
         System.out.print(prompt);
         int rows = scanner.nextInt();
         scanner.nextLine(); // consume leftover newline
         boolean valid = false;
 
-        
         while (!valid) {
             System.out.println("\nEnter the following to proceed: \n1. Symbol way\n2. Number way");
             String choose = scanner.nextLine();
             // scanner.nextLine(); // consume leftover newline
-            
+
             String symbol = "";
 
             if (choose.equals("1") || choose.equals("2")) {
@@ -1686,74 +1852,84 @@ class TestAll extends Listobject {
                     System.out.print("\nEnter the symbol: ");
                     symbol = scanner.nextLine(); // only ask ONCE
                 }
-                for (int i=1; i <= rows; i+=1) {
+                for (int i = 1; i <= rows; i += 1) {
                     System.out.println();
-                    for (int j=1; j<=i;) {
+                    for (int j = 1; j <= i;) {
                         if (!choose.equals("1")) {
-                            System.out.print(number+ " ");
-                            
+                            System.out.print(number + " ");
+
                         } else {
-                            System.out.print(symbol+ " ");
+                            System.out.print(symbol + " ");
                         }
-                        j+=1;
+                        j += 1;
                         number++;
                     }
                 }
+            } else if (choose.isEmpty()) {
+                System.out.println("Requiare to fill in the blanks.");
+            } else if (!choose.matches("[a-z A-Z 0-9]+")) {
+                System.out.println("\nDon't put special characters.");
+            } else {
+                System.out.println("\nEnter (1 or 2) only");
             }
-            else if (choose.isEmpty()) { System.out.println("Requiare to fill in the blanks.");}
-            else if (!choose.matches("[a-z A-Z 0-9]+")) { System.out.println("\nDon't put special characters."); }
-            else { System.out.println("\nEnter (1 or 2) only"); }
         }
         System.out.println(); // System.out.print(number); // updated: 22
     }
 
-    static final double PI = 3.14;   
+    static final double PI = 3.14;
 
-    /* click the right arrow to show info
-    There are a number of other methods available in the Math class, including:
-        sqrt() for square root, sin() for sine, cos() for cosine, and others.      
-    Squaroot                                                                       */
+    /*
+     * click the right arrow to show info
+     * There are a number of other methods available in the Math class, including:
+     * sqrt() for square root, sin() for sine, cos() for cosine, and others.
+     * Squaroot
+     */
     static void squaroot(double n) {
         // formula of sqroot
         double addfirst = n + n;
         double divide = n / addfirst; // 1/2
         double res = Math.pow(n, divide);
-        System.out.printf("%nThe squaroot of %.0f is: %.2f %nExplanation: %.2f X %.2f = %.0f%n",n ,res ,res, res, n);
+        System.out.printf("%nThe squaroot of %.0f is: %.2f %nExplanation: %.2f X %.2f = %.0f%n", n, res, res, res, n);
     }
 
     // Square of x
     static void square(int x) {
         int res = x * x;
-        System.out.println("The square of "+x+" is "+res);
+        System.out.println("The square of " + x + " is " + res);
     }
 
-    /*  click the right arrow
-        Algorithim | Code 
-        Gi-send ang Object Person by name of p
-        method name celebrateBirthday();
-    */ 
+    /*
+     * click the right arrow
+     * Algorithim | Code
+     * Gi-send ang Object Person by name of p
+     * method name celebrateBirthday();
+     */
     static void celebrateBirthday(Person p) {
-        p.setAge(p.getAge() + 1);   // 21 + 1 = 22
+        p.setAge(p.getAge() + 1); // 21 + 1 = 22
     }
-    /* click the right arrow
-        Algorithim | Code 
-        Gi-send ang Object Person by variable name of p
-        method name timeTravel();
-    */ 
+
+    /*
+     * click the right arrow
+     * Algorithim | Code
+     * Gi-send ang Object Person by variable name of p
+     * method name timeTravel();
+     */
     static void timeTravel(Person traveller) {
         // Let's say it's 2025 year and he time traveled in the past in 2015!
-        int currentYear = 2025; int timeTravelledPast = 2015;
+        int currentYear = 2025;
+        int timeTravelledPast = 2015;
 
-        traveller.setAge(traveller.getAge()-(currentYear - timeTravelledPast)); 
+        traveller.setAge(traveller.getAge() - (currentYear - timeTravelledPast));
 
-        /* click the right arrow
-                Here is the breakdown Timetravelling Formula:
-        the Person p current age setted is "21" decrement by  
-        (currentYear - timeTravelledPast) result inside the parenthesis  is 10 
-        */
+        /*
+         * click the right arrow
+         * Here is the breakdown Timetravelling Formula:
+         * the Person p current age setted is "21" decrement by
+         * (currentYear - timeTravelledPast) result inside the parenthesis is 10
+         */
     }
-    
-    static int pick1to3 (Scanner scanner) {
+
+    static int pick1to3(Scanner scanner) {
         System.out.print("Enter the following to proceed: ");
         boolean valid = false;
         int choose_number = 0;
@@ -1762,7 +1938,7 @@ class TestAll extends Listobject {
             System.out.println("\n1. Test All \n2. Test the specific code \n3. Continue");
             String input = scanner.nextLine();
 
-    		if (input.isBlank()) {
+            if (input.isBlank()) {
                 System.out.println("Don't leave it blank!");
                 continue; // pag about niya sa try - catch mo false na siya inig try
             }
@@ -1777,12 +1953,12 @@ class TestAll extends Listobject {
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number. ");
             }
-    	}
+        }
 
         return choose_number;
     }
-    
-    static int zeroTounli_sqroot (Scanner scanner) {
+
+    static int zeroTounli_sqroot(Scanner scanner) {
         boolean valid = false;
         int choose_number = 0;
 
@@ -1790,7 +1966,7 @@ class TestAll extends Listobject {
             System.out.print("\nEnter a number and get the square root: ");
             String input = scanner.nextLine();
 
-    		if (input.isBlank()) {
+            if (input.isBlank()) {
                 System.out.println("\nDon't leave it blank!");
                 continue; // pag about niya sa try - catch mo false na siya inig try
             }
@@ -1805,12 +1981,12 @@ class TestAll extends Listobject {
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number. ");
             }
-    	}
+        }
 
         return choose_number;
     }
 
-    static int zeroTounli_square (Scanner scanner) {
+    static int zeroTounli_square(Scanner scanner) {
         boolean valid = false;
         int choose_number = 0;
 
@@ -1818,7 +1994,7 @@ class TestAll extends Listobject {
             System.out.print("\nEnter a number to square it's number: ");
             String input = scanner.nextLine();
 
-    		if (input.isBlank()) {
+            if (input.isBlank()) {
                 System.out.println("\nDon't leave it blank!");
                 continue; // pag about niya sa try - catch mo false na siya inig try
             }
@@ -1833,13 +2009,13 @@ class TestAll extends Listobject {
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid input. Please enter a number. ");
             }
-    	}
+        }
 
         return choose_number;
     }
 
     static int Factorecursive(int n) {
-        return (n != 0) ? n *= Factorecursive(n - 1) : 1 ;
+        return (n != 0) ? n *= Factorecursive(n - 1) : 1;
     }
 
     int sum_torial(int k) {
@@ -1851,8 +2027,9 @@ class TestAll extends Listobject {
         }
     }
 
-    void sum_x_y (int x, int y) {
-        System.out.println(x + y);System.out.println();
+    void sum_x_y(int x, int y) {
+        System.out.println(x + y);
+        System.out.println();
     }
 
     static void hashcodeChecker(Scanner sc) {
@@ -1876,7 +2053,7 @@ class TestAll extends Listobject {
 
             if (myWord.matches("[a-zA-Z]+")) {
                 char[] letters = myWord.toCharArray();
-                System.out.println("\nNumber length of "+myWord+" = "+letters.length+"\n");
+                System.out.println("\nNumber length of " + myWord + " = " + letters.length + "\n");
 
                 for (char c : letters) {
                     System.out.println("The ASCII and Unicode of '" + c + "' = " + (int) c);
@@ -1891,7 +2068,8 @@ class TestAll extends Listobject {
     }
 
     static int Multiple_Exceptions(int a, int b) throws ArithmeticException {
-        /*   Multiple Exceptions & Exception Handling (many catch())
+        /*
+         * Multiple Exceptions & Exception Handling (many catch())
          *
          * throw
          * The <b>throw </b>keyword allows you to manually generate exceptions from your
@@ -1936,14 +2114,17 @@ class TestAll extends Listobject {
          */
         System.out.println("\n" + spaces + "Multiple_Exceptions" + spaces);
         if (b == 0) {
-            throw new ArithmeticException("Division by Zero Gra gra"); // Output Exception in thread "main" java.lang.ArithmeticException: Division by Zero Gra gra
+            throw new ArithmeticException("Division by Zero Gra gra"); // Output Exception in thread "main"
+                                                                       // java.lang.ArithmeticException: Division by
+                                                                       // Zero Gra gra
         } else {
             return a / b;
         }
     }
 
-    static void Thread_Me()  {
-        /*  Threads
+    static void Thread_Me() {
+        /*
+         * Threads
          * Java is a multi-threaded programming language. This means that our program
          * can make optimal use of available resources by running two or more components
          * concurrently, with each component handling a different task.
@@ -1992,18 +2173,19 @@ class TestAll extends Listobject {
          * 
          * Example:
          */
-        
+
         System.out.println("\n" + spaces + "Threads" + spaces);
         Loader obj_loader = new Loader();
-        obj_loader.start(); 
+        obj_loader.start();
         // obj_loader.setPriority(1);
-
 
         Thread t = new Thread(new Lohder());
         t.start();
     }
-    static void TypesofExceptions()  {
-        /* Types of Exceptions
+
+    static void TypesofExceptions() {
+        /*
+         * Types of Exceptions
          * There are two exception types, checked and unchecked (also called runtime).
          * The main difference is that checked exceptions are checked when compiled,
          * while unchecked exceptions are checked at runtime.
@@ -2037,7 +2219,7 @@ class TestAll extends Listobject {
          * Threads Practice
          * Complete the registration program to output the messages in correct order.
          */
-        
+
         System.out.println("\n" + spaces + "Runtime vs. Checked Exceptions" + spaces);
         Thread sleepingThread = new Thread(() -> {
             try {
@@ -2078,8 +2260,9 @@ class TestAll extends Listobject {
         }
     }
 
-    static void Array_List()  {
-        /*  Translate course
+    static void Array_List() {
+        /*
+         * Translate course
          * ArrayList
          * The Java API provides special classes to store and manipulate groups of
          * objects.
@@ -2156,20 +2339,20 @@ class TestAll extends Listobject {
         System.out.println("\n" + spaces + "ArrayList " + spaces);
         score.add(3);
         score.add(10);
-        System.out.println("Is number exist / contain? "+score.contains(3));
+        System.out.println("Is number exist / contain? " + score.contains(3));
         System.out.println(score);
 
         System.out.println(spaces + "ArrayList String" + spaces);
         System.out.println("\n" + colors);
-        System.out.println("Size of an Arraylist: "+colors.size());
-        System.out.println("Color in index: " +colors.get(0)); // Output: Yellow
+        System.out.println("Size of an Arraylist: " + colors.size());
+        System.out.println("Color in index: " + colors.get(0)); // Output: Yellow
     }
-    
-    static void Ternary_Operator()  {
+
+    static void Ternary_Operator() {
         System.out.println("\n" + spaces + "" + spaces);
-        int learning_time_speed = 10, 
-            time_average = 5, 
-            Verygood = 9;
+        int learning_time_speed = 10,
+                time_average = 5,
+                Verygood = 9;
         String Vgood = "Very Good",
                 average = "Average",
                 bad = "Bad";
@@ -2181,8 +2364,9 @@ class TestAll extends Listobject {
         System.out.println(result);
     }
 
-    static void LinkedList_v0()  {
-        /*   LinkedList
+    static void LinkedList_v0() {
+        /*
+         * LinkedList
          * The LinkedList is very similar in syntax to the ArrayList.
          * 
          * You can easily change an ArrayList to a LinkedList by changing the object
@@ -2215,7 +2399,7 @@ class TestAll extends Listobject {
          * - Use a LinkedList when you need to make a large number of inserts and/or
          * deletes.
          */
-        LinkedList<String>  c = new LinkedList<>();
+        LinkedList<String> c = new LinkedList<>();
         c.add("Red");
         c.add("Blue");
         c.add("Green");
@@ -2223,7 +2407,7 @@ class TestAll extends Listobject {
         c.add("Pink");
         System.out.println(c);
 
-        for (String s: c) {
+        for (String s : c) {
             System.out.println(s);
         }
 
@@ -2232,28 +2416,29 @@ class TestAll extends Listobject {
         String spaceC = "_".repeat(30);
         boolean valid = false;
         String wordList;
-        
-        
+
         while (!valid) {
-            System.out.println("\n"+spaceC); System.out.println("\nCurrent size: "+word.size());
+            System.out.println("\n" + spaceC);
+            System.out.println("\nCurrent size: " + word.size());
             System.out.println(word.size() == 4 ? "\nYou can add last items for your LinkList. \n" : "");
-            
+
             if (word.size() == 5) {
-                System.out.println(word+"\n");
+                System.out.println(word + "\n");
                 valid = true;
             }
 
-            if (word.size() < word.size()+1 && word.size() < 5)  {
-                System.out.print("add "+(word.size()+1)+" LinkList: " );
+            if (word.size() < word.size() + 1 && word.size() < 5) {
+                System.out.print("add " + (word.size() + 1) + " LinkList: ");
                 wordList = sc.nextLine();
                 word.add(wordList);
             }
         }
     }
-    
-    static void HashMap_Method()  {
-        HashMap<String,Integer> points = new HashMap<String, Integer>();
-        /* HashMap
+
+    static void HashMap_Method() {
+        HashMap<String, Integer> points = new HashMap<String, Integer>();
+        /*
+         * HashMap
          * Arrays and Lists store elements as ordered collections, with each element
          * given an integer index.
          * 
@@ -2285,12 +2470,12 @@ class TestAll extends Listobject {
         out.println(points.get("Dave"));
         out.println(points.keySet()); // no "733" key returns the value of null.
         out.println(points);
-        /*  We have created a HashMap with Strings as its keys and Integers as its
+        /*
+         * We have created a HashMap with Strings as its keys and Integers as its
          * values.
          * 
          * Use the get method and the corresponding key to access the HashMap elements.
          */
-
 
         HashMap<String, Integer> employees = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
@@ -2302,7 +2487,7 @@ class TestAll extends Listobject {
         employees.put("Diana", 21);
         employees.put("Eve", 17);
 
-        out.println("\nExample Entry set:"+employees.entrySet());
+        out.println("\nExample Entry set:" + employees.entrySet());
 
         System.out.println("\nOriginal Employees:");
         for (Map.Entry<String, Integer> entry : employees.entrySet()) {
@@ -2313,19 +2498,19 @@ class TestAll extends Listobject {
         int N = scanner.nextInt();
 
         // Remove employees whose age is less than N
-        Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator(); // get the HashMap objects using employees, .entrySet(), .iterator();
+        Iterator<Map.Entry<String, Integer>> iterator = employees.entrySet().iterator(); // get the HashMap objects
+                                                                                         // using employees,
+                                                                                         // .entrySet(), .iterator();
 
         System.out.println(iterator.next());
-            
-        
 
-        
         out.println();
 
-        while (iterator.hasNext()) { // it runs the while-Loop statement if was more than or one elements in Iterator Class
-            Map.Entry<String, Integer> entry = iterator.next(); 
+        while (iterator.hasNext()) { // it runs the while-Loop statement if was more than or one elements in Iterator
+                                     // Class
+            Map.Entry<String, Integer> entry = iterator.next();
             if (entry.getValue() < N) {
-                iterator.remove();  // Safe removal during iteration
+                iterator.remove(); // Safe removal during iteration
             }
         }
 
@@ -2337,8 +2522,9 @@ class TestAll extends Listobject {
         scanner.close();
     }
 
-    static void HashSets_LinkedHashSet()  {
-        /*   Sets
+    static void HashSets_LinkedHashSet() {
+        /*
+         * Sets
          * A Set is a collection that cannot contain duplicate elements. It models the
          * mathematical set abstraction.
          * 
@@ -2350,15 +2536,17 @@ class TestAll extends Listobject {
          * 
          * 1. Purpose
          * Additional:
-          _____________________________________________________________________________________
-          |         Feature        |       `LinkedHashSet`         |       `LinkedList`       |
-          | ---------------------- |-------------------------------|--------------------------|
-          | **Type** | A **Set**   | A **List**                    |                          |
-          | **Allows duplicates?** | ❌ No (only unique elements) | ✅ Yes                   |
-          | **Maintains order?**   | ✅ Yes (insertion order)     | ✅ Yes (insertion order) |
-          | **Access by index?**   | ❌ No                        | ✅ Yes (`get(index)`)    |
-          |________________________|_______________________________|__________________________|
-          
+         * _____________________________________________________________________________________
+         * | Feature | `LinkedHashSet` | `LinkedList` |
+         * | ----------------------
+         * |-------------------------------|--------------------------|
+         * | **Type** | A **Set** | A **List** | |
+         * | **Allows duplicates?** | ❌ No (only unique elements) | ✅ Yes |
+         * | **Maintains order?** | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
+         * | **Access by index?** | ❌ No | ✅ Yes (`get(index)`) |
+         * |________________________|_______________________________|
+         * __________________________|
+         * 
          * 🔸 2. Use Cases
          * LinkedHashSet is used when:
          * 
@@ -2411,14 +2599,14 @@ class TestAll extends Listobject {
          * Add/remove (ends) ✅ Efficient ✅ Efficient (esp. ends)
          * Check if element exists ✅ Fast (O(1)) ❌ Slower (O(n))
          * Access by index ❌ Not supported ✅ Yes (O(n)) *
-         * 
-         * ✅ Summary
-         * | Feature | LinkedHashSet | LinkedList |
-         * | ------------------ | ----------------------- | ------------------------ |
-         * | Duplicate elements | ❌ No | ✅ Yes |
-         * | Maintains order | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
-         * | Random access | ❌ No | ✅ Yes (`get(index)`) |
-         * | Implements | `Set`, `Collection` | `List`, `Deque`, `Queue` |
+        * 
+        * ✅ Summary
+        * | Feature            |        LinkedHashSet      |        LinkedList        |
+        * | ------------------ | -----------------------   | ------------------------ |
+        * | Duplicate elements |           ❌ No           |       ✅ Yes            |
+        * | Maintains order    | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
+        * | Random access      | ❌ No                    | ✅ Yes (`get(index)`)    |
+        * | Implements         | `Set`, `Collection`       | `List`, `Deque`, `Queue` |
          * 
          * 
          * Example
@@ -2428,8 +2616,8 @@ class TestAll extends Listobject {
         hashset.add("A");
         hashset.add("B");
         hashset.add("B");
-        hashset.add("Z"); // new Added 
-        hashset.add("F"); // new added 
+        hashset.add("Z"); // new Added
+        hashset.add("F"); // new added
         hashset.add("M"); // new Added
         hashset.add("C");
         hashset.add("E");
@@ -2440,13 +2628,14 @@ class TestAll extends Listobject {
         linkset.add("Aaa");
         linkset.add("Bbb");
         linkset.add("new Add"); // new add
-        linkset.add("latest"); // new add 
+        linkset.add("latest"); // new add
         linkset.add("Bbb");
         linkset.add("Ccc");
         System.out.println(linkset);
 
-        /* You can use the <b>size()</b> method to get the number of elements in the
-        
+        /*
+         * You can use the <b>size()</b> method to get the number of elements in the
+         * 
          * HashSet.
          * 
          * LinkedHashSet
@@ -2469,9 +2658,10 @@ class TestAll extends Listobject {
          * to the data you need to store and manipulate.
          */
     }
-    
-    static void ArrayListSort () {
-        /*   Sorting Lists
+
+    static void ArrayListSort() {
+        /*
+         * Sorting Lists
          * For the manipulation of data in different collection types, the Java API
          * provides a <b>Collections </b>class, which is included in the java.util
          * package.
@@ -2489,13 +2679,14 @@ class TestAll extends Listobject {
         animals.add("cat");
         animals.add("snake");
 
-        out.println("Not sorted: "+animals);
+        out.println("Not sorted: " + animals);
         Collections.sort(animals);
-        out.println("Sorted: "+ animals);
+        out.println("Sorted: " + animals);
         out.println(animals.get(0));
         /* As you can see, the elements have been sorted alphabetically. */
 
-        /*  Sorting Lists
+        /*
+         * Sorting Lists
          * You can call the <b>sort()</b> methods on different types of Lists, such as
          * Integers.
          */
@@ -2506,10 +2697,11 @@ class TestAll extends Listobject {
         nums.add(40);
         nums.add(15);
 
-        out.println("\nNot sorted yet: "+nums);
+        out.println("\nNot sorted yet: " + nums);
         sort(nums);
         out.println("Sorted: " + nums);
-        /* Other useful methods in the <b>Collections </b>class:
+        /*
+         * Other useful methods in the <b>Collections </b>class:
          * 
          * <b>max(Collection c):</b> Returns the maximum element in c as determined by
          * natural ordering.
@@ -2525,13 +2717,14 @@ class TestAll extends Listobject {
          * Complete the code to output ArrayList's maximum and minimum values.
          */
 
-        out.println("Max: "+Collections.max(nums));
-        out.println("Min: "+Collections.min(nums));
+        out.println("Max: " + Collections.max(nums));
+        out.println("Min: " + Collections.min(nums));
 
     }
 
     static void methodIterator() {
-        /*  Iterators
+        /*
+         * Iterators
          * An Iterator is an object that enables to cycle through a collection, obtain
          * or remove elements.
          * 
@@ -2594,7 +2787,8 @@ class TestAll extends Listobject {
          * 
          * public class Main {
          * public static void main(String[] args) {
-         * List<String> fruits = new ArrayList<>(Arrays.asList("Apple", "Banana", "Cherry"));
+         * List<String> fruits = new ArrayList<>(Arrays.asList("Apple", "Banana",
+         * "Cherry"));
          * 
          * Iterator<String> iterator = fruits.iterator();
          * 
@@ -2653,19 +2847,20 @@ class TestAll extends Listobject {
         String value;
 
         Iterator<String> it = animalni.iterator();
-        value = it.next(); // first element Fox 
+        value = it.next(); // first element Fox
         value = it.next(); // second element Cat
         out.println(value);
         out.println(it);
 
-        /*  <b>it.next()</b> returns the first element in the list and then moves the
+        /*
+         * <b>it.next()</b> returns the first element in the list and then moves the
          * iterator on to the next element.
          * 
          * Each time you call <b>it.next()</b>, the iterator moves to the next element
          * of the list.
          * 
          * 
-        Typically, iterators are used in loops. At each iteration of the loop, you
+         * Typically, iterators are used in loops. At each iteration of the loop, you
          * can access the corresponding list element.
          * 
          * Example:
@@ -2678,17 +2873,19 @@ class TestAll extends Listobject {
 
         Iterator<String> itt = animalka.iterator();
 
-        out.println(); while (itt.hasNext()) {
+        out.println();
+        while (itt.hasNext()) {
             String mvalue = itt.next();
             out.println(mvalue);
         }
-        /* Here, the while loop determines whether the iterator has additional elements,
+        /*
+         * Here, the while loop determines whether the iterator has additional elements,
          * prints the value of the element, and advances the iterator to the next.
          * 
          * Iterators Practice:
          * Write a code to calculate and output the sum of LinkedList elements.
          */
-        
+
         List<Integer> listMe = new ArrayList<Integer>();
         listMe.add(10);
         listMe.add(20);
@@ -2698,11 +2895,12 @@ class TestAll extends Listobject {
         int total = 0;
         int val = 0;
         try {
-            out.println(); while (ittt.hasNext()) {
+            out.println();
+            while (ittt.hasNext()) {
                 val = ittt.next(); // Get the next value
                 total += val; // Add it to the total
                 out.println("Current Value: " + val);
-                out.println("Total so far: " + total);  
+                out.println("Total so far: " + total);
             }
         } catch (NoSuchElementException e) {
             out.println("No more elements to iterate over.");
@@ -2713,15 +2911,16 @@ class TestAll extends Listobject {
         }
     }
 
-    static void wwF () {
+    static void wwF() {
         out.println("\n" + spaces + "Working with Files" + spaces);
-        /* Working with Files
+        /*
+         * Working with Files
          * The java.io package includes a File class that allows you to work with files.
          * 
          * To start, create a <b>File </b>object and specify the path of the file in the
          * constructor.
          */
-        
+
         // File file = new File("C:\\data\\input-file.txt");
         /* With the <b>exists()</b> method, you can determine whether a file exists. */
 
@@ -2732,7 +2931,8 @@ class TestAll extends Listobject {
         } else {
             System.out.println("The file does not exist");
         }
-        /* The code above prints a message stating whether or not the file exists at the
+        /*
+         * The code above prints a message stating whether or not the file exists at the
          * specified path.
          * 
          * The <b>getName()</b> method returns the name of the file.
@@ -2743,8 +2943,9 @@ class TestAll extends Listobject {
 
     }
 
-    static void readingFile () {
-        /*  Reading a File
+    static void readingFile() {
+        /*
+         * Reading a File
          * Files are useful for storing and retrieving data, and there are a number of
          * ways to read from a file.
          * 
@@ -2759,23 +2960,24 @@ class TestAll extends Listobject {
          */
         out.println("\n" + spaces + "Reading Files" + spaces);
         try {
-        File x = new File("D:\\Javascriptbiggener\\JavaIntermediate\\Practice_Area\\Anak.java");
-        Scanner sc = new Scanner(x);
-        // String firstL = sc.nextLine();
-        // System.out.println(firstL);
+            File x = new File("D:\\Javascriptbiggener\\JavaIntermediate\\Practice_Area\\Anak.java");
+            Scanner sc = new Scanner(x);
+            // String firstL = sc.nextLine();
+            // System.out.println(firstL);
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 out.println(line);
-                /* The <b>hasNextLine()</b> method checks if there is another line in the file,
-                * and the <b>nextLine()</b> method reads the next line from the file.
-                */
+                /*
+                 * The <b>hasNextLine()</b> method checks if there is another line in the file,
+                 * and the <b>nextLine()</b> method reads the next line from the file.
+                 */
             }
             sc.close();
+        } catch (FileNotFoundException e) {
+            out.println("File not found: " + e.getMessage());
         }
-        catch (FileNotFoundException e) {
-            out.println("File not found: " + e.getMessage());   
-        }
-        /*  We surrounded the code with a try/catch block, because there's a chance that
+        /*
+         * We surrounded the code with a try/catch block, because there's a chance that
          * the file may not exist.
          * 
          * {i}
@@ -2784,8 +2986,9 @@ class TestAll extends Listobject {
          */
     }
 
-    static void Creating_Writing_Files () {
-        /*  Creating Files
+    static void Creating_Writing_Files() {
+        /*
+         * Creating Files
          * Formatter, another useful class in the java.util package, is used to create
          * content and write it to files.
          * 
@@ -2802,13 +3005,13 @@ class TestAll extends Listobject {
             String content = sc.nextLine(); // Assuming you want to take input from the user
 
             // for (int i = 0; i < 5; i++) {
-            //     out.print("Enter line " + (i + 1) + ": ");
-            //     content += sc.nextLine() + "\n"; // Collecting multiple lines of input
+            // out.print("Enter line " + (i + 1) + ": ");
+            // content += sc.nextLine() + "\n"; // Collecting multiple lines of input
             // }
             // int nm = 1;
             // f.format("%d: %s",nm ,content);
             f.format(content);
-            
+
             f1.format("It is located at: %s%n", filePath);
             f.close(); // Always close the Formatter to release resources
             f1.close();
@@ -2825,10 +3028,11 @@ class TestAll extends Listobject {
             mysc.close(); // Close the Scanner to release resources
 
         } catch (Exception e) {
-            out.println("Error: " + e.getMessage());    
+            out.println("Error: " + e.getMessage());
         }
 
-        /*  This creates an empty file at the specified path. If the file already exists,
+        /*
+         * This creates an empty file at the specified path. If the file already exists,
          * this will overwrite it.
          * 
          * (i)
@@ -2844,8 +3048,8 @@ class TestAll extends Listobject {
          * Complete the code to take the names of N tasks and write down them in the
          * file.
          */
-    
-        }
+
+    }
 
     static void Java_2_Module_3_Quiz() {
         out.println("\n" + spaces + "Java_2_Module_3_Quiz#1" + spaces);
@@ -2909,4 +3113,4 @@ class TestAll extends Listobject {
 
     static void method() {
     }
-} 
+}

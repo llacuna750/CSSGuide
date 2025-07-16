@@ -857,3 +857,135 @@ Challenge:
 1. Make a fetch request to get all of the available posts.
 Remember to handle all errors!
  */
+/************************************************/ console.log("\n", spaceMe, "15. Working with images asynchronously", spaceMe, ""); /************************************************/
+
+/*const image = document.createElement(`img`);
+image.src = "http://gwapoko.com";
+
+const image2 = new Image();
+image2.src = "http://gwapoko.com";
+
+console.log(image);
+console.log(image2);
+
+Challenge:
+1. Create two event listeners. One should listen
+  out for the image loading and log "Image has loaded".
+  The other should listen for an error and log
+  "Image has NOT loaded" 
+ */
+
+const image = new Image();
+
+/* Sa google nako nakuha rani. */
+const string1 = "https://cdn2.thecatapi.com/images/MTg3NzMwMA.jpg";
+const string2 = "http://...";
+
+// If Math.random() is greater than 0.5, choose string1, otherwise choose string2
+const chosenString = Math.random() > 0.5 ? string1 : string2;
+
+console.log(chosenString);
+
+image.src = chosenString;
+
+console.log(image);
+
+image.addEventListener('load', () => console.log("Image has loaded✔✔✔✔✔"));
+image.addEventListener('error', () => console.log("Image has NOT loaded💥💥💥💥💥"));
+
+/************************************************/ console.log("\n", spaceMe, "16. Promise Challenge", spaceMe, ""); /************************************************/
+function preLoadImg (url) {
+  return new Promise((resolve, reject) => {
+
+    const imahe = new Image();
+    imahe.src = url;
+    imahe.alt = 'akong imahe';
+
+    imahe.addEventListener(`load`, ()=> resolve(imahe));
+    imahe.addEventListener(`error`, () => {
+      reject("Your'e image is not load properly!")
+      throw new Error('Dili mo load gi-atay!');
+    });
+  });
+
+  /* Challenge:
+  1. Return a new promise. The promise should:
+    - create a new image and assign the incoming url to
+    its src attribute. (Use the Image constructor for this!)
+    
+    - listen out for a load event. If a Load event is detected,
+    the promise should resolve, providing the image element.
+
+    - listen out for an "error" event. If an error event is detected,
+    the promise should reject giving the message "img has NOT loaded".
+  */
+}
+
+const getPreLoadimg = async () => {
+  try {
+    const results = await preLoadImg('https://cdn2.thecatapi.com/images/MTg3NzMwMA.jpg');
+    console.log(results);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getPreLoadimg();
+
+/************************************************/ console.log("\n", spaceMe, "17. Callback Hell", spaceMe, ""); /************************************************/
+/* Callback hell is a situation where 
+mulitple async operations are chained together using nested callbacks, 
+which makes the code difficult to read and maintain.
+*/
+
+// upload a file
+// process a file
+// notify a user
+
+/* Challenge: 
+1. Try to invoke these functions so they run in sequence.
+  the callback function passed to the final function (notifyUser)
+  can just be an anonymous function that logs 'All steps completed!'
+
+  You will come up against a gotcha here!
+  hint.md is here to help!
+
+  Expected Output:
+
+  Step 1: Uploading file...
+  Step 2: Processing file..
+  Step 3: Notifying user...
+  All steps completed!
+*/
+
+function uploadFile (callback) {
+  console.log(`Step 1: Uploading file...`);
+  setTimeout(()=> {
+    callback(); // call next function
+    }, 1000);
+  }
+
+function processingFile (callback) {
+  console.log(`Step 2 : Processing file..`);
+  setTimeout(()=> {
+    callback(); // call next function
+  }, 1000);
+}
+
+function notifyUser (callback) {
+  console.log(`Step 3: Notifying user...`);
+  setTimeout(()=> {
+    callback(); // call next function
+  }, 1000);
+}
+
+// uploadFile(processingFile(notifyUser));
+
+// The pyramid of Doom
+uploadFile(()=> {
+  processingFile(() => {
+    notifyUser(() => console.log('All steps completed!'));
+  })
+});
+
+/************************************************/ console.log("\n", spaceMe, "18. Using Promises to escape Callback Hell", spaceMe, ""); /************************************************/

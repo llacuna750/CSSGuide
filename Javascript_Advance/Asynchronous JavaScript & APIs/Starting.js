@@ -165,9 +165,9 @@ const getMessage = async () => {
     const response = await fetch(baseUrl);
     console.log(response.ok);
     const data = await response.json();
-    console.log(`get message:`,data);
+    console.log(`get message:`, data);
   } catch (err) {
-    console.log(`Error an occur:`,err);
+    console.log(`Error an occur:`, err);
     throw new Error(`This is a network error!`);
     // update the DOM to warn the user
     // access an alternative API
@@ -188,12 +188,12 @@ Remember to handle all errors!
  */
 const getJsonPlaceholderApi = async () => {
   try {
-    const response = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, {method: `post`});
+    const response = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, { method: `post` });
     if (!response.ok) {
       throw new Error(`This is a network error!`);
     }
     const data = await response.json();
-    console.log(`Data:`,data);
+    console.log(`Data:`, data);
   } catch (err) {
     console.log("Error an occur:", err.message);
   } finally {
@@ -230,9 +230,9 @@ const dataToSend = {
   userId: 500,
 }; // These object can sent into a API database
 
-async function getPostAPI () {
+async function getPostAPI() {
   try {
-    const respo = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, { 
+    const respo = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, {
       method: 'post',
       body: JSON.stringify(dataToSend), // can Directly asign inside, the Object
       headers: {
@@ -283,7 +283,7 @@ const promise = new Promise((resolve, reject) => {
     resolve(`Operation successful✔`);
   } else {
     reject(`Operation failed🔴`);
-  } 
+  }
 });
 
 try {
@@ -292,6 +292,90 @@ try {
 } catch (error) {
   console.log(error);
 }
-/************************************************/ console.log("\n", spaceMe, "15. Working with images asynchronously", spaceMe, "Go to jsAdvance.js file"); /************************************************/
+/************************************************/ console.log("\n", spaceMe, "15. Working with images asynchronously", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
 
 
+/************************************************/ console.log("\n", spaceMe, "18. Using Promises to escape Callback Hell", spaceMe, ""); /************************************************/
+function uploadFile() {
+  return new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+      console.log(`Step 1: Uploading file...`);
+
+      resolve(); // call next step after 3 second
+    }, 3000); // log after 3 seconds
+  });
+}
+
+function processFile() {
+  return new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+      console.log(`Step 2 : Processing file..`);
+
+      resolve(); // call next step after 1 second
+    }, 1000);
+  });
+}
+
+function notifyUser() {
+  return new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+      console.log(`Step 3: Notifying user...`);
+
+      resolve(); // call next step after 1 second
+    }, 1000);
+  });
+}
+
+/* uploadFile(processingFile(notifyUser)); 
+  Expected Output:
+
+  Step 1: Uploading file...
+  Step 2: Processing file..
+  Step 3: Notifying user...
+  All steps completed!
+*/
+
+/* Feature:
+try/catch()
+new Promise
+easier to read
+neat
+easier to debug
+*/
+try {
+  await uploadFile();
+  await processFile();
+  await notifyUser();
+  console.log('All steps completed!');
+} catch (err) {
+  console.log(err);
+}
+
+/************************************************/ console.log("\n", spaceMe, "19. Promise.all", spaceMe, ""); /************************************************/
+
+function createPromise() {
+  return new Promise((resolve, reject) => {
+    const success = Math.random() > 0.5; // 50% 
+
+    if (success) {
+      resolve(`Operation successful✔`);
+    } else {
+      reject(success);
+      reject(`Operation failed🧨`);
+    }
+  });
+}
+
+// Promise.all chada gamiton ni, ug imohang target is dapat ma successfull sila tanan ayha ma resolve.
+try {
+  const promise1 = new createPromise();
+  const promise2 = new createPromise();
+  const promise3 = new createPromise();
+  const result = await Promise.all([promise1, promise2, promise3]); 
+  console.log(result);
+} catch (err) {
+  console.log(err)
+}

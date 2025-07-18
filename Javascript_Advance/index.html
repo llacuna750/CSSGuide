@@ -177,16 +177,36 @@
         </div>
     </div>
 
-    <div class="container p-3 border-1 border border-black my-2 rounded w-25 ">
-        <div class="container" id="">
-            <section class="m-2  d-flex flex-column  justify-content-center align-content-center">
+    <!-- 19. Super challenge: Async Image Load -->
+    <div class="container p-3 border-1 border border-black my-2 rounded w-25" id="grandFather-Async-Image-Load">
+        <div class="container" id="img-container">
+            <div class="m-2 d-flex flex-column  justify-content-center align-content-center" id="upload-container">
                 <h5><b>Select Images to Upload</b> </h5>
-                <button class="rounded d-flex justify-content-center border-0 bg-info text-center w-50 " id="submit-imgs">
-                    <h3>
-                        <b style="font-size: medium;">Upload Images</b>
-                    </h3>
-                </button>
-            </section>
+
+                <div class="container d-flex flex-column justify-content-center align-items-start">
+                    <div class="w-100 d-flex flex-column justify-content-between gap-2">
+                        <div class=" d-flex border border-warning p-2 rounded w-50 p-0 justify-content-between">
+                            <p class="m-0 fs-5">mountain.jpg</p>
+                            <p class="m-0 fs-5">❌</p>
+                        </div>
+
+                        <div class=" d-flex border border-warning p-2 rounded w-50 p-0 justify-content-between">
+                            <p class="m-0 fs-5">valley.jpg</p>
+                            <p class="m-0 fs-5">❌</p>
+                        </div>
+
+                        <div class=" d-flex border border-warning p-2 rounded w-50 p-0 justify-content-between">
+                            <p class="m-0 fs-5">coast.jpg</p>
+                            <p class="m-0 fs-5">❌</p>
+                        </div>
+                    </div>
+                    <button class="rounded border-0 bg-info w-10 mt-2" >
+                        <h3 class="mb-0" id="submit-imgs">
+                            Upload Images
+                        </h3>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -195,6 +215,7 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
         </script>
     <script src="./javascriptAd_Folder/jsAdvance.js" type="module"></script>
+    <script src="js/jquery.js"></script>
     <!-- <script src="./Asynchronous JavaScript & APIs/Starting.js" ></script>  -->
     <!--  Try to remove type="module" -->
 </body>

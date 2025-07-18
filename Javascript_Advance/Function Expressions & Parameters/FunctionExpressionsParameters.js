@@ -159,10 +159,11 @@ try {
 
 /************************************************/ console.log("\n",spaceMe,"7. The Rest Parameter",spaceMe,"\n"); /************************************************/
 // Catching the rest of the arguments
-function setPermissionLevel (permissionLevel, ...names){ // rest 
+function setPermissionLevel (permissionLevel, ...names) { // rest 
   console.log(names);
   names.forEach( name => console.log(`${name} now has ${permissionLevel} level access.`));
 }
+
 setPermissionLevel('admin', 'Dave', 'Sally', 'Mike');
 
 /************************************************/ console.log("\n",spaceMe,"8. The Rest Parameter Challenge",spaceMe,"\nGo to jsAdvance.js file"); /************************************************/

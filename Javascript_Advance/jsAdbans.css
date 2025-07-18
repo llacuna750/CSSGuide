@@ -147,4 +147,28 @@ body {
 #catImageContainer2 {
   padding: 0;
   margin: 0;
+}
+
+.img-containerImple {
+  display: flex;
+  flex-direction: row; /* row layout */
+  align-items: center; /* vertically center images */
+  justify-content: flex-start; /* align to left */
+  gap: 1rem; /* spacing between images */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto; /* add horizontal scroll if needed */
+}
+
+.img-containerImple img {
+  height: auto;
+  max-height: 150px; /* or your preferred height */
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+}
+
+.d-NoneMe {
+  display: none;
 }/*# sourceMappingURL=jsAdbans.css.map */

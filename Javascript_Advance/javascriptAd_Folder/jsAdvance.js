@@ -997,16 +997,14 @@ which makes the code difficult to read and maintain.
 /************************************************/ console.log("\n", spaceMe, "19. Super challenge: Async Image Load", spaceMe, ""); /************************************************/
 function getImagePromise(url) {
   return new Promise((resolve, reject) => {
-    
-    setTimeout(()=> {
+
+    setTimeout(() => {
       const img = new Image();
       img.src = url;
-      img.alt = 'img promise';
-      img.addEventListener('load', ()=> {
-        resolve(`All images loaded successfully!`);
-        console.log(img);
-      });
-      img.addEventListener('error', ()=> reject(new Error(`Failed to load image: ${url}`)));
+      img.alt = 'scenic image';
+
+      img.addEventListener('load', () => resolve(img));
+      img.addEventListener('error', () => reject(new Error(`Failed to load image: ${url}`)));
     }, 500);
   });
 }
@@ -1020,29 +1018,41 @@ const images = [
 async function preLoadImages(imageUrlsArr) {
   const imgContainer = document.getElementById('img-container');
   const uploadContainer = document.getElementById('upload-container');
-  
+  const grandFather = $('#grandFather-Async-Image-Load');
+
   const promises = imageUrlsArr.map(url => getImagePromise(url));
+  console.log(promises);
+  
   try {
     const results = await Promise.all(promises);
     console.log(`All images loaded successfully!`);
     
-    uploadContainer.style.display = 'none';
-    results.forEach(img => imgContainer.appendChild(img));
+    uploadContainer.style.display = `none`;
+    // uploadContainer.classList.add('d-NoneMe')
+    results.forEach((img) => imgContainer.appendChild(img)  );
+    
+    imgContainer.classList.add('img-containerImple');
+    uploadContainer.classList.add('d-none');                // Bootstrap
+    imgContainer.classList.add('img-containerImple img');
+    
+    grandFather.classList.add('w-50'); 
+    
   } catch (err) {
     console.log(err);
   }
-  /* 
-  Challenge:
-  1. Create an array of promises using getImagePromise. /
-  2. Save the results of calling all of those promises 
-    in  one go to a const 'results'. /
-  3. If the promises resolve:
-    - log "All images loaded successfully".
-    - hide 'uploadContainer' 
-    - Iterate over the results and render them to imgContainer
-  4. if the promises reject:
-    - catch and log the error.
-  */
 }
+
+/* 
+Challenge:
+1. Create an array of promises using getImagePromise.         /
+2. Save the results of calling all of those promises 
+  in  one go to a const 'results'.                            /
+3. If the promises resolve:                                   /
+  - log "All images loaded successfully".
+  - hide 'uploadContainer' 
+  - Iterate over the results and render them to imgContainer
+4. if the promises reject:                                    /
+  - catch and log the error.
+*/
 
 document.getElementById('submit-imgs').addEventListener('click', ()=> preLoadImages(images));

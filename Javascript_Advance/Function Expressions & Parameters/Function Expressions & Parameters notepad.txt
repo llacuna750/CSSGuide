@@ -14,7 +14,7 @@
 
 
 
-
+    
 
 📏 Bootstrap Breakpoints Summary
 Breakpoint	      Abbreviation	            Screen Width (min)	            Common Devices

@@ -169,3 +169,36 @@ body {
   padding: 0;
   margin: 0;
 }
+
+// for section img-container
+.img-containerImple {
+    display: flex;
+    flex-direction: row; /* row layout */
+    align-items: center; /* vertically center images */
+    justify-content: flex-start; /* align to left */
+    gap: 1rem; /* spacing between images */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto; /* add horizontal scroll if needed */ 
+
+    // display: inline-block; /* make div follow image size */
+    // padding: 0;
+    // margin: 0;
+}
+.img-containerImple img {
+    height: auto;
+    max-height: 150px; /* or your preferred height */
+    object-fit: contain;
+    display: block;
+
+    // display: block; /* removes bottom whitespace */
+    // max-width: 100%;
+    // height: auto;
+    // object-fit: contain;
+}
+
+// for section upload-container
+.d-NoneMe {
+    display: none;
+}

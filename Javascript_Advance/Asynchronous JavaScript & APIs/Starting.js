@@ -379,3 +379,4 @@ try {
 } catch (err) {
   console.log(err)
 }
+/************************************************/ console.log("\n", spaceMe, "20. Super challenge: Async Image Load", spaceMe, "\nGo to Starting.js file"); /************************************************/

@@ -1,0 +1,2 @@
+const spaceMe = "-".repeat(30);
+/************************************************/ console.log("\n", spaceMe, "1. Working with Objects", spaceMe, ""); /************************************************/

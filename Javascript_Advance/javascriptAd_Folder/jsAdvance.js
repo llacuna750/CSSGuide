@@ -245,7 +245,7 @@ function render() {
   1. Array of ShoppingList
   2. onclick (arrow function) Event handler
   3. Render function (that can add Items the ShoppingList)
-  4. .include() method to identify if the item is already exists. */
+  4. 💸) method to identify if the item is already exists. */
 
 
 console.log("\n", spaceMe, "16.2 The .map() Method Challenge", spaceMe, "\n");
@@ -1027,8 +1027,8 @@ async function preLoadImages(imageUrlsArr) {
     const results = await Promise.all(promises);
     console.log(`All images loaded successfully!`);
     
-    uploadContainer.style.display = `none`;
-    // uploadContainer.classList.add('d-NoneMe')
+    // uploadContainer.style.display = `none`;
+    // uploadContainer.classList.add('d-NoneMe');
     results.forEach((img) => imgContainer.appendChild(img)  );
     
     imgContainer.classList.add('img-containerImple');
@@ -1056,3 +1056,15 @@ Challenge:
 */
 
 document.getElementById('submit-imgs').addEventListener('click', ()=> preLoadImages(images));
+
+/*
+What we studied:
+- What is an API
+- Clients and Servers
+- Requests and Responses
+- JSON data
+- The URLs we use to access APIs
+- Fetching Data
+- Handling errors
+- Promises
+*/

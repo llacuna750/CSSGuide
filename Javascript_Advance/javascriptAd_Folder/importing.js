@@ -223,7 +223,11 @@ charaters.forEach((myChar,index)=> {
 });
 
 /************************************************/ console.log("\n", spaceMe, "16 .includes()", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
-/* A method for checking if an array holds a given value?  */
+/* A method for checking if an array holds a given value?  
+don't forget this function because it is useful for finding 
+the equaivalent value of target in array without using for loop
+*/
+
 const emojis = ['🦒','🦁','🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
  
@@ -490,4 +494,3 @@ try {
   console.log(`Error an occur:`,err.message);
 }
 
-/************************************************/console.log("\n", spaceMe, "25. Super Challenge: Contact Search", spaceMe, "\nGo to jsAdvance.js file");/************************************************/

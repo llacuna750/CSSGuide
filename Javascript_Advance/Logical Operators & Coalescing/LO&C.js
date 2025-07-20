@@ -128,7 +128,7 @@ console.log(`Your balance is ${displayBalance}`);
 /*******************************************/ console.log("\n", spaceMe, "6. Optional Chaining", spaceMe, ""); /************************************************/
 const library = {
     sections: {
-        fictions: {
+        fiction: {
             genres: {
                 fantasy: [
                     { title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937 },
@@ -148,25 +148,31 @@ const library = {
 1. Use the logical AND operator to log the Hobbit object.
    Notice how undefined is returned if you break the chain.
 
+
+
     ________________________________
     |                              |
     |   Optional Chaining Syntax   |
     |               ?.             |
     |______________________________|
     
+    ug dili ka mogamit ug short-circuit && operator or Optional chaining dayun pag ang Object property is dili ma identify,
+    mo throw siyay error.
+    unlike sa short-circuit && ug Optional chaining syntax mo log ra siya ug ex. output: ----undefined----
 */
-console.log(library?.sections);
 
-// const logMe = library && 
-// library.sections
-// library.sections.fictions
-// library.sections.fictions.genres
-// library.sections.fictions.genres.fantasy[0];
+const logMe = library && 
+library.sections
+&& library.sections.fictions
+                                && library.sections.fictions.genres
+                                && library.sections.fictions.genres.fantasy
+                                && library.sections.fictions.genres.fantasy[0].title
+;
+console.log(`Notice! ug imo re-modify ang Object property using short-circuit or Optional chaining mo output ra syay undefined.`);
 
-// console.log(logMe);
-
-// console.log(library && library.sections);
-console.log(library.sections.fictions.genres.fantasy[0].year);
+console.log(library?.sections?.fictions?.genres?.fantasy?.[0]?.title);
+console.log('Log-Me:',logMe);
+console.log(library.sections.fictions.genres.fantasy[0].year); // Throw error       
 
 
 

@@ -180,7 +180,7 @@ const ninJa = 'Ninja';
 try {
   for (const property in character1){ // using for in
     // console.log(property); // Print the key index of Objects  (means it likes printing the index 0 1 2 3)
-    console.log(character1[property]); // print the Object value 
+    console.log(`Object value:`,character1[property]); // print the Object value 
   }
 
   for (const letter of ninJa){

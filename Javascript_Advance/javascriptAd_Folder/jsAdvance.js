@@ -1068,3 +1068,25 @@ What we studied:
 - Handling errors
 - Promises
 */
+
+/************************************************/ console.log("\n", spaceMe, '12. Binding"this" Challenge', spaceMe, ""); /************************************************/
+import producto from '../Working with Objects/WorkingObject.js';
+
+const clickBtn = document.getElementById(`btn`);
+
+// same producto use
+/*
+Challenge 1:
+What is the 'this' value of 'product.getProductInfo' as we 
+are using it now in the eventListeners?
+
+Write your answer here:
+
+Challenge 2: 
+    Debug the code so it works as intended
+*/
+// console.log(producto);
+// clickBtn.addEventListener('click', ()=> console.log('You click binding "this" button.'));
+
+// const productfExpress = producto.getProductInfo.bind(producto);
+clickBtn.addEventListener('click', producto.getProductInfo.bind(producto));

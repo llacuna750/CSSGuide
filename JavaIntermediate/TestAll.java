@@ -2194,17 +2194,17 @@ class TestAll extends Listobject {
          * InterruptedException. This is an example of a checked exception. Your code
          * will not compile until you've handled the exception.
          * 
-         *
-         * public class MyClass {
-         * public static void main(String[ ] args) {
-         * try {
-         * Thread.sleep(1000);
-         * } catch (InterruptedException e) {
-         * //some code
-         * }
-         * }
-         * }
-         * 
+         
+         public class MyClass {
+         public static void main(String[ ] args) {
+         try {
+         Thread.sleep(1000);
+         } catch (InterruptedException e) {
+         //some code
+         }
+         }
+         }
+          
          * We have seen examples of unchecked exceptions, which are checked at runtime,
          * in previous lessons.
          * 
@@ -2258,6 +2258,7 @@ class TestAll extends Listobject {
         } catch (ArithmeticException e) {
             System.out.println("divide by zero error");
         }
+
     }
 
     static void Array_List() {
@@ -2599,14 +2600,14 @@ class TestAll extends Listobject {
          * Add/remove (ends) ✅ Efficient ✅ Efficient (esp. ends)
          * Check if element exists ✅ Fast (O(1)) ❌ Slower (O(n))
          * Access by index ❌ Not supported ✅ Yes (O(n)) *
-        * 
-        * ✅ Summary
-        * | Feature            |        LinkedHashSet      |        LinkedList        |
-        * | ------------------ | -----------------------   | ------------------------ |
-        * | Duplicate elements |           ❌ No           |       ✅ Yes            |
-        * | Maintains order    | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
-        * | Random access      | ❌ No                    | ✅ Yes (`get(index)`)    |
-        * | Implements         | `Set`, `Collection`       | `List`, `Deque`, `Queue` |
+         * 
+         * ✅ Summary
+         * | Feature | LinkedHashSet | LinkedList |
+         * | ------------------ | ----------------------- | ------------------------ |
+         * | Duplicate elements | ❌ No | ✅ Yes |
+         * | Maintains order | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
+         * | Random access | ❌ No | ✅ Yes (`get(index)`) |
+         * | Implements | `Set`, `Collection` | `List`, `Deque`, `Queue` |
          * 
          * 
          * Example

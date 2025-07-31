@@ -7,7 +7,7 @@ import static java.lang.System.out; // imports the out object from the System cl
 // import java.util.Formatter;
 // import java.io.File; // imports the File class from the java.io package
 
-// import ExternalPackage.; // uses wild Card to import all classes in a package.
+// import ExternalPackage.*; // uses wild Card to import all classes in a package.
 
 /*  public is an access modifier, meaning that it is used to set the level of access. You can use access modifiers for classes, attributes, and methods.
 
@@ -27,13 +27,58 @@ import static java.lang.System.out; // imports the out object from the System cl
 
     private: Accessible only within the declared class itself.
 */
-class Myclass {
-    // static Scanner sc = new Scanner(System.in); 
+class Myclass  {
+    // static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
 
-        out.printf("%n%55s!%n", "Hello Myclass");
+        out.printf("%n%55s!%n", "Normalan");
         // TestAll.main(args);
 
+        
+        String[] Songlyrics = {
+            "Dapat mong malaman",
+            "Walang personalan ang mga kaganapan",
+            "Pwede bang normalan lang lahat ng ito",
+            "Sana ay magkatotoo...",
+            "Pero sa ngayon",
+            "",
+            "Dapat mong malaman",
+            "Walang personalan ang mga kaganapan",
+            "Pwede bang normalan lang lahat ng ito",
+            "Sana ay magkatotoo...",
+            "Pero sa ngayon"
+        };
+        
+        Thread playSong = new Thread(() -> {
+            for (String line : Songlyrics) {
+                if (line.trim().isEmpty()) {
+                    System.out.println(); // Print a blank line if the line is empty
+                    continue;   
+                }
+ 
+                String[] words = line.split(" ");
 
-    }   
+                for (String word : words) {
+                    System.out.print(word + " ");
+                    try {
+                        Thread.sleep(615); // Delay between each word
+                    } catch (InterruptedException e) {
+                        System.out.println("Thread was interrupted while sleeping!");
+                        return; // Exit thread early on interruption
+                    }
+                }
+
+                System.out.println(); // Print newline after the line
+                try {
+                    Thread.sleep(610); // Delay between each line
+                } catch (InterruptedException e) {
+                    System.out.println("Thread was interrupted while sleeping!");
+                    return;
+                }
+            }
+        });
+
+        playSong.start();
+         
+    }
 }

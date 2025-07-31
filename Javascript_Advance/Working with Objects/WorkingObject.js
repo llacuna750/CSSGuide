@@ -166,7 +166,7 @@ filterCost16.forEach(item => {
 const user1 = {
     username: "rpchan",
     subscription: "bronze",
-    accessPremiumFeature: false
+    // accessPremiumFeature: false
 }
 
 const user2 = {
@@ -175,15 +175,29 @@ const user2 = {
     accessPremiumFeature: true
 }
 
-// console.log(user2.hasOwnProperty('accessPremiumFeature')); // return true
 // console.log(Object.hasOwn(user1,'accessPremiumFeature')); // return false   
+// console.log(user2.hasOwnProperty('accessPremiumFeature')); // return true
+try {
+    const user3 = Object.create(null); // Pure Object
+    user3.username = 'Tom'; // same error/Outcome if 
+
+    console.log(Object.hasOwn(user3, 'username')); // true
+    console.log(user3.hasOwnProperty('username')); // Output user3.hasOwnProperty is not a function
+} catch (err) {
+    console.log(err.message)
+}
+
 
 // kani nga function ga check ug naa bay In adto na Object property.
 function canAccessPremiumFeature(userObj, prop) {
 
-    return Object.hasOwn(userObj, prop) && userObj[prop];
-    
-    // return userObj.hasOwnProperty(prop);
+    // userObj[prop] // === user1['accessPremiumFeature']
+    return Object.hasOwn(userObj, prop) && userObj[prop] || 'Bahog duga';
+    // return userObj.hasOwnProperty(prop) 
+    // && userObj[prop]
+    // console.log(userObj[prop])
+    ;      
+
     /* 
         Challenge: 
         1. Write logic to check if the object has the property. 
@@ -196,5 +210,251 @@ function canAccessPremiumFeature(userObj, prop) {
     */
 }
 
-console.log(canAccessPremiumFeature(user1, 'accessPremiumFeature'));
-console.log(canAccessPremiumFeature(user2, 'accessPremiumFeature'));
+// console.log(canAccessPremiumFeature(user1, 'accessPremiumFeature'));
+// console.log(canAccessPremiumFeature(user2, 'accessPremiumFeature'));
+ 
+/************************************************/ console.log("\n", spaceMe, "5. Assignment by Value/Reference", spaceMe, ""); /************************************************/
+let firstName = 'Tomas';
+let newName = firstName;
+newName = 'Thomas'; // update to Thomas
+
+
+// wala ma re-assign ang 'Tomas'
+console.log(`firstName`,firstName);
+console.log(`newName`,newName);
+
+const names = ['Ben', 'Belen', 'Barbara', 'Betty'];
+const updatedNames = names; // para saako nag referrence siya sa array na names
+updatedNames[0] = 'Zoeya'; // it will updated the array names and Ben convert to Zoe
+
+const updatedNames1 = names; // para saako nag referrence siya sa array na names
+const updatedNames2 = names; // para saako nag referrence siya sa array na names
+const updatedNames3 = names; // para saako nag referrence siya sa array na names
+
+console.log(`OG array names`,names);
+
+console.log("update1",updatedNames1); // same Output: Zoeya
+console.log("update2",updatedNames2); // same Output: Zoeya
+console.log("update3",updatedNames3); // same Output: Zoeya
+
+console.log(`updateNames`,updatedNames);
+
+
+// Gi-try nako ang console.table()
+const gabinfo = {
+    firstName: "Gabriel",
+    lastName: "Llacuna",
+    age: 21,
+}
+
+console.log(gabinfo);
+console.table(gabinfo);
+
+/*
+Deep Copy                                               vs                               Shallow Copy
+
+            Shallow                                                                       Deep
+Create a new object or array,                                           Copies the entire array or Object        
+but only at first level. For nested objects                             
+or arrays, a shallow copy will still hold references                    
+to the original nested objects or arrays.                               
+*/
+
+
+
+/************************************************/ console.log("\n", spaceMe, "6. ...Spread Operator", spaceMe, ""); /************************************************/
+/* Expanding & joining arrays */
+
+try {
+    const lunchMenu = ["Greek Salad", "Open Sandwich", "parsnip Soup", "Flatbread and Dip"];
+    const dinnerMenu = ["Lasagne", "Strogonoff", "Tagine", "Katsu Curry"];
+    // const SweetMenu = ["Mixed Berry Ice Cream", "Chocolate Brownie", "Orange Cheesecake"];
+
+    // shallow copy working
+    const SweetMenu = [["Mixed Berry Ice Cream", "ChocolateKo"], "Chocolate Brownie", "Orange Cheesecake"]; // at row 8 and column 0
+    
+
+
+    console.log(...lunchMenu); // Output: Greek Salad Open Sandwich parsnip Soup Flatbread and Dip
+    console.log(lunchMenu); // Output: [ 'Greek Salad', 'Open Sandwich', 'parsnip Soup', 'Flatbread and Dip' ]
+    
+
+    const eventMenu = [...lunchMenu, ...dinnerMenu, ...SweetMenu];
+    eventMenu[8][0] = "Gwapo ko YummyDelecious"; // update
+
+    eventMenu.forEach((name, index) => {
+        console.log(index,":",name);
+    });
+    console.table( eventMenu);  
+    console.log("eventMenu:",eventMenu);  
+    console.log("SweetMenu:",SweetMenu);  
+
+    const salad1 = {
+        name: `green`,
+        ingredients: ['lettuce', 'tomatoe']
+    }
+
+    const salad2 = {...salad1} // ...spread operator can use a shallow copy
+
+    salad2.name = 'Greek'; // assigning a value?
+    salad2.ingredients[0] = 'Cucumber'; 
+
+    console.log('salad1:',salad1); // can't update using re-assigning value
+    console.log(`salad2:`,salad2);
+    
+} catch (err) {
+    console.log(err.message);
+}
+
+/************************************************/ console.log("\n", spaceMe, "7. ...Spread Operator Challenge", spaceMe, ""); /************************************************/
+const averageSharePriceByMonthQ1 = [109.6, 103.3, 89.4];
+const averageSharePriceByMonthQ2 = [109.3, 126.1, 103.3];
+const averageSharePriceByMonthQ3 = [120.8, 102.3, 106.8];
+const averageSharePriceByMonthQ4 = [110.9, 119.8, 113.7];
+
+function findPriceExtremes(arr) {
+    /*
+        Challenge:
+        2. Find the highest number from the array and store it in
+        the const 'highest'.
+        3. Find the lowest number from the array and store it in the
+        const 'lowest'.
+    */
+    // uses Math Class
+    const highest = Math.max(...arr);
+    const lowest = Math.min(...arr);
+    console.log(`The highest average share price was ${highest}`)
+    console.log(`The lowest average share price was ${lowest}`)
+}
+
+/*
+Challenge:
+1. Call this function with one array holding
+all of the data from the 4 arrays above.
+*/
+const combineArr = [...averageSharePriceByMonthQ1, ...averageSharePriceByMonthQ2, ...averageSharePriceByMonthQ3, ...averageSharePriceByMonthQ4]
+console.table(combineArr);
+console.table(combineArr.sort((a, b) => a - b ));
+
+findPriceExtremes(combineArr);
+
+
+/************************************************/ console.log("\n", spaceMe, "8. Object.assign", spaceMe, ""); /************************************************/
+/*
+Object.assign()
+- Copies properties from a source object to 
+a target object
+- Returns the new version of the target object  
+*/
+const studentDetails = {
+    firstName: 'janaka',
+    lastName: 'siriwardena',
+    age: 28,
+    country: 'sri lanka',
+    email: 'j.siri@totalinternet.com',
+    discordUsername: 'JS1',
+    modulesCompleted: [`html`, `js`, `css`]
+}
+console.log(studentDetails);
+const studentDetailsCopy = {}
+
+/*
+            Deep Copy
+Copies the entire array or Object 
+*/
+Object.assign(studentDetailsCopy, studentDetails); // copy the entire Object of studentDetails
+
+
+/*
+Challenge:
+1. Prove that what we have created here is a shallow copy
+*/
+
+try {
+    studentDetailsCopy.modulesCompleted[0] = 'BeelotKaSir'; // can create a shallow copy
+    console.table(studentDetailsCopy);
+    console.log(studentDetailsCopy.modulesCompleted);    
+
+    // Use object.assign() to update also the original using re-assigning value of duplicated one
+    console.log('Original:',studentDetails); // Na update japon ang OG 
+} catch (err) {
+    console.log(err.message);
+}
+
+
+
+/************************************************/ console.log("\n", spaceMe, "9. structuredClone()", spaceMe, ""); /************************************************/
+
+const studentDetalye = {
+    firstName: 'janaka',
+    lastName: 'siriwardena',
+    age: 28,
+    country: 'sri lanka',
+    email: 'j.siri@totalinternet.com',
+    discordUsername: 'JS1',
+    modulesCompleted: [`html`, `js`, `css`]
+}
+
+const deepClonedStudentDetails = structuredClone(studentDetalye); 
+deepClonedStudentDetails.modulesCompleted[0] = 'TS'; // only affect to cloned one
+console.log(studentDetalye); // not affected to shallowing / re-assigning the Object nested array
+console.table(deepClonedStudentDetails);
+
+/************************************************/ console.log("\n", spaceMe, "10. Objects with Methods and 'this'", spaceMe, ""); /************************************************/
+// this refer to the object property.
+try {    
+    const gamer = {
+        name: 'Dave',
+        score: 0,
+        incrementScore: () => { //  log Window Object
+            // gamer.score++;
+            console.log(this);
+            this.score++; // this : refer to a current Object property in
+        }
+    }
+
+    const gamer1 = {
+        name: 'Sarah',
+        score: 0,
+        incrementScore: function() {
+            this.score++; // this : refer to a current Object property in
+        }
+    }
+
+    console.log(gamer);
+    gamer.incrementScore();
+    console.log(gamer);
+    gamer1.incrementScore();
+    console.log(gamer1);
+} catch (err) {
+    console.log(err.message);
+}
+
+
+/************************************************/ console.log("\n", spaceMe, '11. Binding"this"', spaceMe, ""); /************************************************/
+
+const producto = {
+    name: 'Vanilla Lip Gloss',
+    sku: 'w234fg',
+    stock: 276,
+    getProductInfo: function() {
+        // console.log(this);
+        console.log(`Stock level for ${this.name} (SKU: ${this.sku}): ${this.stock}`);
+    }
+}
+
+try {
+    // producto.getProductInfo(); 
+
+    // As function Expression
+    // const productDetails = producto.getProductInfo; // Cannot read properties of undefined (reading 'name')
+    const productDetails = producto.getProductInfo.bind(producto); // use .bind()
+    productDetails();    
+} catch (err) {
+    console.log(err.message);
+}
+
+
+/************************************************/ console.log("\n", spaceMe, '12. Binding"this" Challenge', spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
+export default producto;
+

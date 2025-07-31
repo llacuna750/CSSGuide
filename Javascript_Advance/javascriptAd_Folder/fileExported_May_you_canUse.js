@@ -31,4 +31,6 @@ const contactsArr = [
   },
 ];
 
+console.table(contactsArr);
+
 export default contactsArr;

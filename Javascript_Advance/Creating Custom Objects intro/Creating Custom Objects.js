@@ -81,7 +81,7 @@ console.log(ash);
 - The syntax is easy to read                                    - No inheritance
 */
 /************************************************/ console.log("\n", spaceMe, "3. Constructor Functions", spaceMe, ""); /************************************************/
-const manlalaro = {
+const manlalaro = { 
     name: 'Dave',
     score: 0,
     incrementScore: function() {
@@ -97,7 +97,7 @@ function Gamer(name, score) {
     }
 }
 
-const daved = new Gamer('Dave', 0);
+const daved = new Gamer('Dave', 0); // save the name and score as dave
 const sarah = new Gamer('Sarah', 2);
 
 console.log(daved);
@@ -108,4 +108,41 @@ console.log(sarah);
 sarah.incrementScore();
 console.log(sarah)
 
+/************************************************/ console.log("\n", spaceMe, "4. Classes", spaceMe, ""); /************************************************/
+/* classes = (ES6 feature) provides a more structured and cleaner way to \
+            work with objects compared to traditional constructor functions 
+            ex. static keyword, encapsulation, inheritance
+*/
 
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    productInfo = () => {
+        console.log(`\nThe Product: ${this.name} and the Price: ${this.price}`);
+    }
+
+
+    displayProduct() {
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: ${this.price.toFixed(2) }`);
+    }
+
+    // The algorithm to get TotalSale including Sale Tax
+    calcualteTotal(salesTax) {
+        return this.price + (this.price * salesTax); // formula: return the total calculation
+    }
+}
+
+const product1 = new Product("Shirt", 19.99); // for Shirt product
+const product2 = new Product("Pants", 22.50); // for Pants
+const product3 = new Product("Underware", 100.00); // for Underware product
+
+product2.displayProduct();
+
+const saleTax = 0.05; 
+const total = product3.calcualteTotal(saleTax); 
+product3.productInfo();
+console.log(`Total price (with tax): ${total.toFixed(2)}`);

@@ -53,7 +53,7 @@ try {
 /************************************************/ console.log("\n",spaceMe,"2. Arrow Functions",spaceMe,"\n"); /************************************************/
 /* Ultra Concise functions */
 try {
-    const getGastoAlert = (name ,amount) =>  `Warning! Hey ${name}! You just spent L$${amount}`; 
+  const getGastoAlert = (name ,amount) =>  `Warning! Hey ${name}! You just spent L$${amount}`; 
 //   const getGastoAlert = (name ,amount) => {
 //     return `Warning! Hey ${name}! You just spent L$${amount}`;
 //   };

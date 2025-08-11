@@ -108,8 +108,9 @@ console.log(sarah);
 sarah.incrementScore();
 console.log(sarah)
 
-/************************************************/ console.log("\n", spaceMe, "4. Classes", spaceMe, ""); /************************************************/
-/* classes = (ES6 feature) provides a more structured and cleaner way to \
+/************************************************/ console.log("\n", spaceMe, "4. Constructor Funtions to Classes", spaceMe, ""); /************************************************/
+/*                          Templates of Objects
+ classes = (ES6 feature) provides a more structured and cleaner way to 
             work with objects compared to traditional constructor functions 
             ex. static keyword, encapsulation, inheritance
 */
@@ -146,3 +147,333 @@ const saleTax = 0.05;
 const total = product3.calcualteTotal(saleTax); 
 product3.productInfo();
 console.log(`Total price (with tax): ${total.toFixed(2)}`);
+
+/************************************************/ console.log("\n", spaceMe, "5. Constructor Funtions to Classes Challenge", spaceMe, ""); /************************************************/
+/*
+    Challenge:
+    Rebuild this constructor function as a class.
+*/
+
+// function Character(name) {
+//     this.name = name;
+//     this.collectedItemArr = [];
+
+//     this.addItem = function(item) {
+//         this.collectedItemArr.push(item);
+//         console.log(`${this.name} now has: ${this.collectedItemArr.join(', ')}`);
+//     }
+// }
+
+// From Constructor Functions converted to Class
+class Character {
+    constructor(name) {
+        this.name = name;
+        this.collectedItemArr = [];
+    }
+
+    addItem = (item) => {
+        this.collectedItemArr.push(item);
+    }
+
+    displayLive_Item() {
+        console.log(`${this.name} now has: ${this.collectedItemArr.join(', ')}`);
+    }
+}
+
+
+const wizard = new Character('Gabriel'); // wizard is si Gabriel
+const witch = new Character('Chikarnd'); // witch is si Chikarnd
+
+wizard.addItem('Shabu'); // Add a item on wizard
+wizard.addItem('Marijuana'); // Add a item on wizard
+
+witch.addItem('Bowl of witch craft');
+witch.addItem('magic silhig');
+// display what Item add in collectedItemArr
+wizard.displayLive_Item();
+witch.displayLive_Item();
+
+/************************************************/ console.log("\n", spaceMe, "6. .call() and .apply() ", spaceMe, ""); /************************************************/
+
+function displayPolitician(currentSituation) {
+    // console.log(this); // look at console (only in Browser)
+    console.log(`${this.name} is ${this.age} years old. Current situation: ${currentSituation}`);
+}
+
+const politician1 = {
+    name: 'Carly Fowler',
+    age: 40
+}
+
+const politician2 = {
+    name: 'Gabriel',
+    age: 21
+}
+
+
+try {
+    // displayPolitician('Gabriel', 21, "nag-Lulu");
+    // displayPolitician.call(politician1, 'nag Lu2'); // .call() method
+    // displayPolitician.apply(politician2, ['Study Hard']); // .apply() method
+
+    // displayPolitician();    
+    displayPolitician.apply(politician1, ['In jail for corruption']);
+    displayPolitician.call(politician2, 'Resigned due to incompetence');
+} catch (err) {
+    console.log(`Error an occur:`, err.message);
+}
+
+/************************************************/ console.log("\n", spaceMe, "7. Inheritance Explainer ", spaceMe, ""); /************************************************/  
+/* Inheritance is the mechanism by which objects inherit properties and methods from other objects */
+
+const baseEvent = {
+    name: '',
+    date: '',
+    location: '',
+    getDetails: function() {
+        
+    }
+}
+
+const concert = {
+    // name: '',
+    // date: '',
+    // location: '',
+    // getDetails: function () {}, 
+
+    // inherits name, date, location, getDetails from baseEvent
+    
+    headLiner: '',
+}
+/*
+"
+Polymorphism allows methods to have different 
+implementations on different objects. An object can override a method it inherits,
+adapting it for specific needs. "
+*/
+
+console.log(baseEvent);
+/*
+    The Prototype Chain
+|-----------------|         |-----------------|         |-----------------|         |-----------------|
+|   The Object    |         |    Object 1     |         |    Object 2     |         |    Object 3     |
+|     object      | ----->> |                 | ----->> |                 | ----->> |                 |  
+|    built-in     |         |   Properties    |         |   Properties    |         |   Properties    |
+|    methods      |         |    methods      |         |    methods      |         |    methods      |
+|-----------------|         |-----------------|         |-----------------|         |-----------------|
+*                                Prototype:                  Prototype:                  Prototype:
+*                                  Object                      Object 1                    Object 2
+*/
+
+/************************************************/ console.log("\n", spaceMe, "8. Inheritance with Constructor Functions ", spaceMe, ""); /************************************************/  
+
+function Event(name, location, date) {
+    this.name = name;
+    this.location = location;
+    this.date = date;
+
+    // get the Property functions of getDetails() by prototyping inheritance.
+    this.getDetails = function() {
+        return `Event ${this.name}, Location: ${this.location}, Date: ${this.date}`;
+    }
+}
+
+function Concert(name, location, date, headliner) {
+    Event.call(this, name,  location, date)
+    this.headliner = headliner;
+}
+
+Concert.prototype = Object.create(Event.prototype);
+Concert.prototype.constructor = Concert; 
+
+const concert1 = new Concert('GabReal', 'bdS', '2025-08-11', 'The Electrons');
+console.log(concert1);
+// console.log(concert1.getDetails());
+
+/************************************************/ console.log("\n", spaceMe, "9. Polymorphism with constructor functions ", spaceMe, ""); /************************************************/  
+/* Overriding Inherited Methods on Constructor functions 
+same code as above.
+*/
+
+function EventNow(name, location, date) {
+    this.name = name;
+    this.location = location;
+    this.date = date;
+
+    // get the Property functions of getDetails() by prototyping inheritance.
+
+    // Challenge:
+    // this.getDetails = function () {
+    //     return `Event ${this.name}, Location: ${this.location}, Date: ${this.date}`;
+    // }
+}
+
+/* naka-create ug new Function called cancelEvent in every chile of Parent EventNow Constructor 
+    allow a child to overriden the methods
+*/
+EventNow.prototype.cancelEvent = function() {
+    return `Event Cancelled`;   
+}
+
+function Concertto(name, location, date, headliner) {
+    EventNow.call(this, name, location, date)
+    this.headliner = headliner;
+
+    // this.getDetails = function() {}
+}
+
+/* 
+Challenge:
+1. Remove getDetails from the EventNow constructor's body 
+  and it to the Event constructor's prototype.
+*/
+// ki-bali function expression in memory Obeject object
+EventNow.prototype.getDetails = function () {
+    return `Event: ${this.name}, Location: ${this.location}, Date: ${this.date}`;
+}
+
+
+Concertto.prototype = Object.create(EventNow.prototype);
+Concertto.prototype.constructor = Concertto;
+
+// 
+Concertto.prototype.getDetails = function () {
+    const eventBasics = EventNow.prototype.getDetails.call(this);
+    return `${eventBasics} Headliner: ${this.headliner}`;
+}
+
+const concertt = new Concertto('Summer Beats', 'bdS', '2025-08-11', 'The Electrons');
+const concertt2 = new Concertto('Concert Two', 'Highlands Park', '2024-08-08', 'Dab Notes');
+const concertt3 = new Concertto('Concert Three', 'Highland Park', '2024-08-08', 'Dave Notes');
+
+
+try {
+    // console.log(concertt);
+    // console.log(concertt2);
+    // console.log(concertt3);
+
+    console.log(concertt.getDetails()) // it like's the instance of Child Object the .getDetails() method
+    console.log(concertt2.getDetails());
+    console.log(concertt3.getDetails());
+} catch (error) {
+    console.log(error.message)
+}
+
+/************************************************/ console.log("\n", spaceMe, "10. Inheritance with constructor functions Challenge ", spaceMe, ""); /************************************************/  
+function EventCha(name, location, date) {
+    this.name = name;
+    this.location = location;
+    this.date = date;
+}
+
+// gi-himoan ug function as prototype Object memory called it to getDetails.
+EventCha.prototype.getDetails = function() {
+    return `Event: ${this.name}, Location: ${this.location}, Date: ${this.date}`;
+}
+
+function Conference(name, location, date, keynoteSpeaker) {
+    EventCha.call(this, name, location, date)
+    this.keynoteSpeaker = keynoteSpeaker;
+}
+
+
+const keynoteSpeaker = {
+    name: 'Gabreal',
+    location: 'CDO',
+    date: '2025-08-11'
+}
+
+Conference.prototype = Object.create(EventCha.prototype); // so inheritance in parent EventCha will work   ||    si Conference naka prototype sa Event.prototype
+Conference.prototype.constructor = Conference;            // so inheritance in parent EventCha will work   ||    si Conference naka prototype sa Event.prototype
+
+
+Conference.prototype.getDetails = function () {
+    const eventBasics = EventCha.prototype.getDetails.call(this);
+    return `${eventBasics} Keynote Speaker: ${this.keynoteSpeaker}`;
+}
+
+
+
+
+/*
+Challenge:
+1.  Set up a constructor for 'Conference' which
+    should take in 'keynoteSpeaker' as a parameter.
+
+2. 'Conference' should inherit from 'Event'.
+
+3. 'Conference' should have its own method 'getDetails'
+    which calls Event's getDetails method and returns a string 
+    with same, location, date, and keynote speaker.
+
+4. When you set up an instance of Conference and call
+    getsDetails you should log out:
+    Event: 10 Nights of JS, Location: Scrimba HQ, Date: 2025-09-29 Keynote Speaker: Ashley Smith
+    📝 The new method should be on the prototype.
+*/
+
+const conference = new Conference('10 Nights of JS', 'Scrimba HQ', '2025-09-29', 'Ashley Smith');
+console.log(conference.getDetails());
+
+/************************************************/ console.log("\n", spaceMe, "11. Inheritance with Classes Syntax ", spaceMe, ""); /************************************************/
+// Mas tsada pani ang Inheritance with Classes kaysa Inheritance with constructor functions kay mag gamit2 pakag prototype 
+class Ebent {
+    constructor(name, location, date) {
+        this.name = name;
+        this.location = location;
+        this.date = date;
+    }
+    
+    getDetails() {
+        return `Event ${this.name}, Location: ${this.location}, Date: ${this.date}`;
+    }
+}
+
+/*
+The "super" keyword
+-01 Access properties on the superclass prototype
+-02 invoke the superclass's constructors
+*/
+
+class Consert extends Ebent {
+    constructor(name, location, date, headliner) {
+        // superclass constructor (implementation )
+        super(name, location, date);
+        this.headliner = headliner;
+    }
+    
+    getDetails() {
+        const eventBasics = super.getDetails();
+        return `Event: ${eventBasics} Headliner: ${this.headliner}`;
+    }
+}
+
+const consert = new Consert("Summer Beats", "City Stadium", "2023-07-15", "The Electrons New");
+console.log(consert.getDetails());
+
+/************************************************/ console.log("\n", spaceMe, "12. Inheritance with classes Challenge ", spaceMe, ""); /************************************************/
+
+class Eyvent {
+    constructor(name, location, date) {
+        this.name = name;
+        this.location = location;
+        this.date = date;
+    }
+
+    getDetails() {
+        return `Event: ${this.name}, Location: ${this.location}, Date: ${this.date}`;
+    }
+}
+/*
+Challenge:
+1. Set up a class 'TennisMatch' which should take in 'player1' and 'player2' as parameters.
+2. 'TennisMatch' should inherit properties and methods from 'Event'.
+3. 'TennisMatch' should have its own method 'getDetails' which calls Event's getDetails method to get the basic details of the event. 
+   It should return this string:
+   ${eventBasics} Match: ${this.player1} vs ${this.player2}
+4. Uncomment my code below to create a new instance of TennisMatch and call the getDetails method.
+   Hint.md for help
+*/
+
+// const tennisMatch = new TennisMatch("Grand Slam Final", "Wimbledon", "2025-07-15", "J Bloggs", "B Doe");
+// console.log(tennisMatch.getDetails());

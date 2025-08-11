@@ -1090,3 +1090,12 @@ Challenge 2:
 
 // const productfExpress = producto.getProductInfo.bind(producto);
 clickBtn.addEventListener('click', producto.getProductInfo.bind(producto));
+
+const event = {
+  name: '',
+  date: '',
+  location: '',
+  getDetails: function() {}
+}
+
+console.log(event);

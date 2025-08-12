@@ -467,13 +467,69 @@ class Eyvent {
 /*
 Challenge:
 1. Set up a class 'TennisMatch' which should take in 'player1' and 'player2' as parameters.
+
 2. 'TennisMatch' should inherit properties and methods from 'Event'.
+
 3. 'TennisMatch' should have its own method 'getDetails' which calls Event's getDetails method to get the basic details of the event. 
    It should return this string:
    ${eventBasics} Match: ${this.player1} vs ${this.player2}
+
 4. Uncomment my code below to create a new instance of TennisMatch and call the getDetails method.
    Hint.md for help
 */
 
-// const tennisMatch = new TennisMatch("Grand Slam Final", "Wimbledon", "2025-07-15", "J Bloggs", "B Doe");
-// console.log(tennisMatch.getDetails());
+class TennisMatch extends Eyvent {
+    constructor(name, location, date, player1, player2) {
+        super(name, location, date);
+        this.player1 = player1;
+        this.player2 = player2;
+    }
+
+    getDetails() {
+        const eventBasics = super.getDetails();
+        return `${eventBasics}, Match: ${this.player1} vs ${this.player2}`;
+    }
+}
+
+const tennisMatch = new TennisMatch("Grand Slam Final", "Wimbledon", "2025-07-15", "J Bloggs", "B Doe");
+console.log(tennisMatch.getDetails());
+
+/************************************************/ console.log("\n", spaceMe, "13. Static methods and properties", spaceMe, ""); /************************************************/
+
+class Employee {
+    static employeeCount = 0;
+    
+    constructor(name) {
+        this.name = name;
+        Employee.employeeCount++;
+    }
+    
+    static getEmployeeCount() {
+        return  Employee.employeeCount;
+    }
+}
+const employee1 = new Employee("Alice");
+const employee2 = new Employee("Bob");
+const employee3 = new Employee("Smith");
+
+console.log(Employee.employeeCount);
+console.log(Employee.getEmployeeCount());
+
+/************************************************/ console.log("\n", spaceMe, "14. Static methods Challenge", spaceMe, ""); /************************************************/
+
+class Employyee {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+/*
+Challenge: 
+1. Set up a static called getNewIntern.
+    getNewIntern should return an object with a 'name' property,
+    a 'role' property which is hard-coded to 'intern', and a 
+    'startDate' property which should be the time of code 
+    execution.
+
+    (How can you use JS to get the time right no)
+*/

@@ -1,5 +1,5 @@
 const spaceMe = "-".repeat(30);
-/************************************************/ console.log("\n", spaceMe, "1. Creating Objects Explainer", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "1. Creating Objects Explainer", spaceMe, ""); /************************************************/
 
 const product = {
     productName: 'Coffee Machine'
@@ -14,7 +14,7 @@ Well see three ways
 - Classes
 */
 
-/************************************************/ console.log("\n", spaceMe, "2. Factory Functions", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "2. Factory Functions", spaceMe, ""); /************************************************/
 /* A factory function is a design pattern used in programming, particularly in languages like JavaScript, where a function creates and returns objects. */
 
 // const gamer = {
@@ -80,7 +80,7 @@ console.log(ash);
 - The syntax is familiar                                        - Less performant 
 - The syntax is easy to read                                    - No inheritance
 */
-/************************************************/ console.log("\n", spaceMe, "3. Constructor Functions", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "3. Constructor Functions", spaceMe, ""); /************************************************/
 const manlalaro = { 
     name: 'Dave',
     score: 0,
@@ -108,7 +108,7 @@ console.log(sarah);
 sarah.incrementScore();
 console.log(sarah)
 
-/************************************************/ console.log("\n", spaceMe, "4. Constructor Funtions to Classes", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "4. Constructor Funtions to Classes", spaceMe, ""); /************************************************/
 /*                          Templates of Objects
  classes = (ES6 feature) provides a more structured and cleaner way to 
             work with objects compared to traditional constructor functions 
@@ -148,7 +148,7 @@ const total = product3.calcualteTotal(saleTax);
 product3.productInfo();
 console.log(`Total price (with tax): ${total.toFixed(2)}`);
 
-/************************************************/ console.log("\n", spaceMe, "5. Constructor Funtions to Classes Challenge", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "5. Constructor Funtions to Classes Challenge", spaceMe, ""); /************************************************/
 /*
     Challenge:
     Rebuild this constructor function as a class.
@@ -193,7 +193,7 @@ witch.addItem('magic silhig');
 wizard.displayLive_Item();
 witch.displayLive_Item();
 
-/************************************************/ console.log("\n", spaceMe, "6. .call() and .apply() ", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "6. .call() and .apply() ", spaceMe, ""); /************************************************/
 
 function displayPolitician(currentSituation) {
     // console.log(this); // look at console (only in Browser)
@@ -223,7 +223,7 @@ try {
     console.log(`Error an occur:`, err.message);
 }
 
-/************************************************/ console.log("\n", spaceMe, "7. Inheritance Explainer ", spaceMe, ""); /************************************************/  
+/************************************************/ console.log("\n\n\n\n", spaceMe, "7. Inheritance Explainer ", spaceMe, ""); /************************************************/  
 /* Inheritance is the mechanism by which objects inherit properties and methods from other objects */
 
 const baseEvent = {
@@ -265,7 +265,7 @@ console.log(baseEvent);
 *                                  Object                      Object 1                    Object 2
 */
 
-/************************************************/ console.log("\n", spaceMe, "8. Inheritance with Constructor Functions ", spaceMe, ""); /************************************************/  
+/************************************************/ console.log("\n\n\n\n", spaceMe, "8. Inheritance with Constructor Functions ", spaceMe, ""); /************************************************/  
 
 function Event(name, location, date) {
     this.name = name;
@@ -290,7 +290,7 @@ const concert1 = new Concert('GabReal', 'bdS', '2025-08-11', 'The Electrons');
 console.log(concert1);
 // console.log(concert1.getDetails());
 
-/************************************************/ console.log("\n", spaceMe, "9. Polymorphism with constructor functions ", spaceMe, ""); /************************************************/  
+/************************************************/ console.log("\n\n\n\n", spaceMe, "9. Polymorphism with constructor functions ", spaceMe, ""); /************************************************/  
 /* Overriding Inherited Methods on Constructor functions 
 same code as above.
 */
@@ -359,7 +359,7 @@ try {
     console.log(error.message)
 }
 
-/************************************************/ console.log("\n", spaceMe, "10. Inheritance with constructor functions Challenge ", spaceMe, ""); /************************************************/  
+/************************************************/ console.log("\n\n\n\n", spaceMe, "10. Inheritance with constructor functions Challenge ", spaceMe, ""); /************************************************/  
 function EventCha(name, location, date) {
     this.name = name;
     this.location = location;
@@ -372,27 +372,25 @@ EventCha.prototype.getDetails = function() {
 }
 
 function Conference(name, location, date, keynoteSpeaker) {
-    EventCha.call(this, name, location, date)
+    EventCha.call(this, name, location, date) // gi-inherit ang property name, location, date gikan sa Parent, and gipang assign as the creating Object in Constructor
     this.keynoteSpeaker = keynoteSpeaker;
 }
 
 
-const keynoteSpeaker = {
-    name: 'Gabreal',
-    location: 'CDO',
-    date: '2025-08-11'
-}
+// const keynoteSpeaker = {
+//     name: 'Gabreal',
+//     location: 'CDO',
+//     date: '2025-08-11'
+// }
 
-Conference.prototype = Object.create(EventCha.prototype); // so inheritance in parent EventCha will work   ||    si Conference naka prototype sa Event.prototype
-Conference.prototype.constructor = Conference;            // so inheritance in parent EventCha will work   ||    si Conference naka prototype sa Event.prototype
+Conference.prototype = Object.create(EventCha.prototype); // this  will inheritance the parent EventCha    ||    si Conference naka prototype sa Event.prototype
+Conference.prototype.constructor = Conference;            // this  will inheritance the parent EventCha    ||    si Conference naka prototype sa Event.prototype
 
 
 Conference.prototype.getDetails = function () {
-    const eventBasics = EventCha.prototype.getDetails.call(this);
+    const eventBasics = EventCha.prototype.getDetails.call(this); 
     return `${eventBasics} Keynote Speaker: ${this.keynoteSpeaker}`;
 }
-
-
 
 
 /*
@@ -415,7 +413,7 @@ Challenge:
 const conference = new Conference('10 Nights of JS', 'Scrimba HQ', '2025-09-29', 'Ashley Smith');
 console.log(conference.getDetails());
 
-/************************************************/ console.log("\n", spaceMe, "11. Inheritance with Classes Syntax ", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "11. Inheritance with Classes Syntax ", spaceMe, ""); /************************************************/
 // Mas tsada pani ang Inheritance with Classes kaysa Inheritance with constructor functions kay mag gamit2 pakag prototype 
 class Ebent {
     constructor(name, location, date) {
@@ -451,7 +449,7 @@ class Consert extends Ebent {
 const consert = new Consert("Summer Beats", "City Stadium", "2023-07-15", "The Electrons New");
 console.log(consert.getDetails());
 
-/************************************************/ console.log("\n", spaceMe, "12. Inheritance with classes Challenge ", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "12. Inheritance with classes Challenge ", spaceMe, ""); /************************************************/
 
 class Eyvent {
     constructor(name, location, date) {
@@ -494,7 +492,7 @@ class TennisMatch extends Eyvent {
 const tennisMatch = new TennisMatch("Grand Slam Final", "Wimbledon", "2025-07-15", "J Bloggs", "B Doe");
 console.log(tennisMatch.getDetails());
 
-/************************************************/ console.log("\n", spaceMe, "13. Static methods and properties", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "13. Static methods and properties", spaceMe, ""); /************************************************/
 
 class Employee {
     static employeeCount = 0;
@@ -515,21 +513,55 @@ const employee3 = new Employee("Smith");
 console.log(Employee.employeeCount);
 console.log(Employee.getEmployeeCount());
 
-/************************************************/ console.log("\n", spaceMe, "14. Static methods Challenge", spaceMe, ""); /************************************************/
+/************************************************/ console.log("\n\n\n\n", spaceMe, "14. Static methods Challenge", spaceMe, ""); /************************************************/
 
 class Employyee {
-    constructor(name) {
+    constructor(name, role) {
         this.name = name;
+        this.role = role;
+    }
+
+    static getNewIntern(name, role) {
+        const myphdate = new Date();
+        const localTime = myphdate.toDateString();
+        const localTime2 = myphdate.toLocaleTimeString();
+
+        const startDate = `${localTime}, ${localTime2}`;
+        return {
+            name, 
+            role,
+            startDate: startDate
+        }
+    }
+
+    label_as_Gwapo() {
+        console.log(Employyee.getNewIntern(this.name, this.role));
     }
 }
 
 /*
 Challenge: 
-1. Set up a static called getNewIntern.
+1. Set up a static method called getNewIntern.
     getNewIntern should return an object with a 'name' property,
     a 'role' property which is hard-coded to 'intern', and a 
     'startDate' property which should be the time of code 
     execution.
 
-    (How can you use JS to get the time right no)
+    (How can you use JS to get the time right now?)
 */
+
+// const dateNow = new Date();
+// console.log(dateNow.getFullYear().toString());
+
+try {
+    // Employyee.gwapoKo();
+    // Employyee.gwapoKo();
+    // console.log(Employyee);
+    
+    const gabVs = new Employyee('Gabriel', 'Tig-ayo ref');
+    gabVs.label_as_Gwapo();
+    // console.log(Employyee.getNewIntern('Gabriel', 'Intern'));
+
+} catch (err) {
+    console.log(err.message);
+}

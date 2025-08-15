@@ -1,6 +1,6 @@
 package JavaIntermediate;
 
-import static java.lang.System.out; // imports the out object from the System class in the java.lang package
+// import static java.lang.System.out; // imports the out object from the System class in the java.lang package
 
 // import java.io.File;
 // import java.util.Scanner; // imports the Scanner class from the java.util package
@@ -31,7 +31,10 @@ class Myclass  {
     // static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
 
-        out.printf("%n%55s!%n", "Normalan");
+        
+
+
+        // out.printf("%n%55s!%n", "Normalan");
         // TestAll.main(args);
 
         
@@ -78,7 +81,76 @@ class Myclass  {
             }
         });
 
-        playSong.start();
+        // playSong.start();
+
+        Myclass usebSort = new Myclass();
+
+        int[] number = {10, 5, 6, 7, 2, 3, 1}; // 7 length
+        usebSort.bubbleSortEx(number);
+
+        System.out.print("\nBubble sorted: ");
+        for (int i : number) {
+            System.out.print(+i);
+        }
+
+        // Myclass addUp = new Myclass();
+        // System.out.println(addUp.addUp(10));
+
          
+    }
+
+    // Left Side — O(n) Linear Time
+    int addUp(int n) {
+        int sum = 0;
+        for (int i = 0; i <= n; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+
+    // Right Side—O(1) Constant Time
+    // int addUp(int n) {
+    //     int sum = n * (n + 1) / 2;
+    //     return sum;
+    // }
+
+    public void bubbleSortEx(int my_n[]) {
+        System.out.println("Bubble sorting..");
+
+        try {
+            // for outer loop
+            for (int i = 0; i < my_n.length-1; i++) {
+                System.out.println("------------------------");
+                // for inner loop : para saakoa murag inner loop ang una gi pahuarot nga index number ayha ang outer
+                for (int j = 0; j < my_n.length - i - 1; j++) {
+                    // System.out.println("\nj < "+(my_n.length - i -1)+" = "+(j < my_n.length - i - 1));
+                    // System.out.println("i: "+i +",  j: "+ j);
+                    // System.out.println(my_n[j]);
+
+                    /**
+                     *formula: 7 - i - 1
+                     * j = 0:  <   7 - 0 - 1  equal to 6    
+                     * j = 1:  <   7 - 1 - 1  equal to 5 
+                     * j = 2:  <   7 - 2 - 1  equal to 4 
+                     * j = 3:  <   7 - 3 - 1  equal to 3  
+                     * j = 4:  <   7 - 4 - 1  equal to 2  
+                     * j = 5:  <   7 - 5 - 1  equal to 1  
+                     * j = 6:  <   7 - 6 - 1  equal to 0  
+                     */
+                    // swap logic
+                    if (my_n[j] >  my_n[j + 1]) {
+                        System.out.println("\n"+j+" < "+ "7 - i - 1 = "+(my_n.length - i - 1));
+                        System.out.println("i: " + i + ",  j: " + j);
+                        int temp = my_n[j]; 
+                        my_n[j] = my_n[j+1];
+                        my_n[j+1] = temp;
+                    }
+                }
+            }
+        } catch(IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
+        
     }
 }

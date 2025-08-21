@@ -958,31 +958,31 @@ which makes the code difficult to read and maintain.
   All steps completed!
 */
 
-// function uploadFile(callback) {
-//   console.log(`Step 1: Uploading file...`);
+function uploadFile(callback) {
+  console.log(`Step 1: Uploading file...`);
 
-//   setTimeout(() => {
-//     callback(); // call next function
-//   }, 1000);
-// }
+  setTimeout(() => {
+    callback(); // call next function
+  }, 1000);
+}
 
-// function processingFile(callback) {
-//   console.log(`Step 2 : Processing file..`);
+function processingFile(callback) {
+  console.log(`Step 2 : Processing file..`);
 
-//   setTimeout(() => {
-//     callback(); // call next function
-//   }, 1000);
-// }
+  setTimeout(() => {
+    callback(); // call next function
+  }, 1000);
+}
 
-// function notifyUser(callback) {
-//   console.log(`Step 3: Notifying user...`);
+function notifyUser(callback) {
+  console.log(`Step 3: Notifying user...`);
 
-//   setTimeout(() => {
-//     callback(); // call next function
-//   }, 1000);
-// }
+  setTimeout(() => {
+    callback(); // call next function
+  }, 1000);
+}
 
-// // uploadFile(processingFile(notifyUser));
+uploadFile(processingFile(notifyUser));
 
 // // The pyramid of Doom
 // uploadFile(() => {

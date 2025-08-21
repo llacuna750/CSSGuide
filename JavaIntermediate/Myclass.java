@@ -1,5 +1,9 @@
 package JavaIntermediate;
 
+// import java.util.Scanner;
+
+import OOP_Practicing.Human;
+
 // import static java.lang.System.out; // imports the out object from the System class in the java.lang package
 
 // import java.io.File;
@@ -30,7 +34,30 @@ package JavaIntermediate;
 class Myclass  {
     // static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
+        // Scanner sc = new Scanner(System.in);
+        Human h1 = new Human();
+        h1.Speak();
 
+        // Boolean isBoolean = true;
+        // String notBoolean = "Not a boolean";
+
+
+        System.out.print("\nTry to not enter boolean values: ");
+        // Boolean isItBoolean = sc.nextBoolean();
+
+        // System.out.println(isItBoolean);
+
+        // boolean isBothBoolean = (isBoolean.getClass() == notBoolean.getClass()) || false;
+
+        // if (notBoolean != null && isBoolean.getClass() == Boolean.class) {
+        //     System.out.println("Value is a boolean.");
+        // }
+
+        // if (notBoolean != null && notBoolean.getClass().equals(Boolean.class)) {
+        //     System.out.println("notBoolean is a Boolean.");
+        // } else {
+        //     System.out.println("notBoolean is NOT a Boolean.");
+        // }
         
 
 
@@ -38,65 +65,65 @@ class Myclass  {
         // TestAll.main(args);
 
         
-        String[] Songlyrics = {
-            "Dapat mong malaman",
-            "Walang personalan ang mga kaganapan",
-            "Pwede bang normalan lang lahat ng ito",
-            "Sana ay magkatotoo...",
-            "Pero sa ngayon",
-            "",
-            "Dapat mong malaman",
-            "Walang personalan ang mga kaganapan",
-            "Pwede bang normalan lang lahat ng ito",
-            "Sana ay magkatotoo...",
-            "Pero sa ngayon"
-        };
+        // String[] Songlyrics = {
+        //     "Dapat mong malaman",
+        //     "Walang personalan ang mga kaganapan",
+        //     "Pwede bang normalan lang lahat ng ito",
+        //     "Sana ay magkatotoo...",
+        //     "Pero sa ngayon",
+        //     "",
+        //     "Dapat mong malaman",
+        //     "Walang personalan ang mga kaganapan",
+        //     "Pwede bang normalan lang lahat ng ito",
+        //     "Sana ay magkatotoo...",
+        //     "Pero sa ngayon"
+        // };
         
-        Thread playSong = new Thread(() -> {
-            for (String line : Songlyrics) {
-                if (line.trim().isEmpty()) {
-                    System.out.println(); // Print a blank line if the line is empty
-                    continue;   
-                }
+        // Thread playSong = new Thread(() -> {
+        //     for (String line : Songlyrics) {
+        //         if (line.trim().isEmpty()) {
+        //             System.out.println(); // Print a blank line if the line is empty
+        //             continue;   
+        //         }
  
-                String[] words = line.split(" ");
+        //         String[] words = line.split(" ");
 
-                for (String word : words) {
-                    System.out.print(word + " ");
-                    try {
-                        Thread.sleep(615); // Delay between each word
-                    } catch (InterruptedException e) {
-                        System.out.println("Thread was interrupted while sleeping!");
-                        return; // Exit thread early on interruption
-                    }
-                }
+        //         for (String word : words) {
+        //             System.out.print(word + " ");
+        //             try {
+        //                 Thread.sleep(615); // Delay between each word
+        //             } catch (InterruptedException e) {
+        //                 System.out.println("Thread was interrupted while sleeping!");
+        //                 return; // Exit thread early on interruption
+        //             }
+        //         }
 
-                System.out.println(); // Print newline after the line
-                try {
-                    Thread.sleep(610); // Delay between each line
-                } catch (InterruptedException e) {
-                    System.out.println("Thread was interrupted while sleeping!");
-                    return;
-                }
-            }
-        });
+        //         System.out.println(); // Print newline after the line
+        //         try {
+        //             Thread.sleep(610); // Delay between each line
+        //         } catch (InterruptedException e) {
+        //             System.out.println("Thread was interrupted while sleeping!");
+        //             return;
+        //         }
+        //     }
+        // });
 
         // playSong.start();
 
-        Myclass usebSort = new Myclass();
+        // Myclass usebSort = new Myclass();
 
-        int[] number = {10, 5, 6, 7, 2, 3, 1}; // 7 length
-        usebSort.bubbleSortEx(number);
+        // int[] number = {10, 5, 6, 7, 2, 3, 1}; // 7 length
+        // usebSort.bubbleSortEx(number);
 
-        System.out.print("\nBubble sorted: ");
-        for (int i : number) {
-            System.out.print(+i);
-        }
+        // System.out.print("\nBubble sorted: ");
+        // for (int i : number) {
+        //     // System.out.print(+i);
+        // }
 
         // Myclass addUp = new Myclass();
         // System.out.println(addUp.addUp(10));
 
-         
+        // forLoop(number);
     }
 
     // Left Side — O(n) Linear Time
@@ -115,6 +142,16 @@ class Myclass  {
     //     return sum;
     // }
 
+
+    public static void forLoop(int n[]) {
+        for(int i=0; i<n.length-1; i+=1) {
+            System.out.println("------------------------");
+            for(int j=0; j<n.length-1; j++) {
+                System.out.println("i: "+i+" j: "+j);
+            }
+        }
+    }
+
     public void bubbleSortEx(int my_n[]) {
         System.out.println("Bubble sorting..");
 
@@ -130,7 +167,7 @@ class Myclass  {
 
                     /**
                      *formula: 7 - i - 1
-                     * j = 0:  <   7 - 0 - 1  equal to 6    
+                     * j = 0:  <   7 - 0 - 1  equal to 6     
                      * j = 1:  <   7 - 1 - 1  equal to 5 
                      * j = 2:  <   7 - 2 - 1  equal to 4 
                      * j = 3:  <   7 - 3 - 1  equal to 3  

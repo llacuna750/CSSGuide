@@ -510,7 +510,7 @@ const employee1 = new Employee("Alice");
 const employee2 = new Employee("Bob");
 const employee3 = new Employee("Smith");
 
-console.log(Employee.employeeCount);
+console.log('employeeCount:',Employee.employeeCount);
 console.log(Employee.getEmployeeCount());
 
 /************************************************/ console.log("\n\n\n\n", spaceMe, "14. Static methods Challenge", spaceMe, ""); /************************************************/
@@ -524,7 +524,7 @@ class Employyee {
     static getNewIntern(name, role) {
         const myphdate = new Date();
         const localTime = myphdate.toDateString();
-        const localTime2 = myphdate.toLocaleTimeString();
+        const localTime2 = myphdate.toLocaleTimeString();   
 
         const startDate = `${localTime}, ${localTime2}`;
         return {
@@ -565,3 +565,42 @@ try {
 } catch (err) {
     console.log(err.message);
 }
+
+/************************************************/ console.log("\n\n\n\n", spaceMe, "15. Private Fields", spaceMe, ""); /************************************************/
+// the operator of private fields is # sign
+class Holiday {
+    #destination; // this is unneccessary to add when you not accessing or modifying outside the class. else add it
+    constructor(destination, price) {
+        this.#destination = destination; // can't log the destination property if use # operator or privating fields.
+        // this._destination = destination; 
+        this.price = price;
+    }
+}
+
+const safari = new Holiday('Kenya', 1000);
+// safari.#destination = 'Cagayan'; // it set private the destination
+console.log(safari);
+
+/************************************************/ console.log("\n\n\n\n", spaceMe, "16. Getters and Setters", spaceMe, ""); /************************************************/
+
+class HolidayExample {
+    #destination; // private fields
+    constructor(destination, price) {
+        this.#destination = destination; // can't log the destination property if use # operator or privating fields.
+        // this._destination = destination; 
+        this.price = price;
+    }
+
+    // get destination(){
+    //     return this.#destination;
+    // }
+}
+try {
+    const sapari = new HolidayExample('Kenya', 1000);
+    // sapari.destination = 'Philipines';
+    console.log(safari.destination); // undefined
+} catch (err) {
+    console.log(err.message);
+}
+
+// console.log(safari.#destination); // SyntaxError: Private field '#destination' must be declared in an enclosing class

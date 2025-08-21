@@ -13,21 +13,10 @@ public class Listobject {
     static Listobject getGender = new Listobject();
     String m = "Male", f = "Female";
 
-    public static void main(String[] args) {
-        /*
-         * Person dabskie = new Person("Gabriel", 20);
-         * dabskie.setName("Dabdev"); // Updated the name
-         * out.println(dabskie.getName());
-         */
-
-        // List<Person> listofPersonOld = Arrays.asList(new Person("Gabriel", 21)); //
-        // Another alternative way of adding a Object in List
-        runMe.run();
-    }
 
     public void run (){
         List<Person> listofPerson = new ArrayList<>(); // have multibly Objects inside the List
-
+        
         listofPerson.add(new Person("Gabriel", 21, getGender.m));
         listofPerson.add(new Person("Jobert", 18, getGender.m));
         listofPerson.add(new Person("PulapSkert", 23, getGender.m));
@@ -112,4 +101,16 @@ public class Listobject {
         }
         return result;
     };
+
+    public static void main(String[] args) {
+        /*
+         * Person dabskie = new Person("Gabriel", 20);
+         * dabskie.setName("Dabdev"); // Updated the name
+         * out.println(dabskie.getName());
+         */
+
+        // List<Person> listofPersonOld = Arrays.asList(new Person("Gabriel", 21)); //
+        // Another alternative way of adding a Object in List
+        runMe.run();
+    }
 }

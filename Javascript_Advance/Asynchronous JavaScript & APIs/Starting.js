@@ -370,7 +370,7 @@ function createPromise() {
 }
 
 // Promise.all chada gamiton ni, ug imohang target is dapat ma successfull sila tanan ayha ma resolve.
-try {
+try {f
   const promise1 = new createPromise();
   const promise2 = new createPromise();
   const promise3 = new createPromise();

@@ -19,7 +19,8 @@ class Programa {
          * public void start() {
          * System.out.println("Starting...");
          * }
-         * }
+         * }+
+         * 
          * 
          * When creating the Machine object, we can change the start method on the fly.
          * 
@@ -47,9 +48,10 @@ class Programa {
         int pick = pick1to3(sc);
         if (pick != 2) {
             Machine m = new Machine() { 
-                @Override public void start() {
+                @Override 
+                public void start() {
                     System.out.println("Wooooo");
-                }
+                } 
             };
             System.out.println("\nAnnonymous Class \n");
             m.start();
@@ -66,7 +68,7 @@ class Programa {
          */
         if (pick != 1) {
             Robot r = new Robot(3);
-            System.out.println("\nInner Class\nAssign the id. \nid = "+r.id);
+            System.out.println("\nInner Class \nAssign the id. \nid = "+r.id);
         }
         sc.close();
     }

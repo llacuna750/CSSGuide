@@ -20,7 +20,19 @@ public class Main {
         private: Accessible only within the declared class itself.
     */
     public static void main(String[] args) {
-        Library lib = new Library();
-        lib.showMenu();
+        // Library lib = new Library();
+        // lib.showMenu(); // Library Management System 
+        
+        Earphone ep1 = new Wireless_earbuds(50, 100, "Sony");
+        ep1.muteVolume();
+        ep1.clickPowerOn();
+        ep1.clickPowerOn(5);
+        // System.out.println(ep1);
+        // ep1.muteVolume();
+        // System.out.println(ep1);
+
+        // Earphone epSample = new Earphone();
+        // epSample.setVolume_Level(5);;
+        // System.out.println(epSample);
     }
 }

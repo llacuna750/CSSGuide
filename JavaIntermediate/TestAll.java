@@ -599,15 +599,15 @@ class TestAll extends Listobject {
              * switch (a) {
              * case SOLDIER:
              * System.out.println("Soldier says hi!");
-             * break;
+             *                                           break;
              * case SERGEANT:
              * System.out.println("Sergeant says Hello!");
-             * break;
+             *                                           break;
              * case CAPTAIN:
              * System.out.println("Captain says Welcome!");
-             * break;
+             *                                           break;
              * default:
-             * break;
+             *                                           break;
              * }
              * 
              * You should always use Enums when a variable (especially a method parameter)
@@ -630,15 +630,15 @@ class TestAll extends Listobject {
             switch (a_gay) {
                 case SOLDIER:
                     System.out.println("Soldier says hi!");
-                    break;
+                                                              break;
                 case SERGEANT:
                     System.out.println("Sergeant says Hello!");
-                    break;
+                                                              break;
                 case CAPTAIN:
                     System.out.println("Captain says Welcome!");
-                    break;
+                                                              break;
                 default:
-                    break;
+                                                              break;
             }
             System.out.println("\n" + spaces + "Using the Java API" + spaces);
             /*
@@ -1638,144 +1638,56 @@ class TestAll extends Listobject {
             int choosing = checkifIntInput(sc);
             try {
                 switch (choosing) {
-                    case 0:
-                        main(args);
-                        break;
-                    case 1:
-                        Choosespeci_Code.javaOOP();
-                        break;
-                    case 2:
-                        Choosespeci_Code.Animalclass();
-                        break;
-                    case 3:
-                        Choosespeci_Code.Constructors();
-                        break;
-                    case 4:
-                        Choosespeci_Code.Javainter_Class();
-                        break;
-                    case 5:
-                        Choosespeci_Code.Sakyanan_Class();
-                        break;
-                    case 6:
-                        Choosespeci_Code.Person_Class();
-                        break;
-                    case 7:
-                        Choosespeci_Code.The_Math_Class();
-                        break;
-                    case 8:
-                        Choosespeci_Code.the_Static();
-                        break;
-                    case 9:
-                        Choosespeci_Code.Final();
-                        break;
-                    case 10:
-                        Choosespeci_Code.Encapsulating();
-                        break;
-                    case 11:
-                        Choosespeci_Code.theInheritance();
-                        break;
-                    case 12:
-                        Choosespeci_Code.thePolymorphism();
-                        break;
-                    case 13:
-                        Choosespeci_Code.OverridingandOverloading();
-                        break;
-                    case 14:
-                        Choosespeci_Code.theAbstract();
-                        break;
-                    case 15:
-                        Choosespeci_Code.FloydsTriangle();
-                        break;
-                    case 16:
-                        Kindsofforloop.main(args);
-                        break;
-                    case 17:
-                        squaroot(zeroTounli_sqroot(sc));
-                        break;
-                    case 18:
-                        square(zeroTounli_square(sc));
-                        break;
-                    case 19:
-                        Minandmax.minandmaximum();
-                        break;
-                    case 20:
-                        Choosespeci_Code.interfaceTestClass();
-                        break;
-                    case 21:
-                        Choosespeci_Code.getFactorialRecurs();
-                        break;
-                    case 22:
-                        Choosespeci_Code.type_Casting();
-                        break;
-                    case 23:
-                        Programa.main(args);
-                        break;
-                    case 24:
-                        hashcodeChecker(sc);
-                        break;
-                    case 25:
-                        Choosespeci_Code.The_equals_method();
-                        break;
-                    case 26:
-                        Choosespeci_Code.Enum();
-                        break;
-                    case 27:
-                        Choosespeci_Code.error_Handling();
-                        break;
-                    case 28:
-                        Multiple_Exceptions(20, 0);
-                        break;
-                    case 29:
-                        Thread_Me();
-                        break;
-                    case 30:
-                        TypesofExceptions();
-                        break;
-                    case 31:
-                        Ternary_Operator();
-                        break;
-                    case 32:
-                        specificode.rand0mClass();
-                        break;
+                    case 0:    main(args);                                    break;
+                    case 1:    Choosespeci_Code.javaOOP();                    break;
+                    case 2:    Choosespeci_Code.Animalclass();                break;
+                    case 3:    Choosespeci_Code.Constructors();               break;
+                    case 4:    Choosespeci_Code.Javainter_Class();            break;
+                    case 5:    Choosespeci_Code.Sakyanan_Class();             break;
+                    case 6:    Choosespeci_Code.Person_Class();               break;
+                    case 7:    Choosespeci_Code.The_Math_Class();             break;
 
-                    case 33:
-                        Array_List();
-                        break;
-                    case 34:
-                        LinkedList_v0();
-                        break;
-                    case 35:
-                        HashMap_Method();
-                        break;
-                    case 36:
-                        specificode.arraySort();
-                        break;
-                    case 37:
-                        ArrayListSort();
-                        break;
-                    case 38:
-                        HashSets_LinkedHashSet();
-                        break;
-                    case 39:
-                        methodIterator();
-                        break;
+                    case 8:    Choosespeci_Code.the_Static();                 break;
+                    case 9:    Choosespeci_Code.Final();                      break;
+                    case 10:    Choosespeci_Code.Encapsulating();             break;
+                    case 11:    Choosespeci_Code.theInheritance();            break;
+                    case 12:    Choosespeci_Code.thePolymorphism();           break;
+                    case 13:    Choosespeci_Code.OverridingandOverloading();  break;
+                    case 14:    Choosespeci_Code.theAbstract();               break;
+                    case 15:    Choosespeci_Code.FloydsTriangle();            break;
+                    case 16:    Kindsofforloop.main(args);                    break;
 
-                    case 40:
-                        wwF();
-                        break;
-                    case 41:
-                        readingFile();
-                        break;
-                    case 42:
-                        Creating_Writing_Files();
-                        break;
-                    case 43:
-                        Java_2_Module_3_Quiz();
-                        break;
-                    case 44:
-                        runMe.run();
-                        break;
+                    case 17:    squaroot(zeroTounli_sqroot(sc));              break;
+                    case 18:    square(zeroTounli_square(sc));                break;
+                    case 19:    Minandmax.minandmaximum();                    break;
+                    case 20:    Choosespeci_Code.interfaceTestClass();        break;
+                    case 21:    Choosespeci_Code.getFactorialRecurs();        break;
+                    case 22:    Choosespeci_Code.type_Casting();              break;
+                    case 23:    Programa.main(args);                          break;
+                    case 24:    hashcodeChecker(sc);                          break;
 
+                    case 25:    Choosespeci_Code.The_equals_method();         break;
+                    case 26:    Choosespeci_Code.Enum();                      break;
+                    case 27:    Choosespeci_Code.error_Handling();            break;
+                    case 28:    Multiple_Exceptions(20, 0);                   break;
+                    case 29:    Thread_Me();                                  break;
+                    case 30:    TypesofExceptions();                          break;
+                    case 31:    Ternary_Operator();                           break;
+                    case 32:    specificode.rand0mClass();                    break;
+
+                    case 33:    Array_List();                                 break;
+                    case 34:    LinkedList_v0();                              break;
+                    case 35:    HashMap_Method();                             break;
+                    case 36:    specificode.arraySort();                      break;
+                    case 37:    ArrayListSort();                              break;
+                    case 38:    HashSets_LinkedHashSet();                     break;
+                    case 39:    methodIterator();                             break;
+
+                    case 40:    wwF();                                        break;
+                    case 41:    readingFile();                                break;
+                    case 42:    Creating_Writing_Files();                     break;
+                    case 43:    Java_2_Module_3_Quiz();                       break;
+                    case 44:    runMe.run();                                  break;
                     default:
                 }
             } catch (ExceptionInInitializerError e) {

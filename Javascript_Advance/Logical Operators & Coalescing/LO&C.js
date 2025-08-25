@@ -89,7 +89,7 @@ function fetchUserBalance() {
     // const userBalance = 10; // set the userBalance to 0;
     const userBalance = 0; // an falsy value
     return userBalance; // comment this line of code.
-}
+}   
 
 /* Challenge:
 1. Figure what problem this code has and why it's happening.

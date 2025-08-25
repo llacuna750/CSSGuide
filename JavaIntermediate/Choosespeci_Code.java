@@ -549,9 +549,9 @@ public class Choosespeci_Code extends TestAll {
     static void Enum () {
         Rank a_gay = Rank.SOLDIER;
             switch (a_gay) {
-            case SOLDIER: System.out.println("Soldier says hi!"); break;
-            case SERGEANT: System.out.println("Sergeant says Hello!"); break;
-            case CAPTAIN: System.out.println("Captain says Welcome!"); break;
+                case SOLDIER: System.out.println("Soldier says hi!");       break;
+                case SERGEANT: System.out.println("Sergeant says Hello!");  break;
+                case CAPTAIN: System.out.println("Captain says Welcome!");  break;
             default: break;
         }
     }
@@ -634,7 +634,7 @@ public class Choosespeci_Code extends TestAll {
         
         out.println("Choose: \n1. Scissor\n2. Rock\n3. Paper\n");
         boolean valid = false;
-
+        
         while (!valid) {
             try {
                 out.print("Your choice (1-3): ");

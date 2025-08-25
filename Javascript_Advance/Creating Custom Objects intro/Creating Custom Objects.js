@@ -217,8 +217,8 @@ try {
     // displayPolitician.apply(politician2, ['Study Hard']); // .apply() method
 
     // displayPolitician();    
-    displayPolitician.apply(politician1, ['In jail for corruption']);
-    displayPolitician.call(politician2, 'Resigned due to incompetence');
+    displayPolitician.apply(politician1, ['In jail for corruption']); // array .apply()
+    displayPolitician.call(politician2, 'Resigned due to incompetence'); // non-array .call()
 } catch (err) {
     console.log(`Error an occur:`, err.message);
 }
@@ -566,10 +566,13 @@ try {
     console.log(err.message);
 }
 
+
+
 /************************************************/ console.log("\n\n\n\n", spaceMe, "15. Private Fields", spaceMe, ""); /************************************************/
 // the operator of private fields is # sign
 class Holiday {
     #destination; // this is unneccessary to add when you not accessing or modifying outside the class. else add it
+
     constructor(destination, price) {
         this.#destination = destination; // can't log the destination property if use # operator or privating fields.
         // this._destination = destination; 
@@ -577,9 +580,19 @@ class Holiday {
     }
 }
 
-const safari = new Holiday('Kenya', 1000);
-// safari.#destination = 'Cagayan'; // it set private the destination
-console.log(safari);
+try {
+    const safari = new Holiday('Kenya', 1000);
+    
+    safari._destination = "Cagayan"; // it set private the destination
+    // safari.#destination = "Tanzania";
+    // safari.#destination = "Philippines"; // SyntaxError: Private field '#destination' must be declared in an enclosing class
+    console.log(safari);
+} catch (error) {
+    console.log(error.message);
+}
+
+
+
 
 /************************************************/ console.log("\n\n\n\n", spaceMe, "16. Getters and Setters", spaceMe, ""); /************************************************/
 
@@ -591,16 +604,204 @@ class HolidayExample {
         this.price = price;
     }
 
-    // get destination(){
-    //     return this.#destination;
-    // }
+    get destination(){
+        return this.#destination;
+    }
+
+    set destination(newDestination) {
+        if (typeof newDestination !== 'string' || newDestination.length <= 0) {
+            throw new Error('Destination not valid!');
+        }
+        this.#destination = newDestination;
+    }
 }
 try {
     const sapari = new HolidayExample('Kenya', 1000);
+
     // sapari.destination = 'Philipines';
-    console.log(safari.destination); // undefined
+    sapari.destination = "USTP";
+    console.log(sapari.destination);    // USTP
+    console.log(sapari);                // HolidayExample { price: 1000 }
+    // console.log(safari.#destination); // SyntaxError: Private field '#destination' must be declared in an enclosing class
 } catch (err) {
     console.log(err.message);
 }
 
-// console.log(safari.#destination); // SyntaxError: Private field '#destination' must be declared in an enclosing class
+
+
+/************************************************/ console.log("\n\n\n\n", spaceMe, "(from web). What are iterators and iterable protocols?  https://blog.logrocket.com/iterator-helpers-es2025/?ref=dailydev", spaceMe, ""); /************************************************/
+const arr = [10, 20, 30];
+const iter = arr[Symbol.iterator]();
+
+
+console.log(iter.next().done); // { value: 10, done: false }
+console.log(iter.next()); // { value: 20, done: false }
+console.log(iter.next()); // { value: 30, done: false }
+console.log(iter.next()); // { value: undefined, done: true }
+
+
+
+/************************************************/ console.log("\n\n\n\n", spaceMe, "17. Getters and Setters Challenge", spaceMe, ""); /************************************************/
+/*
+    1. Make 'price' a private field
+    2. Create a getter for price which appends a $ sign
+        to the front and displays it to a max of 2 decimal 
+        places.
+    3. Create a setter for price which updates price with a 
+        new price.
+    4. Test!
+*/
+class HolidayChallenge {
+    #destination; // private fields
+    #price;
+
+    constructor(destination, price) {
+        // this._destination = destination; 
+        this.#destination = destination; // can't log the destination property if use # operator or privating fields.
+        this.#price = price;
+    }
+
+    // Getters & Setters of destination property
+    get destination() {
+        return this.#destination;
+    }
+
+    set destination(newDestination) {
+        if (typeof newDestination !== 'string' || newDestination.length <= 0) {
+            throw new Error('Destination not valid!');
+        }
+        this.#destination = newDestination;
+    }
+
+
+    // Getters & Setters of price property
+    get price() {
+        return `$${this.#price.toFixed(2)}`;
+    } 
+
+    set price(newPrice) {
+        if (typeof newPrice !== 'number' || newPrice < 0) {
+            throw new TypeError(`Price must be a non-negative number. Got: ${newPrice}`);
+        }
+        this.#price = newPrice; 
+        
+        // Use helper validation
+        // const newPresyo = this.valid0(newPrice) ?? this.inValid();
+        // console.log("Validated price:", newPresyo);
+        // this.#price = newPresyo;  // ✅ fixed (was setting destination before)
+    }
+
+    // Validation helpers
+    // inValid() {
+    //     throw new Error('Invalid new presyo');
+    // }
+
+    // valid0(presyo) {
+    //     return (typeof presyo === 'number' && presyo >= 0) ? presyo : null;
+    // }
+
+    toString() {
+        return `HolidayExample: The budget when you go in ${this.#destination} is $${this.#price}.`;
+    }
+}
+
+try {
+    const trip = new HolidayChallenge('Uptown SM', 50);
+    trip.price = 1000;
+    // c.price = 'price invalid';
+
+    console.log(trip.price);
+    console.log(trip);
+    console.log(trip.toString());
+} catch (err) {
+    console.log(err.message);
+}
+
+
+
+/************************************************/ console.log("\n\n\n\n", spaceMe, "18. Super Challenge: Game Characters", spaceMe, ""); /************************************************/
+
+class Character {
+    /* Base Character Class
+    Your task to design and implement a Character Class with properties 'name' (a string), 'health' 
+    (a number), and isAlive (a boolean). This class will serve as a foundation for a simple game or 
+    simulation where characters can take damage and possibly "die" if their health reaches zero.
+
+    Class Structure:
+    Your class should have:
+    - a name property that is set through the constructor.
+    - a private health property initialized to 100.
+    - a static property count to track how many characters have been created.
+
+    Static Methods to add:
+    - incrementCount() to increase the count each time a new character is instantiated.
+    - getCount() to return the current number of characters.
+
+    Health Management:
+    - Include a getter and a setter for health. The setter should ensure that the health value does not 
+      fall below zero.
+
+    Damage Functionality:
+    - Implement a method 'takeDamage' which decreases the health value by a specified amount.
+
+    Alive Status:
+    - Implement a getter for 'isAlive' that returns a boolean value. A character is considered alive if 
+      their health is greater than zero.
+
+    Status Report:
+    - Implement a method getStatus() that returns a string stating the character's name, 
+      current health, and whether they are alive or dead.
+    */
+}
+
+class Hero {
+    /* The Hero class
+    The Hero class should inherit from Character. This new class should include additional 
+    functionality to manage an inventory of items that the hero can collect during gameplay.
+
+    Constructor:
+    - The constructor for the Hero class should initialize the hero with a name and an empty inventory 
+      for items.
+
+    Inventory Management:
+    - Implement a method pickUpItem that allows the hero to add items to their inventory.
+    - Items should simply be added to an array.
+
+    Item Retrieval:
+    - Implement a method getItems that returns a string listing all the items in the hero's inventory.
+    */
+}
+
+
+class Villain {
+    /* The Villain class
+    The Villain class should inherit from Character. This new class should include additional 
+    functionality to allow the villain to issue a threat.
+
+    Constructor:
+    - The constructor for the Villain class should initialize the villain with a name and a threat.
+
+    Threat
+    - The getThreat method should simply return the threat.
+    */
+}
+
+
+// Example Usage
+const merlin = new Hero("Merlin");
+const medea = new Hero("Medea");
+const troll = new Villain("Troll", "I will destroy your soul!");
+
+console.log(troll.getThreat()); // I will destroy your soul!
+merlin.pickUpItem("Sword");
+merlin.takeDamage(15);
+medea.takeDamage(5);
+medea.pickUpItem("Shield");
+
+console.log(merlin.getItems()); // Merlin has the following items: Sword
+console.log(medea.getItems()); // Medea has the following items: Shield
+troll.takeDamage(101);
+console.log(troll.getStatus()); // Troll has 0 health and is dead.
+console.log(medea.getStatus()); // Medea has 95 health and is alive.
+console.log(merlin.getStatus()); // Merlin has 85 health and is alive.
+console.log(`Total characters created: ${Character.getCount()}`); // Total characters created: 3

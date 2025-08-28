@@ -128,7 +128,7 @@ console.log(`Your balance is ${displayBalance}`);
 /*******************************************/ console.log("\n", spaceMe, "6. Optional Chaining", spaceMe, ""); /************************************************/
 const library = {
     sections: {
-        fiction: {
+        fictions: {
             genres: {
                 fantasy: [
                     { title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937 },

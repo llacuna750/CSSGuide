@@ -196,20 +196,26 @@ function renderStockTicker(stockData) {
 */
 
 console.log("\n", spaceMe, "15 .includes()", spaceMe, "\n");
+
 /* A method for checking if an array holds a given value?  */
 const emojis = ['🦒', '🦁', '🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
 
+
 const shoppingList = []; // Our Container of Shopping List
 console.log(`ShoppingList empty?`, shoppingList.length === 0); // Check if the shoppingList is Empty
+
 
 const addItemButton = $(`#addButton`);
 const itemInput = $("#itemName");
 const list = $("#list");
 
+
+
 let numThat = shoppingList.map((disNum) => {
   return disNum * 5; // Multiply the Array Element by 5
 });
+
 
 addItemButton.onclick = () => {
   /* Challenge: 
@@ -328,7 +334,7 @@ const playListMapforEach = playlistArr.forEach((playListNako) => { // How about 
       </div>
     </section>`
   );
-}); // <- Were not using .join() method here because we use forEach() method
+}); // <- Were not using .join() method here because we use forEach() method instead we extend .join() in bagOplayList array List
 
 
 

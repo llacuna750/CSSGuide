@@ -1929,7 +1929,7 @@ class TestAll extends Listobject {
     static int Factorecursive(int n) {
         return (n != 0) ? n *= Factorecursive(n - 1) : 1;
     }
-
+    
     int sum_torial(int k) {
         if (k > 0) {
             // Recursive style its like factorial But it Sum method

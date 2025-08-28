@@ -165,7 +165,7 @@ console.log(`Total price (with tax): ${total.toFixed(2)}`);
 // }
 
 // From Constructor Functions converted to Class
-class Character {
+class Characterr {
     constructor(name) {
         this.name = name;
         this.collectedItemArr = [];
@@ -181,8 +181,8 @@ class Character {
 }
 
 
-const wizard = new Character('Gabriel'); // wizard is si Gabriel
-const witch = new Character('Chikarnd'); // witch is si Chikarnd
+const wizard = new Characterr('Gabriel'); // wizard is si Gabriel
+const witch = new Characterr('Chikarnd'); // witch is si Chikarnd
 
 wizard.addItem('Shabu'); // Add a item on wizard
 wizard.addItem('Marijuana'); // Add a item on wizard
@@ -502,16 +502,16 @@ class Employee {
         Employee.employeeCount++;
     }
     
-    static getEmployeeCount() {
+    getEmployeeCount() {
         return  Employee.employeeCount;
     }
 }
-const employee1 = new Employee("Alice");
-const employee2 = new Employee("Bob");
-const employee3 = new Employee("Smith");
+let employee1 = new Employee("Alice");
+let employee2 = new Employee("Bob");
+let employee3 = new Employee("Smith");
 
 console.log('employeeCount:',Employee.employeeCount);
-console.log(Employee.getEmployeeCount());
+console.log(employee2.getEmployeeCount());
 
 /************************************************/ console.log("\n\n\n\n", spaceMe, "14. Static methods Challenge", spaceMe, ""); /************************************************/
 
@@ -722,58 +722,184 @@ try {
 /************************************************/ console.log("\n\n\n\n", spaceMe, "18. Super Challenge: Game Characters", spaceMe, ""); /************************************************/
 
 class Character {
+    name;
+    #health;
+    #isAlive;
+
+    static #Charactercount = 0;
+
+    constructor(name, initialHealth = 100) {
+        this.name = name;
+
+        if (typeof initialHealth !== 'number' || initialHealth < 0) {
+            throw new Error("Initial health must be a non-negative number!");
+        }
+
+        this.#health = initialHealth;
+
+        if (this.#health > 0) {
+            this.#isAlive = true;
+        }
+        
+        Character.#incrementCount();
+    }
+
+
+    static #incrementCount() {
+        return Character.#Charactercount++;
+    }
+
+    static getCount() {
+        return Character.#Charactercount;
+    }
+
+
+    // Getter & Setters of health
+    get health() {
+        return this.#health;
+    }
+
+    
+    set health(newhealth) {
+        // this.#health = Math.max(0, newhealth); // shortcut for code below!
+
+        if (typeof newhealth !== 'number') {
+            throw new Error("health must be a number!");
+        }
+
+        this.#health = newhealth;
+
+        if (this.#health < 0) {
+            this.#health = 0;
+            throw new Error("Health cannot be negative!");
+        }
+    }
+
+
+    takeDamage(damageAmount) {
+        if (typeof damageAmount !== 'number') {
+            throw new Error('Damage must be a number!')
+        }
+
+        this.#health -= damageAmount;
+
+        if (this.#health < 0) {
+            this.#health = 0; // dead, cannot go negative
+            this.#isAlive = false;
+        }
+
+        return this.#health;
+    }
+
+
+    get isAlive() {
+        // return this.#isAlive;
+        return this.#health > 0;
+    }
+
+
+    getStatus() {
+        const status = (this.#health > 1) ? `${this.name}, current Health is ${this.#health} HP, and it is still can fight` 
+            : (this.#health === 1) ? `Tsk! Tsk! ${this.name}, ang life nimo is ${this.#health} HP nalang, isa nalang ka huyop nimo patay naka!` 
+            : `${this.name}, current Health is ${this.#health} HP, dead!`;
+        return status;
+    }
+
     /* Base Character Class
-    Your task to design and implement a Character Class with properties 'name' (a string), 'health' 
-    (a number), and isAlive (a boolean). This class will serve as a foundation for a simple game or 
-    simulation where characters can take damage and possibly "die" if their health reaches zero.
+        Your task to design and implement a Character Class with properties 'name' (a string), 'health' 
+        (a number), and isAlive (a boolean). This class will serve as a foundation for a simple game or 
+        simulation where characters can take damage and possibly "die" if their health reaches zero.
+        
+        
+        Class Structure:
+        Your class should have:
+        - a name property that is set through the constructor.  
+        - a private health property initialized to 100.
+        - a static property count to track how many characters have been created.
 
-    Class Structure:
-    Your class should have:
-    - a name property that is set through the constructor.
-    - a private health property initialized to 100.
-    - a static property count to track how many characters have been created.
 
-    Static Methods to add:
-    - incrementCount() to increase the count each time a new character is instantiated.
-    - getCount() to return the current number of characters.
+        Static Methods to add:
+        - incrementCount() to increase the count each time a new character is instantiated.
+        - getCount() to return the current number of characters.
+        
+        
+        Health Management:
+        - Include a getter and a setter for health. The setter should ensure that the health value does not 
+        fall below zero.
 
-    Health Management:
-    - Include a getter and a setter for health. The setter should ensure that the health value does not 
-      fall below zero.
 
-    Damage Functionality:
-    - Implement a method 'takeDamage' which decreases the health value by a specified amount.
+        Damage Functionality:
+        - Implement a method 'takeDamage' which decreases the health value by a specified amount.
 
-    Alive Status:
-    - Implement a getter for 'isAlive' that returns a boolean value. A character is considered alive if 
-      their health is greater than zero.
 
-    Status Report:
-    - Implement a method getStatus() that returns a string stating the character's name, 
-      current health, and whether they are alive or dead.
+        Alive Status:
+        - Implement a getter for 'isAlive' that returns a boolean value. A character is considered alive if 
+        their health is greater than zero.
+
+
+        Status Report:
+        - Implement a method getStatus() that returns a string stating the character's name, 
+        current health, and whether they are alive or dead.
+
+
+        Completed?   check! 
     */
 }
 
-class Hero {
+
+class Hero extends Character {
+    #inventory = [];
+
+    constructor(name) {
+        super(name);
+        this.#inventory;  
+    }
+
+    pickUpItem(itemPickUp) {
+        this.#inventory.push(itemPickUp);
+    }
+
+    getItems() {
+        console.log(`\nList Item:`);
+
+        return `${this.name} has the following items: ${this.#inventory.join(", ")}`  // Tom Chant Version
+
+        return this.#inventory.map((item, index) => {
+            return `${index + 1}: ${item}\n`;
+        }).join("");    // My Version.
+    }
     /* The Hero class
-    The Hero class should inherit from Character. This new class should include additional 
-    functionality to manage an inventory of items that the hero can collect during gameplay.
+        The Hero class should inherit from Character. This new class should include additional 
+        functionality to manage an inventory of items that the hero can collect during gameplay.
 
-    Constructor:
-    - The constructor for the Hero class should initialize the hero with a name and an empty inventory 
-      for items.
+        Constructor:
+        - The constructor for the Hero class should initialize the hero with a name and an empty inventory 
+        for items.
 
-    Inventory Management:
-    - Implement a method pickUpItem that allows the hero to add items to their inventory.
-    - Items should simply be added to an array.
 
-    Item Retrieval:
-    - Implement a method getItems that returns a string listing all the items in the hero's inventory.
+        Inventory Management:
+        - Implement a method pickUpItem that allows the hero to add items to their inventory.
+        - Items should simply be added to an array.
+
+        
+        Item Retrieval:
+        - Implement a method getItems that returns a string listing all the items in the hero's inventory.
     */
 }
 
 
-class Villain {
+class Villain extends Character {
+    #threat;
+
+    constructor(name, threat) {
+        super(name);
+        this.#threat = threat;
+    }
+
+    getThreat() {
+        // return this.#threat;
+        return `${this.name}  ->  ${this.#threat}`;
+    }
     /* The Villain class
     The Villain class should inherit from Character. This new class should include additional 
     functionality to allow the villain to issue a threat.
@@ -786,22 +912,42 @@ class Villain {
     */
 }
 
+try {
+    const c1 = new Character(`Dabvs`);
+    new Character(`Daniel Padaplin`);
+    new Character(`Hacky`);
 
-// Example Usage
-const merlin = new Hero("Merlin");
-const medea = new Hero("Medea");
-const troll = new Villain("Troll", "I will destroy your soul!");
+    console.log(c1);
+    c1.health = 2;
+    // c1.health = -1;                              // Health cannot be negative!
+    console.log(`Health set to: ${c1.health}`);
+    console.log(c1.getStatus());
+    console.log(Character.getCount());
+    console.log(Character.Charactercount);          // undefined
 
-console.log(troll.getThreat()); // I will destroy your soul!
-merlin.pickUpItem("Sword");
-merlin.takeDamage(15);
-medea.takeDamage(5);
-medea.pickUpItem("Shield");
+    // Example Usage
+    const merlin = new Hero("Merlin");
+    merlin.pickUpItem("Sword");
+    merlin.pickUpItem("Higher Seal");
+    console.log(merlin.getItems());
 
-console.log(merlin.getItems()); // Merlin has the following items: Sword
-console.log(medea.getItems()); // Medea has the following items: Shield
-troll.takeDamage(101);
-console.log(troll.getStatus()); // Troll has 0 health and is dead.
-console.log(medea.getStatus()); // Medea has 95 health and is alive.
-console.log(merlin.getStatus()); // Merlin has 85 health and is alive.
-console.log(`Total characters created: ${Character.getCount()}`); // Total characters created: 3
+
+    // const medea = new Hero("Medea");
+    const troll = new Villain("Troll", "I will destroy your soul!");
+
+    console.log(troll.getThreat()); // I will destroy your soul!
+    // merlin.pickUpItem("Sword");
+    // merlin.takeDamage(15);
+    // medea.takeDamage(5);
+    // medea.pickUpItem("Shield");
+
+    // console.log(merlin.getItems()); // Merlin has the following items: Sword
+    // console.log(medea.getItems()); // Medea has the following items: Shield
+    // troll.takeDamage(101);
+    // console.log(troll.getStatus()); // Troll has 0 health and is dead.
+    // console.log(medea.getStatus()); // Medea has 95 health and is alive.
+    // console.log(merlin.getStatus()); // Merlin has 85 health and is alive.
+    console.log(`Total characters created: ${Character.getCount()}`); // Total characters created: 3
+} catch (err) {
+    console.log(err.message);
+}

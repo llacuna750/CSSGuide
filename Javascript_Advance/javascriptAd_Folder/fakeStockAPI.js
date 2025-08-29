@@ -34,7 +34,7 @@ Stock Ticker App require:
 */
 
 // console.log("\n", spaceMe, "12. Super Challeng: Stock Ticker", spaceMe, "\n");
-
+// getStockData() is a factory function to provide/return data display.
 function getStockData() {
   const myphdate = new Date();
   const localTime = myphdate.toDateString(); 

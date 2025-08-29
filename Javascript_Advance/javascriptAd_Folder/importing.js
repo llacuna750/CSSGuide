@@ -6,6 +6,7 @@ import { interplanetaryDestinationsArr as destination, shortSpaceTripsArr as spa
 import { interplanetaryDestinationsArr, shortSpaceTripsArr} from "./data.js";
 import getMatchingTripsArr from "./getMatchingTripsArr.js";
 
+
 /************************************************/ console.log("\n\n", spaceMe, "7. Import and Export (name)- ", spaceMe, "\n\n"); /************************************************/
 /************************************************/ console.log("\n\n", spaceMe, "7. Import and Export - (default)", spaceMe, "\nGo to importing.js file"); /************************************************/
 
@@ -18,6 +19,8 @@ const num = [10, 2, 50, 3, 5];
 for (const a of num){
     console.log(a);
 } */
+
+
 
 /************************************************/ console.log("\n\n", spaceMe, "8.1 Date() Constructors", spaceMe, "\n\n"); /************************************************/
 /* Intro to Constructors
@@ -37,6 +40,8 @@ console.log(dateSnapshot.toString());
 console.log(`Copyright ${dateSnapshot.getFullYear().toString()} all rights reserved.`);
 /* Challenge: 
 1. Search online to find out how we can get just the year using the Date() constructor. Then update the code in the console. */
+
+
 
 /************************************************/ console.log("\n\n", spaceMe, "8.2 The Error() Constructor", spaceMe, "\n\n"); /************************************************/
 /* The Error() Constructor */
@@ -68,6 +73,8 @@ person.name = 'Tom';
 
 console.log(person);
 
+
+
 /************************************************/ console.log("\n\n", spaceMe, "9. Pre-increment", spaceMe, "\n\n"); /************************************************/
 /* Pre-increment */
 let currentTicketNumber = 0;
@@ -82,6 +89,7 @@ function getNextTicketNumber() {
 console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
 console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
 console.log(`Guest 1, your ticket number is: ${getNextTicketNumber()}`);
+
 
 
 /************************************************/ console.log("\n\n", spaceMe, "10. Numeric Separators & BigInt", spaceMe, "\n\n"); /************************************************/
@@ -103,6 +111,9 @@ try {
   console.log("This block always runs.");
 }
 
+
+
+
 /* Hoisting */
 /************************************************/ console.log("\n\n",spaceMe, "11. Hoisting", spaceMe, "\n\n"); /************************************************/
 
@@ -122,8 +133,12 @@ try {
 }
 const trafficInfo = 'All roads are busy right now'; 
 
+
+
 // Super Challeng: Stock Ticker
 /************************************************/ console.log("\n\n",spaceMe,"12. Super Challeng: Stock Ticker",spaceMe,"\nGo to fakeStockAPI.js file"); /************************************************/
+
+
 
 // For of - A nicer way of iterating
 /************************************************/ console.log("\n\n",spaceMe,"13. For of",spaceMe,"\n\n"); /************************************************/
@@ -167,6 +182,8 @@ for (let character of charaters) {
   }
 }
 
+
+
 /************************************************/ console.log("\n\n", spaceMe, "14. for in", spaceMe, "\n\n"); /************************************************/
 
 // We have single Object
@@ -199,6 +216,9 @@ try {
   property keys of an object               ( examples of iterable objects include arrays, strings) 
 */
 
+
+
+
 /************************************************/ console.log("\n\n", spaceMe, "15.1 .forEach()", spaceMe, "\n\n"); /************************************************/
 
 /* A method for iterating over arrays 
@@ -216,13 +236,19 @@ charaters.forEach((myChar)=> {
   });
 });
 
+
+
+
 /************************************************/ console.log("\n\n", spaceMe, "15.2 another feature of .forEach()", spaceMe, "\n\n"); /************************************************/
 charaters.forEach((myChar,index)=> {
   // another feature of .forEach()
   console.log(index,myChar);
 });
 
-/************************************************/ console.log("\n\n", spaceMe, "16 .includes()", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
+
+
+
+/************************************************/ console.log("\n\n", spaceMe, "16 .includes() Method", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
 /* A method for checking if an array holds a given value?  
 don't forget this function because it is useful for finding 
 the equaivalent value of target in array without using for loop
@@ -231,6 +257,9 @@ the equaivalent value of target in array without using for loop
 const emojis = ['🦒','🦁','🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
  
+
+
+
 /************************************************/ console.log("\n\n", spaceMe, "17.1 The .map() Method", spaceMe, "\n\n"); /************************************************/
 /* Iterating Over arrays */
 
@@ -255,7 +284,13 @@ function converMilesToKms (){
 }
 console.log(converMilesToKms()); // same Ouput from above
 
+
+
+
 /************************************************/ console.log("\n\n", spaceMe, "17.2 The .map() Method Challenge", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
+
+
+
 
 /************************************************/ console.log("\n\n",spaceMe,"18 The .join() Method",spaceMe,"\nGo to jsAdvance.js file"); /************************************************/
 /* Strings from arrays 
@@ -266,6 +301,9 @@ const guestArr = ['Amy', 'Clare', 'Keith', 'Dan'];
 
 // console.log(guestArr); // Printing by default
 console.log(guestArr.join(`, `)); // Printing by .join()
+
+
+
 
 /************************************************/ console.log("\n\n", spaceMe, "19. The .filter() Method", spaceMe, "\n\n"); /************************************************/
 /* Getting only the elements we want from an array */
@@ -284,6 +322,10 @@ const adults = ages.filter(function (ages) {
 
 console.log(adults); // Output the adults that ages >= 18
 
+
+
+
+/************************************************/ console.log("\n\n", spaceMe, "19.2. The .filter() Method with Objects", spaceMe, "\n\n"); /************************************************/
 import {series} from '../javascriptAd_Folder/series.js'; // Imported from series.js
 
 /* Filter and find the specific info. 
@@ -302,7 +344,10 @@ const thrillerSeries = series.filter(function (show) {
 console.log(NewyorkSeries);
 console.log(thrillerSeries);
 
-/************************************************/ console.log("\n\n", spaceMe, "20.1 The . ) Method", spaceMe, "\n\n"); /************************************************/
+
+
+
+/************************************************/ console.log("\n\n", spaceMe, "20.1 The .reduce() Method", spaceMe, "\n\n"); /************************************************/
 /* Give me just one thing */
 
 const rainJanuaryByWeek = [10, 20, 0, 122];
@@ -337,6 +382,9 @@ console.log(`Total overall grade: ${TotaloverAllGrades}`);
 console.log(`The class average is ${averagegrades / grades.length}`);
 
 
+
+
+
 /************************************************/ console.log("\n\n", spaceMe, "20.2 The .reduce() Method with Objects", spaceMe, "\n\n"); /************************************************/
 import { studentsArr } from "./studentsArr.js";
 
@@ -357,6 +405,11 @@ function calcClassAvg(thisStudents) {
   console.log("Total Grades:", totalGrades);
   return `Class Average: ${totalGrades / studentsArr.length}`;
 }
+
+
+
+
+
 
 /************************************************/ console.log("\n\n", spaceMe, "21. For loop Break and Continue", spaceMe, "\n\n"); /************************************************/
 // For Loops Revisted - With break and continue
@@ -384,6 +437,10 @@ for (let i=0; i<expensesAndRefunds.length; i++){
   totalSpent += currentExpenseOrRefund.amount; // totalSpent will update when the condition is reach this statement
 }
 console.log(`The amount spent on items in 2023: $${totalSpent}`);
+
+
+
+
 
 
 /************************************************/ console.log("\n\n", spaceMe, "22. Various Array Methods", spaceMe, "\n\n"); /************************************************/
@@ -428,6 +485,9 @@ console.log(`Index of 26:`, invoiceUSDArr.indexOf(26), `                        
 // .at() takes a positive or negative integer and returns the item at that index.
 // Negative integers count back from the end of the array.
 console.log(`.at(-1) :`, invoiceUSDArr.at(-1), `                                   .at()`);
+
+
+
 
 
 /************************************************/console.log("\n\n", spaceMe, "23. string.replace() and string.replaceAll() method", spaceMe, "\n\n");/************************************************/
@@ -475,7 +535,10 @@ which converts characters to uppercase */
   console.log("Error an occur:", err.message); // This will execute when /\b(love|heart)\b/, missing g
 }
 
-/************************************************/console.log("\n\n", spaceMe, "24. Regex flags and constructors", spaceMe, "\n\n");/************************************************/
+
+
+
+/************************************************/ console.log("\n\n", spaceMe, "24. Regex flags and constructors", spaceMe, "\n\n");/************************************************/
 const text = "Please switch off the Wifi before you leave.";
 /* 
 g = global

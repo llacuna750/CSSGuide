@@ -202,6 +202,10 @@ const emojis = ['🦒', '🦁', '🐼'];
 console.log(emojis.includes('🐼')); // return boolean value
 
 
+
+
+/************************************************/console.log("\n\n", spaceMe, "25. Super Challenge: Contact Search", spaceMe, "\n\n");/*=======================********************************/
+
 const shoppingList = []; // Our Container of Shopping List
 console.log(`ShoppingList empty?`, shoppingList.length === 0); // Check if the shoppingList is Empty
 
@@ -574,6 +578,7 @@ document.getElementById(`contenerSurprise`).innerHTML = getLabelsHtml(
   - .map() method [create new Array]
   - rendering
   - .join() method
+  - ...Rest Parameter
   - dom-access #container (parent) + getLabelsHtml() -> Child
 */
 
@@ -765,9 +770,9 @@ fetch(`https://api.thecatapi.com/v1/images/search`)
       document.getElementById("catImageContainer1").appendChild(imageCatElemApi);
     }
   }) // We use curly braces with more complex algorithm or logic
-  .catch((error) => {
-    console.error("Fetch error:", error);
-  });
+.catch((error) => {
+  console.error("Fetch error:", error);
+});
 
 /************************************************/ console.log("\n", spaceMe, "7. fetch().then() Challenge", spaceMe, "Go back to Starting.js file"); /************************************************/
 /*  
@@ -990,17 +995,79 @@ function notifyUser(callback) {
   }, 1000);
 }
 
-uploadFile(processingFile(notifyUser));
+// uploadFile(processingFile(notifyUser)); // Error
 
 // // The pyramid of Doom
-// uploadFile(() => {
-//   processingFile(() => {
-//     notifyUser(() =>
-//       console.log('All steps completed!'));
-//   })
-// });
+uploadFile(() => {
+  processingFile(() => {
+    notifyUser(() =>
+      console.log('All steps completed!'));
+  })
+});
 
 /************************************************/ console.log("\n", spaceMe, "18. Using Promises to escape Callback Hell", spaceMe, "\nGo back to Starting.js file"); /************************************************/
+/*
+function uploadFile() {
+  return new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+      console.log(`Step 1: Uploading file...`);
+
+      resolve(); // call next step after 3 second
+    }, 3000); // log after 3 seconds
+  });
+}
+
+function processFile() {
+  return new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+      console.log(`Step 2 : Processing file..`);
+
+      resolve(); // call next step after 1 second
+    }, 1000);
+  });
+}
+
+function notifyUser() {
+  return new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+      console.log(`Step 3: Notifying user...`);
+
+      resolve(); // call next step after 1 second
+    }, 1000);
+  });
+}
+
+/* uploadFile(processingFile(notifyUser)); 
+  Expected Output:
+
+  Step 1: Uploading file...
+  Step 2: Processing file..
+  Step 3: Notifying user...
+  All steps completed!
+*/
+
+/* Feature:
+  try/catch()
+  new Promise
+  easier to read
+  neat
+  easier to debug
+
+  try {
+    await uploadFile();
+    await processFile();
+    await notifyUser();
+    console.log('All steps completed!');
+  } catch (err) {
+    console.log(err);
+  }
+
+
+*/
+
 
 /************************************************/ console.log("\n", spaceMe, "19. Super challenge: Async Image Load", spaceMe, ""); /************************************************/
 function getImagePromise(url) {

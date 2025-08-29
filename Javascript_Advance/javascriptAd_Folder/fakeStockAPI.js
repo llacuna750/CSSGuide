@@ -20,17 +20,17 @@ const spaceMe = "-".repeat(30);
 
 Stock Ticker App require:
 
-name: Qtech AI
-Symbol: QTA
-display stock price 
-updates every 1.5s
-PriceIcon 
+  name: Qtech AI
+  Symbol: QTA
+  display stock price 
+  updates every 1.5s
+  PriceIcon 
 
-triange: 
-compare the current stock price to its prev price
-increase: T-pointUp (green)
-decrease: T-pointDown (red)
-noChange: T-pointRight (grey)
+  triange: 
+  compare the current stock price to its prev price
+  increase: T-pointUp (green)
+  decrease: T-pointDown (red)
+  noChange: T-pointRight (grey)
 */
 
 // console.log("\n", spaceMe, "12. Super Challeng: Stock Ticker", spaceMe, "\n");

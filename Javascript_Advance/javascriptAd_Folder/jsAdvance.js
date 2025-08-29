@@ -251,7 +251,8 @@ function render() {
   1. Array of ShoppingList
   2. onclick (arrow function) Event handler
   3. Render function (that can add Items the ShoppingList)
-  4. 💸) method to identify if the item is already exists. */
+  4. 💸) method to identify if the item is already exists. 
+*/
 
 
 console.log("\n", spaceMe, "16.2 The .map() Method Challenge", spaceMe, "\n");
@@ -340,15 +341,16 @@ const playListMapforEach = playlistArr.forEach((playListNako) => { // How about 
 
 
 
-/* we use .join() function because if we add the playlistHtml Array in the innerHTML, 
-it could be print like this ['', '', '' ] in our html page
+/* 
+  we use .join() function because if we add the playlistHtml Array in the innerHTML, 
+  it could be print like this ['', '', '' ] in our html page
 
-What we implemented on making my Playlist web ?
-1. Export / import the the object playlistArr in playlist.js file
-2. Create array called: playlistHTML = []
-3. In making rendering the playlistHTML to our HTML we use:
-- for loop to Iterate over Array of Objects
-- you can also use .map() function to Iterate over Arrays of Objects
+  What we implemented on making my Playlist web ?
+  1. Export / import the the object playlistArr in playlist.js file
+  2. Create array called: playlistHTML = []
+  3. In making rendering the playlistHTML to our HTML we use:
+  - for loop to Iterate over Array of Objects
+  - you can also use .map() function to Iterate over Arrays of Objects
 */
 
 

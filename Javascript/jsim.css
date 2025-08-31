@@ -241,8 +241,7 @@ body {
     width: 50px;
     aspect-ratio: 1;
     background: #F8CA00;
-    -webkit-clip-path: polygon(50% 0, 79.3892626146% 90.4508497187%, 2.4471741852% 34.5491502813%, 97.5528258148% 34.5491502813%, 20.6107373854% 90.4508497187%);
-            clip-path: polygon(50% 0, 79.3892626146% 90.4508497187%, 2.4471741852% 34.5491502813%, 97.5528258148% 34.5491502813%, 20.6107373854% 90.4508497187%);
+    clip-path: polygon(50% 0, 79.3892626146% 90.4508497187%, 2.4471741852% 34.5491502813%, 97.5528258148% 34.5491502813%, 20.6107373854% 90.4508497187%);
   }
   50% {
     height: 250px; /* adjust to control the size */
@@ -250,8 +249,7 @@ body {
     --_m: radial-gradient(#000 69%,#0000 70%) 84.5%/50%;
     -webkit-mask-box-image: var(--_m);
     mask-border: var(--_m);
-    -webkit-clip-path: polygon(-41% 0, 50% 91%, 141% 0);
-            clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+    clip-path: polygon(-41% 0, 50% 91%, 141% 0);
     background: #cc333f;
   }
   100% {
@@ -260,8 +258,7 @@ body {
     aspect-ratio: 3/2;
     width: 250px;
     background: #033649;
-    -webkit-clip-path: polygon(0 calc(50% - var(--t) / 2), calc(100% - var(--h)) calc(50% - var(--t) / 2), calc(100% - var(--h)) 0, 100% 50%, calc(100% - var(--h)) 100%, calc(100% - var(--h)) calc(50% + var(--t) / 2), 0 calc(50% + var(--t) / 2));
-            clip-path: polygon(0 calc(50% - var(--t) / 2), calc(100% - var(--h)) calc(50% - var(--t) / 2), calc(100% - var(--h)) 0, 100% 50%, calc(100% - var(--h)) 100%, calc(100% - var(--h)) calc(50% + var(--t) / 2), 0 calc(50% + var(--t) / 2));
+    clip-path: polygon(0 calc(50% - var(--t) / 2), calc(100% - var(--h)) calc(50% - var(--t) / 2), calc(100% - var(--h)) 0, 100% 50%, calc(100% - var(--h)) 100%, calc(100% - var(--h)) calc(50% + var(--t) / 2), 0 calc(50% + var(--t) / 2));
   }
 }
 @supports not (-webkit-mask-box-image: var(--_m)) {

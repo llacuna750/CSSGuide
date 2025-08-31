@@ -452,7 +452,7 @@ const dailyStepsArr = [10000, 12000, 18000, 15000, 11000, 19000, 13000];
 const areAllOver10k = dailyStepsArr.every(function (stepCount) {
   return stepCount >= 10000; // return boolean value : TRUE
 });
-
+ 
 // .some() returns true if one or more items pass the test.
 const areSomeOver10k = dailyStepsArr.some(function (stepCount) {
   return stepCount >= 10000; // return boolean value : TRUE

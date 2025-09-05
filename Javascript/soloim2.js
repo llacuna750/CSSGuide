@@ -903,5 +903,5 @@ function moveThis(event) {
 }
 
 
-const shapes =["circle", "square", "triangle"];
+const shapes = ["circle", "square", "triangle"];
 const animalsNako = ["Lion", "Elephant", "Giraffe", "Zebra"];

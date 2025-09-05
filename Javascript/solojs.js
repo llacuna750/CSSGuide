@@ -147,6 +147,7 @@ function processFormData() {
 }
 
 function insertData(city, country) {
+  
   let table = document.getElementById("dataTable");
   let newRow = table.insertRow(-1); // Insert at the end
 
@@ -183,7 +184,7 @@ let score = 7 + 8;
 var n1 = document.getElementById("num1");
 var n2 = document.getElementById("num2");
 
-function sumCalc() {
+function sumCalc(event) {
   event.preventDefault(); 
 
   let form = document.getElementById(`myCalc`);

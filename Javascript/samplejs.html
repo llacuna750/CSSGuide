@@ -112,7 +112,7 @@
             let position = Number(event.target.style.left);
             let target = position + 200;
             
-            let timer = setInterval(animate, 20);
+            let timer = setInterval(animate, 1000);
 
             function animate () {
                 if (position < target) {
@@ -179,7 +179,7 @@
                 // classFruits[0].addEventListener("click", () => {
                     // console.log(`You clicked the ${classFruits[event].innerText} fruit`); // Wrong
                     // console.log(`You clicked the ${event.target.innerText} fruit`);
-                    console.log(`You clicked the ${fruitName} fruit`);
+                console.log(`You clicked the ${fruitName} fruit`);
                 // });
                 
                 let position = Number(event.target.style.left);

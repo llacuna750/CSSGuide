@@ -10,7 +10,8 @@
         .form-group {
             /* border: 1px solid; */
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            /* align-items: center; */
             /* Vertically aligns items in the center */
             margin-bottom: 10px;
             /* Adds space between groups */
@@ -38,6 +39,24 @@
             border: 1px solid;
             padding: 10px 10px;
         }
+
+        .error {
+            /* border: 1px solid; */
+            /* justify-content: center; */
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+            display: inline-block;
+            /* flex-direction: row; */
+            align-items: center;
+            gap: 5px;
+        }
+
+        .listBook {
+            width: 150px;
+            height: 50px;
+            margin: 5px 0;
+        }
     </style>
 </head>
 
@@ -46,31 +65,44 @@
 
     <!-- action="./gotoHtml.html" -->
     <div class="form-group">
-        <form id="formAction" onsubmit="addBook(event)">
+        <form id="formAction" onsubmit="addBooks(event)">
+            <!-- <label for="title">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Please enter Name.." required>  -->
+
+            <!-- <br><br> -->
             <label for="title">Title:</label>
             <input type="text" name="title" id="title" placeholder="Please enter title.." required>
-            
+            <span id="titleError" class="error"></span>
+
             <br><br>
             <label for="author">Author</label>
             <input type="text" name="author" id="author" placeholder="Please enter author.." required>
+            <span id="authorError" class="error"></span>
         
             <br><br>
             <label for="isbn">ISBN</label>
             <input type="text" name="isbn" id="isbn" placeholder="Please enter valid ISBN.." required>
         
-            <br><br>
-            <label for="status">Availability</label>
-            <input type="checkbox" name="status" id="status"><span> Default: true (Optional)</span>
+            <!-- <br><br> -->
+            <!-- <label for="status">Availability</label>
+            <input type="checkbox" name="status" id="status"><span> Default: true (Optional)</span> -->
         
             <br><br>
-            <input type="submit" value="Submit"><span id="isSuccessfullAdd"></span>
+            <input type="submit" value="Add Book" id="isAllowedtoSubmit"><span id="isSuccessfullAdd"></span>
         </form>
+
+        <button class="listBook">Show books list</button>
     </div>
-    
 
-
-    <!-- <p>Current Status: <span id="currentStatus"></span></p> -->
-
+    <!-- Techniques we use that can enhance readable code
+                1. Avoid deep nesting
+                2. Inversion
+                3. Merge related if statements
+                4. Extraction
+                5. Code Organize 
+                6. Avoid Duplication
+                7. Dont Use naming that only you understand
+        -->
 
     <div class="tableData">
         <table id="table">
@@ -79,21 +111,17 @@
                     <th id="myCell">LIBRARY BOOK MANAGEMENT SYSTEM</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Wowow</td>
-                    <td>Wowow</td>
-                </tr>
+            <tbody id="bookList">
             </tbody>
         </table>
     </div>
-
     
-    <br><br> <!-- Search  -->
-    <input type="text" name="search" id="search" placeholder="Type to Search..." onkeyup="onSearch()">  
+    
+    <!-- <br><br> Search  -->
+    <!-- <input type="text" name="search" id="search" placeholder="Type to Search..." onkeyup="onSearch()">   -->
 
     <!-- List section -->
-    <ul id="list">
+    <!-- <ul id="list">
         <li>Maharashta</li>
         <li>Goa</li>
         <li>Sikkis</li>
@@ -101,9 +129,11 @@
         <li>Punjava</li>
         <li>Youtube</li>
         <li>Facebook</li>
-    </ul>
+    </ul> -->
 
-    <script src="Library.js" type="module"></script>
+
+    
+    <script type="module" src="Library.js"></script>
 </body>
 
 </html>

@@ -423,7 +423,7 @@
             emailError.className = "error";
 
             if (!email) return;
-
+            
             if (!Validator.isEmailFormatValid(email)) {
                 emailError.textContent = "❌ Invalid email format";
                 return;
@@ -508,7 +508,7 @@
         }
 
         document.querySelectorAll("input").forEach(input => {
-            input.addEventListener("input", updateButtonState);
+            input.addEventListener("input", updateButtonState); 
         });
 
         document.getElementById("registerBtn").addEventListener("click", Registration.register);

@@ -20,7 +20,7 @@ document.title = "My website";
 document.body.style.backgroundColor = "cyan";
 document.getElementById("my_h1");
 
-const username = "Dab Code";    
+const username = "Dab Code";
 const welcomeMsg = document.getElementById("welcome-msg");
 
 welcomeMsg.style.backgroundColor = "red";
@@ -28,7 +28,7 @@ welcomeMsg.style.textAlign = `center`;
 welcomeMsg.style.margin = `3px `;
 
 // Nag ternary2 pako
-welcomeMsg.textContent += username ===  '' ? 'Guest' : username;
+welcomeMsg.textContent += username === '' ? 'Guest' : username;
 // welcomeMsg.textContent += username;
 
 console.log(welcomeMsg);
@@ -97,7 +97,7 @@ const foods = document.querySelectorAll(`li`);
 
 foods.forEach(food => {
     // food.style.background = `yellow`;
-    food.style.margin =   `0 15px 5px 0`;
+    food.style.margin = `0 15px 5px 0`;
 });
 
 console.log(foods);

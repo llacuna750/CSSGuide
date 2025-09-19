@@ -1,6 +1,7 @@
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%=   Book Class   =%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 class Book {
-    #name = 'Gabriel Gwapo';
+    static #fieldCount = 4; // keep track manually
+
     #title;
     #author;
     #isbn;
@@ -16,9 +17,6 @@ class Book {
     /* ---------------------------------------------------------------------------------- -- /
     *                                  Getters                                              *
     * --------------------------------------------------------------------------------------*/
-    get name() {
-        return this.#name;
-    }
 
     get title() {
         return this.#title;
@@ -36,6 +34,9 @@ class Book {
         return this.#isAvailable;
     }
 
+    countProperties() {
+        return Book.#fieldCount;
+    }
 
 
     /* ---------------------------------------------------------------------------------- -- /

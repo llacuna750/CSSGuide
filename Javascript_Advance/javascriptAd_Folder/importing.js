@@ -444,7 +444,7 @@ console.log(`The amount spent on items in 2023: $${totalSpent}`);
 
 
 /************************************************/ console.log("\n\n", spaceMe, "22. Various Array Methods", spaceMe, "\n\n"); /************************************************/
-/* .every()  .some()  . )  .findIndex()  .indexOf()  .at() */
+/* .every()  .some()  .find()  .findIndex()  .indexOf()  .at() */
 
 const dailyStepsArr = [10000, 12000, 18000, 15000, 11000, 19000, 13000];
 

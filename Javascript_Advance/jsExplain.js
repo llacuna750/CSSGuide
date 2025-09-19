@@ -185,3 +185,87 @@ console.log(userMap);
 userMap.set({ userId: 1 }, { name: "John" });
 
 console.log(userMap);
+
+
+
+
+
+
+
+
+const pangalan = 'Gabriel';
+
+const splittedName = pangalan.split("");
+console.log(splittedName);
+console.log(splittedName.reverse());
+
+const result = splittedName.join('');
+console.log(result);
+
+
+
+
+
+const ngalan = 'reverseName';
+const reverseNgalan = ngalan.split('');
+console.log(reverseNgalan);
+
+const addReverse = [];
+
+for (let i = reverseNgalan.length; i >= 0; i--) {
+    // console.log(reverseNgalan[i]);
+    addReverse.push(reverseNgalan[i])
+}
+
+const resultRev = addReverse.join('');
+console.log(resultRev);
+
+const findDupli = [5, 6, 7, 9, 8, 10, 1, 6, 1];
+
+const findindDuplicate = arr => {
+    const allduplicated = [];
+    for (let i = 0; i < arr.length; i++) {
+        console.log('-'.repeat(10));
+
+        for (let j = i+1; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                allduplicated.push(arr[i]);
+                console.log(`i = ${i}      j = ${j}`);
+            }
+        }
+    }
+    // console.log(allduplicated.sort());
+    return allduplicated;
+}
+
+// const finalRes = findindDuplicate(findDupli);
+// console.log(`Final res: ${finalRes.sort()}`);
+
+console.log('Bubble Sort');
+const list = [10, 20, 2, 3, 4, 6, 7, 8, 5];
+
+function bubbleSort(arr) {
+    let swapped;
+    do {
+        swapped = false; // reset at each pass+
+        for (let i = 0; i < arr.length - 1; i++) {
+            console.log(`Compare arr[${i}] = ${arr[i]} with arr[${i + 1}] = ${arr[i + 1]}`);
+            if (arr[i] > arr[i + 1]) {
+                // swap
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = true;
+            }
+        }
+        console.log("One full pass completed:", arr);
+    } while (swapped);
+    return arr;
+}
+
+// Example:
+// console.log(bubbleSort([5, 3, 8, 4, 2]));
+
+
+const bSort = bubbleSort(list);
+console.log(bSort);

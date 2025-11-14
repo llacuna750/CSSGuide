@@ -268,4 +268,21 @@ function bubbleSort(arr) {
 
 
 const bSort = bubbleSort(list);
-console.log(bSort);
+console.log(bSort); 
+
+function sum(a, b = 5) {
+    return  a * b;
+}
+
+const sumPot = (a, b) => {
+    if (!b) {
+        b = 2
+    }
+
+    return a + b;
+}
+
+console.log("Total:", sum(2, 3)); // 20
+console.log("Total:", sumPot(8)); // 10
+
+ 

@@ -502,6 +502,8 @@ console.log(paragraph.replaceAll('js', 'JS')); // .replaceAll() change all the l
 
 const sentence = 'i went to Australia and i saw a shark';
 console.log(sentence.replaceAll('i', 'I')); // I went to AustralIa and I saw a shark
+
+
 /* 
 Regex (regular expression) is a sequence of 
 characters that specifies a match pattern in text 
@@ -544,10 +546,11 @@ const text = "Please switch off the Wifi before you leave.";
 g = global
 i = case sensitive 
 */
+const userInput = "wifi";
+
 const regex = /wifi/ig;
 
 // The RegExp Constructor
-const userInput = "wifi";
 const regex2 = new RegExp(userInput, "gi"); // gi = global & case sensitive
 
 try {

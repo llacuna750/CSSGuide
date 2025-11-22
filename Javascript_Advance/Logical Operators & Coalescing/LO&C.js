@@ -47,7 +47,7 @@ const user = {
 }
 
 // mo excuted ra ni siya ug ang left side is true and atong short-circuit Operator gigamit is &&.  
-user.role === 'admin' && console.log('Dashboard Displayed'); 
+user.userName === 'Tom' && console.log('Dashboard Displayed') ; 
 user.role === 'admin' && greetAdmin();
 
 function greetAdmin() {

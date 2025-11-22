@@ -286,3 +286,34 @@ console.log("Total:", sum(2, 3)); // 20
 console.log("Total:", sumPot(8)); // 10
 
  
+
+
+
+const findWord = [
+    {
+        name: `Dabvs`,
+        age: 21,
+        description: "Can play basketball and programming God, remotasker",
+    },
+    {
+        name: `MrBagvs`,
+        age: 12,
+        description: "Gwapo since birth",
+    },
+]
+
+
+function getTargetWord(arrOb, target) {
+    const targex = new RegExp(target, "i");
+
+    return arrOb.filter( objs => {
+        // What we use: new Regex() Constructor
+        return targex.test(objs.description);
+    });
+}
+console.log(getTargetWord(findWord, `Remotasker`));
+
+// console.log(shortSpaceTripsArr);
+
+
+

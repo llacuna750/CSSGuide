@@ -48,7 +48,7 @@ function displayName() {
 
 function grantedorNot() {
   const pass = document.getElementById("pass1").value;
-  const display = document.getElementById("displaypass");
+  const display = document.getElementById("displaypass"); 
   let correctPass = "dabdabgwapo!";
 
   if (pass === correctPass) {

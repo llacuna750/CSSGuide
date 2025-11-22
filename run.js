@@ -8,7 +8,7 @@
 // console.log(`not blank because your name is: ${nameT.trim()}`);
 // console.log(notstr);
 
-const prompt = require('prompt-sync')(); // Import prompt-sync
+// const prompt = require('prompt-sync')(); // Import prompt-sync
 
 // CheckifStudent();  // called the function
 function CheckifStudent() {
@@ -107,3 +107,7 @@ function displayMessage() {
 
 var pi = Math.PI;
 console.log(pi);
+
+
+console.log(0.1 + 0.2 === 0.3);
+console.log(0.1 + 0.2);

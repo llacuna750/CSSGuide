@@ -13,8 +13,7 @@ const interplanetaryDestinationsArr = [
     distanceKM: 384400,
     travelTimeDays: 3,
     priceUSD: 50000,
-    description:
-      "Visit the first human outpost on the Moon and witness breathtaking lunar landscapes.",
+    description: "Visit the first human outpost on the Moon and witness breathtaking lunar landscapes."
   },
   {
     destination: "Titan Oasis",

@@ -465,7 +465,7 @@ function checkram () {
       width: `130px`,
     });
     alert(`Enjoy Playing!`);
-  }else
+  } else
   {
     element.textContent = "You need to Upgrade your ram.";
     Object.assign(element.style, {
@@ -516,7 +516,7 @@ function carspeed() {
       
     });
 
-  }else {
+  } else {
     alert("Traffic ticket");
     carstatus.textContent = `Issue Traffic ticket`;
     x.classList.add("color-animation");

@@ -373,7 +373,7 @@ Challenge:
 try {
     studentDetailsCopy.modulesCompleted[0] = 'BeelotKaSir'; // can create a shallow copy
     console.table(studentDetailsCopy);
-    console.log(studentDetailsCopy.modulesCompleted);    
+    console.log(studentDetailsCopy.modulesCompleted);   
 
     // Use object.assign() to update also the original using re-assigning value of duplicated one
     console.log('Original:',studentDetails); // Na update japon ang OG 
@@ -397,7 +397,7 @@ const studentDetalye = {
 
 const deepClonedStudentDetails = structuredClone(studentDetalye); 
 deepClonedStudentDetails.modulesCompleted[0] = 'TS'; // only affect to cloned one
-console.log(studentDetalye); // not affected to shallowing / re-assigning the Object nested array
+console.log(`Original Object:`, studentDetalye); // not affected to shallowing / re-assigning the Object nested array
 console.table(deepClonedStudentDetails);
 
 /************************************************/ console.log("\n", spaceMe, "10. Objects with Methods and 'this'", spaceMe, ""); /************************************************/

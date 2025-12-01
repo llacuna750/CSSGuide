@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 public class Prinftformat {
     boolean myBoolean = true;
     char myChar = '@';

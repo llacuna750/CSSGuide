@@ -402,6 +402,7 @@ function calcClassAvg(thisStudents) {
     console.log(`total ${total} currentElementonStudent ${currentStudent.grade}`)
     return total + currentStudent.grade; // I think total is the 1st index. So, the total is updating each Iteration when algorithm done.
   }, 0); // currentIndex: number = 0
+  
   console.log("Total Grades:", totalGrades);
   return `Class Average: ${totalGrades / studentsArr.length}`;
 }

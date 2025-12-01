@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 public class Rectange extends Shape {
 
     @Override

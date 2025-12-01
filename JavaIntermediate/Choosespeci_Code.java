@@ -1,9 +1,13 @@
 package JavaIntermediate;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
 import ExternalPackage.*;
+// import JavaIntermediate.Dog;
 import JavaIntermediate.Programa.Rank;
+
 import static java.lang.System.out;
 
 public class Choosespeci_Code extends TestAll {

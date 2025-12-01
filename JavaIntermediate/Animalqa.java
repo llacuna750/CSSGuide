@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 class Animalqa {
     String name;
     Animalqa (String n) {

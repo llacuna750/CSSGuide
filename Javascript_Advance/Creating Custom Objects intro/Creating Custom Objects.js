@@ -951,3 +951,86 @@ try {
 } catch (err) {
     console.log(err.message);
 }
+
+
+
+
+const convertoJSON = {
+    name: 'Gabriel',
+    age: 21,
+    hobby: 'COddy'
+}
+
+console.log(JSON.stringify(convertoJSON));
+
+const parseMe = {
+  "results": [
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "David",
+        "last": "Hoppe"
+      },
+      "location": {
+        "street": {
+          "number": 6237,
+          "name": "Brunnenstraße"
+        },
+        "city": "Speyer",
+        "state": "Sachsen",
+        "country": "Germany",
+        "postcode": 85776,
+        "coordinates": {
+          "latitude": "-47.2886",
+          "longitude": "-77.4855"
+        },
+        "timezone": {
+          "offset": "-8:00",
+          "description": "Pacific Time (US & Canada)"
+        }
+      },
+      "email": "david.hoppe@example.com",
+      "login": {
+        "uuid": "25292dcd-c29e-4b36-b22e-7e6a357489bc",
+        "username": "blackwolf497",
+        "password": "bummer",
+        "salt": "UjL4Sny9",
+        "md5": "bed771d511f1fa85dc98c04cb1734816",
+        "sha1": "5423547674d6ff6e8c9d036de3001f0f60a792ff",
+        "sha256": "dba3a292c202cbbc976986a4913e7faa7bddacbb10538ee124bbd37b9671f091"
+      },
+      "dob": {
+        "date": "1996-10-14T12:50:17.766Z",
+        "age": 29
+      },
+      "registered": {
+        "date": "2010-09-03T10:33:41.930Z",
+        "age": 15
+      },
+      "phone": "0234-3567765",
+      "cell": "0170-8049022",
+      "id": {
+        "name": "SVNR",
+        "value": "08 141096 H 023"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/66.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/66.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/66.jpg"
+      },
+      "nat": "DE"
+    }
+  ],
+  "info": {
+    "seed": "b80c63bccb38c845",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}
+const jsonString = JSON.stringify(parseMe);
+
+console.log(JSON.parse(jsonString)); // this works
+console.log(jsonString); // this works
+console.log(jsonString); // this works

@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 class Robot {
     int id;
     

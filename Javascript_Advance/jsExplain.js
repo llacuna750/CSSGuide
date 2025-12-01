@@ -317,3 +317,26 @@ console.log(getTargetWord(findWord, `Remotasker`));
 
 
 
+
+const disArr = [10, 20, 30];
+const iter = disArr[Symbol.iterator]();
+
+
+console.log(iter.next().done); // { value: 10, done: false }
+console.log(iter.next()); // { value: 20, done: false }
+console.log(iter.next()); // { value: 30, done: false }
+console.log(iter.next()); // { value: undefined, done: true }
+
+const myRow = 4;
+const thisCol = 5;
+const mySymbol = "^";
+
+for (let row = 0; row < myRow; row++) {
+  let line = "";
+
+  for (let col = 0; col < thisCol; col++) {
+    line += mySymbol;
+  }
+
+  console.log(line); // print entire row
+}

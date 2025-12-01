@@ -391,7 +391,7 @@ const studentDetalye = {
     age: 28,
     country: 'sri lanka',
     email: 'j.siri@totalinternet.com',
-    discordUsername: 'JS1',
+    discordUsername: 'JS1', 
     modulesCompleted: [`html`, `js`, `css`]
 }
 

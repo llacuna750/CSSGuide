@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 public class Animal {
   String name;
   protected int legs;

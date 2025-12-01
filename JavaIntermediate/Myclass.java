@@ -1,8 +1,7 @@
 package JavaIntermediate;
-
 // import java.util.Scanner;
 
-import OOP_Practicing.Human;
+// import OOP_Practicing.Human;
 
 // import static java.lang.System.out; // imports the out object from the System class in the java.lang package
 
@@ -31,18 +30,18 @@ import OOP_Practicing.Human;
 
     private: Accessible only within the declared class itself.
 */
-class Myclass  {
+public class Myclass  {
     // static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         // Scanner sc = new Scanner(System.in);
-        Human h1 = new Human();
-        h1.Speak();
+        // Human h1 = new Human();
+        // h1.Speak();
 
         // Boolean isBoolean = true;
         // String notBoolean = "Not a boolean";
 
 
-        System.out.print("\nTry to not enter boolean values: ");
+        // System.out.print("\nTry to not enter boolean values: ");
         // Boolean isItBoolean = sc.nextBoolean();
 
         // System.out.println(isItBoolean);
@@ -62,7 +61,7 @@ class Myclass  {
 
 
         // out.printf("%n%55s!%n", "Normalan");
-        // TestAll.main(args);
+        TestAll.main(args);
 
         
         // String[] Songlyrics = {

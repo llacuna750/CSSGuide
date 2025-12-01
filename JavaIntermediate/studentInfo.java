@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 public class studentInfo {
     private String Name;
     int IDnumber = 2023306394;

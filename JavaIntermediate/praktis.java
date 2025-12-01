@@ -1,4 +1,5 @@
 package JavaIntermediate;
+
 import java.util.Scanner;
 
 public class praktis {

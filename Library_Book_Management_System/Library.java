@@ -21,6 +21,8 @@ public class Library {
         collections = new ArrayList<>();
     }
 
+    
+
     // method to showMenu()  
     public void showMenu() {
         boolean isValid = false;
@@ -43,13 +45,10 @@ public class Library {
                 case "2": removeBookbyISBN(input); break; 
                 case "3": searchBook(input); break;  
                 case "4": ListallBooks(); break;
-                case "5": updateAvailabilityStatusofBook(input); 
-                    break;
-                case "6": System.out.println("\nGoodbye thank you for using our Library Management System! \nExiting....");
-                    isValid = true;
-                    break;
-                default: System.out.println("\nThe case " + choose + " is not in the Choices."); 
-                    break;
+                case "5": updateAvailabilityStatusofBook(input); break;
+                case "6": System.out.println("\nGoodbye thank you for using our Library Management System! \nExiting...."); isValid = true; break;
+                default: System.out.println("\nThe case " + choose + " is not in the Choices."); break;
+
             }
         }
     }
@@ -65,12 +64,14 @@ public class Library {
 
         System.out.print("Enter author of a book: ");
         String author = input.nextLine();
+
         if (!author.matches("[a-zA-Z ]+")) {
             System.out.println("Must be a correct author");
             return false;
         }
 
         System.out.print("Enter an ISBN: ");
+
         String isbn13Regex = "^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$";
         String isbn = input.nextLine();
         if (!isbn.matches(isbn13Regex)) {
@@ -84,6 +85,7 @@ public class Library {
             input.nextLine(); // clear invalid input
             return false;
         }
+        
         boolean isAvailable = input.nextBoolean();
         input.nextLine(); // consume leftover newline
 
@@ -120,6 +122,7 @@ public class Library {
                 if (book.getIsbn().equalsIgnoreCase(isbn)) {
                     System.out.println("\nISBN found: " + book);
                     it.remove();
+                    
                     System.out.println("Book removed successfully!");
                     isISBNfound = true;
                     break; // stop loop after removal

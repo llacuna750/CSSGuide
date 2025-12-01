@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 class Sakyanan {
     private int maxSpeed; // data hiding
     private int wheels; // data hiding

@@ -23,10 +23,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import ExternalPackage.*;
+// import JavaIntermediate.Dog;
 import JavaIntermediate.ListofObject.Listobject;
 import JavaIntermediate.Programa.Rank;
 
-class TestAll extends Listobject {
+public class TestAll extends Listobject {
     static String spaces = "-".repeat(30); // Java 11+
     static Scanner sc = new Scanner(System.in);
     static Choosespeci_Code specificode = new Choosespeci_Code();
@@ -1669,7 +1670,7 @@ class TestAll extends Listobject {
                     case 25:    Choosespeci_Code.The_equals_method();         break;
                     case 26:    Choosespeci_Code.Enum();                      break;
                     case 27:    Choosespeci_Code.error_Handling();            break;
-                    case 28:    Multiple_Exceptions(20, 0);                   break;
+                    case 28:    Multiple_Exceptions(20, 0);              break;
                     case 29:    Thread_Me();                                  break;
                     case 30:    TypesofExceptions();                          break;
                     case 31:    Ternary_Operator();                           break;

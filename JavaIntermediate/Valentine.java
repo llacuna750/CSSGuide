@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 public class Valentine extends Card { 
     private String name;
     private int date;

@@ -1,5 +1,6 @@
 package JavaIntermediate;
 
+
 public class Ero extends Hayop {
     public int printAge () {
         return age;

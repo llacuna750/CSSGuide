@@ -58,7 +58,7 @@ function selectItem(item) {
 }
 
 console.log("\n", spaceMe, "2. Switch Statement", spaceMe, "\n");
-console.log(selectItem("d"));
+console.log(selectItem("Hotdog"));
 
 /* Object Destructuring - extract properties from objects 
   OD - enables us to extract properties from objects into distinct variables. 
@@ -131,5 +131,5 @@ const stopsetInt = setInterval(function () {
   console.log("\n", spaceMe, "5. setInterval", spaceMe, "\nGo to jsAdvance.js file");
   if (countme === 1) {
     clearInterval(stopsetInt);
-  } 
+  }
 }, 6000);

@@ -1049,55 +1049,165 @@ Otherwise, if op is "-", the result should be matrixA[r][c] - matrixB[r][c].
 */
 
 const mtxA = [
-  [1, 2],
-  [3, 4],
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16],
 ];
 
 const mtxB = [
-  [5, 6],
-  [7, 8],
+  [16, 15, 14, 13],
+  [12, 11, 10, 9],
+  [8, 7, 6, 5],
+  [4, 3, 2, 1],
 ];
 
-const op = `+`;
+/*Expected Output
+
+[
+  [ -15, -13, -11, -9 ],
+  [ -7, -5, -3, -1 ],
+  [ 1, 3, 5, 7 ],
+  [ 9, 11, 13, 15 ]
+] 
+
+*/
+
+const op = "-";
 
 console.table(mtxA);
 console.table(mtxB);
 
 console.log(`mtxA[0][0] + mtxB[0][0]:`, mtxA[0][0] + mtxB[0][0]);
-console.log(`Length:`,mtxA.length);
+console.log(`Length:`, mtxA.length);
 console.log();
 
 const resComMtx = combineMatrices(mtxA, mtxB, op);
 console.log(`resComMtx:`, resComMtx);
 
-function combineMatrices(matrixA, matrixB, op) {
+function combineMatrices(matrixA, matrixB, ope) {
   // TODO: For each cell, if op is '+', add the corresponding cells.
   // Otherwise, subtract them. Return the resulting 2D array.
-  let arr_A =  [];
 
-  // let ope = JSON.parse(op);
-  // console.log(ope);
-  let row = 0;
+  return matrixA.map((otrVal, otrIdx) => {
+    console.log(`\n${"=".repeat(20)} ${otrIdx} ${"=".repeat(20)}`);
 
-  while (row < matrixA.length) {
-    let col = 0;
-    let endRow = matrixA[row].length-1;
-    
-    while(col < matrixA[row].length) {
+    return otrVal.map((innVal, innIdx) => {
+      console.log(`innVal & index: ${innIdx} ${space}`, innVal);
+      switch (ope) {
+        case "+":
+          return innVal + matrixB[otrIdx][innIdx];
 
-      if (row < endRow) {
-        console.log(matrixA[row][col] + matrixB[row][col]);
-        arr_A.push(matrixA[row][col] op matrixB[row][col]);
+        case "-":
+          return innVal - matrixB[otrIdx][innIdx];
+
+        default:
+          return `Sorry, but ${ope} is not recognize operation!`;
       }
+    });
+  });
 
-      // console.log( console.log(matrixA[row][col] + matrixB[row][col]));
-      // console.log(`endRow:`, endRow);
+  // Coddy Solution Code
+  const rows = matrixA.length;
+  const cols = matrixA[0].length;
+  const result = [];
 
-      col++;
+  for (let r = 0; r < rows; r++) {
+    const rowArr = [];
+    for (let c = 0; c < cols; c++) {
+      if (op === "+") {
+        rowArr.push(matrixA[r][c] + matrixB[r][c]);
+      } else {
+        rowArr.push(matrixA[r][c] - matrixB[r][c]);
+      }
     }
-    row++;
+    result.push(rowArr);
   }
 
-  return [arr_A];
+  return result;
+}
+// Do not write anything outside function
+
+/*  ==========================================================================================
+Challenge  (Medium):
+Create a function named multiplyMatrices that takes two matrices (matrixA and matrixB) and returns their product.
+
+For matrix multiplication:
+
+Each element in the result matrix is the dot product of a row from the first matrix and a column from the second matrix
+Matrix A with dimensions (m × n) can only be multiplied with matrix B with dimensions (n × p)
+The resulting matrix will have dimensions (m × p)
+
+Example Input:
+matrixA = [[1, 2], [3, 4]]
+matrixB = [[5, 6], [7, 8]]
+
+Expected Output:
+[[19, 22], [43, 50]]
+*/
+
+function multiplyMatrices(matrixA, matrixB) {
+  // Write your code here
+  // Check if matrices can be multiplied
+  // Create the result matrix with appropriate dimensions
+  // Calculate each element in the result matrix
+}
+// Do not write anything outside function
+
+
+
+
+/* =====================================  Jagged Arrays  =====================================
+A jagged array is a 2D array where each row can have a different length:
+
+const classroom = [
+  ["Alice", "Bob"],
+  ["Charlie", "Diana", "Eve"],
+  ["Frank"]
+];
+
+
+The first row has 2 elements, the second row has 3, and the third row has 1.
+
+ Challenge (Easy):
+Create a function named sumJagged that receives a jagged array of numbers and returns 
+the total sum of all elements across every row, regardless of row length. 
+
+example:
+Input: [[1, -2, 3], [4, -5], [6], [-7, 8, -9, 10]]
+Expected Output: 9
+*/
+
+let sumJuggArgs = [[1, -2, 3], [4, -5], [6], [-7, 8, -9, 10]];
+
+console.log(`Result Sugjagged:`,sumJagged(sumJuggArgs));
+
+function sumJagged(jaggedArray) {
+  // TODO: Implement logic to sum all elements of the jagged array.
+
+  return jaggedArray.reduce((total, currentElement, index) => {
+    // console.log(`Index: ${index} ${space} Total: ${total} ${space} currentElement: ${currentElement}`);
+
+    // return total + currentElement.reduce((a, b) => a + b, 0);
+
+    console.log(total);
+    return total + currentElement.reduce((a, b) => {
+      console.log(`total ${a} ${space} b: ${b}`);  
+      
+      return a + b
+
+    }, 0)
+  }, 0);
+
+  // let total = 0;
+
+  // for (let o=0; o<jaggedArray.length; o++) {
+  //   for (let i=0; i<jaggedArray[o].length; i++) {
+  //     console.log(jaggedArray[o][i]);
+
+  //     total += jaggedArray[o][i];
+  //   }
+  // }
+  // return total;
 }
 // Do not write anything outside function

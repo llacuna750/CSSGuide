@@ -600,15 +600,15 @@ public class TestAll extends Listobject {
              * switch (a) {
              * case SOLDIER:
              * System.out.println("Soldier says hi!");
-             *                                           break;
+             *                    break;
              * case SERGEANT:
              * System.out.println("Sergeant says Hello!");
-             *                                           break;
+             *                    break;
              * case CAPTAIN:
              * System.out.println("Captain says Welcome!");
-             *                                           break;
+             *                    break;
              * default:
-             *                                           break;
+             *                    break;
              * }
              * 
              * You should always use Enums when a variable (especially a method parameter)
@@ -631,15 +631,15 @@ public class TestAll extends Listobject {
             switch (a_gay) {
                 case SOLDIER:
                     System.out.println("Soldier says hi!");
-                                                              break;
+                                       break;
                 case SERGEANT:
                     System.out.println("Sergeant says Hello!");
-                                                              break;
+                                       break;
                 case CAPTAIN:
                     System.out.println("Captain says Welcome!");
-                                                              break;
+                                       break;
                 default:
-                                                              break;
+                                       break;
             }
             System.out.println("\n" + spaces + "Using the Java API" + spaces);
             /*
@@ -1639,56 +1639,58 @@ public class TestAll extends Listobject {
             int choosing = checkifIntInput(sc);
             try {
                 switch (choosing) {
-                    case 0:    main(args);                                    break;
-                    case 1:    Choosespeci_Code.javaOOP();                    break;
-                    case 2:    Choosespeci_Code.Animalclass();                break;
-                    case 3:    Choosespeci_Code.Constructors();               break;
-                    case 4:    Choosespeci_Code.Javainter_Class();            break;
-                    case 5:    Choosespeci_Code.Sakyanan_Class();             break;
-                    case 6:    Choosespeci_Code.Person_Class();               break;
-                    case 7:    Choosespeci_Code.The_Math_Class();             break;
+                    case 0: main(args);                                    break;
+                    case 1: Choosespeci_Code.javaOOP();                    break;
+                    case 2: Choosespeci_Code.Animalclass();                break;
+                    case 3: Choosespeci_Code.Constructors();               break;
+                    case 4: Choosespeci_Code.Javainter_Class();            break;
+                    case 5: Choosespeci_Code.Sakyanan_Class();             break;
+                    case 6: Choosespeci_Code.Person_Class();               break;
+                    case 7: Choosespeci_Code.The_Math_Class();             break;
+                    case 8: Choosespeci_Code.the_Static();                 break;
+                    case 9: Choosespeci_Code.Final();                      break;
+                    case 10: Choosespeci_Code.Encapsulating();             break;
+                    case 11: Choosespeci_Code.theInheritance();            break;
+                    case 12: Choosespeci_Code.thePolymorphism();           break;
+                    case 13: Choosespeci_Code.OverridingandOverloading();  break;
+                    case 14: Choosespeci_Code.theAbstract();               break;
+                    case 15: Choosespeci_Code.FloydsTriangle();            break;
+                    case 16: Kindsofforloop.main(args);                    break;
+                    case 17: squaroot(zeroTounli_sqroot(sc));              break;
+                    case 18: square(zeroTounli_square(sc));                break;
+                    case 19: Minandmax.minandmaximum();                    break;
+                    case 20: Choosespeci_Code.interfaceTestClass();        break;
+                    case 21: Choosespeci_Code.getFactorialRecurs();        break;
+                    case 22: Choosespeci_Code.type_Casting();              break;
+                    case 23: Programa.main(args);                          break;
+                    case 24: hashcodeChecker(sc);                          break;
 
-                    case 8:    Choosespeci_Code.the_Static();                 break;
-                    case 9:    Choosespeci_Code.Final();                      break;
-                    case 10:    Choosespeci_Code.Encapsulating();             break;
-                    case 11:    Choosespeci_Code.theInheritance();            break;
-                    case 12:    Choosespeci_Code.thePolymorphism();           break;
-                    case 13:    Choosespeci_Code.OverridingandOverloading();  break;
-                    case 14:    Choosespeci_Code.theAbstract();               break;
-                    case 15:    Choosespeci_Code.FloydsTriangle();            break;
-                    case 16:    Kindsofforloop.main(args);                    break;
 
-                    case 17:    squaroot(zeroTounli_sqroot(sc));              break;
-                    case 18:    square(zeroTounli_square(sc));                break;
-                    case 19:    Minandmax.minandmaximum();                    break;
-                    case 20:    Choosespeci_Code.interfaceTestClass();        break;
-                    case 21:    Choosespeci_Code.getFactorialRecurs();        break;
-                    case 22:    Choosespeci_Code.type_Casting();              break;
-                    case 23:    Programa.main(args);                          break;
-                    case 24:    hashcodeChecker(sc);                          break;
+                    case 25: Choosespeci_Code.The_equals_method();         break;
+                    case 26: Choosespeci_Code.Enum();                      break;
+                    case 27: Choosespeci_Code.error_Handling();            break;
+                    case 28: Multiple_Exceptions(20, 0);              break;
+                    case 29: Thread_Me();                                  break;
+                    case 30: TypesofExceptions();                          break;
+                    case 31: Ternary_Operator();                           break;
+                    case 32: specificode.rand0mClass();                    break;
 
-                    case 25:    Choosespeci_Code.The_equals_method();         break;
-                    case 26:    Choosespeci_Code.Enum();                      break;
-                    case 27:    Choosespeci_Code.error_Handling();            break;
-                    case 28:    Multiple_Exceptions(20, 0);              break;
-                    case 29:    Thread_Me();                                  break;
-                    case 30:    TypesofExceptions();                          break;
-                    case 31:    Ternary_Operator();                           break;
-                    case 32:    specificode.rand0mClass();                    break;
 
-                    case 33:    Array_List();                                 break;
-                    case 34:    LinkedList_v0();                              break;
-                    case 35:    HashMap_Method();                             break;
-                    case 36:    specificode.arraySort();                      break;
-                    case 37:    ArrayListSort();                              break;
-                    case 38:    HashSets_LinkedHashSet();                     break;
-                    case 39:    methodIterator();                             break;
+                    // Java Data Structure
+                    case 33: Array_List();                                 break;
+                    case 34: LinkedList_v0();                              break;
+                    case 35: HashMap_Method();                             break;
+                    case 36: specificode.arraySort();                      break;
+                    case 37: ArrayListSort();                              break;
+                    case 38: HashSets_LinkedHashSet();                     break;
+                    case 39: methodIterator();                             break;
 
-                    case 40:    wwF();                                        break;
-                    case 41:    readingFile();                                break;
-                    case 42:    Creating_Writing_Files();                     break;
-                    case 43:    Java_2_Module_3_Quiz();                       break;
-                    case 44:    runMe.run();                                  break;
+
+                    case 40: wwF();                                        break;
+                    case 41: readingFile();                                break;
+                    case 42: Creating_Writing_Files();                     break;
+                    case 43: Java_2_Module_3_Quiz();                       break;
+                    case 44: runMe.run();                                  break;
                     default:
                 }
             } catch (ExceptionInInitializerError e) {
@@ -1930,7 +1932,7 @@ public class TestAll extends Listobject {
     static int Factorecursive(int n) {
         return (n != 0) ? n *= Factorecursive(n - 1) : 1;
     }
-    
+
     int sum_torial(int k) {
         if (k > 0) {
             // Recursive style its like factorial But it Sum method
@@ -2107,17 +2109,17 @@ public class TestAll extends Listobject {
          * InterruptedException. This is an example of a checked exception. Your code
          * will not compile until you've handled the exception.
          * 
-         
-         public class MyClass {
-         public static void main(String[ ] args) {
-         try {
-         Thread.sleep(1000);
-         } catch (InterruptedException e) {
-         //some code
-         }
-         }
-         }
-          
+         * 
+         * public class MyClass {
+         * public static void main(String[ ] args) {
+         * try {
+         * Thread.sleep(1000);
+         * } catch (InterruptedException e) {
+         * //some code
+         * }
+         * }
+         * }
+         * 
          * We have seen examples of unchecked exceptions, which are checked at runtime,
          * in previous lessons.
          * 
@@ -2258,9 +2260,12 @@ public class TestAll extends Listobject {
 
         System.out.println(spaces + "ArrayList String" + spaces);
         System.out.println("\n" + colors);
+        colors.remove(0);
         System.out.println("Size of an Arraylist: " + colors.size());
-        System.out.println("Color in index: " + colors.get(0)); // Output: Yellow
+        System.out.println("Color in index: " + colors.get(0)); // Output: Yellow 
+        System.out.println("\nUpdated: " + colors +" ".repeat(10) +"( Remove index 0 )");
     }
+
 
     static void Ternary_Operator() {
         System.out.println("\n" + spaces + "" + spaces);
@@ -2319,7 +2324,7 @@ public class TestAll extends Listobject {
         c.add("Green");
         c.add("Orange");
         c.add("Pink");
-        System.out.println(c);
+        System.out.println("\nLINKLIST: "+c);
 
         for (String s : c) {
             System.out.println(s);
@@ -2450,16 +2455,14 @@ public class TestAll extends Listobject {
          * 
          * 1. Purpose
          * Additional:
-         * _____________________________________________________________________________________
-         * | Feature | `LinkedHashSet` | `LinkedList` |
-         * | ----------------------
-         * |-------------------------------|--------------------------|
-         * | **Type** | A **Set** | A **List** | |
-         * | **Allows duplicates?** | ❌ No (only unique elements) | ✅ Yes |
-         * | **Maintains order?** | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
-         * | **Access by index?** | ❌ No | ✅ Yes (`get(index)`) |
-         * |________________________|_______________________________|
-         * __________________________|
+         * __________________________________________________________________________________________
+         * |        Feature         |          `LinkedHashSet`        |       `LinkedList`          |
+         * |------------------------|---------------------------------|-----------------------------|
+         * | Type                   |    A **Set**                    |      A **List**             |
+         * | Allows duplicates?*    |   ❌ No (only unique elements)  |   ✅ Yes                   |
+         * | Maintains order?       |   ✅ Yes (insertion order)      |   ✅ Yes (insertion order) |
+         * | Access by index?       |   ❌ No                         |   ✅ Yes (`get(index)`)    |
+         * |________________________|_________________________________|_____________________________|
          * 
          * 🔸 2. Use Cases
          * LinkedHashSet is used when:
@@ -2515,13 +2518,14 @@ public class TestAll extends Listobject {
          * Access by index ❌ Not supported ✅ Yes (O(n)) *
          * 
          * ✅ Summary
-         * | Feature | LinkedHashSet | LinkedList |
-         * | ------------------ | ----------------------- | ------------------------ |
-         * | Duplicate elements | ❌ No | ✅ Yes |
-         * | Maintains order | ✅ Yes (insertion order) | ✅ Yes (insertion order) |
-         * | Random access | ❌ No | ✅ Yes (`get(index)`) |
-         * | Implements | `Set`, `Collection` | `List`, `Deque`, `Queue` |
-         * 
+         * __________________________________________________________________________________
+         * | Feature            |        LinkedHashSet      | LinkedList                    |
+         * | ------------------ | ------------------------- | ----------------------------- |
+         * | Duplicate elements | ❌ No                    |     ✅ Yes                    |
+         * | Maintains order    | ✅ Yes (insertion order) |     ✅ Yes (insertion order)  |
+         * | Random access      | ❌ No                    |     ✅ Yes (`get(index)`)     |
+         * | Implements         | `Set`, `Collection`       |     `List`, `Deque`, `Queue`  |
+         * |____________________|___________________________|_______________________________|
          * 
          * Example
          */
@@ -2529,6 +2533,7 @@ public class TestAll extends Listobject {
         HashSet<String> hashset = new HashSet<>();
         hashset.add("A");
         hashset.add("B");
+        hashset.add("im new here");
         hashset.add("B");
         hashset.add("Z"); // new Added
         hashset.add("F"); // new added
@@ -2545,10 +2550,10 @@ public class TestAll extends Listobject {
         linkset.add("latest"); // new add
         linkset.add("Bbb");
         linkset.add("Ccc");
+        linkset.add("Bag o rako dire");
         System.out.println(linkset);
 
-        /*
-         * You can use the <b>size()</b> method to get the number of elements in the
+        /* You can use the <b>size()</b> method to get the number of elements in the
          * 
          * HashSet.
          * 

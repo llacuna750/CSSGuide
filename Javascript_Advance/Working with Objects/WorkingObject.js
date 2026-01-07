@@ -182,6 +182,7 @@ try {
     user3.username = 'Tom'; // same error/Outcome if 
 
     console.log(Object.hasOwn(user3, 'username')); // true
+    console.log(user3)
     console.log(user3.hasOwnProperty('username')); // Output user3.hasOwnProperty is not a function
 } catch (err) {
     console.log(err.message)
@@ -210,8 +211,8 @@ function canAccessPremiumFeature(userObj, prop) {
     */
 }
 
-// console.log(canAccessPremiumFeature(user1, 'accessPremiumFeature'));
-// console.log(canAccessPremiumFeature(user2, 'accessPremiumFeature'));
+console.log(canAccessPremiumFeature(user1, 'accessPremiumFeature'));
+console.log(canAccessPremiumFeature(user2, 'accessPremiumFeature'));
  
 /************************************************/ console.log("\n", spaceMe, "5. Assignment by Value/Reference", spaceMe, ""); /************************************************/
 let firstName = 'Tomas';

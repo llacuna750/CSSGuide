@@ -1154,9 +1154,6 @@ function multiplyMatrices(matrixA, matrixB) {
 }
 // Do not write anything outside function
 
-
-
-
 /* =====================================  Jagged Arrays  =====================================
 A jagged array is a 2D array where each row can have a different length:
 
@@ -1180,7 +1177,7 @@ Expected Output: 9
 
 let sumJuggArgs = [[1, -2, 3], [4, -5], [6], [-7, 8, -9, 10]];
 
-console.log(`Result Sugjagged:`,sumJagged(sumJuggArgs));
+console.log(`Result Sugjagged:`, sumJagged(sumJuggArgs));
 
 function sumJagged(jaggedArray) {
   // TODO: Implement logic to sum all elements of the jagged array.
@@ -1191,12 +1188,14 @@ function sumJagged(jaggedArray) {
     // return total + currentElement.reduce((a, b) => a + b, 0);
 
     console.log(total);
-    return total + currentElement.reduce((a, b) => {
-      console.log(`total ${a} ${space} b: ${b}`);  
-      
-      return a + b
+    return (
+      total +
+      currentElement.reduce((a, b) => {
+        console.log(`total ${a} ${space} b: ${b}`);
 
-    }, 0)
+        return a + b;
+      }, 0)
+    );
   }, 0);
 
   // let total = 0;
@@ -1211,3 +1210,481 @@ function sumJagged(jaggedArray) {
   // return total;
 }
 // Do not write anything outside function
+
+console.log(`\n\n${longHypen}${hyphen}(  JSON Part 1 )${longHypen}`);
+
+/*
+Check If Key Exists
+To check for a specific key in a JSON object, use the in operator or hasOwnProperty(): 
+*/
+
+const product = { name: "Laptop", price: 900 };
+
+// Using 'in' operator
+if ("price" in product) {
+  console.log("Key exists!");
+}
+
+// Using hasOwnProperty()
+if (product.hasOwnProperty("price")) {
+  console.log("Key exists!");
+}
+
+/*
+hasOwnProperty() returns true if the property exists (even if 
+its value is undefined), and false if the property doesn't exist:
+*/
+
+const obj1 = {};
+console.log(obj1.hasOwnProperty("key")); // false
+
+const obj2 = { key: undefined };
+console.log(obj2.hasOwnProperty("key")); // true
+
+/*
+Challenge (Easy):
+Create a function called toggleBookStatus that takes a book object as a parameter. The function should:
+
+1.If the book has a property isRead that is true, change it to false
+2.If the book has a property isRead that is false, change it to true
+3.If the book doesn't have an isRead property, add it and set it to true
+4.Return the modified book object
+*/
+
+function toggleBookStatus(book) {
+  // Write your code here
+
+  if (!book.isRead) {
+    book.isRead = true;
+    return book;
+  }
+
+  if (book.isRead == true) {
+    book.isRead = false;
+    return book;
+  }
+
+  if (book.isRead == false) {
+    book.isRead = true;
+    return book;
+  }
+}
+// Do not write anything outside function
+
+console.log(
+  `toggleBookStatus:`,
+  toggleBookStatus({
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    isRead: true,
+    pages: 180,
+    genre: "Classic",
+  })
+);
+
+/* Coddy Solution: ✅
+  function toggleBookStatus(book) {
+      if (book.isRead === true) {
+          book.isRead = false;
+      } else if (book.isRead === false) {
+          book.isRead = true;
+      } else {
+          book.isRead = true;
+      }
+      return book;
+  }
+*/
+
+console.log(`\n\n${longHypen}${hyphen}( findMissingKeys() )${longHypen}`);
+
+/*
+
+
+Challenge (Easy):
+Create a function named findMissingKeys that takes:
+
+- A JSON object (data)
+- An array of required keys (requiredKeys)
+
+The function should return an array containing all 
+keys from requiredKeys that do not exist in the data object. 
+If all required keys exist, return an empty array.
+Example Input:
+
+data = {"name": "Phone", "price": 599}
+requiredKeys = ["name", "price", "color"]
+
+Expected Output:
+["color"]
+*/
+
+function findMissingKeys(data, requiredKeys) {
+  // Write your code here
+  let newArr = [];
+
+  for (const key of requiredKeys) {
+    if (!data.hasOwnProperty(key)) {
+      // or obj.hasOwnProperty(key)
+      newArr.push(key);
+    }
+  }
+  return newArr;
+}
+// Do not modify below this line
+
+const data_1 = { make: "Tesla", model: "Model S", year: 2020 };
+const requiredKeys = ["make", "model", "year", "color"];
+
+console.log(`findMissingKeys: `, findMissingKeys(data_1, requiredKeys));
+
+/* Coddy Solution:
+function findMissingKeys(data, requiredKeys) {
+  const missingKeys = [];
+  
+  for (let i = 0; i < requiredKeys.length; i++) {
+    const key = requiredKeys[i];
+    if (!data.hasOwnProperty(key)) {
+      missingKeys.push(key);
+    }
+  }
+  
+  return missingKeys;
+}
+*/
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Object Methods:  function analyzeShoppingCart(cart)   )${longHypen}`
+);
+
+/*
+The Object class provides static methods to work with objects:
+
+<strong>Object.keys(obj)</strong> - Returns an array of keys
+
+<strong>Object.values(obj)</strong> - Returns an array of values
+
+<strong>Object.entries(obj)</strong> - Returns an array of [key, value] pairs
+*/
+
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York",
+};
+
+const keys = Object.keys(person);
+// ["name", "age", "city"]
+
+const values = Object.values(person);
+// ["John", 30, "New York"]
+
+const entries = Object.entries(person);
+// [["name", "John"], ["age", 30], ["city", "New York"]]
+
+/* 
+Get the number of keys in an object: 
+Object.keys(person).length
+
+
+
+Challenge (Easy):
+Write a function named analyzeShoppingCart that takes a shopping cart object. 
+The shopping cart object contains items as keys and their quantities as values. 
+The function should return an object with the following information:
+
+totalItems: The total number of unique items (number of keys)
+totalQuantity: The sum of all quantities
+*/
+
+function analyzeShoppingCart(cart) {
+  // Write code here
+
+  // for (let key in cart) {
+  //   console.log(key)
+  // }
+
+  return {
+    totalItems: Object.keys(cart).length,
+    totalQuantity: Object.values(cart).reduce((total, currentElement) => {
+      return total + currentElement;
+    }, 0),
+  };
+}
+// Do not write anything outside function
+
+try {
+  console.log(
+    analyzeShoppingCart({ banana: 5, apple: 3, orange: 2, mango: 1, pear: 4 })
+  );
+} catch (error) {
+  console.log(error.message);
+}
+
+/* Coddy Solution:
+
+function analyzeShoppingCart(cart) {
+  // Get arrays using Object static methods
+  const keys = Object.keys(cart);
+  const values = Object.values(cart);
+
+  // 1. totalItems is simply the length of keys
+  const totalItems = keys.length;
+
+  // 2. Calculate totalQuantity using a for loop
+  let totalQuantity = 0;
+  for (let i = 0; i < values.length; i++) {
+      totalQuantity += values[i];
+  }
+
+  return {
+      totalItems: totalItems,
+      totalQuantity: totalQuantity,
+  };
+}
+*/
+
+console.log(`\n\n${longHypen}${hyphen}(  findMostFrequentItem  )${longHypen}`);
+/*
+Challenge (Easy):
+Create a function named findMostFrequentItem that takes an object where keys are item names and values are quantities. 
+The function should:
+
+1. Find and return the name of the item with the highest quantity
+2. If there's a tie, return the first item that appears in the object
+
+Example Input:
+
+const inventory = {
+  "apple": 15,
+  "banana": 8,
+  "orange": 12,
+  "pear": 15
+}
+
+Expected Output: "apple"
+*/
+
+function findMostFrequentItem(inventory) {
+  // Write your code here
+  let highestQuantity = 0;
+  let firstHighest_Quantity = null;
+
+  for (const [key, value] of Object.entries(inventory)) {
+    // console.log(`${key}: ${value}`);
+
+    if (value > highestQuantity) {
+      highestQuantity = value;
+      firstHighest_Quantity = key;
+    }
+  }
+
+  return firstHighest_Quantity;
+}
+// Do not write anything outside function
+
+/* Coddy Solution:
+
+function findMostFrequentItem(inventory) {
+  // Get the entries array to access both keys and values
+  const entries = Object.entries(inventory);
+  
+  // Initialize variables to track the most frequent item
+  let mostFrequentItem = "";
+  let highestQuantity = 0;
+  
+  // Loop through entries to find the item with highest quantity
+  for (let i = 0; i < entries.length; i++) {
+    const [item, quantity] = entries[i];
+    
+    if (quantity > highestQuantity) {
+      highestQuantity = quantity;
+      mostFrequentItem = item;
+    }
+  }
+  
+  return mostFrequentItem;
+}
+*/
+
+try {
+  console.log(
+    findMostFrequentItem({ notebook: 30, pencil: 25, eraser: 30, ruler: 10 })
+  );
+} catch (error) {
+  console.log(error.message);
+}
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  The Spread Operator Part 1  )${longHypen}`
+);
+console.log(
+  "The spread operator (...) creates a copy of an object instead of a reference: \n\nReference (both variables point to same object)The spread operator (...) creates a copy of an object instead of a reference: \nReference (both variables point to same object)"
+);
+
+/*                The Spread Operator Part 1
+The spread operator (...) creates a copy of an object instead of a reference:
+
+// Reference (both variables point to same object)
+
+const obj1 = {key1: "123"}
+const obj2 = obj1
+obj1.key1 = "456"
+console.log(obj2.key1) // Output: "456"
+
+// Copy using spread operator
+const obj1 = {key1: "123"}
+const obj2 = {...obj1}
+obj1.key1 = "456"
+console.log(obj2.key1) // Output: "123"
+
+The spread operator copies all enumerable properties from the source object into a new object.
+*/
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  The Spread Operator Part 2  )${longHypen}`
+);
+/* The Spread Operator Part 2
+
+The spread operator can merge objects:
+
+const personalInfo = {name: "John", age: 30};
+const jobInfo = {company: "Tech Corp", position: "Developer"};
+const completeProfile = {...personalInfo, ...jobInfo};
+
+
+It can also add new properties and override existing properties while copying:
+
+const user = {name: "Alice", age: 25, mood: "sad"};
+const userWithEmail = {
+  ...user,
+  email: "alice@example.com",
+  mood: "happy"
+  };
+  
+  Challenge (Easy):
+  Create a function named mergeCars that takes two car objects as parameters. 
+  The function should merge the second car's properties into the first car's properties and 
+  return a new car object without modifying any of the original objects.
+  
+  */
+const car1 = { brand: "Toyota", model: "Camry", year: 2020, color: "Silver" };
+const car2 = { color: "Black", mileage: 50000, transmission: "Automatic" };
+
+function mergeCars(car1, car2) {
+  // Write code here
+  let mergeCar = Object.create(null);
+
+  return (mergeCar = { ...car1, ...car2 });
+}
+// Do not write anything outside function
+
+/* Coddy Solution:
+  function mergeCars(car1, car2) {
+    return { ...car1, ...car2 };
+    }
+    */
+
+const personalInfo = { name: "John", age: 30 };
+const jobInfo = { company: "Tech Corp", position: "Developer" };
+const completeProfile = { ...personalInfo, ...jobInfo };
+// console.log(completeProfile)
+
+console.log(mergeCars(car1, car2));
+
+console.log(`\n\n${longHypen}${hyphen}(  mergeSettings()  )${longHypen}`);
+
+/* 
+Challenge (Easy):
+Create a function called mergeSettings that takes three parameters:
+
+1.An object defaultSettings containing default application settings
+2.An object userSettings containing user's custom settings
+3.An object temporarySettings containing temporary settings
+
+The function should:
+
+1. Merge all three settings objects using the spread operator
+2. Make sure temporarySettings take highest priority, followed by userSettings, and finally defaultSettings
+3. Return the merged settings object
+
+Example Input:
+
+defaultSettings = { theme: "light", fontSize: 12, notifications: true };
+userSettings = { theme: "dark", fontSize: 14 };
+temporarySettings = { notifications: false };
+
+Expected Output:
+
+{ theme: "dark", fontSize: 14, notifications: false }
+*/
+
+function mergeSettings(defaultSettings, userSettings, temporarySettings) {
+  // Write your code here
+  
+  return {
+    ...defaultSettings,
+    ...userSettings,
+    ...temporarySettings,
+  };
+}
+
+console.log(
+  mergeSettings(
+    { theme: "light", notifications: true },
+    { fontSize: 15, language: "es" },
+    { language: "en", fontSize: 10 }
+  )
+);
+
+
+console.log(`\n\n${longHypen}${hyphen}(  Remove Keys  )${longHypen}`);
+
+/*  Remove Keys
+
+
+There are multiple ways to delete keys from a JSON object:
+
+Using the delete keyword:
+
+delete obj["name"]
+
+Using the spread operator with destructuring:
+
+const {name, ...filteredObj} = obj;
+// filteredObj contains all keys except 'name'
+
+Challenge (Easy):
+Create a function named removeKeys that takes two parameters:
+
+1. An object
+2. An array of strings (keys to be removed)
+
+The function should return a new object with the specified keys removed.
+*/
+
+function removeKeys(obj, keysToRemove) {
+  // Write code here
+  // console.log(obj, keysToRemove)
+  // console.log(Object.keys(obj));
+
+  keysToRemove.forEach(k2Remove => {
+    console.log('\n',k2Remove,'\n')
+
+    for(let key in obj) {
+
+      console.log(key)
+      if (k2Remove === key) {
+        delete obj[key]
+      }
+    }
+  })
+  
+  return obj
+}
+// Do not write anything outside function
+
+console.log(
+  removeKeys(
+  {species: "cat", color: "orange", weight: 4.5, isVaccinated: true, hasChip: true, owner: "Alice", age: 3},
+  ["isVaccinated", "hasChip", "owner"]
+))

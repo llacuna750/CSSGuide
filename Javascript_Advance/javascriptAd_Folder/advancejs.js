@@ -11,7 +11,7 @@ const correctAnswer = 7;
 
 const message =
   playerGuess === correctAnswer
-    ? "Exactly correct"
+    ? "Exactly correct" 
     : playerGuess < 4
     ? "Too low"
     : playerGuess > 10

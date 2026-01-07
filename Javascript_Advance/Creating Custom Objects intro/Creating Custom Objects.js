@@ -32,9 +32,8 @@ Well see three ways
 function gamer(name, score) {
     return  {
         name: name,
-        score: score
-        ,
-        incrementScore: function () {
+        score: score,
+        incrementScore: function () {w
             this.score++;
         }
     }

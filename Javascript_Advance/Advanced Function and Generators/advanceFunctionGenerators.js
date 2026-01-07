@@ -132,9 +132,7 @@ function createBankAccount(user) {
     // Write logic here
     return {
         depositeMoney: function (amount) {
-            console.log(
-            `${user} has deposited money of $${amount} in his/her Bank Account`
-            );
+            console.log(`${user} has deposited money of $${amount} in his/her Bank Account`);
             balance += amount;
         },
         withdrawMoney: function(withdrawAmount) {
@@ -167,3 +165,26 @@ wendyAccount.withdrawMoney(72)      // Output: Sorry Wendy but you have issufici
 wendyAccount.getBalance()           // Now your balance is $71 try to decrement or withdraw for 72
 
 // Test your code by calling the functions.
+
+/************************************************/ console.log("\n", spaceMe, "4. IIFEs (immediately Invoked Function Expressions)", spaceMe, ""); /************************************************/ 
+
+function getThemeFromLocalStorage() {
+    const theme = localStorage.getItem("theme");
+
+    if (theme) {
+        console.log(theme);
+    } else {
+        console.log("light");
+    }
+}
+
+
+try {
+    getThemeFromLocalStorage()
+} catch (error) {
+    console.log(error.message)
+}
+
+
+
+// getThemeFromLocalStorage()

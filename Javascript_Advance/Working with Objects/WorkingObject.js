@@ -285,8 +285,10 @@ try {
 
     eventMenu.forEach((name, index) => {
         console.log(index,":",name);
-    });
-    console.table( eventMenu);  
+    })
+
+    console.table( eventMenu);
+    
     console.log("eventMenu:",eventMenu);  
     console.log("SweetMenu:",SweetMenu);  
 

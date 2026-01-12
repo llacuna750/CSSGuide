@@ -1482,28 +1482,28 @@ function findMostFrequentItem(inventory) {
 }
 // Do not write anything outside function
 
-/* Coddy Solution:
-
-function findMostFrequentItem(inventory) {
-  // Get the entries array to access both keys and values
-  const entries = Object.entries(inventory);
-  
-  // Initialize variables to track the most frequent item
-  let mostFrequentItem = "";
-  let highestQuantity = 0;
-  
-  // Loop through entries to find the item with highest quantity
-  for (let i = 0; i < entries.length; i++) {
-    const [item, quantity] = entries[i];
+/* 
+  Coddy Solut{ion:
+  function findMostFrequentItem(inventory) {
+    // Get the entries array to access both keys and values
+    const entries = Object.entries(inventory);
     
-    if (quantity > highestQuantity) {
-      highestQuantity = quantity;
-      mostFrequentItem = item;
+    // Initialize variables to track the most frequent item
+    let mostFrequentItem = "";
+    let highestQuantity = 0;
+    
+    // Loop through entries to find the item with highest quantity
+    for (let i = 0; i < entries.length; i++) {
+      const [item, quantity] = entries[i];
+      
+      if (quantity > highestQuantity) {
+        highestQuantity = quantity;
+        mostFrequentItem = item;
+      }
     }
-  }
-  
-  return mostFrequentItem;
-}
+    
+    return mostFrequentItem;
+  }}
 */
 
 try {
@@ -1566,7 +1566,7 @@ const userWithEmail = {
   The function should merge the second car's properties into the first car's properties and 
   return a new car object without modifying any of the original objects.
   
-  */
+*/
 const car1 = { brand: "Toyota", model: "Camry", year: 2020, color: "Silver" };
 const car2 = { color: "Black", mileage: 50000, transmission: "Automatic" };
 
@@ -1620,7 +1620,7 @@ Expected Output:
 
 function mergeSettings(defaultSettings, userSettings, temporarySettings) {
   // Write your code here
-  
+
   return {
     ...defaultSettings,
     ...userSettings,
@@ -1635,7 +1635,6 @@ console.log(
     { language: "en", fontSize: 10 }
   )
 );
-
 
 console.log(`\n\n${longHypen}${hyphen}(  Remove Keys  )${longHypen}`);
 
@@ -1667,24 +1666,552 @@ function removeKeys(obj, keysToRemove) {
   // console.log(obj, keysToRemove)
   // console.log(Object.keys(obj));
 
-  keysToRemove.forEach(k2Remove => {
-    console.log('\n',k2Remove,'\n')
+  keysToRemove.forEach((k2Remove) => {
+    console.log("\n", k2Remove, "\n");
 
-    for(let key in obj) {
-
-      console.log(key)
+    for (let key in obj) {
+      console.log(key);
       if (k2Remove === key) {
-        delete obj[key]
+        delete obj[key];
       }
     }
-  })
-  
-  return obj
+  });
+
+  return obj;
 }
 // Do not write anything outside function
 
 console.log(
   removeKeys(
-  {species: "cat", color: "orange", weight: 4.5, isVaccinated: true, hasChip: true, owner: "Alice", age: 3},
-  ["isVaccinated", "hasChip", "owner"]
-))
+    {
+      species: "cat",
+      color: "orange",
+      weight: 4.5,
+      isVaccinated: true,
+      hasChip: true,
+      owner: "Alice",
+      age: 3,
+    },
+    ["isVaccinated", "hasChip", "owner"]
+  )
+);
+
+console.log(`\n\n${longHypen}${hyphen}(  filterObject )${longHypen}`);
+/* 
+Challenge (Easy):
+Create a function named filterObject that:
+
+Takes an object and an array of keys to keep
+Returns a new object containing only the specified keys from the original object
+Important: Do not modify the original object
+
+For example:
+// Original object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York",
+  job: "Developer"
+  };
+  
+  // Call your function
+  const filtered = filterObject(person, ["name", "job"]);
+  
+  // Result should be:
+  // { name: "John", job: "Developer" }
+  
+  // The original object should remain unchanged
+  console.log(person); // Still has all original properties
+  
+  If a key in the "keep list" doesn't exist in the original object, just ignore it.
+  
+  Hint 1
+  Create a new empty object to store the filtered results
+  
+  Hint 2
+  Loop through the keysToKeep array and check if each key exists in the original object
+  
+  Hint 3
+  Use obj.hasOwnProperty(key) or 'key in obj' to check if a key exists
+  
+  
+  Hint 4
+  Do not modify the original object - always return a new one
+  */
+
+function filterObject(obj, keysToKeep) {
+  // Write your code here
+
+  for (let key in obj) {
+    if (!keysToKeep.includes(key)) {
+      delete obj[key];
+    }
+  }
+
+  return obj;
+}
+// Do not modify code outside the function
+
+console.log(
+  filterObject(
+    {
+      name: "Alice",
+      age: 25,
+      city: "Los Angeles",
+      hobby: "Hiking",
+      occupation: "Teacher",
+    },
+    ["name", "hobby", "occupation"]
+  )
+);
+
+/*   Coddy Solution:
+function filterObject(obj, keysToKeep) {
+  // Create a new empty object
+  const result = {};
+  
+  // Loop through each key to keep
+  for (let i = 0; i < keysToKeep.length; i++) {
+      const key = keysToKeep[i];
+      
+      // Only add the key-value pair if the key exists in the original object
+      if (obj.hasOwnProperty(key)) {
+          result[key] = obj[key];
+      }
+  }
+  
+  return result;
+}
+*/
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Recap - JSON Manipulate Keys )${longHypen}`
+);
+
+/*
+Challenge (Easy):
+Create a function named petShelterManager that helps manage a pet shelter system. 
+The function receives two parameters:
+
+1. shelterData (an array of objects containing information about pets)
+2. newData (an object containing new data)
+
+
+The shelterData array contains objects with the following structure:
+
+{
+  id: "unique-id",
+  name: "pet-name",
+  type: "animal-type",
+  age: number,
+  isVaccinated: boolean,
+  adoptionStatus: "available" | "adopted"
+  }
+  Your function should do the following:
+  
+  Add the newData object to the shelterData array
+  Before adding, verify that all required fields (id, name, type, age, isVaccinated, adoptionStatus) exist in newData
+  If a field is missing, do not add the newData
+  Return the updated shelterData array
+  */
+
+function petShelterManager(shelterData, newData) {
+  // Write code here
+  let allSameProperty;
+
+  // for (let objs of shelterData) {
+  //   console.log(objs);
+
+  //   for (const [key, values] of Object.entries(newData)) {
+  //     console.log(objs.hasOwnProperty(key));
+  //   }
+  // }
+
+  // My code not completed / working
+  // for (let objs of shelterData) {
+  //   for (let key in objs) {
+  //     // console.log(newData.hasOwnProperty(key));
+
+  //     allSameProperty = [newData].every((datainNewData) => {
+  //       console.log(datainNewData);
+  //       return datainNewData.hasOwnProperty(key);
+  //     });
+  //   }
+  // }
+
+  // Chatgpt code
+  allSameProperty = shelterData.every((obj) =>
+    Object.keys(obj).every((key) => Object.hasOwn(newData, key))
+  );
+
+  if (allSameProperty) {
+    shelterData.push(newData);
+  }
+
+  return shelterData;
+}
+// Do not write anything outside function
+
+/* Coddy Solution:
+        function petShelterManager(shelterData, newData) {
+          // Create a copy of shelterData to avoid modifying the original
+          let updatedShelter = [];
+          for (let i = 0; i < shelterData.length; i++) {
+            updatedShelter.push(shelterData[i]);
+            }
+            
+            if (newData.id === undefined || 
+            newData.name === undefined || 
+            newData.type === undefined || 
+            newData.age === undefined || 
+            newData.isVaccinated === undefined || 
+            newData.adoptionStatus === undefined) {
+              return updatedShelter;
+              }
+              
+              updatedShelter.push(newData);
+              return updatedShelter;
+              }
+              */
+
+console.log(
+  petShelterManager(
+    [
+      {
+        id: "P1",
+        name: "Slither",
+        type: "Snake",
+        age: 2,
+        isVaccinated: false,
+        adoptionStatus: "available",
+      },
+    ],
+    { id: "P2", name: "Polly", type: "Parrot", age: 15, isVaccinated: true }
+  )
+);
+
+console.log(
+  `\n\n${longHypen}${hyphen}( Iterate Over JSON : JSON Part 2 )${longHypen}`
+);
+
+/*          Iterate Over JSON
+              
+To iterate over JSON object keys, use Object.keys():
+
+const keys = Object.keys(userSettings)
+for (let i = 0; i < keys.length; i++) {
+console.log(keys[i], userSettings[keys[i]])
+}
+
+Or use a for...in loop:
+
+for (const key in userSettings) {
+console.log(key, userSettings[key]);
+}
+Or use Object.entries() to get key-value pairs:
+
+for (const [k, v] of Object.entries(userSettings)) {
+// k is the key, v is the value
+}
+
+
+Challenge (Easy):
+
+Create a function named analyzeCarData that takes a JSON object as input. 
+The object contains data about a car dealership's inventory where:
+
+- keys are the car models
+- values are the prices
+
+The function should return an object containing:
+
+1. mostExpensive: the name of the most expensive car
+2. cheapest: the name of the cheapest car
+3. averagePrice: the average price of all cars
+
+
+*/
+
+function analyzeCarData(carData) {
+  let mostExpensive = "";
+  let cheapest = "";
+
+  let highestPrice = -Infinity;
+  let lowestPrice = Infinity;
+
+  let average = 0;
+
+  for (const key in carData) {
+    const price = carData[key];
+    average += price;
+
+    if (price > highestPrice) {
+      highestPrice = price;
+      mostExpensive = key;
+    }
+
+    if (price < lowestPrice) {
+      lowestPrice = price;
+      cheapest = key;
+    }
+  }
+
+  average /= Object.keys(carData).length;
+
+  return {
+    mostExpensive,
+    cheapest,
+    averagePrice: average,
+  };
+}
+// Do not write anything outside function
+
+console.log(
+  analyzeCarData({
+    "1967 Chevrolet Corvette": 185000,
+    "1965 Ford Mustang": 45000,
+    "1970 Plymouth Barracuda": 125000,
+    "1969 Dodge Charger": 89000,
+    "1957 Chevrolet Bel Air": 75000,
+  })
+);
+
+console.log(`\n\n${longHypen}${hyphen}( Nested JSON )${longHypen}`);
+/*
+Nested JSON
+
+JSON objects can be nested infinitely deep:
+
+const userData = {
+  "user": {
+    "name": "Kim",
+    "address": {
+      "city": "Springfield",
+      "zip": 12345,
+      "location": {
+        "coordinates": {
+          "latitude": 42.1234,
+          "longitude": -71.5678
+        }
+      }
+    }
+  }
+}
+Access nested properties using dot notation:
+
+userData.user.name
+userData.user.address.location
+// And so on
+
+Challenge (Easy):
+Create a function named calculateRestaurantBill that takes a JSON object representing a restaurant order as input. 
+Each key in the object is a dish name, and each value is another object containing:
+
+* price (number)
+* quantity (number)
+* isSpecialOffer (boolean) 
+
+if true, there's a 20% discount on that dish The function should:
+1. Calculate the total bill
+2. Apply any special offer discounts
+3. Return an object containing:
+  1. totalBeforeDiscount
+  2. totalDiscount
+  3. finalTotal
+*/
+
+function calculateRestaurantBill(order) {
+  // Write code here
+  let totalBeforeDiscount = 0;
+  let totalDiscountedDish = 0;
+  const percentOff = 20 / 100;
+
+  for (const [key, val] of Object.entries(order)) {
+    if (val.isSpecialOffer) {
+      //   console.log(`Your ${key} is discounted by 20%.`);
+      totalDiscountedDish += val.price * val.quantity * percentOff;
+    }
+
+    // console.log(val.price)
+    // console.log(`${key}: ${val.price}`)
+    totalBeforeDiscount += val.price * val.quantity;
+  }
+
+  return {
+    totalBeforeDiscount: totalBeforeDiscount,
+    totalDiscount: totalDiscountedDish,
+    finalTotal: totalBeforeDiscount - totalDiscountedDish,
+  };
+}
+// Do not write anything outside function
+
+/* Coddy Solution:
+  function calculateRestaurantBill(order) {
+    let totalBeforeDiscount = 0;
+    let totalDiscount = 0;
+    
+    // Loop through each dish in the order
+    for (let dish in order) {
+        let itemInfo = order[dish];
+        
+        // Calculate total for this dish before discount
+        let dishTotal = itemInfo.price * itemInfo.quantity;
+        totalBeforeDiscount += dishTotal;
+        
+        // If it's a special offer, calculate the discount
+        if (itemInfo.isSpecialOffer) {
+            let dishDiscount = dishTotal * 0.2; // 20% discount
+            totalDiscount += dishDiscount;
+        }
+    }
+    
+    // Calculate final total after all discounts
+    let finalTotal = totalBeforeDiscount - totalDiscount;
+    
+    return {
+        totalBeforeDiscount: totalBeforeDiscount,
+        totalDiscount: totalDiscount,
+        finalTotal: finalTotal
+    };
+  }
+*/
+
+console.log(
+  calculateRestaurantBill({
+    Lobster: { price: 89.99, quantity: 2, isSpecialOffer: true },
+    Caviar: { price: 150.0, quantity: 1, isSpecialOffer: false },
+    Champagne: { price: 200.0, quantity: 1, isSpecialOffer: true },
+    Oysters: { price: 24.99, quantity: 4, isSpecialOffer: true },
+    Truffles: { price: 75.0, quantity: 1, isSpecialOffer: false },
+  })
+);
+
+
+console.log(`\n\n${longHypen}${hyphen}( Shallow And Deep Copy )${longHypen}`);
+/* Shallow And Deep Copy
+
+When copying objects, we have two types of copies:
+
+Shallow Copy - copies only the first level
+Deep Copy - copies all nested levels
+Shallow Copy Methods:
+
+Using spread operator:
+const original = { a: 1, b: { x: 2 } };
+const spreadCopy = { ...original };
+Using Object.assign():
+
+const assignCopy = Object.assign({}, original);
+Problem with Shallow Copy:
+
+original.b.x = 3;
+console.log(spreadCopy.b.x); // 3 (nested objects share reference)
+
+
+JSON Methods:
+JSON.stringify() converts JavaScript object to JSON string:
+
+const obj = { name: "John", age: 30 };
+const jsonString = JSON.stringify(obj);
+console.log(jsonString); // "{"name":"John","age":30}"
+
+
+JSON.parse() converts JSON string back to JavaScript object:
+
+const backToObject = JSON.parse(jsonString);
+console.log(backToObject); // { name: "John", age: 30 }
+
+
+Deep Copy using JSON:
+
+const original = { a: 1, b: { x: 2 } };
+const deepCopy = JSON.parse(JSON.stringify(original));
+
+original.b.x = 3;
+console.log(deepCopy.b.x); // 2 (completely independent)
+
+
+Challenge (Easy):
+Create a function named processCart that takes a JSON string representing a shopping cart. 
+The cart contains an array of products with names and prices. Your task is to:
+
+1. Parse the JSON string into a JavaScript object
+2. Create TWO separate carts from it
+3. In the second cart:
+  1. Add a discounted property to each item set to false
+  2. Apply a 10% discount to all items that have price greater than 50
+  3. Set 'discounted' to true for items that received the discount
+  4. Return an array containing both carts
+*/
+
+
+function processCart(jsonString) {
+  // Write code here
+
+  // detect if input is a string or already an array
+  const originalCart =
+    typeof jsonString === "string"
+      ? JSON.parse(jsonString)
+      : JSON.parse(JSON.stringify(jsonString));
+
+  const cart_2 = originalCart.map(item => ({ ...item }));
+
+  for (let item of cart_2) {
+    item.discounted = false;
+
+    if (item.price > 50) {
+      item.price *= 0.90;
+      item.discounted = true;
+    }
+  }
+
+  return [originalCart, cart_2];
+}
+// Don't write anything outside the function
+
+/* Coddy Solution:
+function processCart(jsonString) {
+  // Parse JSON string into object
+  let originalCart = JSON.parse(jsonString);
+  
+  // Create second cart
+  let secondCart = JSON.parse(jsonString);
+  
+  for (let i = 0; i < secondCart.length; i++) {
+      secondCart[i].discounted = false;
+      
+      if (secondCart[i].price > 50) {
+          secondCart[i].price = secondCart[i].price * 0.9;
+          secondCart[i].discounted = true;
+      }
+  }
+  
+  return [originalCart, secondCart];
+}
+*/
+
+
+console.log(
+  processCart(
+    [
+      {"name": "Book", "price": 15}, 
+      {"name": "Coffee Maker", "price": 75}, 
+      {"name": "Headphones", "price": 45}, 
+      {"name": "Smart Watch", "price": 199}
+    ]
+  )
+);
+
+
+
+// ======================================================================== Examples:========================================================================
+const original = { a: 1, b: { x: 2 } };
+// const spreadCopy = { ...original }; 
+const assignCopy = Object.assign({}, original);
+
+// console.log(spreadCopy)
+
+// original.b.x = 3; // becase of Spread Operator we shallow copy the original Object
+// console.log(spreadCopy.b.x); // 3 (nested objects share reference)
+assignCopy.b.x = 5;
+console.log(original)

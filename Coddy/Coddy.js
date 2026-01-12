@@ -2138,33 +2138,33 @@ The cart contains an array of products with names and prices. Your task is to:
 1. Parse the JSON string into a JavaScript object
 2. Create TWO separate carts from it
 3. In the second cart:
-  1. Add a discounted property to each item set to false
-  2. Apply a 10% discount to all items that have price greater than 50
-  3. Set 'discounted' to true for items that received the discount
-  4. Return an array containing both carts
+1. Add a discounted property to each item set to false
+2. Apply a 10% discount to all items that have price greater than 50
+3. Set 'discounted' to true for items that received the discount
+4. Return an array containing both carts
 */
 
 
 function processCart(jsonString) {
   // Write code here
-
+  
   // detect if input is a string or already an array
   const originalCart =
-    typeof jsonString === "string"
-      ? JSON.parse(jsonString)
-      : JSON.parse(JSON.stringify(jsonString));
-
+  typeof jsonString === "string"
+  ? JSON.parse(jsonString)
+  : JSON.parse(JSON.stringify(jsonString));
+  
   const cart_2 = originalCart.map(item => ({ ...item }));
-
+  
   for (let item of cart_2) {
     item.discounted = false;
-
+    
     if (item.price > 50) {
       item.price *= 0.90;
       item.discounted = true;
     }
   }
-
+  
   return [originalCart, cart_2];
 }
 // Don't write anything outside the function
@@ -2178,34 +2178,34 @@ function processCart(jsonString) {
   let secondCart = JSON.parse(jsonString);
   
   for (let i = 0; i < secondCart.length; i++) {
-      secondCart[i].discounted = false;
-      
-      if (secondCart[i].price > 50) {
-          secondCart[i].price = secondCart[i].price * 0.9;
-          secondCart[i].discounted = true;
+    secondCart[i].discounted = false;
+    
+    if (secondCart[i].price > 50) {
+      secondCart[i].price = secondCart[i].price * 0.9;
+      secondCart[i].discounted = true;
       }
-  }
-  
-  return [originalCart, secondCart];
-}
-*/
-
-
-console.log(
-  processCart(
-    [
-      {"name": "Book", "price": 15}, 
-      {"name": "Coffee Maker", "price": 75}, 
-      {"name": "Headphones", "price": 45}, 
-      {"name": "Smart Watch", "price": 199}
-    ]
-  )
-);
-
-
-
-// ======================================================================== Examples:========================================================================
-const original = { a: 1, b: { x: 2 } };
+      }
+      
+      return [originalCart, secondCart];
+      }
+      */
+     
+     
+     console.log(
+       processCart(
+         [
+           {"name": "Book", "price": 15}, 
+           {"name": "Coffee Maker", "price": 75}, 
+           {"name": "Headphones", "price": 45}, 
+           {"name": "Smart Watch", "price": 199}
+          ]
+        )
+      );
+      
+      
+      
+      // ======================================================================== Examples:========================================================================
+      const original = { a: 1, b: { x: 2 } };
 // const spreadCopy = { ...original }; 
 const assignCopy = Object.assign({}, original);
 
@@ -2215,3 +2215,23 @@ const assignCopy = Object.assign({}, original);
 // console.log(spreadCopy.b.x); // 3 (nested objects share reference)
 assignCopy.b.x = 5;
 console.log(original)
+
+
+console.log(`\n\n${longHypen}${hyphen}( Recap - Bicycle Shop - JSON Part 2 )${longHypen}`);
+
+/*  Recap - Bicycle Shop 
+
+Challenge (Easy):
+Create a function named updateBikeInventory that takes one argument, a JSON string inventoryStr.
+
+Parse it into an object, where inventoryStr has a bikes array. Each bike has brand, price, and quantity.
+
+If a bike's quantity is less than 3, add or update a key note with the value "Restock needed" for that bike.
+
+Return the updated object as a JSON string.
+*/
+
+function updateBikeInventory(inventoryStr) {
+    // Write code here
+}
+// Don't write anything outside the function

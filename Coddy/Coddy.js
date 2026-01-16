@@ -1,6 +1,7 @@
 const hyphen = "-".repeat(2);
 const space = " ".repeat(5);
 const longHypen = "-".repeat(20);
+export { hyphen, space, longHypen };
 
 //================================================  Strings In Depth  ================================================
 console.log(`\n\n${longHypen}${hyphen}(  Strings In Depth  )${longHypen}`);
@@ -301,22 +302,19 @@ function formatBlogTitle(title) {
       ) {
         // console.log('Gamay ang letter');
         console.log(
-          `${index}: ${
-            tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
+          `${index}: ${tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
           }`
         );
 
-        return `${
-          tit === `javascript` || tit === `Javascript`
-            ? (tit = `JavaScript`)
-            : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
-        }`;
-      }
-      return `${
-        tit === `javascript` || tit === `Javascript`
+        return `${tit === `javascript` || tit === `Javascript`
           ? (tit = `JavaScript`)
           : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
-      }`;
+          }`;
+      }
+      return `${tit === `javascript` || tit === `Javascript`
+        ? (tit = `JavaScript`)
+        : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
+        }`;
     })
     .join(" ");
 
@@ -1211,6 +1209,47 @@ function sumJagged(jaggedArray) {
 }
 // Do not write anything outside function
 
+/* Coddy Solution:
+function sumJagged(jaggedArray) {
+  let total = 0;
+  for (let r = 0; r < jaggedArray.length; r++) {
+    for (let c = 0; c < jaggedArray[r].length; c++) {
+      total += jaggedArray[r][c];
+    }
+  }
+  return total;
+}
+*/
+
+console.log(`\n\n${longHypen}${hyphen}(  flattenJagged )${longHypen}`);
+
+/*
+Challenge (Easy):
+Create a function named flattenJagged that takes a jagged array as input 
+and returns a new one-dimensional array containing all the elements from the jagged array.
+
+Example Input:
+  const jaggedArray = [
+    [1, 2],
+    [3, 4, 5],
+    [6]
+  ];
+
+Expected Output:
+  [1, 2, 3, 4, 5, 6]
+*/
+
+function flattenJagged(jaggedArray) {
+  // Your code here
+  console.log(jaggedArray)
+  
+  // return jaggedArray
+}
+// Do not write anything outside function
+
+
+console.log(flattenJagged([[1, 2, 3], [4, 5], [6, 7, 8, 9]]))
+
 console.log(`\n\n${longHypen}${hyphen}(  JSON Part 1 )${longHypen}`);
 
 /*
@@ -2086,7 +2125,6 @@ console.log(
   })
 );
 
-
 console.log(`\n\n${longHypen}${hyphen}( Shallow And Deep Copy )${longHypen}`);
 /* Shallow And Deep Copy
 
@@ -2144,27 +2182,26 @@ The cart contains an array of products with names and prices. Your task is to:
 4. Return an array containing both carts
 */
 
-
 function processCart(jsonString) {
   // Write code here
-  
+
   // detect if input is a string or already an array
   const originalCart =
-  typeof jsonString === "string"
-  ? JSON.parse(jsonString)
-  : JSON.parse(JSON.stringify(jsonString));
-  
-  const cart_2 = originalCart.map(item => ({ ...item }));
-  
+    typeof jsonString === "string"
+      ? JSON.parse(jsonString)
+      : JSON.parse(JSON.stringify(jsonString));
+
+  const cart_2 = originalCart.map((item) => ({ ...item }));
+
   for (let item of cart_2) {
     item.discounted = false;
-    
+
     if (item.price > 50) {
-      item.price *= 0.90;
+      item.price *= 0.9;
       item.discounted = true;
     }
   }
-  
+
   return [originalCart, cart_2];
 }
 // Don't write anything outside the function
@@ -2179,34 +2216,29 @@ function processCart(jsonString) {
   
   for (let i = 0; i < secondCart.length; i++) {
     secondCart[i].discounted = false;
-    
+  
     if (secondCart[i].price > 50) {
       secondCart[i].price = secondCart[i].price * 0.9;
       secondCart[i].discounted = true;
-      }
-      }
-      
-      return [originalCart, secondCart];
-      }
-      */
-     
-     
-     console.log(
-       processCart(
-         [
-           {"name": "Book", "price": 15}, 
-           {"name": "Coffee Maker", "price": 75}, 
-           {"name": "Headphones", "price": 45}, 
-           {"name": "Smart Watch", "price": 199}
-          ]
-        )
-      );
-      
-      
-      
-      // ======================================================================== Examples:========================================================================
-      const original = { a: 1, b: { x: 2 } };
-// const spreadCopy = { ...original }; 
+    }
+  }
+  
+  return [originalCart, secondCart];
+}
+*/
+
+console.log(
+  processCart([
+    { name: "Book", price: 15 },
+    { name: "Coffee Maker", price: 75 },
+    { name: "Headphones", price: 45 },
+    { name: "Smart Watch", price: 199 },
+  ])
+);
+
+// ======================================================================== Examples:========================================================================
+const original = { a: 1, b: { x: 2 } };
+// const spreadCopy = { ...original };
 const assignCopy = Object.assign({}, original);
 
 // console.log(spreadCopy)
@@ -2214,10 +2246,11 @@ const assignCopy = Object.assign({}, original);
 // original.b.x = 3; // becase of Spread Operator we shallow copy the original Object
 // console.log(spreadCopy.b.x); // 3 (nested objects share reference)
 assignCopy.b.x = 5;
-console.log(original)
+console.log(original);
 
-
-console.log(`\n\n${longHypen}${hyphen}( Recap - Bicycle Shop - JSON Part 2 )${longHypen}`);
+console.log(
+  `\n\n${longHypen}${hyphen}( Recap - Bicycle Shop - JSON Part 2 )${longHypen}`
+);
 
 /*  Recap - Bicycle Shop 
 
@@ -2232,6 +2265,208 @@ Return the updated object as a JSON string.
 */
 
 function updateBikeInventory(inventoryStr) {
-    // Write code here
+  // Write code here
+
+  // Handle both JSON string and JavaScript object
+  const convertObj =
+    typeof inventoryStr === "string"
+      ? JSON.parse(inventoryStr)
+      : JSON.parse(JSON.stringify(inventoryStr));
+
+  for (let bike of convertObj.bikes) {
+    if (bike.quantity < 3) {
+      bike.note = "Restock needed";
+    }
+  }
+
+  // Convert the object to a JSON string
+  const myJSON = JSON.stringify(convertObj);
+
+  return myJSON;
 }
 // Don't write anything outside the function
+
+/* Coddy Solution:
+
+function updateBikeInventory(inventoryStr) {
+  let inventory = JSON.parse(inventoryStr);
+  
+  for (let i = 0; i < inventory.bikes.length; i++) {
+    if (inventory.bikes[i].quantity < 3) {
+      inventory.bikes[i].note = "Restock needed";
+      }
+      }
+      
+      return JSON.stringify(inventory);
+      }
+      */
+
+console.log(
+  updateBikeInventory({
+    bikes: [
+      { brand: "Trek", price: 999.99, quantity: 2 },
+      { brand: "Giant", price: 799.99, quantity: 5 },
+    ],
+  })
+);
+
+console.log(`\n\n${longHypen}${hyphen}( Recap - Solar System )${longHypen}`);
+
+/*  Recap - Solar System
+ 
+Challenge (Easy):
+Create a function named analyzeSolarSystem that takes one argument, a JSON string solarSystemData. 
+The JSON string contains information about planets in our solar system. Each planet has the following properties:
+
+* name (string)
+* type (string: "rocky" or "gas")
+* numberOfMoons (number)
+* discoveredIn (number, year)
+* surfaceTemperature (object with min and max in Celsius)
+* hasRings (boolean)
+
+
+Your task:
+
+1. Parse the JSON string into an object.
+2. For each planet:
+1. Add a property classification based on these rules:
+  1. If it's a rocky planet and surfaceTemperature.max < 50°C: Potentially Habitable
+  2. If it's a rocky planet and surfaceTemperature.max >= 50°C: Extreme Environment
+  3. If it's a gas planet and numberOfMoons > 10: Complex System
+  4. If it's a gas planet and numberOfMoons <= 10: Simple Gas Giant
+2. Add a property ageOfDiscovery that calculates how many years ago the planet was discovered (from the year 2010)
+3. If the planet has rings and more than 5 moons, add a property specialFeature with value Ring System with Rich Moon Population
+3. Return the modified object as a JSON string.
+
+Example input: 
+{
+"planets": [
+  {
+    "name": "Mars",
+    "type": "rocky",
+    "numberOfMoons": 2,
+    "discoveredIn": -3000,
+    "surfaceTemperature": {
+      "min": -140,
+      "max": 20
+    },
+    "hasRings": false
+  },
+  {
+    "name": "Saturn",
+    "type": "gas",
+    "numberOfMoons": 82,
+    "discoveredIn": -3000,
+    "surfaceTemperature": {
+      "min": -178,
+      "max": -138
+    },
+    "hasRings": true
+  }
+]
+}
+*/
+
+function analyzeSolarSystem(solarSystemData) {
+  // Write code here
+  const parseSolarData =
+    typeof solarSystemData === "string"
+      ? JSON.parse(solarSystemData)
+      : JSON.parse(JSON.stringify(solarSystemData));
+
+  // console.log(parseSolarData)
+  // console.log(typeof parseSolarData)
+
+  const year = 2010;
+
+  for (const [key, val] of Object.entries(parseSolarData)) {
+    // console.log(val)
+
+    for (const innKey of val) {
+      // console.log(innKey.name)
+
+      if (innKey.type === "rocky" && innKey.surfaceTemperature.max < 50) {
+        innKey.classification = "Potentially Habitable";
+      }
+
+      if (innKey.type === "rocky" && innKey.surfaceTemperature.max >= 50) {
+        innKey.classification = "Extreme Environment";
+      }
+
+      if (innKey.type === "gas" && innKey.numberOfMoons > 10) {
+        innKey.classification = "Complex System";
+      }
+
+      if (innKey.type === "gas" && innKey.numberOfMoons <= 10) {
+        innKey.classification = "Simple Gas Giant";
+      }
+
+      innKey.ageOfDiscovery = year - innKey.discoveredIn;
+
+      if (innKey.hasRings && innKey.numberOfMoons > 5) {
+        innKey.specialFeature = "Ring System with Rich Moon Population";
+      }
+    }
+  }
+
+  // Convert the object to a JSON string 
+  return JSON.stringify(parseSolarData);
+
+}
+// Don't write anything outside the function
+
+/* Coddy Solution:
+function analyzeSolarSystem(solarSystemData) {
+    let data = JSON.parse(solarSystemData);
+    
+    for (let i = 0; i < data.planets.length; i++) {
+        let planet = data.planets[i];
+        
+        if (planet.type === "rocky") {
+            if (planet.surfaceTemperature.max < 50) {
+                planet.classification = "Potentially Habitable";
+            } else {
+                planet.classification = "Extreme Environment";
+            }
+        } else if (planet.type === "gas") {
+            if (planet.numberOfMoons > 10) {
+                planet.classification = "Complex System";
+            } else {
+                planet.classification = "Simple Gas Giant";
+            }
+        }
+        
+        planet.ageOfDiscovery = 2010 - planet.discoveredIn;
+        
+        if (planet.hasRings && planet.numberOfMoons > 5) {
+            planet.specialFeature = "Ring System with Rich Moon Population";
+        }
+    }
+    
+    return JSON.stringify(data);
+}
+*/
+
+console.log(
+  analyzeSolarSystem({
+    planets: [
+      {
+        name: "Neptune",
+        type: "gas",
+        numberOfMoons: 14,
+        discoveredIn: 1846,
+        surfaceTemperature: { min: -214, max: -200 },
+        hasRings: true,
+      },
+      {
+        name: "Venus",
+        type: "rocky",
+        numberOfMoons: 0,
+        discoveredIn: -3000,
+        surfaceTemperature: { min: 462, max: 462 },
+        hasRings: false,
+      },
+    ],
+  })
+);

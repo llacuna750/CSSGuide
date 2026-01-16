@@ -227,7 +227,7 @@ const findindDuplicate = arr => {
     for (let i = 0; i < arr.length; i++) {
         console.log('-'.repeat(10));
 
-        for (let j = i+1; j < arr.length; j++) {
+        for (let j = i + 1; j < arr.length; j++) {
             if (arr[i] === arr[j]) {
                 allduplicated.push(arr[i]);
                 console.log(`i = ${i}      j = ${j}`);
@@ -268,10 +268,10 @@ function bubbleSort(arr) {
 
 
 const bSort = bubbleSort(list);
-console.log(bSort); 
+console.log(bSort);
 
 function sum(a, b = 5) {
-    return  a * b;
+    return a * b;
 }
 
 const sumPot = (a, b) => {
@@ -285,7 +285,7 @@ const sumPot = (a, b) => {
 console.log("Total:", sum(2, 3)); // 20
 console.log("Total:", sumPot(8)); // 10
 
- 
+
 
 
 
@@ -306,7 +306,7 @@ const findWord = [
 function getTargetWord(arrOb, target) {
     const targex = new RegExp(target, "i");
 
-    return arrOb.filter( objs => {
+    return arrOb.filter(objs => {
         // What we use: new Regex() Constructor
         return targex.test(objs.description);
     });
@@ -332,11 +332,126 @@ const thisCol = 5;
 const mySymbol = "^";
 
 for (let row = 0; row < myRow; row++) {
-  let line = "";
+    let line = "";
 
-  for (let col = 0; col < thisCol; col++) {
-    line += mySymbol;
-  }
+    for (let col = 0; col < thisCol; col++) {
+        line += mySymbol;
+    }
 
-  console.log(line); // print entire row
+    console.log(line); // print entire row
 }
+
+
+// import longHypen from '../Coddy/Coddy.js'
+import { hyphen, space as sp, longHypen } from "../Coddy/Coddy.js";
+
+
+/* Leet Code TWO SUM in JS */
+console.log(
+    `\n\n${longHypen}${hyphen}( Leet Code TWO SUM in JS )${longHypen}`
+);
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+*/
+var twoSum = function (nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        // console.log(nums[i])
+
+        for (let y = i + 1; y < nums.length; y++) {
+            // console.log(`${sp} ${nums[i]} + ${nums[y]} = ${nums[i] + nums[y] }`)
+
+            if (nums[i] + nums[y] == target) {
+                // console.log('Cond. true')
+                return [i, y]
+            }
+        }
+    }
+};
+
+console.log(twoSum([2, 7, 11, 15], 9))
+
+console.log(
+    `\n\n${longHypen}${hyphen}( 2. Add Two Numbers )${longHypen}`
+);
+
+/*
+    Input: l1 = [2,4,3], l2 = [5,6,4]
+    Output: [7,0,8]
+    Explanation: 342 + 465 = 807.
+*/
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function (l1, l2) {
+    let myL1 = []
+    let myL2 = []
+
+    for (let prm1 of l1.reverse()) {
+        myL1.push(prm1)
+    }
+    for (let prm2 of l2.reverse()) {
+        myL2.push(prm2)
+    }
+
+    const l1Join = Number(myL1.join(''))
+    const l2Join = Number(myL2.join(''))
+    const result = l1Join + l2Join
+
+    // console.log(result)
+
+    const num = result;
+    const arr = Array.from(String(num), Number).reverse();
+
+    // console.log(arr.reverse()); // Output: [1, 2, 3, 4, 5]
+    return arr
+};
+
+
+
+/* ChatGPT code:
+
+var addTwoNumbers = function(l1, l2) {
+    let dummy = new ListNode(0);
+    let current = dummy;
+    let carry = 0;
+
+    while (l1 !== null || l2 !== null || carry !== 0) {
+        let sum = carry;
+
+        if (l1 !== null) {
+            sum += l1.val;
+            l1 = l1.next;
+        }
+
+        if (l2 !== null) {
+            sum += l2.val;
+            l2 = l2.next;
+        }
+
+        carry = Math.floor(sum / 10);
+        current.next = new ListNode(sum % 10);
+        current = current.next;
+    }
+
+    return dummy.next;
+};
+*/
+console.log(addTwoNumbers([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9]))
+
+
+let checkArr = [1, 4, 5]
+
+console.log(checkArr)

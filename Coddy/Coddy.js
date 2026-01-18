@@ -103,7 +103,7 @@ function reverseVowels(str) {
 
       console.log(
         `${" ".repeat(17)} char: ${str[i]} ${" ".repeat(10)}Indices: ${i} = `,
-        isVowels(str[i], str[v], vowels)
+        isVowels(str[i], str[v], vowels),
       );
     }
     console.log(`Current wordSwapVowel:`, wordSwapVowel, `\n`);
@@ -302,19 +302,22 @@ function formatBlogTitle(title) {
       ) {
         // console.log('Gamay ang letter');
         console.log(
-          `${index}: ${tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
-          }`
+          `${index}: ${
+            tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
+          }`,
         );
 
-        return `${tit === `javascript` || tit === `Javascript`
+        return `${
+          tit === `javascript` || tit === `Javascript`
+            ? (tit = `JavaScript`)
+            : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
+        }`;
+      }
+      return `${
+        tit === `javascript` || tit === `Javascript`
           ? (tit = `JavaScript`)
           : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
-          }`;
-      }
-      return `${tit === `javascript` || tit === `Javascript`
-        ? (tit = `JavaScript`)
-        : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
-        }`;
+      }`;
     })
     .join(" ");
 
@@ -518,7 +521,7 @@ function stringWeaver(str1, str2) {
 
 //================================================  Multi - dimensional Arrays  ================================================
 console.log(
-  `\n\n${longHypen}${hyphen}(  Multi-dimensional Arrays  )${longHypen}`
+  `\n\n${longHypen}${hyphen}(  Multi-dimensional Arrays  )${longHypen}`,
 );
 
 // Reverse String using Built-in reverse method
@@ -551,7 +554,7 @@ console.log(`Reversed Output: `, newArr.join(""));
 let word2Day = "gabgabllacuna";
 let complete;
 console.log(
-  `Word of the Day: ${word2Day} \nand Count all the duplicated letter ignore casing`
+  `Word of the Day: ${word2Day} \nand Count all the duplicated letter ignore casing`,
 );
 let letDuplicate = 0;
 
@@ -567,7 +570,7 @@ for (let i = 0; i < word2Day.length; i++) {
       word2Day[i],
       word2Day[j],
       countdupliLetter,
-      dupliHere
+      dupliHere,
     );
   }
 }
@@ -582,8 +585,8 @@ function isEqualLetter(x, y, z, dupArr) {
     if (xRegex.test(y)) {
       console.log(
         `${hyphen}${x}${hyphen}${" ".repeat(5)}==${" ".repeat(
-          5
-        )} ${hyphen}${y}${hyphen} ${space}=${space}${xRegex.test(y)} Besh`
+          5,
+        )} ${hyphen}${y}${hyphen} ${space}=${space}${xRegex.test(y)} Besh`,
       );
 
       dupArr.push(y);
@@ -592,8 +595,8 @@ function isEqualLetter(x, y, z, dupArr) {
     } else {
       console.log(
         `${hyphen}${x}${hyphen}${" ".repeat(5)}==${" ".repeat(
-          5
-        )}${hyphen}${y}${hyphen} ${space}=${space}${xRegex.test(y)}`
+          5,
+        )}${hyphen}${y}${hyphen} ${space}=${space}${xRegex.test(y)}`,
       );
     }
   } catch (error) {
@@ -817,7 +820,7 @@ function countOccurrences(matrix, target) {
 
     for (let c = 0; c < matrix[r].length; c++) {
       console.log(
-        `${" ".repeat(7)}    c = ${c} ${" ".repeat(2)} ${matrix[r][c]}`
+        `${" ".repeat(7)}    c = ${c} ${" ".repeat(2)} ${matrix[r][c]}`,
       );
       if (matrix[r][c] === target) {
         count++;
@@ -841,7 +844,7 @@ function countOccurrences(matrix, target) {
 
 console.log(
   `How many letter is this targeted in a 2D array? ${argu3.a2}:  `,
-  countOccurrences(argu3.a1, argu3.a2)
+  countOccurrences(argu3.a1, argu3.a2),
 );
 
 /* 
@@ -903,7 +906,7 @@ function findMaxInRows(matrix) {
     }
     // console.log(`${" ".repeat(25)}Pinaka dako: ${pinaDako}`);
     max.push(pinaDako);
-    current, nextNum, semiDako, (pinaDako = 0);
+    (current, nextNum, semiDako, (pinaDako = 0));
   }
 
   return max;
@@ -993,8 +996,8 @@ function mirrorRows(matrix) {
         `matrix[r][c] =`,
         matrix[row][col],
         `${space} Row = ${row} ${"".repeat(
-          4
-        )} Col = ${col}  ${space}  end Col: ${endVal}`
+          4,
+        )} Col = ${col}  ${space}  end Col: ${endVal}`,
       );
       endVal--;
 
@@ -1240,15 +1243,43 @@ Expected Output:
 */
 
 function flattenJagged(jaggedArray) {
-  // Your code here
-  console.log(jaggedArray)
-  
-  // return jaggedArray
+  // Your code here]
+  let flattArr = [];
+  // console.log(jaggedArray[0])
+
+  for (let row = 0; row < jaggedArray.length; row++) {
+    // console.log(`${space}Row: ${row}`)
+
+    for (let col = 0; col < jaggedArray[row].length; col++) {
+      flattArr.push(jaggedArray[row][col]);
+    }
+  }
+
+  return flattArr;
 }
 // Do not write anything outside function
 
-
-console.log(flattenJagged([[1, 2, 3], [4, 5], [6, 7, 8, 9]]))
+/*
+Coddy Solution:
+function flattenJagged(jaggedArray) {
+  let result = [];
+  
+  for (let i = 0; i < jaggedArray.length; i++) {
+    for (let j = 0; j < jaggedArray[i].length; j++) {
+      result.push(jaggedArray[i][j]);
+    }
+  }
+  
+  return result;
+}
+*/
+console.log(
+  flattenJagged([
+    [1, 2, 3],
+    [4, 5],
+    [6, 7, 8, 9],
+  ]),
+);
 
 console.log(`\n\n${longHypen}${hyphen}(  JSON Part 1 )${longHypen}`);
 
@@ -1318,7 +1349,7 @@ console.log(
     isRead: true,
     pages: 180,
     genre: "Classic",
-  })
+  }),
 );
 
 /* Coddy Solution: ✅
@@ -1392,7 +1423,7 @@ function findMissingKeys(data, requiredKeys) {
 */
 
 console.log(
-  `\n\n${longHypen}${hyphen}(  Object Methods:  function analyzeShoppingCart(cart)   )${longHypen}`
+  `\n\n${longHypen}${hyphen}(  Object Methods:  function analyzeShoppingCart(cart)   )${longHypen}`,
 );
 
 /*
@@ -1453,7 +1484,7 @@ function analyzeShoppingCart(cart) {
 
 try {
   console.log(
-    analyzeShoppingCart({ banana: 5, apple: 3, orange: 2, mango: 1, pear: 4 })
+    analyzeShoppingCart({ banana: 5, apple: 3, orange: 2, mango: 1, pear: 4 }),
   );
 } catch (error) {
   console.log(error.message);
@@ -1547,17 +1578,17 @@ function findMostFrequentItem(inventory) {
 
 try {
   console.log(
-    findMostFrequentItem({ notebook: 30, pencil: 25, eraser: 30, ruler: 10 })
+    findMostFrequentItem({ notebook: 30, pencil: 25, eraser: 30, ruler: 10 }),
   );
 } catch (error) {
   console.log(error.message);
 }
 
 console.log(
-  `\n\n${longHypen}${hyphen}(  The Spread Operator Part 1  )${longHypen}`
+  `\n\n${longHypen}${hyphen}(  The Spread Operator Part 1  )${longHypen}`,
 );
 console.log(
-  "The spread operator (...) creates a copy of an object instead of a reference: \n\nReference (both variables point to same object)The spread operator (...) creates a copy of an object instead of a reference: \nReference (both variables point to same object)"
+  "The spread operator (...) creates a copy of an object instead of a reference: \n\nReference (both variables point to same object)The spread operator (...) creates a copy of an object instead of a reference: \nReference (both variables point to same object)",
 );
 
 /*                The Spread Operator Part 1
@@ -1580,7 +1611,7 @@ The spread operator copies all enumerable properties from the source object into
 */
 
 console.log(
-  `\n\n${longHypen}${hyphen}(  The Spread Operator Part 2  )${longHypen}`
+  `\n\n${longHypen}${hyphen}(  The Spread Operator Part 2  )${longHypen}`,
 );
 /* The Spread Operator Part 2
 
@@ -1671,8 +1702,8 @@ console.log(
   mergeSettings(
     { theme: "light", notifications: true },
     { fontSize: 15, language: "es" },
-    { language: "en", fontSize: 10 }
-  )
+    { language: "en", fontSize: 10 },
+  ),
 );
 
 console.log(`\n\n${longHypen}${hyphen}(  Remove Keys  )${longHypen}`);
@@ -1731,8 +1762,8 @@ console.log(
       owner: "Alice",
       age: 3,
     },
-    ["isVaccinated", "hasChip", "owner"]
-  )
+    ["isVaccinated", "hasChip", "owner"],
+  ),
 );
 
 console.log(`\n\n${longHypen}${hyphen}(  filterObject )${longHypen}`);
@@ -1800,8 +1831,8 @@ console.log(
       hobby: "Hiking",
       occupation: "Teacher",
     },
-    ["name", "hobby", "occupation"]
-  )
+    ["name", "hobby", "occupation"],
+  ),
 );
 
 /*   Coddy Solution:
@@ -1824,7 +1855,7 @@ function filterObject(obj, keysToKeep) {
 */
 
 console.log(
-  `\n\n${longHypen}${hyphen}(  Recap - JSON Manipulate Keys )${longHypen}`
+  `\n\n${longHypen}${hyphen}(  Recap - JSON Manipulate Keys )${longHypen}`,
 );
 
 /*
@@ -1880,7 +1911,7 @@ function petShelterManager(shelterData, newData) {
 
   // Chatgpt code
   allSameProperty = shelterData.every((obj) =>
-    Object.keys(obj).every((key) => Object.hasOwn(newData, key))
+    Object.keys(obj).every((key) => Object.hasOwn(newData, key)),
   );
 
   if (allSameProperty) {
@@ -1925,12 +1956,12 @@ console.log(
         adoptionStatus: "available",
       },
     ],
-    { id: "P2", name: "Polly", type: "Parrot", age: 15, isVaccinated: true }
-  )
+    { id: "P2", name: "Polly", type: "Parrot", age: 15, isVaccinated: true },
+  ),
 );
 
 console.log(
-  `\n\n${longHypen}${hyphen}( Iterate Over JSON : JSON Part 2 )${longHypen}`
+  `\n\n${longHypen}${hyphen}( Iterate Over JSON : JSON Part 2 )${longHypen}`,
 );
 
 /*          Iterate Over JSON
@@ -2012,7 +2043,7 @@ console.log(
     "1970 Plymouth Barracuda": 125000,
     "1969 Dodge Charger": 89000,
     "1957 Chevrolet Bel Air": 75000,
-  })
+  }),
 );
 
 console.log(`\n\n${longHypen}${hyphen}( Nested JSON )${longHypen}`);
@@ -2122,7 +2153,7 @@ console.log(
     Champagne: { price: 200.0, quantity: 1, isSpecialOffer: true },
     Oysters: { price: 24.99, quantity: 4, isSpecialOffer: true },
     Truffles: { price: 75.0, quantity: 1, isSpecialOffer: false },
-  })
+  }),
 );
 
 console.log(`\n\n${longHypen}${hyphen}( Shallow And Deep Copy )${longHypen}`);
@@ -2233,7 +2264,7 @@ console.log(
     { name: "Coffee Maker", price: 75 },
     { name: "Headphones", price: 45 },
     { name: "Smart Watch", price: 199 },
-  ])
+  ]),
 );
 
 // ======================================================================== Examples:========================================================================
@@ -2249,7 +2280,7 @@ assignCopy.b.x = 5;
 console.log(original);
 
 console.log(
-  `\n\n${longHypen}${hyphen}( Recap - Bicycle Shop - JSON Part 2 )${longHypen}`
+  `\n\n${longHypen}${hyphen}( Recap - Bicycle Shop - JSON Part 2 )${longHypen}`,
 );
 
 /*  Recap - Bicycle Shop 
@@ -2307,7 +2338,7 @@ console.log(
       { brand: "Trek", price: 999.99, quantity: 2 },
       { brand: "Giant", price: 799.99, quantity: 5 },
     ],
-  })
+  }),
 );
 
 console.log(`\n\n${longHypen}${hyphen}( Recap - Solar System )${longHypen}`);
@@ -2410,9 +2441,8 @@ function analyzeSolarSystem(solarSystemData) {
     }
   }
 
-  // Convert the object to a JSON string 
+  // Convert the object to a JSON string
   return JSON.stringify(parseSolarData);
-
 }
 // Don't write anything outside the function
 
@@ -2468,5 +2498,393 @@ console.log(
         hasRings: false,
       },
     ],
-  })
+  }),
 );
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  countAllStrings -  3D ARRAY  )${longHypen}`,
+);
+
+/*   3D Arrays And Beyond
+A 3D array is an array of 2D arrays. Access elements using three indices: [building][floor][room].
+
+const buildings = [
+  [
+    ["R1", "R2"],
+    ["R3", "R4"]
+  ],
+  [
+    ["R5", "R6"],
+    ["R7", "R8"]
+  ]
+];
+
+// Access elements
+buildings[0][1][1] // "R4"
+buildings[1][0][0] // "R5"
+
+Challenge (Easy):
+Create a function named countAllStrings that receives a 3D array of strings and returns the total number of elements across all dimensions.
+*/
+
+function countAllStrings(arr3D) {
+  // TODO: Calculate the total number of string elements in the 3D array
+  // return arr3D[0][1][1];
+  let count = 0;
+
+  for (let oRow = 0; oRow < arr3D.length; oRow++) {
+    for (let innRow = 0; innRow < arr3D[oRow].length; innRow++) {
+      for (let innCol = 0; innCol < arr3D[oRow][innRow].length; innCol++) {
+        // console.log(`${space} arr3D[${oRow}][${innRow}][${innCol}]:  ${arr3D[oRow][innRow][innCol]}`)
+        count++;
+      }
+    }
+  }
+
+  // return arr3D[0][0][1]
+  // return arr3D.length
+  return count;
+}
+// Do not write anything outside function
+
+/*  Coddy Solution:
+function countAllStrings(arr3D) {
+  let totalCount = 0;
+  for (let x = 0; x < arr3D.length; x++) {
+    for (let r = 0; r < arr3D[x].length; r++) {
+      totalCount += arr3D[x][r].length;
+    }
+  }
+  return totalCount;
+}
+*/
+
+console.log(
+  countAllStrings([
+    [["hello", "world"], ["test"], ["coding"]],
+    [["array"], ["javascript"], ["fun", "times"]],
+    [
+      ["three", "dimensional"],
+      ["data", "structure"],
+    ],
+  ]),
+);
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  find3DElement -  3D ARRAY  )${longHypen}`,
+);
+/*  Challenge (Easy):
+Create a function named find3DElement that takes:
+
+A 3D array of any values (array3D)
+Three indices (x, y, z) representing the position to find
+The function should return the element at the specified position if it exists
+If any index is out of bounds, return the string "Invalid coordinates"
+Example Input:
+
+const data = [
+  [["a", "b"], ["c", "d"]],
+  [["e", "f"], ["g", "h"]]
+];
+find3DElement(data, 0, 1, 0); // Should access data[0][1][0]
+Expected Output:
+
+"c"
+*/
+
+function find3DElement(array3D, x, y, z) {
+  // Write your code here
+
+  try {
+    let target3DArr = array3D[x][y][z];
+
+    if (target3DArr === undefined) {
+      return "Invalid coordinates";
+    }
+
+    return target3DArr;
+  } catch (error) {
+    return "Invalid coordinates";
+  }
+}
+
+/* Coddy Solution:
+function find3DElement(array3D, x, y, z) {
+  // Check if x is within bounds
+  if (x < 0 || x >= array3D.length) {
+    return "Invalid coordinates";
+  }
+  
+  // Check if y is within bounds
+  if (y < 0 || y >= array3D[x].length) {
+    return "Invalid coordinates";
+  }
+  
+  // Check if z is within bounds
+  if (z < 0 || z >= array3D[x][y].length) {
+    return "Invalid coordinates";
+  }
+  
+  // Return the element at the specified position
+  return array3D[x][y][z];
+}
+*/
+
+console.log(
+  find3DElement(
+    [
+      [
+        ["red", "blue"],
+        ["green", "yellow"],
+      ],
+      [
+        ["black", "white"],
+        ["orange", "purple"],
+      ],
+    ],
+    2,
+    0,
+    0,
+  ),
+);
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Common 2D Array Patterns  )${longHypen}`,
+);
+/*
+Common 2D Array Patterns
+Common 2D array traversal patterns:
+
+Diagonal Traversal
+
+Main diagonal: matrix[i][i] (row index equals column index)
+
+Anti-diagonal: matrix[i][size - 1 - i] (sum of row and column indices equals size - 1)
+
+1  2  3
+4  5  6
+7  8  9
+Main diagonal: 1, 5, 9
+Anti-diagonal: 3, 5, 7
+
+Border Traversal
+
+Keep one index constant (0 or size - 1) while iterating over the other:
+
+-> Top border: row index = 0, iterate columns
+-> Bottom border: row index = size - 1, iterate columns
+-> Left border: column index = 0, iterate rows
+-> Right border: column index = size - 1, iterate rows
+
+Challenge (Easy):
+Create a function named printPatterns that takes a square 2D array of integers (matrix) as input and prints the following patterns:
+
+1. Main Diagonal: Print all elements where the row index equals the column index.
+2. Anti-Diagonal: Print all elements where the sum of the row and column indices equals the size of the matrix minus 1.
+3. Borders: Print the elements of the top, bottom, left, and right borders of the matrix.
+
+The output should look like this:
+
+Main Diagonal: 1 6 11 16 
+Anti-Diagonal: 4 7 10 13 
+Top Border: 1 2 3 4 
+Bottom Border: 13 14 15 16 
+Left Border: 1 5 9 13 
+Right Border: 4 8 12 16
+*/
+
+function printPatterns(matrix) {
+  let mainDiagonal = [];
+  for (let row = 0; row < matrix.length; row++) {
+    mainDiagonal.push(matrix[row][row]);
+
+    for (let col = 0; col < matrix[row].length; col++) {}
+  }
+  // TODO: Implement
+  console.log("Main Diagonal:", mainDiagonal.join(" "));
+
+  let antiDiagonal = [];
+  // TODO: Implement
+  for (let i = 0; i < matrix.length; i++) {
+    antiDiagonal.push(matrix[i][matrix.length - 1 - i]);
+  }
+  console.log("Anti-Diagonal:", antiDiagonal.join(" "));
+
+  let topBorder = [];
+  // TODO: Implement
+  for (let i = 0; i < matrix.length; i++) {
+    topBorder.push(matrix[0][i]);
+  }
+  console.log("Top Border:", topBorder.join(" "));
+
+  let bottomBorder = [];
+  // TODO: Implement
+  for (let i = 0; i < matrix.length; i++) {
+    bottomBorder.push(matrix[matrix.length - 1][i]);
+  }
+  console.log("Bottom Border:", bottomBorder.join(" "));
+
+  let leftBorder = [];
+  // TODO: Implement
+  for (let i = 0; i < matrix.length; i++) {
+    leftBorder.push(matrix[i][0]);
+  }
+  console.log("Left Border:", leftBorder.join(" "));
+
+  let rightBorder = [];
+  // TODO: Implement
+  for (let i = 0; i < matrix.length; i++) {
+    rightBorder.push(matrix[i][matrix.length - 1]);
+  }
+  console.log("Right Border:", rightBorder.join(" "));
+}
+// Do not write anything outside function
+
+/* Coddy Solution:
+function printPatterns(matrix) {
+    const n = matrix.length;
+    
+    // Main Diagonal
+    let mainDiagonal = [];
+    for(let i = 0; i < n; i++) {
+        mainDiagonal.push(matrix[i][i]);
+    }
+    console.log("Main Diagonal:", mainDiagonal.join(" "));
+    
+    // Anti-Diagonal
+    let antiDiagonal = [];
+    for(let i = 0; i < n; i++) {
+        antiDiagonal.push(matrix[i][n-1-i]);
+    }
+    console.log("Anti-Diagonal:", antiDiagonal.join(" "));
+    
+    // Top Border
+    let topBorder = matrix[0];
+    console.log("Top Border:", topBorder.join(" "));
+    
+    // Bottom Border
+    let bottomBorder = matrix[n-1];
+    console.log("Bottom Border:", bottomBorder.join(" "));
+    
+    // Left Border
+    let leftBorder = [];
+    for(let i = 0; i < n; i++) {
+        leftBorder.push(matrix[i][0]);
+    }
+    console.log("Left Border:", leftBorder.join(" "));
+    
+    // Right Border
+    let rightBorder = [];
+    for(let i = 0; i < n; i++) {
+        rightBorder.push(matrix[i][n-1]);
+    }
+    console.log("Right Border:", rightBorder.join(" "));
+}
+*/
+
+printPatterns([
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16],
+]);
+
+console.log(`\n\n${longHypen}${hyphen}(  findSumPatterns  )${longHypen}`);
+/*
+Challenge (Easy):
+Create a function named findSumPatterns that takes a square matrix (2D array) and:
+
+1. Calculates and prints the sum of main diagonal elements
+2. Calculates and prints the sum of anti-diagonal elements
+3. Calculates and prints the sum of all border elements (count corner elements only once)
+
+Example Input:
+[
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
+Expected Output:
+Main diagonal sum: 15
+Anti-diagonal sum: 15
+Border sum: 40
+*/
+
+function findSumPatterns(matrix) {
+  // Write your code here
+  let resultMD = 0;
+  let resultAD = 0;
+  let borderSum = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    // Calculate main diagonal sum
+    resultMD += matrix[i][i];
+
+    // Calculate anti-diagonal sum
+    resultAD += matrix[i][matrix.length - 1 - i];
+
+    // Calculate border sum
+    for (let col=0; col < matrix[i].length; col++) {
+      // console.log(matrix[i][col])
+
+      if (i == 0 || col == 0 || i == matrix.length-1 || col == matrix[i].length-1) {
+        borderSum += matrix[i][col]
+      }
+    }
+  }
+
+  console.log(`Main diagonal sum: ${resultMD}`);
+  console.log(`Anti-diagonal sum: ${resultAD}`);
+  console.log(`Border sum: ${borderSum}`);
+  // Format and print the results
+}
+/* Coddy Solution:
+function findSumPatterns(matrix) {
+  const n = matrix.length;
+  
+  // Calculate main diagonal sum
+  let mainDiagonalSum = 0;
+  for (let i = 0; i < n; i++) {
+    mainDiagonalSum += matrix[i][i];
+  }
+  
+  // Calculate anti-diagonal sum
+  let antiDiagonalSum = 0;
+  for (let i = 0; i < n; i++) {
+    antiDiagonalSum += matrix[i][n-1-i];
+  }
+  
+  // Calculate border sum
+  let borderSum = 0;
+  
+  // Top and bottom rows (entire rows)
+  for (let j = 0; j < n; j++) {
+    borderSum += matrix[0][j];         // Top row
+    if (n > 1) {                       // Only add bottom row if matrix has more than 1 row
+      borderSum += matrix[n-1][j];     // Bottom row
+    }
+  }
+  
+  // Left and right columns (excluding corners already counted)
+  for (let i = 1; i < n-1; i++) {
+    borderSum += matrix[i][0];         // Left column (excluding corners)
+    if (n > 1) {                       // Only add right column if matrix has more than 1 column
+      borderSum += matrix[i][n-1];     // Right column (excluding corners)
+    }
+  }
+  
+  // Format and print the results
+  console.log(`Main diagonal sum: ${mainDiagonalSum}`);
+  console.log(`Anti-diagonal sum: ${antiDiagonalSum}`);
+  console.log(`Border sum: ${borderSum}`);
+}
+*/
+
+
+findSumPatterns([
+  [5, 1, 9, 3],
+  [8, 6, 4, 2],
+  [7, 3, 1, 5],
+  [2, 6, 8, 4],
+]);

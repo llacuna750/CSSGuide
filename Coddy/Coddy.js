@@ -1129,32 +1129,6 @@ function combineMatrices(matrixA, matrixB, ope) {
 }
 // Do not write anything outside function
 
-/*  ==========================================================================================
-Challenge  (Medium):
-Create a function named multiplyMatrices that takes two matrices (matrixA and matrixB) and returns their product.
-
-For matrix multiplication:
-
-Each element in the result matrix is the dot product of a row from the first matrix and a column from the second matrix
-Matrix A with dimensions (m × n) can only be multiplied with matrix B with dimensions (n × p)
-The resulting matrix will have dimensions (m × p)
-
-Example Input:
-matrixA = [[1, 2], [3, 4]]
-matrixB = [[5, 6], [7, 8]]
-
-Expected Output:
-[[19, 22], [43, 50]]
-*/
-
-function multiplyMatrices(matrixA, matrixB) {
-  // Write your code here
-  // Check if matrices can be multiplied
-  // Create the result matrix with appropriate dimensions
-  // Calculate each element in the result matrix
-}
-// Do not write anything outside function
-
 /* =====================================  Jagged Arrays  =====================================
 A jagged array is a 2D array where each row can have a different length:
 
@@ -2825,11 +2799,16 @@ function findSumPatterns(matrix) {
     resultAD += matrix[i][matrix.length - 1 - i];
 
     // Calculate border sum
-    for (let col=0; col < matrix[i].length; col++) {
+    for (let col = 0; col < matrix[i].length; col++) {
       // console.log(matrix[i][col])
 
-      if (i == 0 || col == 0 || i == matrix.length-1 || col == matrix[i].length-1) {
-        borderSum += matrix[i][col]
+      if (
+        i == 0 ||
+        col == 0 ||
+        i == matrix.length - 1 ||
+        col == matrix[i].length - 1
+      ) {
+        borderSum += matrix[i][col];
       }
     }
   }
@@ -2881,10 +2860,162 @@ function findSumPatterns(matrix) {
 }
 */
 
-
 findSumPatterns([
   [5, 1, 9, 3],
   [8, 6, 4, 2],
   [7, 3, 1, 5],
   [2, 6, 8, 4],
 ]);
+
+console.log(`\n\n${longHypen}${hyphen}(  multiplyMatrices )${longHypen}`);
+/*  
+Challenge  (Medium):
+Create a function named multiplyMatrices that takes two matrices (matrixA and matrixB) and returns their product.
+
+For matrix multiplication:
+
+Each element in the result matrix is the dot product of a row from the first matrix and a column from the second matrix
+Matrix A with dimensions (m × n) can only be multiplied with matrix B with dimensions (n × p)
+The resulting matrix will have dimensions (m × p)
+
+Example Input:
+matrixA = [[1, 2], [3, 4]]
+matrixB = [[5, 6], [7, 8]]
+
+Expected Output:
+[[19, 22], [43, 50]]
+*/
+
+// ChatGPT solution
+function multiplyMatrices(matrixA, matrixB) {
+  // Step 1: check if multiplication is possible
+  if (matrixA[0].length !== matrixB.length) {
+    return "Matrix multiplication not possible";
+  }
+
+  const result = [];
+
+  // Step 2: loop through rows of matrixA
+  for (let i = 0; i < matrixA.length; i++) {
+    result[i] = [];
+
+    // Step 3: loop through columns of matrixB
+    for (let j = 0; j < matrixB[0].length; j++) {
+      let sum = 0;
+
+      // Step 4: dot product
+      for (let k = 0; k < matrixB.length; k++) {
+        sum += matrixA[i][k] * matrixB[k][j];
+      }
+
+      // Step 5: store result
+      result[i][j] = sum;
+    }
+  }
+
+  return result;
+}
+// Do not write anything outside function
+
+/* Coddy Solution:
+function multiplyMatrices(matrixA, matrixB) {
+  const rowsA = matrixA.length;
+  const colsA = matrixA[0].length;
+  const rowsB = matrixB.length;
+  const colsB = matrixB[0].length;
+  
+  const result = [];
+  
+  for (let i = 0; i < rowsA; i++) {
+    result[i] = [];
+    for (let j = 0; j < colsB; j++) {
+      result[i][j] = 0;
+      for (let k = 0; k < colsA; k++) {
+        result[i][j] += matrixA[i][k] * matrixB[k][j];
+      }
+    }
+  }
+  
+  return result;
+}
+*/
+
+
+/* From ChatGPT
+2️⃣ Understand the shapes (this part is VERY important)
+Matrix A
+[ 
+  [1, 2],
+  [3, 4] 
+]
+2 rows
+2 columns
+→ 2 × 2
+
+
+Matrix B
+[ 
+  [5, 6],
+  [7, 8] 
+]
+
+2 rows
+2 columns
+→ 2 × 2
+
+Rule to check:
+
+Matrix A: m × n
+Matrix B: n × p
+
+Here:
+n = 2 (columns of A)
+n = 2 (rows of B)
+
+✅ They match → multiplication is allowed
+3️⃣ Size of the result matrix
+
+The result matrix will be:
+
+(m × p)
+
+From our example:
+
+-> m = rows of A = 2
+-> p = columns of B = 2
+
+So the result is also 2 × 2
+That means 4 numbers total must be computed.
+*/
+console.log(
+  multiplyMatrices(
+    [
+      [1, 2],
+      [3, 4],
+    ],
+    [
+      [5, 6],
+      [7, 8],
+    ],
+  ),
+);
+
+/*
+1 x 5 = 5
+2 x 7 = 14 
+m  x n = 5 + 14 = 19
+
+1 x 6 = 6
+2 x 8 = 16
+m  x  n = 6 + 16 = 22
+
+3 x 5 = 15
+4 x 7 = 28
+m  x  n = 15 + 28 = 43
+
+
+3 x 6 = 18
+4 x 8 = 32
+m  x n = 18 + 32 = 50
+Output: [[19, 22], [43, 50]]
+*/

@@ -33,7 +33,7 @@ function gamer(name, score) {
     return  {
         name: name,
         score: score,
-        incrementScore: function () {w
+        incrementScore: function () {
             this.score++;
         }
     }
@@ -62,9 +62,10 @@ console.log(gab); // Log the return object in gab variable
 
 console.table(alice);
 alice.incrementScore();
+
+dave.incrementScore();
 dave.incrementScore();
 ash.incrementScore();
-dave.incrementScore();
 
 console.log(alice);
 console.log(dave);
@@ -851,7 +852,7 @@ class Hero extends Character {
 
     constructor(name) {
         super(name);
-        this.#inventory;  
+        this.#inventory;
     }
 
     pickUpItem(itemPickUp) {

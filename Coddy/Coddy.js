@@ -3085,18 +3085,20 @@ Finally convert the set to an array and return it.
 
 function addUniqueElements(array1, array2) {
   // Write your code here
-  const arr1 = new Set(array1)
-  
+  const arr1 = new Set(array1);
+
   for (const item of array2) {
-    arr1.add(item)
+    arr1.add(item);
   }
-  
-  return Array.from(arr1)
+
+  return Array.from(arr1);
 }
 
 console.log(addUniqueElements([1, 2, 3], [4, 5, 2, 1, 6]));
 
-console.log(`\n\n${longHypen}${hyphen}(  Removing An Element  :) Please ReadMe )${longHypen}`);
+console.log(
+  `\n\n${longHypen}${hyphen}(  Removing An Element  :) Please ReadMe )${longHypen}`,
+);
 
 /*   Removing An Element
 
@@ -3114,10 +3116,146 @@ If the element doesn't exist in the Set, it remains unchanged and delete() retur
 */
 
 const mySet = new Set([1, 2, 3, 4, 5]);
-console.log(mySet)
+console.log(mySet);
 
-console.log('Delete value: 3')
+console.log("Delete value: 3");
 mySet.delete(3);
 console.log(mySet); // Set(4) { 1, 2, 4, 5 }
-console.log('What happen if i delete the value without in the set?')
-mySet.delete(6)
+console.log("What happen if i delete the value without in the set?");
+mySet.delete(6);
+
+console.log(`\n\n${longHypen}${hyphen}(  removeMultiples )${longHypen}`);
+
+/*    Removing An Element
+
+Challenge (Easy):
+Create a function called removeMultiples that takes two parameters: an array of numbers and a number n. 
+The function should convert the array to a set, and remove all multiples of n from the Set (including n itself if it's in the Set). 
+Finally convert the set to an array and return it.
+
+Multiples are the numbers you get when you multiply a given number (n) by all whole numbers (1, 2, 3, etc.).
+
+For example, if n = 3:
+
+The multiples of 3 are: 3, 6, 9, 12, 15, 18, 21, 24, and so on...
+*/
+
+function removeMultiples(arr, n) {
+  // Write your code here
+  let removeN = n;
+
+  let uniqueElements = new Set(arr);
+
+  for (const val of uniqueElements) {
+    uniqueElements.delete(removeN);
+
+    if (val < 1) {
+      uniqueElements.delete(val);
+    }
+
+    removeN += n;
+  }
+
+  return Array.from(uniqueElements);
+}
+/*  Coddy Solution:
+function removeMultiples(arr, n) {
+    let numSet = new Set(arr);
+    let tempArray = Array.from(numSet);
+    
+    for (let i = 0; i < tempArray.length; i++) {
+        if (tempArray[i] % n === 0) {
+            numSet.delete(tempArray[i]);
+        }
+    }
+    
+    return Array.from(numSet);
+} 
+*/
+
+console.log(removeMultiples([-12, -9, -6, -3, 0, 3, 6, 9, 12], 3));
+
+/*      Checking If An Element Exists
+
+To check if an element exists in a Set, use the has() method. This method returns true if the element is in the Set, and false otherwise.
+
+const mySet = new Set([1, 2, 3, 4, 5]);
+
+console.log(mySet.has(3)); // true
+console.log(mySet.has(6)); // false
+The has() method is useful for conditional operations:
+
+if (mySet.has(3)) {
+  console.log("3 is in the set");
+} else {
+  console.log("3 is not in the set");
+}
+Sets use strict equality (===) for comparisons:
+
+const mixedSet = new Set([1, '2', 3]);
+
+console.log(mixedSet.has('1')); // false
+console.log(mixedSet.has(2));  // false
+console.log(mixedSet.has('2')); // true
+
+*/
+
+console.log(`\n\n${longHypen}${hyphen}(  symmetricDifference )${longHypen}`);
+/*    Checking If An Element Exists 
+
+Challenge  (Easy):
+
+Create a function called symmetricDifference that takes two arrays as parameters. 
+The function should convert the arrays to sets, and return a new Set containing elements that are in either of the two Sets, but not in both. 
+Use the has() method to check for element existence. 
+Finally convert the set to an array and return it.
+*/
+
+function symmetricDifference(arr1, arr2) {
+  // Write your code here
+  const uniSet1 = new Set(arr1)
+  const uniSet2 = new Set(arr2)
+
+  uniSet1.forEach(item => {
+    if (uniSet2.has(item)) {
+      uniSet1.delete(item)
+      uniSet2.delete(item)
+    }
+  })
+
+  const tempUniSet1 = Array.from(uniSet1)
+  const tempUniSet2 = Array.from(uniSet2)
+
+  return tempUniSet1.concat(tempUniSet2)
+}
+
+/* Coddy Solution:
+
+function symmetricDifference(arr1, arr2) {
+  const set1 = new Set(arr1)
+  const set2 = new Set(arr2)
+  const result = new Set();
+  
+  for (let elem of set1) {
+    if (!set2.has(elem)) {
+      result.add(elem);
+    }
+  }
+  
+  for (let elem of set2) {
+    if (!set1.has(elem)) {
+      result.add(elem);
+    }
+  }
+  
+  return Array.from(result);
+}
+*/
+
+console.log(
+  symmetricDifference(
+    [100, 200, 300, 400],
+    [300, 400, 500, 600]
+  )
+);
+

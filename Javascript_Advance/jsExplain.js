@@ -455,10 +455,10 @@ class Human {
     return this.#age;
   }
 
-//   addAge () {
-//     console.log('Happy Birthday')
-//     this.#age++
-//   }
+  addAge () {
+    console.log('Happy Birthday')
+    this.#age++
+  }
 }
 
 const dabVs = new Human('Gabriel2', 21)
@@ -468,5 +468,8 @@ dabVs.setNameto = 'Gabriel Gwapo'
 console.log(dabVs.name)
 console.log(dabVs.age)
 console.log(dabVs)
+dabVs.addAge()
+console.log(dabVs.age)
+
 
 

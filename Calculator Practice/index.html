@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    
+    <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+
+    <style>
+        #keys {
+            margin-top: 5px;
+        }
+
+        #display {
+            padding: 7px 5px;
+            width: 30em;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(27, 99, 161);
+        }
+
+        #calc:hover {
+           background-color: green; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <input id="display" readonly>
+    <div id="keys">
+        <button onclick="displayKey('+')">+</button> 
+        <button onclick="displayKey('-')">-</button> 
+        <button onclick="displayKey('*')">*</button> 
+        <button onclick="displayKey('/')">/</button> 
+        <br>
+        <button onclick="displayKey('1')">1</button>
+        <button onclick="displayKey('2')">2</button>
+        <button onclick="displayKey('3')">3</button>
+        <button onclick="displayKey('4')">4</button>
+        <button onclick="displayKey('5')">5</button>
+        <button onclick="displayKey('6')">6</button>
+        <button onclick="displayKey('7')">7</button>
+        <button onclick="displayKey('8')">8</button>
+        <button onclick="displayKey('9')">9</button>
+        <button onclick="displayKey('0')">0</button>
+        <br>
+        <button id="calc" onclick="calculate()">=</button>
+        <button onclick="clearDisplay()">Clear</button>
+    </div>
+
+    <script>
+        const display = document.getElementById('display')
+
+        function displayKey(param) {
+            display.value += param
+        }
+
+        function clearDisplay() {
+            display.value = ''
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value)
+            } catch (error) {
+                display.value = 'Error!'
+                display.style.background = 'red'
+                
+                const timeOutError = setTimeout(function() {
+                    display.style.background = 'white'
+                    display.value = ''
+                }, 1500);
+            }
+        }
+    </script>
+</body>
+</html>

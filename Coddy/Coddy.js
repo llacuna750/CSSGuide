@@ -1255,6 +1255,158 @@ console.log(
   ]),
 );
 
+console.log(`\n\n${longHypen}${hyphen}(  multiplyMatrices )${longHypen}`);
+/*  
+Challenge  (Medium):
+Create a function named multiplyMatrices that takes two matrices (matrixA and matrixB) and returns their product.
+
+For matrix multiplication:
+
+Each element in the result matrix is the dot product of a row from the first matrix and a column from the second matrix
+Matrix A with dimensions (m × n) can only be multiplied with matrix B with dimensions (n × p)
+The resulting matrix will have dimensions (m × p)
+
+Example Input:
+matrixA = [[1, 2], [3, 4]]
+matrixB = [[5, 6], [7, 8]]
+
+Expected Output:
+[[19, 22], [43, 50]]
+*/
+
+// ChatGPT solution
+function multiplyMatrices(matrixA, matrixB) {
+  // Step 1: check if multiplication is possible
+  if (matrixA[0].length !== matrixB.length) {
+    return "Matrix multiplication not possible";
+  }
+
+  const result = [];
+
+  // Step 2: loop through rows of matrixA
+  for (let i = 0; i < matrixA.length; i++) {
+    result[i] = [];
+
+    // Step 3: loop through columns of matrixB
+    for (let j = 0; j < matrixB[0].length; j++) {
+      let sum = 0;
+
+      // Step 4: dot product
+      for (let k = 0; k < matrixB.length; k++) {
+        sum += matrixA[i][k] * matrixB[k][j];
+      }
+
+      // Step 5: store result
+      result[i][j] = sum;
+    }
+  }
+
+  return result;
+}
+// Do not write anything outside function
+
+/* Coddy Solution:
+function multiplyMatrices(matrixA, matrixB) {
+  const rowsA = matrixA.length;
+  const colsA = matrixA[0].length;
+  const rowsB = matrixB.length;
+  const colsB = matrixB[0].length;
+  
+  const result = [];
+  
+  for (let i = 0; i < rowsA; i++) {
+    result[i] = [];
+    for (let j = 0; j < colsB; j++) {
+      result[i][j] = 0;
+      for (let k = 0; k < colsA; k++) {
+        result[i][j] += matrixA[i][k] * matrixB[k][j];
+      }
+    }
+  }
+  
+  return result;
+}
+*/
+
+/* From ChatGPT
+2️⃣ Understand the shapes (this part is VERY important)
+Matrix A
+[ 
+  [1, 2],
+  [3, 4] 
+]
+2 rows
+2 columns
+→ 2 × 2
+
+
+Matrix B
+[ 
+  [5, 6],
+  [7, 8] 
+]
+
+2 rows
+2 columns
+→ 2 × 2
+
+Rule to check:
+
+Matrix A: m × n
+Matrix B: n × p
+
+Here:
+n = 2 (columns of A)
+n = 2 (rows of B)
+
+✅ They match → multiplication is allowed
+3️⃣ Size of the result matrix
+
+The result matrix will be:
+
+(m × p)
+
+From our example:
+
+-> m = rows of A = 2
+-> p = columns of B = 2
+
+So the result is also 2 × 2
+That means 4 numbers total must be computed.
+*/
+console.log(
+  multiplyMatrices(
+    [
+      [1, 2],
+      [3, 4],
+    ],
+    [
+      [5, 6],
+      [7, 8],
+    ],
+  ),
+);
+
+/*
+1 x 5 = 5
+2 x 7 = 14 
+m  x n = 5 + 14 = 19
+
+1 x 6 = 6
+2 x 8 = 16
+m  x  n = 6 + 16 = 22
+
+3 x 5 = 15
+4 x 7 = 28
+m  x  n = 15 + 28 = 43
+
+
+3 x 6 = 18
+4 x 8 = 32
+m  x n = 18 + 32 = 50
+Output: [[19, 22], [43, 50]]
+*/
+
 console.log(`\n\n${longHypen}${hyphen}(  JSON Part 1 )${longHypen}`);
 
 /*
@@ -2764,6 +2916,7 @@ printPatterns([
 ]);
 
 console.log(`\n\n${longHypen}${hyphen}(  findSumPatterns  )${longHypen}`);
+
 /*
 Challenge (Easy):
 Create a function named findSumPatterns that takes a square matrix (2D array) and:
@@ -2867,155 +3020,104 @@ findSumPatterns([
   [2, 6, 8, 4],
 ]);
 
-console.log(`\n\n${longHypen}${hyphen}(  multiplyMatrices )${longHypen}`);
-/*  
-Challenge  (Medium):
-Create a function named multiplyMatrices that takes two matrices (matrixA and matrixB) and returns their product.
-
-For matrix multiplication:
-
-Each element in the result matrix is the dot product of a row from the first matrix and a column from the second matrix
-Matrix A with dimensions (m × n) can only be multiplied with matrix B with dimensions (n × p)
-The resulting matrix will have dimensions (m × p)
-
-Example Input:
-matrixA = [[1, 2], [3, 4]]
-matrixB = [[5, 6], [7, 8]]
-
-Expected Output:
-[[19, 22], [43, 50]]
-*/
-
-// ChatGPT solution
-function multiplyMatrices(matrixA, matrixB) {
-  // Step 1: check if multiplication is possible
-  if (matrixA[0].length !== matrixB.length) {
-    return "Matrix multiplication not possible";
-  }
-
-  const result = [];
-
-  // Step 2: loop through rows of matrixA
-  for (let i = 0; i < matrixA.length; i++) {
-    result[i] = [];
-
-    // Step 3: loop through columns of matrixB
-    for (let j = 0; j < matrixB[0].length; j++) {
-      let sum = 0;
-
-      // Step 4: dot product
-      for (let k = 0; k < matrixB.length; k++) {
-        sum += matrixA[i][k] * matrixB[k][j];
-      }
-
-      // Step 5: store result
-      result[i][j] = sum;
-    }
-  }
-
-  return result;
-}
-// Do not write anything outside function
-
-/* Coddy Solution:
-function multiplyMatrices(matrixA, matrixB) {
-  const rowsA = matrixA.length;
-  const colsA = matrixA[0].length;
-  const rowsB = matrixB.length;
-  const colsB = matrixB[0].length;
-  
-  const result = [];
-  
-  for (let i = 0; i < rowsA; i++) {
-    result[i] = [];
-    for (let j = 0; j < colsB; j++) {
-      result[i][j] = 0;
-      for (let k = 0; k < colsA; k++) {
-        result[i][j] += matrixA[i][k] * matrixB[k][j];
-      }
-    }
-  }
-  
-  return result;
-}
-*/
-
-
-/* From ChatGPT
-2️⃣ Understand the shapes (this part is VERY important)
-Matrix A
-[ 
-  [1, 2],
-  [3, 4] 
-]
-2 rows
-2 columns
-→ 2 × 2
-
-
-Matrix B
-[ 
-  [5, 6],
-  [7, 8] 
-]
-
-2 rows
-2 columns
-→ 2 × 2
-
-Rule to check:
-
-Matrix A: m × n
-Matrix B: n × p
-
-Here:
-n = 2 (columns of A)
-n = 2 (rows of B)
-
-✅ They match → multiplication is allowed
-3️⃣ Size of the result matrix
-
-The result matrix will be:
-
-(m × p)
-
-From our example:
-
--> m = rows of A = 2
--> p = columns of B = 2
-
-So the result is also 2 × 2
-That means 4 numbers total must be computed.
-*/
-console.log(
-  multiplyMatrices(
-    [
-      [1, 2],
-      [3, 4],
-    ],
-    [
-      [5, 6],
-      [7, 8],
-    ],
-  ),
-);
+console.log(`\n\n${longHypen}${hyphen}(  What Is A Set?  )${longHypen}`);
 
 /*
-1 x 5 = 5
-2 x 7 = 14 
-m  x n = 5 + 14 = 19
+What Is A Set?
 
-1 x 6 = 6
-2 x 8 = 16
-m  x  n = 6 + 16 = 22
+A Set is a built-in JavaScript object that stores unique values of any type. Each value in a Set must be unique.
 
-3 x 5 = 15
-4 x 7 = 28
-m  x  n = 15 + 28 = 43
+Create a Set:
 
+const mySet = new Set();
+Initialize a Set with an array:
 
-3 x 6 = 18
-4 x 8 = 32
-m  x n = 18 + 32 = 50
-Output: [[19, 22], [43, 50]]
+const mySet = new Set([1, 2, 3, 4, 5]);
+Convert a Set back to an array:
+
+const myArr = Array.from(mySet);
+
+Challenge  (Easy):
+Create a function called uniqueElements that takes an array as an argument. 
+The function should return a new array containing only the unique elements from the input array.
 */
+function uniqueElements(arr) {
+  // Write your code here
+  const mySet = new Set(arr);
+  return Array.from(mySet);
+}
+
+console.log(uniqueElements([1, 2, 2, 3, 4, 4, 5]));
+
+/*
+Adding An Element
+
+
+
+To add an element to a Set, use the add() method:
+
+const mySet = new Set();
+mySet.add(1);
+mySet.add(2);
+console.log(mySet); // Set(2) { 1, 2 }
+You can chain multiple add() calls:
+
+mySet.add(3).add(4).add(5);
+console.log(mySet); // Set(5) { 1, 2, 3, 4, 5 }
+Sets automatically ignore duplicate values:
+
+mySet.add(1); // Already exists, Set remains unchanged
+console.log(mySet); // Set(5) { 1, 2, 3, 4, 5 }
+*/
+
+console.log(`\n\n${longHypen}${hyphen}(  Adding An Element  )${longHypen}`);
+/*
+Adding An Element
+
+Challenge (Easy):
+
+Create a function called addUniqueElements that takes two parameters: 
+an array and another array. The function should convert the first array to a Set, 
+and add all elements from the second array to the Set, 
+but only if they don't already exist in the Set. 
+Finally convert the set to an array and return it.
+*/
+
+function addUniqueElements(array1, array2) {
+  // Write your code here
+  const arr1 = new Set(array1)
+  
+  for (const item of array2) {
+    arr1.add(item)
+  }
+  
+  return Array.from(arr1)
+}
+
+console.log(addUniqueElements([1, 2, 3], [4, 5, 2, 1, 6]));
+
+console.log(`\n\n${longHypen}${hyphen}(  Removing An Element  :) Please ReadMe )${longHypen}`);
+
+/*   Removing An Element
+
+To remove an element from a Set, use the delete() method:
+
+const mySet = new Set([1, 2, 3, 4, 5]);
+
+mySet.delete(3);
+console.log(mySet); // Set(4) { 1, 2, 4, 5 }
+The delete() method returns a boolean indicating whether the element was successfully removed:
+
+console.log(mySet.delete(2)); // true (element existed and was removed)
+console.log(mySet.delete(10)); // false (element didn't exist)
+If the element doesn't exist in the Set, it remains unchanged and delete() returns false.
+*/
+
+const mySet = new Set([1, 2, 3, 4, 5]);
+console.log(mySet)
+
+console.log('Delete value: 3')
+mySet.delete(3);
+console.log(mySet); // Set(4) { 1, 2, 4, 5 }
+console.log('What happen if i delete the value without in the set?')
+mySet.delete(6)

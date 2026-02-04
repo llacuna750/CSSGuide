@@ -253,6 +253,7 @@ addTag('history');
 
 postTags.forEach(tag => console.log(tag));
 
+// console.log(postTags)
 
 /*
 What we Studied:

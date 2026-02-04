@@ -781,7 +781,7 @@ class Character {
             throw new Error('Damage must be a number!')
         }
 
-        this.#health -= damageAmount;
+        this.#health -= damageAmount;   
 
         if (this.#health < 0) {
             this.#health = 0; // dead, cannot go negative

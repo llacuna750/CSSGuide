@@ -211,8 +211,7 @@ try {
     console.log(error.message);
 }
 
-/*
-What's happening is: the array list of wishListArr was set of new Set()
+/*What's happening is: the array list of wishListArr was set of new Set()
 constructor to remove some duplicate, 
 and the new set is created a new Array using a Array.from() method
 */
@@ -253,7 +252,8 @@ addTag('history');
 
 postTags.forEach(tag => console.log(tag));
 
-// console.log(postTags)
+console.log(postTags)
+
 
 /*
 What we Studied:

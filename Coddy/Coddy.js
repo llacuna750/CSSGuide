@@ -3213,20 +3213,20 @@ Finally convert the set to an array and return it.
 
 function symmetricDifference(arr1, arr2) {
   // Write your code here
-  const uniSet1 = new Set(arr1)
-  const uniSet2 = new Set(arr2)
+  const uniSet1 = new Set(arr1);
+  const uniSet2 = new Set(arr2);
 
-  uniSet1.forEach(item => {
+  uniSet1.forEach((item) => {
     if (uniSet2.has(item)) {
-      uniSet1.delete(item)
-      uniSet2.delete(item)
+      uniSet1.delete(item);
+      uniSet2.delete(item);
     }
-  })
+  });
 
-  const tempUniSet1 = Array.from(uniSet1)
-  const tempUniSet2 = Array.from(uniSet2)
+  const tempUniSet1 = Array.from(uniSet1);
+  const tempUniSet2 = Array.from(uniSet2);
 
-  return tempUniSet1.concat(tempUniSet2)
+  return tempUniSet1.concat(tempUniSet2);
 }
 
 /* Coddy Solution:
@@ -3252,10 +3252,212 @@ function symmetricDifference(arr1, arr2) {
 }
 */
 
+console.log(symmetricDifference([100, 200, 300, 400], [300, 400, 500, 600]));
+
+console.log(`\n\n${longHypen}${hyphen}(  Size And Is Empty )${longHypen}`);
+/*   Size And Is Empty
+
+Sets have useful properties for checking size and emptiness:
+
+size property: Returns the number of elements in the Set
+
+const mySet = new Set([1, 2, 3, 4, 5]);
+console.log(mySet.size); // 5
+isEmpty() method: Custom function to check if a Set is empty
+
+function isEmpty(set) {
+  return set.size === 0;
+  }
+  
+  const emptySet = new Set();
+  console.log(isEmpty(emptySet)); // true
+*/
+
+console.log(`\n\n${longHypen}${hyphen}(  partyPlanner )${longHypen}`);
+
+/*  Size And Is Empty
+Challenge  (Easy):
+
+Create a function named partyPlanner that takes an array of RSVPs (strings of names). Some people may have RSVP'd multiple times out of excitement. The function should return an object with:
+
+uniqueGuests: The number of unique guests attending
+hasDuplicates: A boolean indicating if anyone RSVP'd more than once
+isEmpty: A boolean indicating if no one RSVP'd
+*/
+
+function partyPlanner(rsvps) {
+  let guestSet = new Set(rsvps);
+  // Write your code here
+
+  let unique_Guest = 0;
+  let hasDupli = false;
+  let isEmpty = false;
+
+  const uniqueElements = new Set();
+  const duplicates = [];
+
+  rsvps.forEach((item) =>
+    uniqueElements.has(item) ? duplicates.push(item) : uniqueElements.add(item),
+  );
+  guestSet.forEach((item) => unique_Guest++);
+  if (guestSet.size === 0) isEmpty = true;
+  if (duplicates.length >= 1) hasDupli = true;
+
+  // console.log(duplicates)
+
+  return {
+    uniqueGuests: unique_Guest,
+    hasDuplicate: hasDupli,
+    isEmpty: isEmpty,
+  };
+}
+
+/*  Coddy Solution:
+function partyPlanner(rsvps) {
+    let guestSet = new Set(rsvps);
+
+    return {
+        uniqueGuests: guestSet.size,
+        hasDuplicates: guestSet.size < rsvps.length,
+        isEmpty: rsvps.length === 0
+    };
+}
+*/
+
+console.log(partyPlanner(["Beyoncé", "Beyoncé", "Beyoncé", "Jay-Z", "Jay-Z"]));
+
+console.log(`\n\n${longHypen}${hyphen}(  Copy And Clear )${longHypen}`);
+
+/*    Copy And Clear
+
+To create a copy of a Set, use the Set constructor with the existing Set:
+
+const originalSet = new Set([1, 2, 3, 4, 5]);
+const copiedSet = new Set(originalSet);
+To remove all elements from a Set, use the clear() method:
+
+const mySet = new Set([1, 2, 3, 4, 5]);
+mySet.clear(); // Set is now empty
+*/
+
+/*      Copy And Clear
+
+Challenge  (Easy):
+Create a function called setOperations that takes an array as a parameter. 
+The function should convert the array to a set and:
+
+Create a copy of the input Set
+Add the number 10 to the copied Set
+Clear the original Set
+Return an object with two properties: copiedSet (the modified copy) and originalSet (the cleared original Set)
+
+*/
+
+function setOperations(inputArr) {
+  const inputSet = new Set(inputArr);
+  const copiedSet = new Set(inputSet);
+  // Write your code here
+  copiedSet.add(10);
+  inputSet.clear();
+  return {
+    copiedSet: copiedSet,
+    originalSet: inputSet,
+  };
+}
+
+console.log(setOperations([1, 2, 3, 4, 5]));
+
+console.log(`\n\n${longHypen}${hyphen}(  Recap - Basic Of Sets )${longHypen}`);
+/*
+Recap - Basic Of Sets
+
+Challenge (Easy):
+Create a function called processStudentGroups that takes an array of student names as an argument. The function should:
+
+1. Create a Set from the input array to get unique student names
+2. Remove any student whose name starts with 'Z' (case insensitive)
+3. Add 'John Doe' to the Set if not already present
+4. Return an object with the following properties:
+ - uniqueCount: The number of unique students
+ - hasJohnDoe: A boolean indicating whether 'John Doe' is in the Set
+ - studentsArray: An array of the final set of student names
+*/
+
+function processStudentGroups(students) {
+  const ogSet = new Set(students);
+  const studentArr = [];
+  // Write your code here
+
+  if (!ogSet.has("John Doe")) {
+    ogSet.add("John Doe");
+  }
+  ogSet.forEach((item) => {
+    // console.log(item)
+    // console.log(item.split('')[0])
+
+    !["Z", "z"].includes(item.split("")[0])
+      ? studentArr.push(item)
+      : ogSet.delete(item);
+  });
+
+  // console.log(ogSet);
+
+  return {
+    uniqueCount: studentArr.length,
+    hasJohnDoe: ogSet.has("John Doe"),
+    studentsArray: studentArr,
+  };
+}
+/* Coddy Solution:
+function processStudentGroups(students) {
+  let studentSet = new Set(students);
+
+  for (let student of studentSet) {
+    if (student.toLowerCase().startsWith('z')) {
+      studentSet.delete(student);
+    }
+  }
+
+  studentSet.add('John Doe');
+
+  return {
+    uniqueCount: studentSet.size,
+    hasJohnDoe: studentSet.has('John Doe'),
+    studentsArray: Array.from(studentSet)
+  };
+}
+*/
+
 console.log(
-  symmetricDifference(
-    [100, 200, 300, 400],
-    [300, 400, 500, 600]
-  )
+  processStudentGroups([
+    "John Doe",
+    "ZARA",
+    "Emma",
+    "zeus",
+    "John Doe",
+    "Emma",
+  ]),
 );
 
+
+console.log(`\n\n${longHypen}${hyphen}(  Math - Union Of Sets  (Sets Part 2) )${longHypen}`);
+/*    Math - Union Of Sets
+
+The union of two sets creates a new set containing all elements from both sets, 
+without duplicates.
+
+Create a union using the spread operator:
+
+function union(setA, setB) {
+  return new Set([...setA, ...setB]);
+}
+
+const setA = new Set([1, 2, 3]);
+const setB = new Set([3, 4, 5]);
+const unionSet = union(setA, setB);
+
+console.log(unionSet); // Set(5) { 1, 2, 3, 4, 5 }
+The spread operator (...) converts each Set into an array, 
+which are then combined into a new array to create a new Set, 
+automatically removing duplicates.
+*/

@@ -472,4 +472,18 @@ dabVs.addAge()
 console.log(dabVs.age)
 
 
+const arr1 = [1, 2, 3, 4, 5]
+const set1 = new Set(arr1)
 
+/* We can use array methods to calcutlate or get or filter the expection output */
+console.log([...set1])
+
+let words = ["hello", "world"];
+let resultX = words.join("-");
+// result is "hello-world"
+
+console.log(resultX)
+
+console.log("ha".repeat(2));
+
+new 

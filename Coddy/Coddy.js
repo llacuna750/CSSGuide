@@ -3439,8 +3439,9 @@ console.log(
   ]),
 );
 
-
-console.log(`\n\n${longHypen}${hyphen}(  Math - Union Of Sets  (Sets Part 2) )${longHypen}`);
+console.log(
+  `\n\n${longHypen}${hyphen}(  Math - Union Of Sets  (Sets Part 2) )${longHypen}`,
+);
 /*    Math - Union Of Sets
 
 The union of two sets creates a new set containing all elements from both sets, 
@@ -3457,7 +3458,173 @@ const setB = new Set([3, 4, 5]);
 const unionSet = union(setA, setB);
 
 console.log(unionSet); // Set(5) { 1, 2, 3, 4, 5 }
+
 The spread operator (...) converts each Set into an array, 
 which are then combined into a new array to create a new Set, 
 automatically removing duplicates.
 */
+
+/*      Math - Union Of Sets
+
+Challenge  (Easy):
+Create a function called setUnion that takes two arrays as parameters. 
+The function should convert that arrays to sets and create a new Set that is the union of the two input Sets. 
+Finally convert the set to an array and return it.
+  
+Do not use the spread operator in your solution.
+
+*/
+
+function setUnion(arr1, arr2) {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+  // Write your code here
+  const concat = Array.from(set1).concat(Array.from(set2));
+  // console.log(concat)
+  return Array.from(new Set(concat));
+}
+
+/* Coddy Solution:
+function setUnion(arr1, arr2) {
+  const set1 = new Set(arr1)
+  const set2 = new Set(arr2)
+  const unionSet = new Set(set1);
+  for (let item of set2) {
+    unionSet.add(item);
+  }
+  return Array.from(unionSet);
+}
+ */
+
+console.log(setUnion([1, 1, 2, 2], [2, 2, 3, 3]));
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Math - Intersection Of Sets )${longHypen}`,
+);
+/*   Math - Intersection Of Sets
+
+The intersection of two sets contains only elements present in both sets.
+
+const set1 = new Set([1, 2, 3]);
+const set2 = new Set([2, 3, 4]);
+const intersection = new Set();
+
+for (let element of set1) {
+  if (set2.has(element)) {
+    intersection.add(element);
+  }
+}
+
+Create a function called setIntersection that takes arrays as parameters.
+The function should convert that arrays to Sets. 
+Create a Set that is the intersection of the two input Sets, convert to an array and return the array. 
+Do not use the spread operator in your solution.
+*/
+
+function setIntersection(arr1, arr2) {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+  const intersectionSet = new Set();
+
+  // Write your code here
+  for (const item of set1) {
+    if (set2.has(item)) {
+      intersectionSet.add(item);
+    }
+  }
+
+  // return new Set([...set1, ...set2]);
+  return Array.from(intersectionSet);
+}
+
+console.log(
+  setIntersection(["apple", "banana", "orange"], ["banana", "kiwi", "orange"]),
+);
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Math - Intersection Of Sets => setDifference() )${longHypen}`,
+);
+/*   Math - Difference Of Sets
+
+The difference of two sets A and B (A - B) creates a new set containing elements that are in A but not in B. 
+This operation is not commutative (A - B ≠ B - A).
+
+To find the difference between sets, convert arrays to sets and use set operations to find elements in the first set but not in the second. 
+
+For example:
+
+const setA = new Set([1, 2, 3, 4, 5]);
+const setB = new Set([3, 4, 5, 6, 7]);
+
+// A - B: elements in A but not in B
+const differenceAB = new Set([...setA].filter(x => !setB.has(x)));
+console.log('A - B:', differenceAB); // Set { 1, 2 }
+
+// B - A: elements in B but not in A
+const differenceBA = new Set([...setB].filter(x => !setA.has(x)));
+console.log('B - A:', differenceBA); // Set { 6, 7 }
+
+Challenge (Easy):
+
+Create a function called setDifference that takes two arrays as parameters: arr1 and arr2. 
+The function should convert the arrays to sets. 
+Create a new Set that contains elements that are in set1 but not in set2, 
+convert it an array and return it
+*/
+
+function setDifference(arr1, arr2) {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+  const differenceSet = new Set();
+  // Write your code here
+
+  // target: A - B    A elements without in B
+  set1.forEach((item) => (!set2.has(item) ? differenceSet.add(item) : item));
+
+  return Array.from(differenceSet);
+}
+/* Coddy Solution:
+function setDifference(arr1, arr2) {
+  const set1 = new Set(arr1)
+  const set2 = new Set(arr2)
+  const differenceSet = new Set();
+  for (let item of set1) {
+    if (!set2.has(item)) {
+      differenceSet.add(item);
+    }
+  }
+  return Array.from(differenceSet);
+}
+*/
+
+console.log(setDifference([1, 2, 3, 4], [3, 4, 5, 6]));
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Math - Symmetric Difference )${longHypen}`,
+);
+/* 
+Math - Symmetric Difference
+
+Challenge (Easy):
+Create a function called efficientSymmetricDifference that takes two arrays as parameters: arr1 and arr2. 
+The function should convert the arrays to sets. 
+Create a new Set that is the symmetric difference of the two input Sets, 
+convert it to array and return the array
+*/
+
+function efficientSymmetricDifference(arr1, arr2) {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+  const symDiff = new Set();
+  // Write your code here
+
+  new Set([...set1, ...set2]).forEach(item => {
+    if (!set1.has(item) || !set2.has(item)) {
+      symDiff.add(item)
+    }
+  })
+
+  return Array.from(symDiff);
+}
+
+console.log(efficientSymmetricDifference([1, 2, 3], [3, 4, 5]));

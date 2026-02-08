@@ -278,7 +278,7 @@ try {
 
     console.log(...lunchMenu); // Output: Greek Salad Open Sandwich parsnip Soup Flatbread and Dip
     console.log(lunchMenu); // Output: [ 'Greek Salad', 'Open Sandwich', 'parsnip Soup', 'Flatbread and Dip' ]
-    
+   
 
     const eventMenu = [...lunchMenu, ...dinnerMenu, ...SweetMenu];
     eventMenu[8][0] = "Gwapo ko YummyDelecious"; // update
@@ -302,7 +302,7 @@ try {
     salad2.name = 'Greek'; // assigning a value?
     salad2.ingredients[0] = 'Cucumber'; 
 
-    console.log('salad1:',salad1); // can't update using re-assigning value
+    console.log('salad1:',salad1); // can't update using re-assigning value but in first level array is update because of Shallow Copy
     console.log(`salad2:`,salad2);
     
 } catch (err) {

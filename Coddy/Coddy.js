@@ -3618,13 +3618,637 @@ function efficientSymmetricDifference(arr1, arr2) {
   const symDiff = new Set();
   // Write your code here
 
-  new Set([...set1, ...set2]).forEach(item => {
+  new Set([...set1, ...set2]).forEach((item) => {
     if (!set1.has(item) || !set2.has(item)) {
-      symDiff.add(item)
+      symDiff.add(item);
     }
-  })
+  });
 
   return Array.from(symDiff);
 }
 
+/*   Coddy Solution:
+function efficientSymmetricDifference(arr1, arr2) {
+  const set1 = new Set(arr1)
+  const set2 = new Set(arr2)
+  const symDiff = new Set();
+  
+  for (let item of set1) {
+    if (!set2.has(item)) {
+      symDiff.add(item);
+    }
+  }
+  
+  for (let item of set2) {
+    if (!set1.has(item)) {
+      symDiff.add(item);
+    }
+  }
+  
+  return Array.from(symDiff);
+}
+*/
+
 console.log(efficientSymmetricDifference([1, 2, 3], [3, 4, 5]));
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Subsets And SuperSets __analyzeSetRelations()  )${longHypen}`,
+);
+/*  Subsets And SuperSets
+
+A set A is a subset of set B if every element of A is also an element of B. 
+Conversely, B is a superset of A if it contains all elements of A. 
+Two sets are equal if they contain exactly the same elements.
+
+Check if setA is a subset of setB:
+function isSubset(setA, setB) {
+  return [...setA].every(element => setB.has(element));
+}
+
+Check if setA is a superset of setB:
+function isSuperset(setA, setB) {
+  return isSubset(setB, setA);
+}
+
+Check if two sets are equal:
+function areEqual(setA, setB) {
+  return setA.size === setB.size && isSubset(setA, setB);
+}
+
+Subsets And SuperSets   
+
+Challenge  (Easy):
+Create a function called analyzeSetRelations that takes two arrays as parameters: arr1 and arr2. 
+The function should convert the arrays to sets and return an object with the following properties:
+
+isSubset: a boolean indicating whether set1 is a subset of set2
+isSuperset: a boolean indicating whether set1 is a superset of set2
+isEqual: a boolean indicating whether set1 and set2 have exactly the same elements
+*/
+
+function analyzeSetRelations(arr1, arr2) {
+  let set1 = new Set(arr1);
+  let set2 = new Set(arr2);
+  // Write your code here
+
+  const isSubset = [...set1].every((i) => set2.has(i));
+  const isSuperset = [...set2].every((i) => set1.has(i));
+  const isEqual = set1.size === set2.size && isSubset;
+
+  return {
+    isSubset: isSubset,
+    isSuperset: isSuperset,
+    isEqual: isEqual,
+  };
+}
+/* Coddy Solution:
+
+function analyzeSetRelations(arr1, arr2) {
+    let set1 = new Set(arr1);
+    let set2 = new Set(arr2);
+    
+    let isSubset = true;
+    for (let element of set1) {
+        if (!set2.has(element)) {
+            isSubset = false;
+            break;
+        }
+    }
+    
+    let isSuperset = true;
+    for (let element of set2) {
+        if (!set1.has(element)) {
+            isSuperset = false;
+            break;
+        }
+    }
+    
+    let isEqual = false;
+    if (set1.size === set2.size && isSubset) {
+        isEqual = true;
+    }
+    
+    return {
+        isSubset: isSubset,
+        isSuperset: isSuperset,
+        isEqual: isEqual
+    };
+}
+*/
+
+console.log(analyzeSetRelations([1, 2, 3], [1, 2, 3, 4, 5]));
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Recap - Group Friends  _analyzeFriendGroups() )${longHypen}`,
+);
+
+/*   Recap - Group Friends    
+Challenge  (Easy):
+
+Create a function named analyzeFriendGroups that takes two arrays of names (representing two different friend groups) as parameters. 
+The function should convert the arrays to sets and returns an object containing the following information (in this exact order):
+
+mutualFriends: The number of people who are in both friend groups
+exclusiveToFirst: The number of people who are only in the first group
+exclusiveToSecond: The number of people who are only in the second group
+potentialConnections: The number of unique connections that could be made between exclusive members of each group 
+isSubset: Boolean indicating if one group is entirely contained within the other
+*/
+
+function analyzeFriendGroups(group1, group2) {
+  let set1 = new Set(group1);
+  let set2 = new Set(group2);
+  // Write your code here
+
+  let mutualF = 0;
+  for (const i of [...set1]) {
+    if (set2.has(i)) {
+      mutualF++;
+    }
+  }
+
+  let extoFirst = 0;
+  set1.forEach((c) => (!set2.has(c) ? extoFirst++ : c));
+
+  let exto2nd = 0;
+  set2.forEach((c) => (!set1.has(c) ? exto2nd++ : c));
+
+  let isSubset =
+    [...set1].every((c) => set2.has(c)) || [...set2].every((c) => set1.has(c));
+
+  return {
+    mutualFriends: mutualF,
+    exclusiveToFirst: extoFirst,
+    exclusiveToSecond: exto2nd,
+    potentialConnections: extoFirst * exto2nd,
+    isSubset: isSubset,
+  };
+}
+
+/*  Coddy Solution:
+function analyzeFriendGroups(group1, group2) {
+    // Convert arrays to sets
+    let set1 = new Set(group1);
+    let set2 = new Set(group2);
+    
+    let result = {};
+    
+    // Find mutual friends (intersection)
+    let mutual = new Set();
+    for (let person of set1) {
+        if (set2.has(person)) {
+            mutual.add(person);
+        }
+    }
+    result.mutualFriends = mutual.size;
+    
+    // Find exclusive to first group
+    let exclusive1 = new Set();
+    for (let person of set1) {
+        if (!set2.has(person)) {
+            exclusive1.add(person);
+        }
+    }
+    result.exclusiveToFirst = exclusive1.size;
+    
+    // Find exclusive to second group
+    let exclusive2 = new Set();
+    for (let person of set2) {
+        if (!set1.has(person)) {
+            exclusive2.add(person);
+        }
+    }
+    result.exclusiveToSecond = exclusive2.size;
+    
+    // Calculate potential connections
+    result.potentialConnections = exclusive1.size * exclusive2.size;
+    
+    // Check if one is subset of other
+    let isSubset = false;
+    if (set1.size <= set2.size) {
+        isSubset = true;
+        for (let person of set1) {
+            if (!set2.has(person)) {
+                isSubset = false;
+                break;
+            }
+        }
+    } else {
+        isSubset = true;
+        for (let person of set2) {
+            if (!set1.has(person)) {
+                isSubset = false;
+                break;
+            }
+        }
+    }
+    result.isSubset = isSubset;
+    
+    return result;
+}
+*/
+
+console.log(analyzeFriendGroups(["James", "William", "Benjamin"], []));
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Project Overview _Library Management System )${longHypen}`,
+);
+
+/*    Project Overview
+
+Challenge  (Easy):
+
+You will be creating a library management system. 
+Start by initializing the system with the provided data and creating the main function structure.
+
+Create a variable called libraryData with this exact initial data:
+
+{
+    books: [
+        {
+            id: 1,
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            year: 1925,
+            genre: "Fiction",
+            isRead: false,
+            rating: 0,
+            borrowed: false,
+            borrowedBy: "",
+            borrowDate: ""
+        }
+    ],
+    readers: [
+        {
+            name: "John Smith",
+            favoriteGenre: "Fiction",
+        }
+    ]
+}
+
+Now follow these steps:
+
+Create a function called manageLibrary that takes two parameters:
+
+- actions (array of strings)
+- data (array of objects)
+
+The function should process each action in the actions array in sequence, 
+using the corresponding data object from the data array at the same index. 
+For example, the action at actions[i] uses the data at data[i].
+
+Create a loop that goes through each action in the actions array, then inside the loop:
+
+1. Create an empty result array that will hold all of the results
+2. Create a switch statement that will handle different cases
+
+3. Add a case printBooks inside the switch statement that will add the current books inside the libraryData to the results array
+4. Add a case printReaders inside the switch statement that will add the current readers inside the libraryData to the results array
+5. Add a default case that adds an “Invalid action!” to the results array
+*/
+
+// Initial library data
+let libraryData = {
+  books: [
+    {
+      id: 1,
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      year: 1925,
+      genre: "Fiction",
+      isRead: false,
+      rating: 0,
+      borrowed: false,
+      borrowedBy: "",
+      borrowDate: "",
+    },
+  ],
+  readers: [
+    {
+      name: "John Smith",
+      favoriteGenre: "Fiction",
+    },
+  ],
+};
+
+function manageLibrary(actions, data) {
+  let results = [];
+
+  for (let i = 0; i < actions.length; i++) {
+    const currentAction = actions[i];
+    const currentData = data[i];
+
+    switch (currentAction) {
+      case "printBooks":
+        // Write your code here
+        results.push(libraryData.books);
+      case "printReaders":
+        // Write your code here
+        results.push(libraryData.readers);
+      default:
+        results.push("Invalid action!");
+    }
+  }
+
+  return Array.from(new Set(results));
+}
+
+console.log(
+  manageLibrary(
+    ["printBooks", "printReaders", "someAction"],
+    [null, null, null],
+  ),
+);
+
+console.log(
+  `\n\n${longHypen}${hyphen}(  Project Overview _Library Management System  case: Adding Books  )${longHypen}`,
+);
+/*  Adding Books
+
+Challenge  (Easy):
+Add the case "addBook". This case should:
+
+Create a new book object using the currentData parameter which holds the following properties:
+
+🟢 title (string)
+🟢 author (string)
+🟢 year (string)
+🟢 genre (string)
+
+Generate an id (use libraryData.books.length + 1)
+Set default values for: isRead, rating, borrowed, borrowedBy, borrowDate (like in the initial data)
+Add the new book to libraryData.books array
+Add the string Book added successfully! to the results array 
+*/
+
+// Initial library data
+let libraryData2 = {
+  books: [
+    {
+      id: 1,
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      year: 1925,
+      genre: "Fiction",
+      isRead: false,
+      rating: 0,
+      borrowed: false,
+      borrowedBy: "",
+      borrowDate: "",
+    },
+  ],
+  readers: [
+    {
+      name: "John Smith",
+      favoriteGenre: "Fiction",
+    },
+  ],
+};
+
+function manageLibrary2(actions, data) {
+  let results = [];
+
+  for (let i = 0; i < actions.length; i++) {
+    const currentAction = actions[i];
+    const currentData = data[i];
+
+    const bookLength = libraryData2.books.length;
+
+    switch (currentAction) {
+      case "addBook":
+        if (currentData !== null) {
+          const newAdd_Data = { id: bookLength + 1, ...currentData };
+
+          const deepCopy = structuredClone(libraryData2.books);
+          for (const [index, val] of Object.entries(...deepCopy)) {
+            if (!(index in newAdd_Data)) {
+              newAdd_Data[index] = val;
+            }
+          }
+
+          // console.log('Test',deepCopy)
+
+          currentData.id = bookLength + 1;
+          libraryData2.books.push(newAdd_Data);
+          results.push("Book added successfully!");
+        }
+        break;
+
+      case "printBooks":
+        // Write your code here
+        results.push(libraryData2.books);
+        break;
+
+      case "printReaders":
+        // Write your code here
+        results.push(libraryData2.readers);
+        break;
+
+      default:
+        results.push("Invalid action!");
+    }
+  }
+
+  // return Array.from(new Set(results));
+  return results;
+}
+
+/* Coddy Solution:
+// Initialize library data
+const libraryData = {
+    books: [
+        {
+            id: 1,
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            year: 1925,
+            genre: "Fiction",
+            isRead: false,
+            rating: 0,
+            borrowed: false,
+            borrowedBy: "",
+            borrowDate: ""
+        }
+    ],
+    readers: [
+        {
+            name: "John Smith",
+            favoriteGenre: "Fiction",
+        }
+    ]
+};
+
+function manageLibrary(actions, data) {
+    let results = [];
+    
+    for (let i = 0; i < actions.length; i++) {
+        const currentAction = actions[i];
+        const currentData = data[i];
+        
+        switch (currentAction) {
+            case 'printBooks':
+                results.push(libraryData.books);
+                break;
+            case 'printReaders':
+                results.push(libraryData.readers);
+                break;
+            case "addBook":
+                // Add a new book to the library
+                let newBook = {
+                    id: libraryData.books.length + 1,
+                    title: currentData.title,
+                    author: currentData.author,
+                    year: currentData.year,
+                    genre: currentData.genre,
+                    isRead: false,
+                    rating: 0,
+                    borrowed: false,
+                    borrowedBy: "",
+                    borrowDate: ""
+                };
+                libraryData.books.push(newBook);
+                results.push("Book added successfully!");
+                break;
+            default:
+                results.push("Invalid action!");
+        }
+    }
+    
+    return results;
+}
+*/
+
+console.log(
+  manageLibrary2(
+    ["addBook", "addBook", "printBooks"],
+    [
+      {
+        title: "The Art of War",
+        author: "Sun Tzu",
+        year: 500,
+        genre: "Philosophy",
+      },
+      {
+        title: "The Prince",
+        author: "Niccolò Machiavelli",
+        year: 1532,
+        genre: "Philosophy",
+      },
+      null,
+    ],
+  ),
+);
+
+console.log(
+  `\n\n${longHypen}${hyphen}( Library Management System  _Search By Title )${longHypen}`,
+);
+/*   Search By Title
+
+Challenge  (Easy):
+Create a new case searchByTitle in your switch statement. 
+This action should search for books by their title.
+
+For the searchByTitle case:
+
+1. The currentData parameter is a string to search for
+2. Create an empty array searchResults to store the search results
+3. Loop through all books in the library
+4. For each book, check if its title includes the search string
+5. The search should be case-insensitive (convert both strings to lowercase before comparing)
+6. If a match is found, add the book to the searchResults array
+7. Add the searchResults array to the main results array
+*/
+
+// Initial library data
+let libraryData3 = {
+  books: [
+    {
+      id: 1,
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      year: 1925,
+      genre: "Fiction",
+      isRead: false,
+      rating: 0,
+      borrowed: false,
+      borrowedBy: "",
+      borrowDate: "",
+    },
+  ],
+  readers: [
+    {
+      name: "John Smith",
+      favoriteGenre: "Fiction",
+    },
+  ],
+};
+
+function manageLibrary3(actions, data) {
+  let results = [];
+  let searchResults = []
+
+  for (let i = 0; i < actions.length; i++) {
+    const currentAction = actions[i];
+    const currentData = data[i];
+    const bookLength = libraryData3.books.length;
+
+    switch (currentAction) {
+      case "printBooks":
+        // Write your code here
+        results.push(libraryData3.books);
+        break;
+
+      case "printReaders":
+        // Write your code here
+        results.push(libraryData3.readers);
+        break;
+
+      case "addBook":
+        if (currentData !== null) {
+          const newAdd_Data = { id: bookLength + 1, ...currentData };
+
+          const deepCopy = structuredClone(libraryData3.books);
+          for (const [index, val] of Object.entries(...deepCopy)) {
+            if (!(index in newAdd_Data)) {
+              newAdd_Data[index] = val;
+            }
+          }
+
+          currentData.id = bookLength + 1;
+          libraryData3.books.push(newAdd_Data);
+          results.push("Book added successfully!");
+        }
+        break;
+
+      case "searchByTitle":
+
+        break;
+
+      default:
+        results.push("Invalid action!");
+    }
+  }
+
+  return results;
+}
+
+console.log(
+  manageLibrary3(
+    ["addBook", "addBook", "searchByTitle"],
+    [
+      {
+        title: "Harry Potter and the Sorcerer's Stone",
+        author: "J.K. Rowling",
+        year: 1997,
+        genre: "Fantasy",
+      },
+      {
+        title: "Harry Potter and the Chamber of Secrets",
+        author: "J.K. Rowling",
+        year: 1998,
+        genre: "Fantasy",
+      },
+      "Harry",
+    ],
+  ),
+);

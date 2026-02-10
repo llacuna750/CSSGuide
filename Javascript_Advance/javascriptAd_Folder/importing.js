@@ -553,6 +553,7 @@ const regex = /wifi/ig;
 
 // The RegExp Constructor
 const regex2 = new RegExp(userInput, "gi"); // gi = global & case sensitive
+console.log(regex2)
 
 try {
   console.log(`regex1:`,regex.test(text)); // return boolean true

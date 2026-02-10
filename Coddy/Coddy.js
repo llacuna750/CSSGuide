@@ -4012,6 +4012,8 @@ function manageLibrary2(actions, data) {
     const currentAction = actions[i];
     const currentData = data[i];
 
+    // console.log(typeof currentData)
+
     const bookLength = libraryData2.books.length;
 
     switch (currentAction) {
@@ -4139,10 +4141,13 @@ console.log(
   ),
 );
 
+
 console.log(
-  `\n\n${longHypen}${hyphen}( Library Management System  _Search By Title )${longHypen}`,
+  `\n\n${"*".repeat(20)}--( Library Management System  _Search By Title )--${"*".repeat(20)}`,
 );
+
 /*   Search By Title
+
 
 Challenge  (Easy):
 Create a new case searchByTitle in your switch statement. 
@@ -4185,43 +4190,65 @@ let libraryData3 = {
 
 function manageLibrary3(actions, data) {
   let results = [];
-  let searchResults = []
 
   for (let i = 0; i < actions.length; i++) {
     const currentAction = actions[i];
     const currentData = data[i];
-    const bookLength = libraryData3.books.length;
+
+    // console.log(typeof currentData);
+    // console.log('isObject?',currentData)
 
     switch (currentAction) {
       case "printBooks":
-        // Write your code here
-        results.push(libraryData3.books);
+        results.push(libraryData3.books); // add the library books properties into results array
         break;
 
       case "printReaders":
-        // Write your code here
         results.push(libraryData3.readers);
         break;
 
       case "addBook":
-        if (currentData !== null) {
-          const newAdd_Data = { id: bookLength + 1, ...currentData };
-
-          const deepCopy = structuredClone(libraryData3.books);
-          for (const [index, val] of Object.entries(...deepCopy)) {
-            if (!(index in newAdd_Data)) {
-              newAdd_Data[index] = val;
-            }
-          }
-
-          currentData.id = bookLength + 1;
-          libraryData3.books.push(newAdd_Data);
-          results.push("Book added successfully!");
-        }
+        // Add a new book to the library
+        let newBook = {
+          id: libraryData3.books.length + 1,
+          title: currentData.title,
+          author: currentData.author,
+          year: currentData.year,
+          genre: currentData.genre,
+          isRead: false,
+          rating: 0,
+          borrowed: false,
+          borrowedBy: "",
+          borrowDate: "",
+        };
+        libraryData3.books.push(newBook);
+        results.push("Book added successfully!");
         break;
 
       case "searchByTitle":
+        let searchResults = [];
+        let theSearchString = "";
 
+        for (const v of data) {
+          if (typeof v === "string") theSearchString = v;
+        }
+
+        for (const i of libraryData3.books) {
+          // const splitTitle = i.title.split(' ')
+          // console.log(splitTitle) // for test Only!
+          // console.log(i.title)
+
+          let regex = new RegExp(theSearchString, "ig");
+
+          if (regex.test(i.title)) {
+            // console.log(true);
+            searchResults.push(i);
+          }
+
+          // splitTitle.includes(theSearchString) ? searchResults.push(i) : i
+        }
+
+        results.push(searchResults);
         break;
 
       default:
@@ -4231,6 +4258,81 @@ function manageLibrary3(actions, data) {
 
   return results;
 }
+
+/* Coddy Solution:
+// Initialize library data
+const libraryData3 = {
+    books: [
+        {
+            id: 1,
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            year: 1925,
+            genre: "Fiction",
+            isRead: false,
+            rating: 0,
+            borrowed: false,
+            borrowedBy: "",
+            borrowDate: ""
+        }
+    ],
+    readers: [
+        {
+            name: "John Smith",
+            favoriteGenre: "Fiction",
+        }
+    ]
+};
+
+function manageLibrary3(actions, data) {
+    let results = [];
+    
+    for (let i = 0; i < actions.length; i++) {
+        const currentAction = actions[i];
+        const currentData = data[i];
+        
+        switch (currentAction) {
+            case 'printBooks':
+                results.push(libraryData3.books);
+                break;
+            case 'printReaders':
+                results.push(libraryData3.readers);
+                break;
+            case "addBook":
+                // Add a new book to the library
+                let newBook = {
+                    id: libraryData3.books.length + 1,
+                    title: currentData.title,
+                    author: currentData.author,
+                    year: currentData.year,
+                    genre: currentData.genre,
+                    isRead: false,
+                    rating: 0,
+                    borrowed: false,
+                    borrowedBy: "",
+                    borrowDate: ""
+                };
+                libraryData3.books.push(newBook);
+                results.push("Book added successfully!");
+                break;
+            case "searchByTitle":
+                // Search for books by title
+                let searchResults = [];
+                for(let i = 0; i < libraryData3.books.length; i++) {
+                    if(libraryData3.books[i].title.toLowerCase().includes(currentData.toLowerCase())) {
+                        searchResults.push(libraryData3.books[i]);
+                    }
+                }
+                results.push(searchResults);
+                break;
+            default:
+                results.push("Invalid action!");
+        }
+    }
+
+    return results;
+}
+*/
 
 console.log(
   manageLibrary3(
@@ -4248,7 +4350,9 @@ console.log(
         year: 1998,
         genre: "Fantasy",
       },
-      "Harry",
+      "harry",
     ],
   ),
 );
+
+

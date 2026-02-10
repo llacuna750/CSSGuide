@@ -405,7 +405,7 @@ console.table(deepClonedStudentDetails);
 
 /************************************************/ console.log("\n", spaceMe, "10. Objects with Methods and 'this'", spaceMe, ""); /************************************************/
 // this refer to the object property.
-try {    
+try {
     const gamer = {
         name: 'Dave',
         score: 0,

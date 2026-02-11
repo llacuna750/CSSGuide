@@ -4,8 +4,8 @@ public class PassByvalue {
     public static void main(String[] args) throws Exception {
 
         int[] myStudentAge = {19, 22, 35, 40, 70};
-        int target1 = 3;
-        int target2 = 0;
+        int target0 = 0;
+        int target1 = 1;
 
         // passbyValue method   
         System.out.println("\n\n\nIs updated: "+ displayAgeValue(myStudentAge[target1]));
@@ -16,7 +16,7 @@ public class PassByvalue {
         System.out.println("\n\n\nPass by Value \nExplaination: "+ displayAgeValue(myStudentAge[target1])+" == "+ myStudentAge[target1] +"\nis Update: "+ (displayAgeValue(myStudentAge[target1]) == myStudentAge[target1]));
         System.out.println("Array contents: " + Arrays.toString(myStudentAge));
         
-        System.out.println("\n\n\nPass by Ref. \nExplaination: "+ displayAgeReference(myStudentAge) +" == "+  myStudentAge[target2] +"\nis Update: "+ (displayAgeReference(myStudentAge) == myStudentAge[target2])); // Output :   75  Updated by : displayAgeReference() method2
+        System.out.println("\n\n\nPass by Ref. \nExplaination: "+ displayAgeReference(myStudentAge) +" == "+  myStudentAge[target0] +"\nis Update: "+ (displayAgeReference(myStudentAge) == myStudentAge[target0])); // Output :   75  Updated by : displayAgeReference() method2
         System.out.println("Array contents: " + Arrays.toString(myStudentAge));
 
 

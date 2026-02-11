@@ -4141,7 +4141,6 @@ console.log(
   ),
 );
 
-
 console.log(
   `\n\n${"*".repeat(20)}--( Library Management System  _Search By Title )--${"*".repeat(20)}`,
 );
@@ -4355,4 +4354,514 @@ console.log(
   ),
 );
 
+console.log(
+  `\n\n${"*".repeat(20)}--( Library Management System  _Search By Title )--${"*".repeat(20)}`,
+);
 
+/*   Search By Title
+
+
+Challenge  (Easy):
+Create a new case searchByTitle in your switch statement. 
+This action should search for books by their title.
+
+For the searchByTitle case:
+
+1. The currentData parameter is a string to search for
+2. Create an empty array searchResults to store the search results
+3. Loop through all books in the library
+4. For each book, check if its title includes the search string
+5. The search should be case-insensitive (convert both strings to lowercase before comparing)
+6. If a match is found, add the book to the searchResults array
+7. Add the searchResults array to the main results array
+*/
+
+// Initial library data
+let libraryData4 = {
+  books: [
+    {
+      id: 1,
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      year: 1925,
+      genre: "Fiction",
+      isRead: false,
+      rating: 0,
+      borrowed: false,
+      borrowedBy: "",
+      borrowDate: "",
+    },
+  ],
+  readers: [
+    {
+      name: "John Smith",
+      favoriteGenre: "Fiction",
+    },
+  ],
+};
+
+function manageLibrary4(actions, data) {
+  let results = [];
+
+  for (let i = 0; i < actions.length; i++) {
+    const currentAction = actions[i];
+    const currentData = data[i];
+
+    switch (currentAction) {
+      case "printBooks":
+        results.push(libraryData4.books); // add the library books properties into results array
+        break;
+
+      case "printReaders":
+        results.push(libraryData4.readers);
+        break;
+
+      case "addBook":
+        // Add a new book to the library
+        let newBook = {
+          id: libraryData4.books.length + 1,
+          title: currentData.title,
+          author: currentData.author,
+          year: currentData.year,
+          genre: currentData.genre,
+          isRead: false,
+          rating: 0,
+          borrowed: false,
+          borrowedBy: "",
+          borrowDate: "",
+        };
+        libraryData4.books.push(newBook);
+        results.push("Book added successfully!");
+        break;
+
+      case "searchByTitle":
+        let searchResults = [];
+        let theSearchString = "";
+
+        for (const v of data) {
+          if (typeof v === "string") theSearchString = v;
+        }
+
+        for (const i of libraryData4.books) {
+          let regex = new RegExp(theSearchString, "ig");
+          if (regex.test(i.title)) searchResults.push(i);
+        }
+
+        results.push(searchResults);
+        break;
+
+      case "filterByGenre":
+        let filteredResults = [];
+
+        for (const v of libraryData4.books) {
+          if (v.genre.toLowerCase().includes(currentData.toLowerCase()))
+            filteredResults.push(v);
+        }
+        results.push(filteredResults);
+        break;
+
+      case "markAsRead":
+        const rateBook = currentData.rating;
+        const bookIdToRate = currentData.bookId;
+        const rateValidate = rateBook >= 1 && rateBook <= 5;
+        let isBookFound = false;
+
+        for (const v of libraryData4.books) {
+          if (v.id === bookIdToRate && rateValidate) {
+            v.rating = rateBook;
+            v.isRead = true;
+            isBookFound = true;
+            results.push("Book marked as read!");
+          }
+        }
+
+        if (!rateValidate)
+          results.push("Invalid rating! Please rate between 1 and 5");
+
+        if (!isBookFound && rateValidate) results.push("Book not found!");
+
+        // console.log("currentData.bookId:", currentData.bookId);
+        break;
+
+      default:
+        results.push("Invalid action!");
+    }
+  }
+
+  return results;
+}
+
+/*  Coddy Solution:
+// Initialize library data
+const libraryData = {
+    books: [
+        {
+            id: 1,
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            year: 1925,
+            genre: "Fiction",
+            isRead: false,
+            rating: 0,
+            borrowed: false,
+            borrowedBy: "",
+            borrowDate: ""
+        }
+    ],
+    readers: [
+        {
+            name: "John Smith",
+            favoriteGenre: "Fiction",
+        }
+    ]
+};
+
+function manageLibrary(actions, data) {
+    let results = [];
+    
+    for (let i = 0; i < actions.length; i++) {
+        const currentAction = actions[i];
+        const currentData = data[i];
+        
+        switch (currentAction) {
+            case 'printBooks':
+                results.push(libraryData.books);
+                break;
+            case 'printReaders':
+                results.push(libraryData.readers);
+                break;
+            case "addBook":
+                // Add a new book to the library
+                let newBook = {
+                    id: libraryData.books.length + 1,
+                    title: currentData.title,
+                    author: currentData.author,
+                    year: currentData.year,
+                    genre: currentData.genre,
+                    isRead: false,
+                    rating: 0,
+                    borrowed: false,
+                    borrowedBy: "",
+                    borrowDate: ""
+                };
+                libraryData.books.push(newBook);
+                results.push("Book added successfully!");
+                break;
+            case "searchByTitle":
+                // Search for books by title
+                let searchResults = [];
+                for(let i = 0; i < libraryData.books.length; i++) {
+                    if(libraryData.books[i].title.toLowerCase().includes(currentData.toLowerCase())) {
+                        searchResults.push(libraryData.books[i]);
+                    }
+                }
+                results.push(searchResults);
+                break;
+
+          case "filterByGenre":
+                // Filter books by genre
+                let genreResults = [];
+                for(let i = 0; i < libraryData.books.length; i++) {
+                    if(libraryData.books[i].genre === currentData) {
+                        genreResults.push(libraryData.books[i]);
+                    }
+                }
+                results.push(genreResults);
+                break;
+            case "markAsRead":
+                // Mark a book as read and add rating
+                let flag = false;
+                if (!(currentData.rating >= 1 && currentData.rating <= 5)) {
+                    results.push("Invalid rating! Please rate between 1 and 5");
+                } else {
+                    for (let i = 0; i < libraryData.books.length; i++) {
+                        if(libraryData.books[i].id === currentData.bookId) {
+                            libraryData.books[i].isRead = true;
+                            libraryData.books[i].rating = currentData.rating;
+                            results.push("Book marked as read!");
+                            flag = true;
+                        }
+                    }
+                    if (flag === false) {
+                        results.push("Book not found!");
+                    }
+                }
+                break;
+            default:
+                results.push("Invalid action!");
+        }
+    }
+
+    return results;
+}
+*/
+
+console.log(
+  manageLibrary4(
+    ["addBook", "markAsRead", "markAsRead", "printBooks"],
+    [
+      {
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        year: 1937,
+        genre: "Fantasy",
+      },
+      { bookId: 2, rating: 7 },
+      { bookId: 2, rating: -1 },
+      null,
+    ],
+  ),
+);
+
+console.log(`\n\n${"*".repeat(20)}-( Array Destructuring )-${"*".repeat(20)}`);
+
+/*  Array Destructuring
+
+Array destructuring extracts multiple values from an array and assigns them to variables in a single statement:
+
+const [a, b, c] = [1, 2, 3];
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // 3
+Skip elements by leaving empty spaces:
+
+const [a, , c] = [1, 2, 3];
+console.log(a); // 1
+console.log(c); // 3
+Use rest parameters to capture remaining elements:
+
+const [a, ...rest] = [1, 2, 3, 4, 5];
+console.log(a);    // 1
+console.log(rest); // [2, 3, 4, 5]
+Provide default values for missing elements:
+
+const [a, b, c = 3] = [1, 2];
+console.log(c); // 3
+
+Challenge  (Easy):
+Create a function called analyzeArray that takes an array as an argument. 
+The function should use array destructuring to extract the first, second, and last elements of the array. It should return an object with the following properties:
+
+first: The first element of the array
+second: The second element of the array
+last: The last element of the array
+restLength: The number of remaining elements in the array
+If any of these elements don't exist, use default values of null.
+*/
+
+function analyzeArray(arr) {
+  // Write your code here
+  const [a = null, b = null, , ...rest] = arr; // array must destructure first
+
+  // console.log(arr[arr.length - 1]);
+  // console.log(arr.length);
+
+  return {
+    first: a,
+    second: b,
+    last: arr[arr.length - 1] && arr.length >= 2 ? arr[arr.length - 1] : null,
+    restLength: rest.length,
+  };
+}
+
+/* Coddy Solution:
+function analyzeArray(arr) {
+  const [first = null, second = null, ...rest] = arr;
+  const last = rest.pop() || null;
+
+  return {
+    first,
+    second,
+    last,
+    restLength: rest.length
+  };
+
+
+  This line:
+  const last = rest.pop() || null;
+
+  means:
+  Take the last value from the rest array, 
+  remove it from rest, and store that removed value inside the last variable.
+}
+*/
+const case0 = [1, 2, 3, 4, 5];
+const case1 = [{ name: "John" }, { name: "Jane" }, { name: "Bob" }];
+const case2 = [42];
+
+console.log(analyzeArray(case0));
+
+console.log(
+  `\n\n${"*".repeat(20)}-( Spread Syntax in Arrays )-${"*".repeat(20)}`,
+);
+/*   Spread Syntax in Arrays
+
+The spread syntax (...) allows an iterable to be expanded in places where zero or more arguments or elements are expected.
+
+Combining arrays:
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
+
+
+Creating a shallow copy:
+
+const original = [1, 2, 3];
+const copy = [...original];
+console.log(copy); // [1, 2, 3]
+
+
+
+Adding elements to an array:
+
+const numbers = [1, 2, 3];
+const moreNumbers = [0, ...numbers, 4];
+console.log(moreNumbers); // [0, 1, 2, 3, 4]
+
+
+Passing array elements as function arguments:
+
+function sum(a, b, c) {
+  return a + b + c;
+}
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // 6
+
+
+Challenge  (Easy):
+Create a function called mergeArr that takes two arrays of numbers as arguments. 
+The function should:
+
+Merge the two arrays using the spread operator
+Remove any duplicate numbers
+Return the resulting array
+
+*/
+
+function sum(a, b, c) {
+  return a + b + c;
+}
+const numbers = [1, 2, 3];
+
+// console.log(sum(...numbers));
+
+function mergeArr(arr1, arr2) {
+  // Write your code here
+  const mergeArr = [...arr1, ...arr2];
+  return Array.from(new Set(mergeArr));
+}
+
+/* Coddy Solution:
+function mergeArr(arr1, arr2) {
+  const merged = [...arr1, ...arr2];
+  const unique = [...new Set(merged)];
+  return unique;
+}
+*/
+
+console.log(mergeArr([], [1, 1, 1, 2, 2, 2]));
+
+console.log(`\n\n${"*".repeat(20)}-( Sparse Arrays )-${"*".repeat(20)}`);
+/*   Sparse Arrays
+
+A sparse array is an array with empty slots or gaps between elements, 
+created by assigning values to non-consecutive indices or deleting elements.
+
+Creating sparse arrays with gaps:
+
+let sparseArray = [1, , , 4, 5];
+console.log(sparseArray.length); // 5
+console.log(sparseArray); // [1, empty × 2, 4, 5]
+
+
+Creating sparse arrays by assigning beyond current length:
+
+let arr = [1, 2, 3];
+arr[10] = 10;
+console.log(arr); // [1, 2, 3, empty × 7, 10]
+console.log(arr.length); // 11
+*/
+
+let sparseArray = [1, , , 4, 5];
+console.log(sparseArray.length); // 5
+console.log(sparseArray); // [1, empty × 2, 4, 5]
+
+let arr = [1, 2, 3];
+arr[10] = 10; // Array length is always one more than the highest index, so assigning to index 100 creates length 101 with 100 empty slots before it.
+console.log(arr); // [1, 2, 3, empty × 7, 10]
+console.log(arr.length); // 11
+
+/* What creates a sparse array?  Skipping indices creates empty slots between elements, which defines a sparse array. 
+What does console.log([1, , 3]) display?
+*/
+
+console.log([1, , 3]);
+
+function analyzeSparseArray(arr) {
+  // Write your code here
+  // console.log("arr.length", arr.length);
+
+  let elementCount = arr.reduce(function (accumulator, currentValue) {
+    return accumulator + 1;
+  }, 0);
+
+  let largestGap = 0;
+  let tempLargeGap = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    // Check if index exists in the array
+    if (!(i in arr)) {
+      tempLargeGap++;
+      largestGap = Math.max(largestGap, tempLargeGap);
+    } else {
+      tempLargeGap = 0;
+    }
+  }
+
+  // for (const v of arr) {
+  //   console.log(v)
+  //   // console.log(typeof v)
+  //   if (typeof v != "number") {
+  //     tempLargeGap++
+  //     largestGap = Math.max(largestGap, tempLargeGap)
+  //   } else {
+  //     tempLargeGap = 0
+  //   }
+  // }
+
+  return {
+    length: arr.length,
+    elementCount,
+    largestGap,
+  };
+}
+
+/* Coddy Solution:
+function analyzeSparseArray(arr) {
+  let elementCount = 0;
+  let largestGap = 0;
+  let currentGap = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (i in arr) {
+      elementCount++;
+      largestGap = Math.max(largestGap, currentGap);
+      currentGap = 0;
+    } else {
+      currentGap++;
+    }
+  }
+
+  largestGap = Math.max(largestGap, currentGap);
+
+  return {
+    length: arr.length,
+    elementCount: elementCount,
+    largestGap: largestGap
+  };
+}
+*/
+
+console.log('\n\n',analyzeSparseArray([undefined, null, , , 5]));

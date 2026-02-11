@@ -485,5 +485,3 @@ let resultX = words.join("-");
 console.log(resultX)
 
 console.log("ha".repeat(2));
-
-new 

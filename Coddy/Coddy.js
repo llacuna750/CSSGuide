@@ -4865,3 +4865,61 @@ function analyzeSparseArray(arr) {
 */
 
 console.log('\n\n',analyzeSparseArray([undefined, null, , , 5]));
+
+
+console.log(
+  `\n\n${"*".repeat(20)}-( Recap - Arrays Workshop )-${"*".repeat(20)}`,
+);
+/*
+Challenge (Easy): 
+Create a function called arrayWorkshop that takes an array of numbers as an argument. 
+The function should perform the following operations:
+
+1. Remove all duplicate numbers from the array
+2. If the array has fewer than 3 elements after removing duplicates, add the number 0 to the array until it has 3 elements
+3. Replace the first and last elements with their sum
+4. Return the modified array
+*/
+
+function arrayWorkshop(arr) {
+  // Write your code here
+  const set1 = new Set(arr);
+  const convertArr = [...set1];
+
+  //   console.log(convertArr.length);
+
+  while (convertArr.length < 3) {
+    convertArr.push(0);
+  }
+
+  const updateArr = convertArr[0] + convertArr[convertArr.length - 1];
+  //   console.log(updateArr);
+
+  convertArr[0] = updateArr;
+  convertArr[convertArr.length - 1] = updateArr;
+
+  return convertArr;
+}
+
+console.log(arrayWorkshop([1, 2, 3, 4, 4, 5]));
+
+/* Coddy Solution:
+function arrayWorkshop(arr) {
+    // Remove duplicates
+    let uniqueArr = [...new Set(arr)];
+  
+    // Add 0s if array has fewer than 3 elements
+    while (uniqueArr.length < 3) {
+        uniqueArr.push(0);
+    }
+    // Replace first and last elements with their sum
+    if (uniqueArr.length >= 2) {
+        const sum = uniqueArr[0] + uniqueArr[uniqueArr.length - 1];
+        uniqueArr[0] = sum;
+        uniqueArr.pop();
+        uniqueArr.push(sum);
+   }
+ 
+  return uniqueArr;
+}
+*/

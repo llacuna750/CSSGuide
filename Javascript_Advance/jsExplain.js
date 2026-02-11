@@ -443,8 +443,8 @@ class Human {
     this.#age = realAge;
   }
 
-  set setNameto (newName) {
-    this.#name = newName
+  set setNameto(newName) {
+    this.#name = newName;
   }
 
   get name() {
@@ -455,33 +455,52 @@ class Human {
     return this.#age;
   }
 
-  addAge () {
-    console.log('Happy Birthday')
-    this.#age++
+  addAge() {
+    console.log("Happy Birthday");
+    this.#age++;
   }
 }
 
-const dabVs = new Human('Gabriel2', 21)
+const dabVs = new Human("Gabriel2", 21);
 // dabVs.name = 'Gab'
-dabVs.setNameto = 'Gabriel Gwapo'
+dabVs.setNameto = "Gabriel Gwapo";
 
-console.log(dabVs.name)
-console.log(dabVs.age)
-console.log(dabVs)
-dabVs.addAge()
-console.log(dabVs.age)
+console.log(dabVs.name);
+console.log(dabVs.age);
+console.log(dabVs);
+dabVs.addAge();
+console.log(dabVs.age);
 
-
-const arr1 = [1, 2, 3, 4, 5]
-const set1 = new Set(arr1)
+const arr1 = [1, 2, 3, 4, 5];
+const set1 = new Set(arr1);
 
 /* We can use array methods to calcutlate or get or filter the expection output */
-console.log([...set1])
+console.log([...set1]);
 
 let words = ["hello", "world"];
 let resultX = words.join("-");
 // result is "hello-world"
 
-console.log(resultX)
+console.log(resultX);
 
 console.log("ha".repeat(2));
+
+class Node {
+  constructor() {
+    this.val = 0;
+  }
+
+  getValue() {
+    // Write code here
+    return this.val;
+  }
+
+  setValue(newVal) {
+    this.val = newVal;
+  }
+}
+
+const node1 = new Node();
+console.log(node1.getValue());
+node1.setValue(50);
+console.log(node1);

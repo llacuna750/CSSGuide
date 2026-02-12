@@ -4923,3 +4923,107 @@ function arrayWorkshop(arr) {
   return uniqueArr;
 }
 */
+
+/*      The Join & Split Methods
+
+
+The join() method creates a string by concatenating array elements with a separator:
+
+array.join([separator])
+The split() method divides a string into an array of substrings:
+
+string.split([separator])
+Examples:
+
+const fruits = ['apple', 'banana', 'orange'];
+const str = fruits.join(', '); // "apple, banana, orange"
+
+const sentence = "Hello World";
+const words = sentence.split(' '); // ['Hello', 'World']
+
+// Different separators
+fruits.join(''); // "applebananaorange"
+fruits.join('-'); // "apple-banana-orange"
+"2023-05-15".split('-'); // ['2023', '05', '15']
+*/
+
+const fruits = ["apple", "banana", "orange"];
+const str = fruits.join(", "); // "apple, banana, orange"
+
+const sentence = "Hello World";
+const words = sentence.split(" "); // ['Hello', 'World']
+
+// Different separators
+fruits.join(""); // "applebananaorange"
+fruits.join("-"); // "apple-banana-orange"
+"2023-05-15".split("-"); // ['2023', '05', '15']
+console.log(fruits);
+console.log(["x", "y"].join());
+
+
+
+
+console.log(`\n\n${"*".repeat(20)}-( The Map Method )-${"*".repeat(20)}`);
+
+/*  The Map Method
+
+The map() method creates a new array by calling a function on every element in the original array:
+
+let newArray = arr.map(function(currentValue, index, array) {
+    // return element for newArray
+});
+Example with arrow function:
+
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8]
+The map() method doesn't change the original array and always returns a new array of the same length.
+
+The Map Method
+
+Challenge  (Easy):
+Create a function called formatNames that takes an array of names (strings) as an argument. 
+The function should use the map() method to transform each name so that it's in title case (first letter of each word capitalized, rest lowercase). Return the new array of formatted names.
+
+
+
+*/
+
+function formatNames(names) {
+  return names.map((name, index) => {
+    // Write your code here
+
+    return name
+      .toLowerCase()
+      .split(" ")
+      .map((item, index) => {
+        return item.replace(item[0], item[0].toUpperCase());
+        console.log(item);
+        // console.log(item.split(""));
+      })
+      .join(" ");
+  });
+}
+
+/* Coddy Solution:
+function formatNames(names) {
+  return names.map(name => {
+    let words = name.toLowerCase().split(' ');
+    for(let i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    return words.join(' ');
+  });
+}
+*/
+
+console.log(formatNames(["john doe", "MARY JANE", "peter parker"]));
+
+let arrPrac = ["john doe", "MARY JANE", "peter parker"];
+
+console.log();
+for (let v of arrPrac) {
+  v.split(" ").forEach((item) => {
+    console.log(item[0]);
+  });
+}

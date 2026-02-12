@@ -1,5 +1,11 @@
 const spaceMe = "-".repeat(30);
-/************************************************/ console.log("\n", spaceMe, "1. What is an API", spaceMe, "\nRead the comment"); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "1. What is an API",
+  spaceMe,
+  "\nRead the comment",
+); /************************************************/
 /* 
 1) What is an API?    
 Application Programming Interface
@@ -13,7 +19,12 @@ someone else's code. (Web APIs, 3rd-party package, etc.)
 * Local Storage (localStorage)
 */
 
-/************************************************/ console.log("\n", spaceMe, "2. Clients & Servers", spaceMe, "\nRead the comment"
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "2. Clients & Servers",
+  spaceMe,
+  "\nRead the comment",
 ); /************************************************/
 /* 
 ---------------------------------------------------------------- What is a Client? ----------------------------------------------------------------
@@ -42,7 +53,13 @@ A computer that sends my own computer things when I ask it to.
 3) In what way do clients and servers interact with each other? 
 Client sends a request to a server, and the server sends back a response.
 */
-/************************************************/ console.log("\n", spaceMe, "3. Requests & Responses", spaceMe, "\nRead the comment"); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "3. Requests & Responses",
+  spaceMe,
+  "\nRead the comment",
+); /************************************************/
 /* What is Requests - Responses Cycle
 What is a Request?
 -> When a device asks for a "resource" (data, image, HTML page, authentication token, etc.).
@@ -68,7 +85,13 @@ Receive a request from a client and return a response.
 500 Internal Server Error
 */
 
-/************************************************/ console.log("\n", spaceMe, "4. JSON Review", spaceMe, "\nRead the comment"); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "4. JSON Review",
+  spaceMe,
+  "\nRead the comment",
+); /************************************************/
 /* 
 - Open JSON lint Validator
 - Go to Developer Options  
@@ -77,7 +100,13 @@ Receive a request from a client and return a response.
   2. Preview tab 
 */
 
-/************************************************/ console.log("\n", spaceMe, "5. URLS and Endpoints", spaceMe, ""); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "5. URLS and Endpoints",
+  spaceMe,
+  "",
+); /************************************************/
 console.log(`The makeup of a URL\n📁 The Base URL\n📁 The endpoint \n\nif Scrimba had an API
     📁  The base URL: 
         📁 https://scrimba.com/api
@@ -100,8 +129,20 @@ Challenge:
 1. Take the base url and the endpoint that gets you a list of all dogs and paste the full URL into your regular browser (not the Scrimba mini-browser) and see what you get.  
 `);
 
-/************************************************/ console.log("\n", spaceMe, "6. fetch().then()", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
-/************************************************/ console.log("\n", spaceMe, "7. fetch().then() Challenge", spaceMe, "\n"); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "6. fetch().then()",
+  spaceMe,
+  "\nGo to jsAdvance.js file",
+); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "7. fetch().then() Challenge",
+  spaceMe,
+  "\n",
+); /************************************************/
 /*  
 Challenge:  
 1. Make a fetch request to the "Bored" API:  
@@ -111,20 +152,53 @@ Challenge:
 2. Log an object containing an activity suggestion to the console:  
    @ hint.md for help!  
 */
+
 fetch(`https://apis.scrimba.com/bored/api/activity`)
-  .then(response => response.json())
-  .then(data => console.log(`no. 7:`, data.activity));
-/************************************************/ console.log("\n", spaceMe, "8. Fetching with async/await", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
+  .then((response) => response.json())
+  .then((data) => {
+
+    let testIfObjStr;
+    // typeof data === "object" ?  JSON.stringify(data) : JSON.stringify(JSON.parse(data));
+
+    if (typeof data === "object") {
+      console.log('\nTrue ka!')
+      testIfObjStr = JSON.stringify(data);
+    } else {
+      console.log('\nFalse ka!')
+      testIfObjStr = JSON.stringify(JSON.parse(data));
+    }
+
+    // const newData = JSON.stringify(data)
+
+    console.log("Typeof 1", typeof testIfObjStr);
+    console.log('Typeof 2',typeof data)
+    console.log(`no. 7:`, data.activity);
+  });
+  
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "8. Fetching with async/await",
+  spaceMe,
+  "\nGo to jsAdvance.js file",
+); /************************************************/
 
 const getActivityIdea = async () => {
-  const response1 = fetch(`https://apis.scrimba.com/bored/api/activity`);
-  // const data1 = await response1.json();
-  console.log(`Promises (without await):`, (await response1).json);  // try remove await and comment out the data1 & it console first
-  // console.log(`\nData:`, data1.activity);  
-}
+  const response =  await fetch(`https://apis.scrimba.com/bored/api/activity`);
+  console.log(`Promises (without await):`,await response.json()); // try remove await and comment out the data1 & it console first
+  // const data = await response.json(); // if you assign in variable the await response.jso()
+  // console.log(data)  
+  // console.log(`\n_____check-Above-Object_________Data:`, data.activity,'__________\n');
+};
 getActivityIdea(); // Call the function
 
-/************************************************/ console.log("\n", spaceMe, "9. Promises", spaceMe, ""); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "9. Promises",
+  spaceMe,
+  "",
+); /************************************************/
 /*
 Promises: 
 "We'll let you know within a week"
@@ -138,7 +212,13 @@ The promise was completed as promised
 Rejected:
 The promises was not completed as promised
 */
-/************************************************/ console.log("\n", spaceMe, "10. Handling Rejected Promises", spaceMe, ""); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "10. Handling Rejected Promises",
+  spaceMe,
+  "",
+); /************************************************/
 
 const url = "https://apis.scrimba.com/bored/api/activity";
 const baseUrl = "https://dog.ceo/api/breeds/image/random";
@@ -160,15 +240,15 @@ fetch(url)
 *------------------------------------------------------------------------------------------------------*
 */
 const getMessage = async () => {
-
   try {
     const response = await fetch(baseUrl);
-    console.log(response.ok);
-    const data = await response.json();
+    
+    console.log('isResponseOK:',response.ok);
+    const data =  await response.json();
     console.log(`get message:`, data);
+
   } catch (err) {
     console.log(`Error an occur:`, err);
-    throw new Error(`This is a network error!`);
     // update the DOM to warn the user
     // access an alternative API
   } finally {
@@ -178,7 +258,13 @@ const getMessage = async () => {
 
 getMessage();
 
-/************************************************/ console.log("\n", spaceMe, "12. Taking APIs to the Next Level", spaceMe, ""); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "12. Taking APIs to the Next Level",
+  spaceMe,
+  "",
+); /************************************************/
 /*
 Base URL: https://apis.scrimba.com/jsonplaceholder
 Endpoint: /posts
@@ -188,7 +274,10 @@ Remember to handle all errors!
  */
 const getJsonPlaceholderApi = async () => {
   try {
-    const response = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, { method: `post` });
+    const response = await fetch(
+      `https://apis.scrimba.com/jsonplaceholder/posts`,
+      { method: `post` },
+    );
     if (!response.ok) {
       throw new Error(`This is a network error!`);
     }
@@ -199,7 +288,7 @@ const getJsonPlaceholderApi = async () => {
   } finally {
     console.log(`The operation completed. ✔`);
   }
-}
+};
 getJsonPlaceholderApi();
 /* 
 Methods
@@ -209,7 +298,13 @@ Methods
 4. DELETE - deleting data
 5. PATCH and OPTIONS
 */
-/************************************************/ console.log("\n", spaceMe, "13. API request: the body", spaceMe, ""); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "13. API request: the body",
+  spaceMe,
+  "",
+); /************************************************/
 /* Headers contain
 💨 Extra (meta) info about the request
 💨 Authentication
@@ -226,19 +321,22 @@ body: The data to be sent in the request body. For JSON, you must use JSON.strin
 */
 const dataToSend = {
   title: `Holiday Nightmares`,
-  body: 'When I was kidnapped in Scotland...',
+  body: "When I was kidnapped in Scotland...",
   userId: 500,
 }; // These object can sent into a API database
 
 async function getPostAPI() {
   try {
-    const respo = await fetch(`https://apis.scrimba.com/jsonplaceholder/posts`, {
-      method: 'post',
-      body: JSON.stringify(dataToSend), // can Directly asign inside, the Object
-      headers: {
-        'Content-Type': 'application/json'
+    const respo = await fetch(
+      `https://apis.scrimba.com/jsonplaceholder/posts`,
+      {
+        method: "post",
+        body: JSON.stringify(dataToSend), // can Directly asign inside, the Object
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
     if (!respo.ok) {
       throw new Error(`There was a problem with the API!`);
     }
@@ -251,7 +349,13 @@ async function getPostAPI() {
 
 getPostAPI();
 
-/************************************************/ console.log("\n", spaceMe, "14. The Promise Constructor - Building Our Own Async Actions", spaceMe, ""); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "14. The Promise Constructor - Building Our Own Async Actions",
+  spaceMe,
+  "",
+); /************************************************/
 /*comment
 const promise = new Promise((resolve, reject)=> {
   const success = Math.random() > 0.5;
@@ -292,13 +396,23 @@ try {
 } catch (error) {
   console.log(error);
 }
-/************************************************/ console.log("\n", spaceMe, "15. Working with images asynchronously", spaceMe, "\nGo to jsAdvance.js file"); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "15. Working with images asynchronously",
+  spaceMe,
+  "\nGo to jsAdvance.js file",
+); /************************************************/
 
-
-/************************************************/ console.log("\n", spaceMe, "18. Using Promises to escape Callback Hell", spaceMe, ""); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "18. Using Promises to escape Callback Hell",
+  spaceMe,
+  "",
+); /************************************************/
 function uploadFile() {
   return new Promise((resolve, reject) => {
-
     setTimeout(() => {
       console.log(`Step 1: Uploading file...`);
 
@@ -307,10 +421,8 @@ function uploadFile() {
   });
 }
 
-
 function processFile() {
   return new Promise((resolve, reject) => {
-
     setTimeout(() => {
       console.log(`Step 2 : Processing file..`);
 
@@ -319,10 +431,8 @@ function processFile() {
   });
 }
 
-
 function notifyUser() {
   return new Promise((resolve, reject) => {
-
     setTimeout(() => {
       console.log(`Step 3: Notifying user...`);
 
@@ -351,16 +461,22 @@ try {
   await uploadFile();
   await processFile();
   await notifyUser();
-  console.log('All steps completed!');
+  console.log("All steps completed!");
 } catch (err) {
   console.log(err);
 }
 
-/************************************************/ console.log("\n", spaceMe, "19. Promise.all", spaceMe, ""); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "19. Promise.all",
+  spaceMe,
+  "",
+); /************************************************/
 
 function createPromise() {
   return new Promise((resolve, reject) => {
-    const success = Math.random() > 0.5; // 50% 
+    const success = Math.random() > 0.5; // 50%
 
     if (success) {
       resolve(`Operation successful✔`);
@@ -372,13 +488,19 @@ function createPromise() {
 }
 
 // Promise.all chada gamiton ni, ug imohang target is dapat ma successfull sila tanan ayha ma resolve.
-try {f
+try {
   const promise1 = new createPromise();
   const promise2 = new createPromise();
   const promise3 = new createPromise();
-  const result = await Promise.all([promise1, promise2, promise3]); 
+  const result = await Promise.all([promise1, promise2, promise3]);
   console.log(result);
 } catch (err) {
-  console.log(err)
+  console.log(err);
 }
-/************************************************/ console.log("\n", spaceMe, "20. Super challenge: Async Image Load", spaceMe, "\nGo to Starting.js file"); /************************************************/
+/************************************************/ console.log(
+  "\n",
+  spaceMe,
+  "20. Super challenge: Async Image Load",
+  spaceMe,
+  "\nGo to Starting.js file",
+); /************************************************/

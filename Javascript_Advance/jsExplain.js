@@ -503,4 +503,41 @@ class Node {
 const node1 = new Node();
 console.log(node1.getValue());
 node1.setValue(50);
-console.log(node1);
+console.log(node1); 
+
+const api = "https://api.thecatapi.com/v1/images/search"; // try to edit api endPoint
+
+fetch(api)
+  .then((response) => {
+    // Check if the request was successful (status 200-299)
+    if (!response.ok) {
+      console.log("\nFetch error 1 __using then()");
+      throw new Error("Network response was not ok: " + response.statusText);
+    }
+    // Parse the response body as JSON
+    return response.json();
+  })
+  .then((data) => {
+    // Work with the parsed JSON data
+    console.log("\nFetched data: using then():", data);
+  })
+  .catch((error) => {
+    // Handle any errors that occurred during the fetch operation
+    console.error("Error fetching data:", error.message);
+  });
+
+const getMessage = async (api) => {
+  try {
+    const response = await fetch(api);
+    if (!response.ok) {
+      console.log("\nFetch error 2 __using await");
+      throw new Error(`Network response was not ok:  ${response.statusText}`);
+    }
+    const data = await response.json();
+    console.log("\nFetched data: using await:", data);
+  } catch (err) {
+    console.log("Error an occur:", err.message);
+  }
+};
+
+getMessage(api);

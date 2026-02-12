@@ -4965,6 +4965,7 @@ console.log(["x", "y"].join());
 
 console.log(`\n\n${"*".repeat(20)}-( The Map Method )-${"*".repeat(20)}`);
 
+
 /*  The Map Method
 
 The map() method creates a new array by calling a function on every element in the original array:
@@ -5027,3 +5028,105 @@ for (let v of arrPrac) {
     console.log(item[0]);
   });
 }
+
+console.log(`\n\n${"*".repeat(20)}-( The Map Method )-${"*".repeat(20)}`);
+/* 
+Challenge (Easy):
+Create a function called transformData that takes an array of product objects. 
+Each product has a name (string) and price (number). Use the map() method to transform each product as follows:
+
+1. Make the name all uppercase
+2. Apply a 15% discount to the price (round to 2 decimal places)
+3. Add a new property called onSale set to true
+
+Return the new array of transformed products.
+
+Example Input:
+
+[
+  { name: "laptop", price: 1000 },
+  { name: "phone", price: 500 },
+  { name: "tablet", price: 300 }
+]
+
+Expected Output:
+
+[
+  { name: "LAPTOP", price: 850.00, onSale: true },
+  { name: "PHONE", price: 425.00, onSale: true },
+  { name: "TABLET", price: 255.00, onSale: true }
+]
+*/
+function transformData(products) {
+  // Write your solution using map()
+
+  return products.map((item) => {
+    const discount = item.price * 15 / 100; // Apply a 15% discount to the price
+    
+    return {
+        name: item.name.toUpperCase(),
+        price: item.price - discount ,
+        onSale: true    
+    }
+    
+  })
+}
+
+/* Coddy Solution:
+function transformData(products) {
+  return products.map(product => {
+    return {
+      name: product.name.toUpperCase(),
+      price: Number((product.price * 0.85).toFixed(2)),
+      onSale: true
+    };
+  });
+}
+
+*/
+
+console.log(
+  transformData([
+    { name: "chair", price: 150 },
+    { name: "desk", price: 300 },
+    { name: "monitor", price: 250 },
+  ]),
+);
+
+console.log(`\n\n${"*".repeat(20)}-( The Filter Method )-${"*".repeat(20)}`);
+/*   The Filter Method
+
+The filter() method creates a new array with elements that pass a test function:
+
+let newArray = arr.filter(function(currentValue, index, array) {
+    // return true to keep the element, false otherwise
+});
+Example filtering even numbers:
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // [2, 4, 6]
+The filter() method doesn't modify the original array - it returns a new array.
+
+Challenge  (Easy):
+Create a function called filterBooks that takes two parameters:
+
+An array of book objects, where each book has properties title (string), author (string), and rating (number from 1 to 5)
+A minimum rating (number)
+The function should use the filter() method to return a new array containing only the books with a rating greater than or equal to the minimum rating.
+*/
+function filterBooks(books, minRating) {
+  // Write your code here
+  return books.filter((book) => book.rating >= minRating);
+}
+
+console.log(
+filterBooks(
+  [
+    { title: "Harry Potter", author: "J.K. Rowling", rating: 4.7 },
+    { title: "Moby Dick", author: "Herman Melville", rating: 3.8 },
+    { title: "The Catcher in the Rye", author: "J.D. Salinger", rating: 2.9 },
+  ],
+  2,
+)
+);

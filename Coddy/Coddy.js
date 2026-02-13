@@ -62,7 +62,6 @@ const argumentData = "aaa eee iii ooo uuu";
 console.log(countUniqueVowels(argumentData));
 // Do not write anything outside function
 
-
 console.log(`\n\n${longHypen}${hyphen}(  reverseVowels  )${longHypen}`);
 /* 
 =================================================================================================================================
@@ -174,8 +173,6 @@ const dataR = `hello`;
 console.log(`Reversed Vowels:`, reverseVowels(dataR));
 console.log(`Wrong algorithm`);
 
-
-
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  isDiffIndices  )${longHypen}`);
 function isDiffIndices(arrI, index, currentVow) {
@@ -186,7 +183,6 @@ function isDiffIndices(arrI, index, currentVow) {
   }
 }
 
-
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  isVowels  )${longHypen}`);
 function isVowels(i, v, vow) {
@@ -196,8 +192,6 @@ function isVowels(i, v, vow) {
   return false;
 }
 
-
-
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  compare  )${longHypen}`);
 function compare(arr1, arr2, v, i) {
@@ -206,8 +200,6 @@ function compare(arr1, arr2, v, i) {
   }
   return false;
 }
-
-
 
 /*
 =================================================================================================================================
@@ -235,9 +227,6 @@ Create a function named greetAll that takes an array of names and returns one st
 Each name in the array should produce a line with the format Hello, <Name>! joined together into a single string, 
 separated by newlines. Use template literals for the greeting lines.
 */
-
-
-
 
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  greetAll  )${longHypen}`);
@@ -280,7 +269,6 @@ Create a function named alternateCase that takes a string as input and returns a
 The first character should be uppercase, the second lowercase, the third uppercase, and so on.
 */
 
-
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  alternateCase  )${longHypen}`);
 const arguAlternaterCase = `Hello World`;
@@ -304,7 +292,6 @@ function alternateCase(str) {
     .join("");
 }
 // Do not write anything outside function
-
 
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  formatBlogTitle  )${longHypen}`);
@@ -335,29 +322,26 @@ console.log(`Outside:`, formatBT.split(" "));
 
 for (let i = 0; i < formatBT.length; i++) {
   // console.log(formatBT[i]);
-  
+
   if (!(formatBT[i].trim() === "")) {
   }
 }
-
-
-
 
 console.log(`formatBT:`, formatBlogTitle(formatBT));
 function formatBlogTitle(title) {
   // Write your code here
   title = title.trim();
   const splitTitle = title.split(" ");
-  
+
   // My Code
   return splitTitle
-  .map((tit, index) => {
-    const firstChar = tit.charAt(0);
-    
-    // if (tit === `javascript` || tit === `Javascript`) {
+    .map((tit, index) => {
+      const firstChar = tit.charAt(0);
+
+      // if (tit === `javascript` || tit === `Javascript`) {
       //   tit = `Javascript`;
       // }
-      
+
       if (
         firstChar === firstChar.toLowerCase() &&
         firstChar !== firstChar.toUpperCase()
@@ -368,65 +352,63 @@ function formatBlogTitle(title) {
             tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
           }`,
         );
-        
+
         return `${
           tit === `javascript` || tit === `Javascript`
-          ? (tit = `JavaScript`)
-          : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
+            ? (tit = `JavaScript`)
+            : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
         }`;
       }
       return `${
         tit === `javascript` || tit === `Javascript`
-        ? (tit = `JavaScript`)
-        : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
+          ? (tit = `JavaScript`)
+          : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
       }`;
     })
     .join(" ");
-    
-    // ChatGpt Code
-    if (
-      firstChar === firstChar.toLowerCase() &&
-      firstChar !== firstChar.toUpperCase()
-    ) {
-      // capitalize first letter
-      let formatted = tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase();
-      
-      // special case for "javascript"
-      if (formatted.toLowerCase() === "javascript") {
-        formatted = "Javascript";
-      }
-      
-      return formatted;
+
+  // ChatGpt Code
+  if (
+    firstChar === firstChar.toLowerCase() &&
+    firstChar !== firstChar.toUpperCase()
+  ) {
+    // capitalize first letter
+    let formatted = tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase();
+
+    // special case for "javascript"
+    if (formatted.toLowerCase() === "javascript") {
+      formatted = "Javascript";
     }
-    
-    // Cody Code:
-    // Trim whitespace from both ends
-    let trimmedTitle = title.trim();
-    
-    // Split the title into words
-    let words = trimmedTitle.split(" ");
-    
-    // Capitalize the first letter of each word
-    for (let i = 0; i < words.length; i++) {
-      if (words[i]) {
-        words[i] =
-        words[i][0].toUpperCase() + words[i].substring(1).toLowerCase();
-      }
-    }
-    
-    // Join the words back together
-    let formattedTitle = words.join(" ");
-    
-    // Replace all occurrences of "javascript" with "JavaScript"
-    formattedTitle = formattedTitle.replaceAll("Javascript", "JavaScript");
-    
-    return formattedTitle;
+
+    return formatted;
   }
-  // Do not write anything outside function
 
+  // Cody Code:
+  // Trim whitespace from both ends
+  let trimmedTitle = title.trim();
 
+  // Split the title into words
+  let words = trimmedTitle.split(" ");
 
-  console.log(`\n\n${longHypen}${hyphen}(  stringWeaver  )${longHypen}`);
+  // Capitalize the first letter of each word
+  for (let i = 0; i < words.length; i++) {
+    if (words[i]) {
+      words[i] =
+        words[i][0].toUpperCase() + words[i].substring(1).toLowerCase();
+    }
+  }
+
+  // Join the words back together
+  let formattedTitle = words.join(" ");
+
+  // Replace all occurrences of "javascript" with "JavaScript"
+  formattedTitle = formattedTitle.replaceAll("Javascript", "JavaScript");
+
+  return formattedTitle;
+}
+// Do not write anything outside function
+
+console.log(`\n\n${longHypen}${hyphen}(  stringWeaver  )${longHypen}`);
 /* =======================================================================================================================================
 Recap - String Weaver
 
@@ -584,9 +566,6 @@ function stringWeaver(str1, str2) {
 }
 // Do not write anything outside function
 
-
-
-
 //================================================  Multi - dimensional Arrays  ================================================
 console.log(
   `\n\n${longHypen}${hyphen}(  Multi-dimensional Arrays  )${longHypen}`,
@@ -647,9 +626,6 @@ for (let i = 0; i < word2Day.length; i++) {
 console.log(`\n\n${longHypen}${hyphen}(  isEqualLetter  )${longHypen}`);
 console.log(`Count duplicated number:`, countdupliLetter);
 console.log("Duplicate letters found:", dupliHere);
-
-
-
 
 function isEqualLetter(x, y, z, dupArr) {
   const xRegex = new RegExp(x, "i");
@@ -759,8 +735,6 @@ Expected Output:
 [ 2, 5, 8 ]
 */
 
-
-
 const seats = [
   [1, 2, 3],
   [4, 5, 6],
@@ -803,10 +777,6 @@ function getColumn(matrix, numberOfRows, colIndex) {
 const res_Test1 = getColumn(seats, 3, 1);
 console.log(`Result: `, res_Test1);
 
-
-
-
-
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  getElementsInRow  )${longHypen}`);
 /* 
@@ -841,21 +811,18 @@ const argument = {
 function getElementsInRow(grid, rowIndex) {
   // TODO: Return an array with all elements in the specified row
   // If rowIndex is out of bounds, return an empty array
-  
+
   // Check if rowIndex is valid
   if (rowIndex < 0 || rowIndex >= grid.length) {
     return [];
   }
-  
+
   // Return the row at the specified index
   return grid[rowIndex];
 }
 // Do not write anything outside the function
 
 console.log(`getElementsRow:`, getElementsInRow(argument.f_A, argument.s_A));
-
-
-
 
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  countOccurrences  )${longHypen}`);
@@ -931,9 +898,6 @@ console.log(
   `How many letter is this targeted in a 2D array? ${argu3.a2}:  `,
   countOccurrences(argu3.a1, argu3.a2),
 );
-
-
-
 
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  findMaxInRows  )${longHypen}`);
@@ -1039,7 +1003,6 @@ for (let item of reserveVowels) {
 
 console.log(`Result:`, reserveVowels.join(""));
 
-
 /* ========================================================================== */
 console.log(`\n\n${longHypen}${hyphen}(  mirrorRows  )${longHypen}`);
 /* =====================================  Recap - 2D Arrays  =====================================
@@ -1116,7 +1079,6 @@ function mirrorRows(matrix) {
 }
 // Do not write anything outside function
 
-
 /* ================================================================================ */
 console.log(`\n\n${longHypen}${hyphen}(  combineMatrices  )${longHypen}`);
 /* =====================================  Matrix Addition & Substraction  =====================================
@@ -1179,8 +1141,6 @@ const op = "-";
 // console.log(`Length:`, mtxA.length);
 // console.log();
 
-
-
 const resComMtx = combineMatrices(mtxA, mtxB, op);
 console.log(`resComMtx:`, resComMtx);
 
@@ -1226,8 +1186,6 @@ function combineMatrices(matrixA, matrixB, ope) {
   return result;
 }
 // Do not write anything outside function
-
-
 
 /* ================================================================================ */
 console.log(`\n\n${longHypen}${hyphen}(  sumJagged  )${longHypen}`);
@@ -4965,8 +4923,7 @@ function analyzeSparseArray(arr) {
 }
 */
 
-console.log('\n\n',analyzeSparseArray([undefined, null, , , 5]));
-
+console.log("\n\n", analyzeSparseArray([undefined, null, , , 5]));
 
 console.log(
   `\n\n${"*".repeat(20)}-( Recap - Arrays Workshop )-${"*".repeat(20)}`,
@@ -5061,11 +5018,9 @@ fruits.join("-"); // "apple-banana-orange"
 console.log(fruits);
 console.log(["x", "y"].join());
 
-
-
-
-console.log(`\n\n${"*".repeat(20)}-( The Map Method    formatNames()   )-${"*".repeat(20)}`);
-
+console.log(
+  `\n\n${"*".repeat(20)}-( The Map Method    formatNames()   )-${"*".repeat(20)}`,
+);
 
 /*  The Map Method
 
@@ -5130,8 +5085,9 @@ for (let v of arrPrac) {
   });
 }
 
-
-console.log(`\n\n${"*".repeat(20)}-( The Map Method     transformData()  )-${"*".repeat(20)}`);
+console.log(
+  `\n\n${"*".repeat(20)}-( The Map Method     transformData()  )-${"*".repeat(20)}`,
+);
 /* 
 Challenge (Easy):
 Create a function called transformData that takes an array of product objects. 
@@ -5163,15 +5119,14 @@ function transformData(products) {
   // Write your solution using map()
 
   return products.map((item) => {
-    const discount = item.price * 15 / 100; // Apply a 15% discount to the price
-    
+    const discount = (item.price * 15) / 100; // Apply a 15% discount to the price
+
     return {
-        name: item.name.toUpperCase(),
-        price: item.price - discount ,
-        onSale: true    
-    }
-    
-  })
+      name: item.name.toUpperCase(),
+      price: item.price - discount,
+      onSale: true,
+    };
+  });
 }
 
 /* Coddy Solution:
@@ -5195,7 +5150,9 @@ console.log(
   ]),
 );
 
-console.log(`\n\n${"*".repeat(20)}-( The Filter Method    filterBooks()   )-${"*".repeat(20)}`);
+console.log(
+  `\n\n${"*".repeat(20)}-( The Filter Method    filterBooks()   )-${"*".repeat(20)}`,
+);
 /*   The Filter Method
 
 The filter() method creates a new array with elements that pass a test function:
@@ -5223,16 +5180,15 @@ function filterBooks(books, minRating) {
 }
 
 console.log(
-filterBooks(
-  [
-    { title: "Harry Potter", author: "J.K. Rowling", rating: 4.7 },
-    { title: "Moby Dick", author: "Herman Melville", rating: 3.8 },
-    { title: "The Catcher in the Rye", author: "J.D. Salinger", rating: 2.9 },
-  ],
-  2,
-)
+  filterBooks(
+    [
+      { title: "Harry Potter", author: "J.K. Rowling", rating: 4.7 },
+      { title: "Moby Dick", author: "Herman Melville", rating: 3.8 },
+      { title: "The Catcher in the Rye", author: "J.D. Salinger", rating: 2.9 },
+    ],
+    2,
+  ),
 );
-
 
 console.log(
   `\n\n${"*".repeat(20)}-( The Reduce Method    _calculateGroceryTotal()  )-${"*".repeat(20)}`,
@@ -5338,7 +5294,7 @@ console.log(
     { name: "Sourdough Bread", price: 8.99 },
     { name: "Organic Honey", price: 15.99 },
     { name: "Wild Mushrooms", price: 12.99 },
-  ])
+  ]),
 );
 
 /*  Coddy Solution:
@@ -5363,3 +5319,66 @@ function calculateGroceryTotal(items) {
     };
 }
 */
+
+console.log(
+  `\n\n${"*".repeat(20)}-( The Chaining Array Methods    _processFruits()  )-${"*".repeat(20)}`,
+);
+/*    Chaining Array Methods
+
+Chaining array methods allows you to perform multiple operations on an array in a single statement, making code more concise and readable.
+
+Each method in the chain operates on the result of the previous method:
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const result = numbers
+  .filter(num => num % 2 === 0)
+  .map(num => num * 2)
+  .reduce((sum, num) => sum + num, 0);
+
+console.log(result); // 60
+You can also chain the .join() method to convert an array to a string:
+
+arr.filter(...)
+   .map(...)
+   .join(", ")
+
+   
+Chaining Array Methods  
+Challenge  (Easy)
+Create a function called processFruits that takes an array of fruit objects. 
+Each fruit object has properties name (string) and quantity (number).
+
+The function should use chained array methods to:
+
+1. Filter out fruits with quantity of 0
+2. Transform each fruit name to uppercase
+3. Create a string that lists all fruits with their quantities like "APPLE: 5, BANANA: 3"
+
+A quick reminder:
+
+You can use the .join(", ") function to convert an array of strings to one single string.
+
+It is possible to chain even the .join() function:
+
+arr.filter(...)
+   .map(...)
+   .join(...)
+*/
+
+function processFruits(fruits) {
+  // Write your code here
+
+  return fruits
+    .filter((item) => item.quantity !== 0)
+    .map((fruit) => fruit.name.toUpperCase() + ": " + fruit.quantity)
+    .join(", ");
+}
+
+console.log(
+  processFruits([
+    { name: "apple", quantity: 5 },
+    { name: "banana", quantity: 3 },
+    { name: "orange", quantity: 0 },
+  ]),
+);

@@ -29,7 +29,7 @@ Challenge (Easy):
 Create a function named countUniqueVowels that takes a string as an argument and returns the number of unique vowels in the string (vowels are a, e, i, o, u). 
 The function should not be case-insensitive. (include also the uppercased vowels)
 */
-
+console.log(`\n\n${longHypen}${hyphen}(  countUniqueVowels  )${longHypen}`);
 function countUniqueVowels(str) {
   const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
   let newArr = [];
@@ -62,6 +62,8 @@ const argumentData = "aaa eee iii ooo uuu";
 console.log(countUniqueVowels(argumentData));
 // Do not write anything outside function
 
+
+console.log(`\n\n${longHypen}${hyphen}(  reverseVowels  )${longHypen}`);
 /* 
 =================================================================================================================================
 Challenge (Medium):
@@ -83,7 +85,7 @@ function reverseVowels(str) {
 
   console.log(`str:`, str, `Length:`, str.length);
   for (let v = str.length - 1; v >= 0; v--) {
-    console.log(`Outer Indices: ${v} \nchar:`, str[v]);
+    // console.log(`Outer Indices: ${v} \nchar:`, str[v]);
 
     for (let i = 0; i < str.length - 1; i++) {
       if (reserveVowels.includes(str[i])) continue;
@@ -101,12 +103,12 @@ function reverseVowels(str) {
         wordSwapVowel.push(str[i]);
       }
 
-      console.log(
-        `${" ".repeat(17)} char: ${str[i]} ${" ".repeat(10)}Indices: ${i} = `,
-        isVowels(str[i], str[v], vowels),
-      );
+      // console.log(
+      //   `${" ".repeat(17)} char: ${str[i]} ${" ".repeat(10)}Indices: ${i} = `,
+      //   isVowels(str[i], str[v], vowels),
+      // );
     }
-    console.log(`Current wordSwapVowel:`, wordSwapVowel, `\n`);
+    // console.log(`Current wordSwapVowel:`, wordSwapVowel, `\n`);
   }
 
   for (let item of reserveVowels) {
@@ -135,8 +137,47 @@ function reverseVowels(str) {
   }
 
   return chars.join("");
+
+  /*  Coddy Solution:
+  function reverseVowels(str) {
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    // Convert string to array to make it mutable
+    const chars = str.split('');
+    
+    // First, collect all vowels
+    let foundVowels = [];
+    for (let char of str) {
+        if (vowels.includes(char)) {
+            foundVowels.push(char);
+        }
+    }
+    
+    // Reverse the vowels array
+    foundVowels.reverse();
+    
+    // Replace vowels in the original string
+    let vowelIndex = 0;
+    for (let i = 0; i < chars.length; i++) {
+        if (vowels.includes(chars[i])) {
+            chars[i] = foundVowels[vowelIndex];
+            vowelIndex++;
+        }
+    }
+    
+    // Join the array back into a string and return
+    return chars.join('');
+}
+  */
 }
 
+const dataR = `hello`;
+console.log(`Reversed Vowels:`, reverseVowels(dataR));
+console.log(`Wrong algorithm`);
+
+
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  isDiffIndices  )${longHypen}`);
 function isDiffIndices(arrI, index, currentVow) {
   for (let i = 0; i < currentVow.length; i++) {
     if (currentVow[i] === arrI) {
@@ -145,6 +186,9 @@ function isDiffIndices(arrI, index, currentVow) {
   }
 }
 
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  isVowels  )${longHypen}`);
 function isVowels(i, v, vow) {
   if (vow.includes(i) && vow.includes(v)) {
     return true;
@@ -152,6 +196,10 @@ function isVowels(i, v, vow) {
   return false;
 }
 
+
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  compare  )${longHypen}`);
 function compare(arr1, arr2, v, i) {
   if (arr1[i] === arr2[v] && v === i) {
     return true;
@@ -159,9 +207,7 @@ function compare(arr1, arr2, v, i) {
   return false;
 }
 
-const dataR = `hello`;
-console.log(`Reversed Vowels:`, reverseVowels(dataR));
-console.log(`Wrong algorithm`);
+
 
 /*
 =================================================================================================================================
@@ -189,6 +235,12 @@ Create a function named greetAll that takes an array of names and returns one st
 Each name in the array should produce a line with the format Hello, <Name>! joined together into a single string, 
 separated by newlines. Use template literals for the greeting lines.
 */
+
+
+
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  greetAll  )${longHypen}`);
 const argumentGreetAll = ["Alice", "Bob", "Charlie"];
 greetAll(argumentGreetAll);
 
@@ -227,6 +279,10 @@ Challenge (Easy):
 Create a function named alternateCase that takes a string as input and returns a new string where the cases are alternated. 
 The first character should be uppercase, the second lowercase, the third uppercase, and so on.
 */
+
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  alternateCase  )${longHypen}`);
 const arguAlternaterCase = `Hello World`;
 console.log(`AlternateCase:`, alternateCase(arguAlternaterCase));
 
@@ -249,6 +305,9 @@ function alternateCase(str) {
 }
 // Do not write anything outside function
 
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  formatBlogTitle  )${longHypen}`);
 /* =======================================================================================================================================
 Challenge (Easy):
 Create a function called formatBlogTitle that:
@@ -276,26 +335,29 @@ console.log(`Outside:`, formatBT.split(" "));
 
 for (let i = 0; i < formatBT.length; i++) {
   // console.log(formatBT[i]);
-
+  
   if (!(formatBT[i].trim() === "")) {
   }
 }
-console.log(`formatBT:`, formatBlogTitle(formatBT));
 
+
+
+
+console.log(`formatBT:`, formatBlogTitle(formatBT));
 function formatBlogTitle(title) {
   // Write your code here
   title = title.trim();
   const splitTitle = title.split(" ");
-
+  
   // My Code
   return splitTitle
-    .map((tit, index) => {
-      const firstChar = tit.charAt(0);
-
-      // if (tit === `javascript` || tit === `Javascript`) {
+  .map((tit, index) => {
+    const firstChar = tit.charAt(0);
+    
+    // if (tit === `javascript` || tit === `Javascript`) {
       //   tit = `Javascript`;
       // }
-
+      
       if (
         firstChar === firstChar.toLowerCase() &&
         firstChar !== firstChar.toUpperCase()
@@ -306,62 +368,65 @@ function formatBlogTitle(title) {
             tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
           }`,
         );
-
+        
         return `${
           tit === `javascript` || tit === `Javascript`
-            ? (tit = `JavaScript`)
-            : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
+          ? (tit = `JavaScript`)
+          : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
         }`;
       }
       return `${
         tit === `javascript` || tit === `Javascript`
-          ? (tit = `JavaScript`)
-          : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
+        ? (tit = `JavaScript`)
+        : tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase()
       }`;
     })
     .join(" ");
-
-  // ChatGpt Code
-  if (
-    firstChar === firstChar.toLowerCase() &&
-    firstChar !== firstChar.toUpperCase()
-  ) {
-    // capitalize first letter
-    let formatted = tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase();
-
-    // special case for "javascript"
-    if (formatted.toLowerCase() === "javascript") {
-      formatted = "Javascript";
+    
+    // ChatGpt Code
+    if (
+      firstChar === firstChar.toLowerCase() &&
+      firstChar !== firstChar.toUpperCase()
+    ) {
+      // capitalize first letter
+      let formatted = tit.charAt(0).toUpperCase() + tit.slice(1).toLowerCase();
+      
+      // special case for "javascript"
+      if (formatted.toLowerCase() === "javascript") {
+        formatted = "Javascript";
+      }
+      
+      return formatted;
     }
-
-    return formatted;
-  }
-
-  // Cody Code:
-  // Trim whitespace from both ends
-  let trimmedTitle = title.trim();
-
-  // Split the title into words
-  let words = trimmedTitle.split(" ");
-
-  // Capitalize the first letter of each word
-  for (let i = 0; i < words.length; i++) {
-    if (words[i]) {
-      words[i] =
+    
+    // Cody Code:
+    // Trim whitespace from both ends
+    let trimmedTitle = title.trim();
+    
+    // Split the title into words
+    let words = trimmedTitle.split(" ");
+    
+    // Capitalize the first letter of each word
+    for (let i = 0; i < words.length; i++) {
+      if (words[i]) {
+        words[i] =
         words[i][0].toUpperCase() + words[i].substring(1).toLowerCase();
+      }
     }
+    
+    // Join the words back together
+    let formattedTitle = words.join(" ");
+    
+    // Replace all occurrences of "javascript" with "JavaScript"
+    formattedTitle = formattedTitle.replaceAll("Javascript", "JavaScript");
+    
+    return formattedTitle;
   }
+  // Do not write anything outside function
 
-  // Join the words back together
-  let formattedTitle = words.join(" ");
 
-  // Replace all occurrences of "javascript" with "JavaScript"
-  formattedTitle = formattedTitle.replaceAll("Javascript", "JavaScript");
 
-  return formattedTitle;
-}
-// Do not write anything outside function
-
+  console.log(`\n\n${longHypen}${hyphen}(  stringWeaver  )${longHypen}`);
 /* =======================================================================================================================================
 Recap - String Weaver
 
@@ -519,6 +584,9 @@ function stringWeaver(str1, str2) {
 }
 // Do not write anything outside function
 
+
+
+
 //================================================  Multi - dimensional Arrays  ================================================
 console.log(
   `\n\n${longHypen}${hyphen}(  Multi-dimensional Arrays  )${longHypen}`,
@@ -575,8 +643,13 @@ for (let i = 0; i < word2Day.length; i++) {
   }
 }
 
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  isEqualLetter  )${longHypen}`);
 console.log(`Count duplicated number:`, countdupliLetter);
 console.log("Duplicate letters found:", dupliHere);
+
+
+
 
 function isEqualLetter(x, y, z, dupArr) {
   const xRegex = new RegExp(x, "i");
@@ -672,9 +745,7 @@ Remember that indices in JavaScript start a 0, so the first row is at index 0,
 the second row is at index 1, and so on.
 
 
-Challenge:
-
-Easy
+Challenge:  (Easy):
 Create a function named getColumn that takes three arguments: a 2D array matrix, an integer numberOfRows, 
 and an integer colIndex. The function should return an array containing all elements in the specified column colIndex. 
 
@@ -687,6 +758,8 @@ target index number: 1
 Expected Output: 
 [ 2, 5, 8 ]
 */
+
+
 
 const seats = [
   [1, 2, 3],
@@ -706,6 +779,8 @@ console.log(test1);
 console.log(`Expected Output:`, expectOutput);
 console.log(`Seats length:`, seats.length);
 
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  getColumn  )${longHypen}`);
 function getColumn(matrix, numberOfRows, colIndex) {
   let newItems = [];
   // TODO: Return an array containing elements from the specified column index
@@ -728,6 +803,12 @@ function getColumn(matrix, numberOfRows, colIndex) {
 const res_Test1 = getColumn(seats, 3, 1);
 console.log(`Result: `, res_Test1);
 
+
+
+
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  getElementsInRow  )${longHypen}`);
 /* 
 Challenge: (Easy)
 
@@ -747,7 +828,6 @@ const rowIndex = 1;
 
 Expected Output: [4, 5, 6]
 */
-
 // Challenge 2
 const argument = {
   f_A: [
@@ -761,12 +841,12 @@ const argument = {
 function getElementsInRow(grid, rowIndex) {
   // TODO: Return an array with all elements in the specified row
   // If rowIndex is out of bounds, return an empty array
-
+  
   // Check if rowIndex is valid
   if (rowIndex < 0 || rowIndex >= grid.length) {
     return [];
   }
-
+  
   // Return the row at the specified index
   return grid[rowIndex];
 }
@@ -774,6 +854,11 @@ function getElementsInRow(grid, rowIndex) {
 
 console.log(`getElementsRow:`, getElementsInRow(argument.f_A, argument.s_A));
 
+
+
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  countOccurrences  )${longHypen}`);
 /*
 Nested Loops with 2D Arrays
 [["a", "b", "a"], ["c", "a", "d"], ["a", "e", "f"]]
@@ -847,6 +932,11 @@ console.log(
   countOccurrences(argu3.a1, argu3.a2),
 );
 
+
+
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  findMaxInRows  )${longHypen}`);
 /* 
 Challenge (Easy):
 
@@ -949,6 +1039,9 @@ for (let item of reserveVowels) {
 
 console.log(`Result:`, reserveVowels.join(""));
 
+
+/* ========================================================================== */
+console.log(`\n\n${longHypen}${hyphen}(  mirrorRows  )${longHypen}`);
 /* =====================================  Recap - 2D Arrays  =====================================
 
 Challenge (Easy):
@@ -992,18 +1085,18 @@ function mirrorRows(matrix) {
       }
 
       // console.log(`Output endVal: ${endVal}`);
-      console.log(
-        `matrix[r][c] =`,
-        matrix[row][col],
-        `${space} Row = ${row} ${"".repeat(
-          4,
-        )} Col = ${col}  ${space}  end Col: ${endVal}`,
-      );
+      // console.log(
+      //   `matrix[r][c] =`,
+      //   matrix[row][col],
+      //   `${space} Row = ${row} ${"".repeat(
+      //     4,
+      //   )} Col = ${col}  ${space}  end Col: ${endVal}`,
+      // );
       endVal--;
 
       // console.log(`matrix[r][c] =`, startVal);
       // console.log(`matrix[row].length =`, endVal);
-      console.log();
+      // console.log();
       col++;
     }
 
@@ -1023,6 +1116,9 @@ function mirrorRows(matrix) {
 }
 // Do not write anything outside function
 
+
+/* ================================================================================ */
+console.log(`\n\n${longHypen}${hyphen}(  combineMatrices  )${longHypen}`);
 /* =====================================  Matrix Addition & Substraction  =====================================
 Matrix addition and subtraction require matrices with the same dimensions. Operations are performed element-wise on corresponding elements.
 
@@ -1076,12 +1172,14 @@ const mtxB = [
 
 const op = "-";
 
-console.table(mtxA);
-console.table(mtxB);
+// console.table(mtxA);
+// console.table(mtxB);
 
-console.log(`mtxA[0][0] + mtxB[0][0]:`, mtxA[0][0] + mtxB[0][0]);
-console.log(`Length:`, mtxA.length);
-console.log();
+// console.log(`mtxA[0][0] + mtxB[0][0]:`, mtxA[0][0] + mtxB[0][0]);
+// console.log(`Length:`, mtxA.length);
+// console.log();
+
+
 
 const resComMtx = combineMatrices(mtxA, mtxB, op);
 console.log(`resComMtx:`, resComMtx);
@@ -1091,10 +1189,10 @@ function combineMatrices(matrixA, matrixB, ope) {
   // Otherwise, subtract them. Return the resulting 2D array.
 
   return matrixA.map((otrVal, otrIdx) => {
-    console.log(`\n${"=".repeat(20)} ${otrIdx} ${"=".repeat(20)}`);
+    // console.log(`\n${"=".repeat(20)} ${otrIdx} ${"=".repeat(20)}`);
 
     return otrVal.map((innVal, innIdx) => {
-      console.log(`innVal & index: ${innIdx} ${space}`, innVal);
+      // console.log(`innVal & index: ${innIdx} ${space}`, innVal);
       switch (ope) {
         case "+":
           return innVal + matrixB[otrIdx][innIdx];
@@ -1129,6 +1227,10 @@ function combineMatrices(matrixA, matrixB, ope) {
 }
 // Do not write anything outside function
 
+
+
+/* ================================================================================ */
+console.log(`\n\n${longHypen}${hyphen}(  sumJagged  )${longHypen}`);
 /* =====================================  Jagged Arrays  =====================================
 A jagged array is a 2D array where each row can have a different length:
 
@@ -1151,7 +1253,6 @@ Expected Output: 9
 */
 
 let sumJuggArgs = [[1, -2, 3], [4, -5], [6], [-7, 8, -9, 10]];
-
 console.log(`Result Sugjagged:`, sumJagged(sumJuggArgs));
 
 function sumJagged(jaggedArray) {
@@ -5130,3 +5231,137 @@ filterBooks(
   2,
 )
 );
+
+
+console.log(
+  `\n\n${"*".repeat(20)}-( The Reduce Method    _calculateGroceryTotal  )-${"*".repeat(20)}`,
+);
+
+/*   The Reduce Method
+
+The reduce() method reduces an array to a single value by executing a function for each element:
+
+array.reduce(function(accumulator, currentValue, currentIndex, array) {
+    // return the updated accumulator value
+}, initialValue);
+
+Key Components:
+
+accumulator: Accumulates the callback's return values (running total)
+currentValue: The current element being processed
+currentIndex: (optional) The index of the current element
+array: (optional) The array reduce() was called upon
+initialValue: (optional) Starting value for the accumulator
+Example - sum of numbers:
+
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+console.log(sum); // 15
+Step-by-step execution:
+
+const numbers = [1, 2, 3, 4];
+
+const sum = numbers.reduce((acc, curr) => {
+    console.log(`Accumulator: ${acc}, Current Value: ${curr}`);
+    return acc + curr;
+}, 0);
+
+// Output:
+// Accumulator: 0, Current Value: 1
+// Accumulator: 1, Current Value: 2
+// Accumulator: 3, Current Value: 3
+// Accumulator: 6, Current Value: 4
+// Final result: 10
+
+
+Challenge  (Easy):
+Create a function named calculateGroceryTotal that takes an array of objects representing grocery items.
+
+Each object has two properties:
+
+name: string (name of the item)
+price: number (price of the item)
+
+The function should:
+
+1. Calculate the total cost of all items
+2. Apply a discount: - If total is above 100, apply 10% discount
+3. If total is above 50 but below or equal to 100, apply 5% discount
+4. No discount for totals of 50 or less.
+
+Return an object containing:
+
+* originalTotal: the sum before discount
+* discount: the amount saved
+* finalTotal: the final amount after discount
+
+
+*/
+
+function calculateGroceryTotal(items) {
+  // Write code here
+  let originalTotal = 0;
+  let discount = 0;
+  let finalTotal = 0;
+
+  console.log();
+  items.reduce((acc, curr) => {
+    console.log(`acc: ${acc}   curr: ${curr.price}`);
+    return (originalTotal = acc + curr.price);
+  }, 0);
+
+  discount =
+    originalTotal > 100
+      ? originalTotal / 10
+      : originalTotal > 50
+        ? (originalTotal * 0.5) / 10
+        : 0;
+
+  finalTotal = originalTotal - discount;
+
+  console.log("\nfinalTotal:", originalTotal);
+  console.log("discount:", discount);
+  console.log("finalTotal:", finalTotal);
+
+  return {
+    originalTotal: Math.round(originalTotal * 100) / 100, // Round to 2 decimals
+    discount: Math.round(discount * 100) / 100,
+    finalTotal: Math.round(finalTotal * 100) / 100,
+  };
+}
+
+console.log(
+  "\n",
+  calculateGroceryTotal([
+    { name: "Artisanal Cheese", price: 25.5 },
+    { name: "Sourdough Bread", price: 8.99 },
+    { name: "Organic Honey", price: 15.99 },
+    { name: "Wild Mushrooms", price: 12.99 },
+  ]),
+  "\n",
+  { originalTotal: 63.47, discount: 3.17, finalTotal: 60.3 },
+);
+
+/*  Coddy Solution:
+function calculateGroceryTotal(items) {
+    const originalTotal = items.reduce((sum, item) => sum + item.price, 0);
+    
+    let discountPercentage = 0;
+    
+    if (originalTotal > 100) {
+        discountPercentage = 0.10; // 10% discount
+    } else if (originalTotal > 50) {
+        discountPercentage = 0.05; // 5% discount
+    }
+    
+    const discount = originalTotal * discountPercentage;
+    const finalTotal = originalTotal - discount;
+    
+    return {
+        originalTotal: Math.round(originalTotal * 100) / 100,  // Round to 2 decimals
+        discount: Math.round(discount * 100) / 100,
+        finalTotal: Math.round(finalTotal * 100) / 100
+    };
+}
+*/

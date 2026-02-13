@@ -5064,7 +5064,7 @@ console.log(["x", "y"].join());
 
 
 
-console.log(`\n\n${"*".repeat(20)}-( The Map Method )-${"*".repeat(20)}`);
+console.log(`\n\n${"*".repeat(20)}-( The Map Method    formatNames()   )-${"*".repeat(20)}`);
 
 
 /*  The Map Method
@@ -5130,7 +5130,8 @@ for (let v of arrPrac) {
   });
 }
 
-console.log(`\n\n${"*".repeat(20)}-( The Map Method )-${"*".repeat(20)}`);
+
+console.log(`\n\n${"*".repeat(20)}-( The Map Method     transformData()  )-${"*".repeat(20)}`);
 /* 
 Challenge (Easy):
 Create a function called transformData that takes an array of product objects. 
@@ -5194,7 +5195,7 @@ console.log(
   ]),
 );
 
-console.log(`\n\n${"*".repeat(20)}-( The Filter Method )-${"*".repeat(20)}`);
+console.log(`\n\n${"*".repeat(20)}-( The Filter Method    filterBooks()   )-${"*".repeat(20)}`);
 /*   The Filter Method
 
 The filter() method creates a new array with elements that pass a test function:
@@ -5234,7 +5235,7 @@ filterBooks(
 
 
 console.log(
-  `\n\n${"*".repeat(20)}-( The Reduce Method    _calculateGroceryTotal  )-${"*".repeat(20)}`,
+  `\n\n${"*".repeat(20)}-( The Reduce Method    _calculateGroceryTotal()  )-${"*".repeat(20)}`,
 );
 
 /*   The Reduce Method
@@ -5307,7 +5308,7 @@ function calculateGroceryTotal(items) {
 
   console.log();
   items.reduce((acc, curr) => {
-    console.log(`acc: ${acc}   curr: ${curr.price}`);
+    // console.log(`acc: ${acc}   curr: ${curr.price}`);
     return (originalTotal = acc + curr.price);
   }, 0);
 
@@ -5320,9 +5321,9 @@ function calculateGroceryTotal(items) {
 
   finalTotal = originalTotal - discount;
 
-  console.log("\nfinalTotal:", originalTotal);
-  console.log("discount:", discount);
-  console.log("finalTotal:", finalTotal);
+  // console.log("\nfinalTotal:", originalTotal);
+  // console.log("discount:", discount);
+  // console.log("finalTotal:", finalTotal);
 
   return {
     originalTotal: Math.round(originalTotal * 100) / 100, // Round to 2 decimals
@@ -5332,15 +5333,12 @@ function calculateGroceryTotal(items) {
 }
 
 console.log(
-  "\n",
   calculateGroceryTotal([
     { name: "Artisanal Cheese", price: 25.5 },
     { name: "Sourdough Bread", price: 8.99 },
     { name: "Organic Honey", price: 15.99 },
     { name: "Wild Mushrooms", price: 12.99 },
-  ]),
-  "\n",
-  { originalTotal: 63.47, discount: 3.17, finalTotal: 60.3 },
+  ])
 );
 
 /*  Coddy Solution:

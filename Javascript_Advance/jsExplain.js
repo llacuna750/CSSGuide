@@ -503,7 +503,7 @@ class Node {
 const node1 = new Node();
 console.log(node1.getValue());
 node1.setValue(50);
-console.log(node1); 
+console.log(node1);
 
 const api = "https://api.thecatapi.com/v1/images/search"; // try to edit api endPoint
 
@@ -541,3 +541,26 @@ const getMessage = async (api) => {
 };
 
 getMessage(api);
+
+const api2 = "http://localhost:8000/users";
+
+fetch(api2)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Api invalid!");
+    }
+
+    return response.json();
+  })
+  .then((data) => console.log(data))
+  .catch((err) =>
+    console.log(
+      "\n!!!!!!!!!!!  Error an occur:",
+      err.message,
+      "!!!!!!!!!!!!!!!!",
+    ),
+  );
+
+
+
+

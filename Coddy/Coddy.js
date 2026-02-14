@@ -2394,8 +2394,7 @@ The cart contains an array of products with names and prices. Your task is to:
 3. In the second cart:
 1. Add a discounted property to each item set to false
 2. Apply a 10% discount to all items that have price greater than 50
-3. Set 'discounted' to true for items that received the discount
-4. Return an array containing both carts
+3. Set 'discounted' to true for items that rw
 */
 
 function processCart(jsonString) {
@@ -5382,3 +5381,48 @@ console.log(
     { name: "orange", quantity: 0 },
   ]),
 );
+
+console.log(
+  `\n\n${"*".repeat(20)}-( ForEach And Map Are Same?    -Refresher-   )-${"*".repeat(20)}`,
+);
+
+/*  ForEach And Map Are Same?
+
+While forEach() and map() are both array methods used for iteration, 
+they serve different purposes:
+
+forEach():
+
+- Executes a function once for each array element
+- Does not create a new array
+- Returns undefined
+- Cannot be chained with other array methods
+
+map():
+
+- Creates a new array with the results of calling a function on every element
+- Returns a new array of the same length as the original
+- Can be chained with other array methods
+
+
+const numbers = [1, 2, 3, 4];
+
+// forEach - performs operation, returns undefined
+numbers.forEach(num => console.log(num * 2));
+
+// map - transforms elements, returns new array
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8]
+
+Use forEach() for operations without creating a new array. 
+Use map() to transform elements and create a new array.
+
+*/
+
+const exArr = [10, 20, 30, 40, 50];
+
+const foreach = exArr.forEach((v) => {
+  return v * 3;
+});
+
+console.log("forEach() Returns undefined:", foreach);

@@ -4080,6 +4080,7 @@ function manageLibrary2(actions, data) {
           const newAdd_Data = { id: bookLength + 1, ...currentData };
 
           const deepCopy = structuredClone(libraryData2.books);
+
           for (const [index, val] of Object.entries(...deepCopy)) {
             if (!(index in newAdd_Data)) {
               newAdd_Data[index] = val;
@@ -5511,10 +5512,10 @@ function sortByLength(arr) {
   });
 }
 
-console.log('\nChallenge  sortByLength(): ',sortByLength(["zzz", "aaa", "bbb", "ccc"]));
-
-
-
+console.log(
+  "\nChallenge  sortByLength(): ",
+  sortByLength(["zzz", "aaa", "bbb", "ccc"]),
+);
 
 console.log(
   `\n\n${"*".repeat(20)}-(      The Find & FindIndex Method      )-${"*".repeat(20)}`,
@@ -5605,7 +5606,6 @@ console.log(
   "\nChallenge  chainMaster(): ",
   chainMaster(myInput),
 );
-
 
 console.log(
   `\n\n${"*".repeat(20)}-(  Project Overview     manageFestival()-   )-${"*".repeat(20)}`,
@@ -5763,5 +5763,72 @@ console.log(
   manageFestival(
     ["listScreenings", "listTickets", "listVenues", "listMovies"],
     [{}, {}, {}, {}],
+  ),
+);
+
+console.log(
+  `\n\n${"*".repeat(20)}-(  Project Overview     manageFestival()2-  add case addMove & addVenue  )-${"*".repeat(20)}`,
+);
+
+function manageFestival2(actions, data) {
+  let results = [];
+
+  actions.forEach((action, index) => {
+    const currentData = data[index];
+
+    switch (action) {
+      case "listMovies":
+        results.push(festivalData.movies);
+        break;
+      case "listVenues":
+        results.push(festivalData.venues);
+        break;
+
+      case "listTickets":
+        results.push(festivalData.tickets);
+        break;
+
+      case "listScreenings":
+        results.push(festivalData.screenings);
+        break;
+
+      case "addMovie":
+        const newData_Movie = {
+          id: festivalData.movies.length + 1,
+          title: currentData.title,
+          director: currentData.director,
+          year: currentData.year,
+          mainGenre: currentData.mainGenre,
+          secondGenre: currentData.secondGenre,
+          avgRating: 0,
+          available: true,
+        };
+
+        festivalData.movies.push(newData_Movie);
+        results.push("Movie added successfully!");
+        break;
+
+      case "addVenue":
+        const newData_Venue = {
+          id: festivalData.venues.length + 1,
+          name: currentData.name,
+          capacity: currentData.capacity,
+        };
+
+        festivalData.venues.push(newData_Venue);
+        results.push("Venue added successfully!");
+        break;
+      default:
+        results.push("Invalid action!");
+    }
+  });
+
+  return results;
+}
+
+console.log(
+  manageFestival2(
+    ["addVenue", "listVenues"],
+    [{ name: "IMAX Theater", capacity: 300 }, {}],
   ),
 );

@@ -3998,11 +3998,11 @@ function manageLibrary(actions, data) {
 
     switch (currentAction) {
       case "printBooks":
-        // Write your code here
         results.push(libraryData.books);
+
       case "printReaders":
-        // Write your code here
         results.push(libraryData.readers);
+
       default:
         results.push("Invalid action!");
     }
@@ -4095,12 +4095,10 @@ function manageLibrary2(actions, data) {
         break;
 
       case "printBooks":
-        // Write your code here
         results.push(libraryData2.books);
         break;
 
       case "printReaders":
-        // Write your code here
         results.push(libraryData2.readers);
         break;
 
@@ -5426,3 +5424,344 @@ const foreach = exArr.forEach((v) => {
 });
 
 console.log("forEach() Returns undefined:", foreach);
+
+console.log(
+  `\n\n${"*".repeat(20)}-( The Sort Method    -sortByLength()-   )-${"*".repeat(20)}`,
+);
+/*    The Sort Method
+
+The sort() method sorts array elements in place and returns the sorted array. 
+By default, it sorts elements as strings in alphabetical order.
+
+Basic syntax:
+
+array.sort([compareFunction])
+
+Sorting strings:
+
+const fruits = ['banana', 'apple', 'orange', 'mango'];
+fruits.sort();
+console.log(fruits); // ['apple', 'banana', 'mango', 'orange']
+
+
+Warning: Numbers don't sort correctly without a compare function:
+
+const numbers = [1, 30, 4, 21, 100000];
+numbers.sort();
+console.log(numbers); // [1, 100000, 21, 30, 4] (incorrect)
+Compare function returns:
+
+Negative value if a should come before b
+Positive value if b should come before a
+Zero if they are equal
+
+Sorting numbers correctly:
+
+// Ascending order
+numbers.sort((a, b) => a - b);
+
+// Descending order
+numbers.sort((a, b) => b - a);
+Sorting objects:
+
+const people = [
+    { name: 'John', age: 30 },
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 35 }
+];
+
+// Sort by age
+people.sort((a, b) => a.age - b.age);
+
+// Sort by name alphabetically
+people.sort((a, b) => a.name.localeCompare(b.name));
+
+
+Challenge  (Easy):
+Create a function named sortByLength that takes an array of strings and returns a new array with the same strings sorted by their length in ascending order. 
+If two strings have the same length, they should be sorted alphabetically.
+*/
+
+const people = [
+  { name: "John", age: 30 },
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 35 },
+];
+
+// Sort by age
+const sort1 = people.sort((a, b) => a.age - b.age);
+console.log(sort1);
+
+// Sort by name alphabetically
+const sort2 = people.sort((a, b) => a.name.localeCompare(b.name));
+console.log(sort2);
+
+const numBers = [1, 30, 4, 21, 100000];
+numbers.sort();
+console.log(numBers); // [1, 100000, 21, 30, 4] (incorrect)
+
+console.log([1, 30, 4, 21].sort());
+
+/* ========================================================================================== */
+function sortByLength(arr) {
+  return arr.sort((a, b) => {
+    // Write code here
+
+    return a.length === b.length ? a.localeCompare(b) : a.length - b.length;
+  });
+}
+
+console.log('\nChallenge  sortByLength(): ',sortByLength(["zzz", "aaa", "bbb", "ccc"]));
+
+
+
+
+console.log(
+  `\n\n${"*".repeat(20)}-(      The Find & FindIndex Method      )-${"*".repeat(20)}`,
+);
+/* The Find & FindIndex Method
+
+The find() method returns the first element that satisfies a testing function, 
+or undefined if none found:
+
+const numbers = [5, 12, 8, 130, 44];
+const found = numbers.find(num => num > 10);
+console.log(found); // 12
+
+
+The findIndex() method returns the index of the first matching element, or -1 if none found:
+
+const numbers = [5, 12, 8, 130, 44];
+const foundIndex = numbers.findIndex(num => num > 10);
+console.log(foundIndex); // 1
+
+
+Finding objects in arrays:
+
+const inventory = [
+    {name: 'apples', quantity: 2},
+    {name: 'bananas', quantity: 0},
+    {name: 'oranges', quantity: 5}
+];
+
+const result = inventory.find(item => item.name === 'bananas');
+// {name: 'bananas', quantity: 0}
+
+const index = inventory.findIndex(item => item.name === 'bananas');
+// 1 
+
+
+Recap - The Chain Master
+
+Challenge  (Easy):
+Create a function called chainMaster that takes an array of numbers as an argument. 
+The function should use chained array methods to perform the following operations:
+
+1. Filter out all numbers that are divisible by 3
+2. Multiply each remaining number by 2
+3. Sort the resulting array in descending order
+4. Return an object with the following properties:
+
+- transformedArray: The final array after all operations
+- sum: The sum of all numbers in the final array
+- average: The average of all numbers in the final array, rounded to two decimal places
+
+Use appropriate array methods (filter, map, sort, reduce) in your solution.
+*/
+const whatIsLessthan = [1, 2, 3, 4, 5].find((n) => n < 5);
+console.log(
+  `Output: ${whatIsLessthan}     because in Array whatIsLessthan ${whatIsLessthan} first satifies the condition`,
+); // Output: 1
+
+// in sequence elements who satifies first in the condition then that one will return
+const numbersRes = [5, 12, 8, 130, 44];
+const found = numbersRes.find((num) => num < 10);
+console.log(found); // 5
+console.log(numbersRes.findIndex((el) => el === 10));
+
+console.log(
+  `\n\n${"*".repeat(20)}-(  Recap - The Chain Master     chainMaster()-   )-${"*".repeat(20)}`,
+);
+
+function chainMaster(numbers) {
+  // Write your code here
+  let result = numbers
+    .filter((v) => v % 3 === 0)
+    .sort((a, b) => b - a)
+    .map((num) => num * 2);
+
+  let sum = result.reduce((acc, current) => acc + current, 0);
+  let average = Number((sum / result.length).toFixed(2));
+
+  return {
+    transformedArray: result,
+    sum: sum,
+    average: average,
+  };
+}
+const myInput = [7, 11, 13, 17, 19, 23];
+console.log(
+  `Input: [${myInput.join(", ")}]`,
+  "\nChallenge  chainMaster(): ",
+  chainMaster(myInput),
+);
+
+
+console.log(
+  `\n\n${"*".repeat(20)}-(  Project Overview     manageFestival()-   )-${"*".repeat(20)}`,
+);
+/*  Project Overview 
+
+Challenge   (Easy):
+
+You will be creating a Movie Festival Management System. 
+Start by initializing the system with the provided data and creating the main function structure.
+
+Create a variable called festivalData with this exact initial data: 
+
+festivalData {
+	movies: [{
+		id: 1,
+		title: "Inception",
+		director: "Christopher Nolan",
+		year: 2010,
+		mainGenre: "Sci-Fi",
+		secondGenre: undefined,
+		avgRating: 0,
+		available: true
+	}],
+	venues: [{
+		id: 1,
+		name: "Main Theater",
+		capacity: 200,
+	}],
+	screenings: [{
+		id: 1,
+		movieId: 1,
+		venueId: 1,
+		date: '2023-10-29',
+		time: '13:35:00',
+		availableSeats: 200
+	}],
+	tickets: new Set()
+}
+
+
+You will be creating a Movie Festival Management System. Start by initializing the system with the provided data and creating the main function structure.
+
+Create a variable called festivalData with this exact initial data:
+
+{
+	movies: [{
+		id: 1,
+		title: "Inception",
+		director: "Christopher Nolan",
+		year: 2010,
+		mainGenre: "Sci-Fi",
+		secondGenre: undefined,
+		avgRating: 0,
+		available: true
+	}],
+	venues: [{
+		id: 1,
+		name: "Main Theater",
+		capacity: 200,
+	}],
+	screenings: [{
+		id: 1,
+		movieId: 1,
+		venueId: 1,
+		date: '2023-10-29',
+		time: '13:35:00',
+		availableSeats: 200
+	}],
+	tickets: new Set()
+}
+
+
+Create a function called manageFestival that takes two parameters:
+
+actions (array of strings)
+data (array of objects)
+The function should:
+
+1. Process each action in the actions array in sequence
+2. Create an empty results array
+3. Create a switch statement with the following initial cases:
+  - listMovies: adds festivalData.movies to results array
+  - listVenues: adds festivalData.venues to results array
+  - listTickets: adds festivalData.tickets to the results array
+  - listScreenings: adds festivalData.screenings to the results array
+  - default: adds "Invalid action!" to results array
+4. Return the results array
+*/
+
+const festivalData = {
+  movies: [
+    {
+      id: 1,
+      title: "Inception",
+      director: "Christopher Nolan",
+      year: 2010,
+      mainGenre: "Sci-Fi",
+      secondGenre: undefined,
+      avgRating: 0,
+      available: true,
+    },
+  ],
+  venues: [
+    {
+      id: 1,
+      name: "Main Theater",
+      capacity: 200,
+    },
+  ],
+  screenings: [
+    {
+      id: 1,
+      movieId: 1,
+      venueId: 1,
+      date: "2023-10-29",
+      time: "13:35:00",
+      availableSeats: 200,
+    },
+  ],
+  tickets: new Set(),
+};
+
+function manageFestival(actions, data) {
+  let results = [];
+
+  actions.forEach((action, index) => {
+    const currentData = data[index];
+
+    switch (action) {
+      case "listMovies":
+        results.push(festivalData.movies);
+        break;
+      case "listVenues":
+        results.push(festivalData.venues);
+        break;
+
+      case "listTickets":
+        results.push(festivalData.tickets);
+        break;
+
+      case "listScreenings":
+        results.push(festivalData.screenings);
+        break;
+      default:
+        results.push("Invalid action!");
+    }
+  });
+
+  return results;
+}
+
+console.log(
+  "Challenge  manageFestival(): ",
+  manageFestival(
+    ["listScreenings", "listTickets", "listVenues", "listMovies"],
+    [{}, {}, {}, {}],
+  ),
+);

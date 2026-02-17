@@ -119,7 +119,7 @@ console.log(`The makeup of a URL\n📁 The Base URL\n📁 The endpoint \n\nif Sc
 
 
 /* Base URL */  
-https://apis.scrimba.com/dog.ceo/api  
+https://apis.scrimba.com/dog.ceo/api
 
 /* Endpoints */  
 /breeds/list/all  

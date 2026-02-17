@@ -5832,3 +5832,227 @@ console.log(
     [{ name: "IMAX Theater", capacity: 300 }, {}],
   ),
 );
+
+console.log(
+  `\n\n${"*".repeat(20)}-(  Project Overview     manageFestival3()-  add case addScreening  )-${"*".repeat(20)}`,
+);
+
+function manageFestival3(actions, data) {
+  let results = [];
+
+  actions.forEach((action, index) => {
+    const currentData = data[index];
+
+    switch (action) {
+      case "listMovies":
+        results.push(festivalData.movies);
+        break;
+      case "listVenues":
+        results.push(festivalData.venues);
+        break;
+
+      case "listTickets":
+        results.push(festivalData.tickets);
+        break;
+
+      case "listScreenings":
+        results.push(festivalData.screenings);
+        break;
+
+      case "addMovie":
+        const newData_Movie = {
+          id: festivalData.movies.length + 1,
+          title: currentData.title,
+          director: currentData.director,
+          year: currentData.year,
+          mainGenre: currentData.mainGenre,
+          secondGenre: currentData.secondGenre,
+          avgRating: 0,
+          available: true,
+        };
+
+        festivalData.movies.push(newData_Movie);
+        results.push("Movie added successfully!");
+        break;
+
+      case "addVenue":
+        const newData_Venue = {
+          id: festivalData.venues.length + 1,
+          name: currentData.name,
+          capacity: currentData.capacity,
+        };
+
+        festivalData.venues.push(newData_Venue);
+        results.push("Venue added successfully!");
+
+        // if (festivalData.venues.name != currentData.name) {
+        //   results.push("Movie or venue not found!");
+        // }
+
+        break;
+
+      case "addScreening":
+        // const [ob1, obj2, obj3, obj4] = data
+
+        const newScreening = {
+          id: festivalData.screenings.length + 1,
+          movieId: currentData.movieId,
+          venueId: currentData.venueId,
+          date: currentData.date,
+          time: currentData.time,
+          availableSeats: data.find((val) => val.capacity)?.capacity || 200,
+        };
+
+        /*
+        venueId
+        date
+        time
+
+        Screening already exists at this time!
+        */
+        const hasMovieId = festivalData.movies.some(
+          (m) => m.id === currentData.movieId,
+        );
+        const hasVenueId = festivalData.movies.some(
+          (v) => v.id === currentData.venueId,
+        );
+
+        const hasCDVenue = festivalData.screenings.some(
+          (v) => v.venueId === currentData.venueId,
+        );
+        const hasCDdate = festivalData.screenings.some(
+          (d) => d.date === currentData.date,
+        );
+        const hasCDtime = festivalData.screenings.some(
+          (t) => t.time === currentData.time,
+        );
+
+        if (!(hasCDVenue && hasCDdate && hasCDtime)) {
+          if (hasMovieId && hasVenueId) {
+            festivalData.screenings.push(newScreening);
+            results.push("Screening added successfully!");
+          } else {
+            results.push("Movie or venue not found!");
+          }
+        } else {
+          results.push("Screening already exists at this time!");
+        }
+
+        break;
+
+      default:
+        results.push("Invalid action!");
+    }
+  });
+
+  // return festivalData.screenings;
+  return results;
+}
+/* Coddy Solution:
+
+function manageFestival(actions, data) {
+  let results = [];
+
+  actions.forEach((action, index) => {
+    const currentData = data[index];
+
+    switch (action) {
+      case "listMovies":
+        results.push(festivalData.movies);
+        break;
+
+      case "listVenues":
+        results.push(festivalData.venues);
+        break;
+
+      case "listTickets":
+        results.push(festivalData.tickets);
+        break;
+
+      case "listScreenings":
+        results.push(festivalData.screenings);
+        break;
+
+      case "addMovie":
+        const newMovie = {
+          id: festivalData.movies.length + 1,
+          title: currentData.title,
+          director: currentData.director,
+          year: currentData.year,
+          mainGenre: currentData.mainGenre,
+          secondGenre: currentData.secondGenre,
+          avgRating: 0,
+          available: true,
+        };
+        festivalData.movies.push(newMovie);
+        results.push("Movie added successfully!");
+        break;
+
+      case "addVenue":
+        const newVenue = {
+          id: festivalData.venues.length + 1,
+          name: currentData.name,
+          capacity: currentData.capacity,
+        };
+        festivalData.venues.push(newVenue);
+        results.push("Venue added successfully!");
+        break;
+
+      case "addScreening":
+        const movie = festivalData.movies.find(
+          (m) => m.id === currentData.movieId,
+        );
+        const venue = festivalData.venues.find(
+          (v) => v.id === currentData.venueId,
+        );
+
+        if (!movie || !venue) {
+          results.push("Movie or venue not found!");
+          break;
+        }
+
+        const existingScreening = festivalData.screenings.find(
+          (s) =>
+            s.venueId === currentData.venueId &&
+            s.date === currentData.date &&
+            s.time === currentData.time,
+        );
+
+        if (existingScreening) {
+          results.push("Screening already exists at this time!");
+          break;
+        }
+
+        const newScreening = {
+          id: festivalData.screenings.length + 1,
+          movieId: currentData.movieId,
+          venueId: currentData.venueId,
+          date: currentData.date,
+          time: currentData.time,
+          availableSeats: venue.capacity,
+        };
+
+        festivalData.screenings.push(newScreening);
+        results.push("Screening added successfully!");
+        break;
+
+      default:
+        results.push("Invalid action!");
+    }
+  });
+
+  return results;
+}
+*/
+
+console.log(
+  manageFestival3(
+    ["addScreening", "listMovies", "listVenues", "listScreenings"],
+    [
+      { movieId: 999, venueId: 1, date: "2023-12-27", time: "19:30:00" },
+      {},
+      {},
+      {},
+    ],
+  ),
+);

@@ -211,7 +211,6 @@ function addBookToCollection (title, author, yearPublished, libraryData) {
     let availability = libraryData?.locations?.mainLibrary &&  'Available' || 'Not Available'; 
     console.log(`Availability:`,availability)
     
-    /*  */
 
     // Push the book object to 'collection'
     collection.push({ 

@@ -1,0 +1,116 @@
+Logic & Flow
+
+A. Strings In Depth
+Method used:
+1. includes()
+2. indexOf()
+3. length
+4. slice()
+
+A.1    array modification methods:
+5. push()
+6. pop()
+
+A.2    Common string methods in JavaScript:
+7. toUpperCase()
+8. toLowerCase()
+9. replace()
+10. replaceAll()
+11. trim()
+12. charAt()
+
+
+B. Multi-dimensional Arrays
+1. 2D Arrays Basics
+2. Accessing 2D Array Elements        &&       Mastery Challenge
+3. Nested Loops with 2D Arrays        &&       Mastery Challenge
+4. Recap - 2D Arrays
+5. Matrix Addition & Substraction     &&       Mastery Challenge
+6. Jagged Arrays                      &&       Mastery Challenge
+7. 3D Arrays And Beyond               &&       Mastery Challenge
+8. Common 2D Array Patterns           &&       Mastery Challenge
+9. Recap - All About Arrays
+
+
+
+C. JSON Part 1
+1. What is a JSON?
+2. Check If Key Exists                &&       Mastery Challenge
+3. Object Methods                     &&       Mastery Challenge
+4. The Spread Operator Part 1
+5. The Spread Operator Part 2         &&       Mastery Challenge
+6. Remove Keys                        &&       Mastery Challenge
+7. Recap - JSON Manipulate Keys
+
+
+C. JSON Part 2
+1. Iterate Over JSON
+2. Nested JSON
+3. JSON Optional Chaining
+4. Shallow And Deep Copy
+5. Recap - Bicycle Shop
+6. Recap - Solar System
+
+
+
+D. Sets Part 1
+1. What Is A Set?             
+2. Iterating Over Sets
+3. Adding An Element
+4. Removing An Element
+5. Checking If An Element Exists
+6. Size And Is Empty
+7. Copy And Clear
+8. Recap - Basic Of Sets
+
+
+
+D. Sets Part 2
+1. Math - Union Of Sets
+2. Math - Intersection Of Sets
+3. Math - Difference Of Sets
+4. Math - Symmetric Difference
+5. Subsets And SuperSets
+6. Recap - Group Friends
+
+
+
+
+E. Library Management System
+1. Project Overview  
+2. Adding Books Case
+3. Search By Title Case
+4. Filter By Genre Case
+5. Mark As Read Case
+
+
+
+
+F. Arrays Interesting Topics
+1. Array Destructuring
+2. Spread Syntax in Arrays
+3. Sparse Arrays
+4. Recap - Arrays Workshop
+
+
+
+G. Advanced Array methods
+1. Advanced Array methods
+2. The Map Method
+3. The Filter Method
+4. The Reduce Method
+5. Chaining Array Methods 
+6. ForEach And Map Are Same?   
+7. The Sort Method
+8. The Find & FindIndex Method
+9. Recap - The Chain Master
+
+
+
+H. Manage Festival System
+1. Project Overview
+2. Add Movies & Venues Case
+3. Add Screening Case 
+4. Buy Tickets Case 
+5. Rate Movies Case 
+6. Cancel Screenings Case

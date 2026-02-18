@@ -50,7 +50,7 @@ console.log(resSepName);
 /* ================================================================================================== */
 /*                           Practice with Cat Api   Links: Below!                                    */
 /* ================================================================================================== */
-const api = "https://api.thecatapi.com/v1/images/search"; // try to edit api endPoint
+const api = "https://api.thecatapi.com/v1/images/searchs"; // try to edit api endPoint
 
 fetch(api)
   .then((response) => {

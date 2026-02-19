@@ -32,3 +32,11 @@ const festivalData = {
 };
 
 
+
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+// At position 2, remove 2 items (Apple and Mango)
+// console.log('Before',fruits)
+
+fruits.splice(2, 1);
+// fruits is now ["Banana", "Orange"]
+// console.log('After',fruits)

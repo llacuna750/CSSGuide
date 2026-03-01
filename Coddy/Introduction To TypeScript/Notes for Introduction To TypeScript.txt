@@ -1,0 +1,28 @@
+Introduction To TypeScript
+
+1. What is TypeScript?
+2. Why Use TypeScript?
+3. Your First TypeScript Code
+4. Compilation Process & Errors
+5. Recap: Introduction to TS
+
+
+
+Core Types
+
+1. Basic Types: str, num, boolean
+2. The 'any' Type: Escape Hatch
+3. The 'unknown' Type
+4. Working with 'null' & 'undef'
+5. Type Inference in Action
+6. Explicit Type Annotations
+7. Recap: Core Types Practice
+
+
+
+
+Data Structure: Arrays & Tuple
+
+1. Typed Arrays
+2. 'readonly' Modifier for Arrays
+3. What is a Tuple?

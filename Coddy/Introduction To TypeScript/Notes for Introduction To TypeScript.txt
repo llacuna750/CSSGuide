@@ -26,3 +26,4 @@ Data Structure: Arrays & Tuple
 1. Typed Arrays
 2. 'readonly' Modifier for Arrays
 3. What is a Tuple?
+4. Declaring and Accessing Tuples

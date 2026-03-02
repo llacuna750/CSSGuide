@@ -1,3 +1,7 @@
+
+
+
+console.log(`${' '.repeat(10)}  `);
 let message: string = "Coddy";
 
 console.log(message);
@@ -26,3 +30,9 @@ item[1].toFixed(2); // Output: "29.99"
 
 // let numero: number = 'Hello'; // Error: Type 'string' is not assignable to type 'number'.
 
+
+let userInfo: [number, string] = [42, "Alice"];
+let [id, name] = userInfo;
+
+console.log(id);   // 42 (TypeScript knows this is a number)
+console.log(name); // "Alice" (TypeScript knows this is a string)

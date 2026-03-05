@@ -125,11 +125,11 @@ let productInfo: [string, number] = ['Gaming Mouse', 79]
 let coordinates: [number, number] = [15, 25]
 
 for (let pinfo of productInfo) {
-    console.log(pinfo)
+  console.log(pinfo)
 }
 
 for (let cn of coordinates) {
-    console.log(cn)
+  console.log(cn)
 }
 
 
@@ -263,3 +263,125 @@ Access and print the element at the first row, second column of the chessBoard a
 
 Print each value on a separate line in the order specified above.           
 */
+// TODO: Write your code here
+// Create the gameGrid 2D array (3x3 matrix with numbers 1-9)
+let gameGrid: number[][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
+// Create the chessBoard 2D array (2x2 matrix with string values)
+let chessBoard: string[][] = [
+  ['white', 'black'],
+  ['black', 'white']
+]
+
+// Access and print the element at second row, first column of gameGrid
+let secondRow_FirstColumn = gameGrid[1][0]
+console.log(secondRow_FirstColumn)
+
+// Access and print the element at first row, second column of chessBoard
+let firstRow_2ndColumn = chessBoard[0][1]
+console.log(firstRow_2ndColumn)
+
+
+
+/* ================================================================================================== */
+console.log(`\n${"=".repeat(17)}  Spread Operator with Arrays  ${"=".repeat(17)}`,)
+/*    Spread Operator with Arrays       
+The spread operator (...) allows you to "spread out" array elements and combine typed arrays while maintaining type safety:
+
+let firstNumbers: number[] = [1, 2, 3];
+let secondNumbers: number[] = [4, 5, 6];
+let combined: number[] = [...firstNumbers, ...secondNumbers];
+// Result: [1, 2, 3, 4, 5, 6]
+You can mix the spread operator with individual elements:
+
+let scores: number[] = [85, 92];
+let allScores: number[] = [100, ...scores, 78];
+// Result: [100, 85, 92, 78]
+TypeScript automatically infers the correct type for the resulting array, and the spread operator creates a new array without modifying the original arrays.
+
+Challenge  (Easy):
+Create two typed arrays: firstScores containing the numbers 85, 92, and 78, and secondScores containing the numbers 88, 95, and 82.
+
+Use the spread operator to combine both arrays into a new array called allScores.
+
+Create another typed array called bonusPoints containing the numbers 5 and 10.
+
+Use the spread operator to create a final array called finalScores that combines allScores with bonusPoints, but also includes the individual number 100 at the beginning and the number 90 at the end.
+
+Print the finalScores array to the console.
+*/
+
+// TODO: Write your code here
+let firstScores: number[] = [85, 92, 78]
+let secondScores: number[] = [88, 95, 82]
+let allScores: number[] = [...firstScores, ...secondScores]
+
+let bonusPoints: number[] = [5, 10]
+let finalScores: number[] = [100, ...allScores, ...bonusPoints, 90]
+
+console.log(finalScores);
+
+
+/* ================================================================================================== */
+console.log(`\n${"=".repeat(17)}  Recap: Arrays and Tuples  ${"=".repeat(17)}`,)
+/*   Recap: Arrays and Tuples     
+
+Challenge  (Easy):
+
+Create a function named addToShoppingList that takes two parameters: 
+a tuple of type [string, number] representing an item (name and quantity), 
+and an array of strings representing the current shopping list.
+
+The function should extract the item name from the tuple and add it to the shopping list array. The function should return the updated shopping list as a new array (without modifying the original array).
+
+Test your function with the following data:
+
+Create a tuple named groceryItem with the values "apples" and 5
+Create an array named currentList with the values ["bread", "milk", "eggs"]
+Call your function with these parameters and store the result in a variable named updatedList
+Print the updated shopping list to the console.
+
+Then test the function again with:
+
+Create another tuple named bakeryItem with the values "cookies" and 2
+Call your function using the updatedList from the previous step and the new bakeryItem
+Store this result in a variable named finalList
+Print the final shopping list to the console.
+*/
+
+// TODO: Write your code here
+// Create the addToShoppingList function that takes a tuple and array as parameters
+
+function addToShoppingList(tuple: [string, number], arr: string[]): string[] {
+  let newArr: string[] = []
+
+  for (const val of [...tuple]) {
+    if (typeof val === 'string') {
+      newArr = [...arr, val]
+    }
+  }
+  return newArr
+}
+
+// Test data
+const groceryItem: [string, number] = ["apples", 5];
+const currentList: string[] = ["bread", "milk", "eggs"];
+
+// TODO: Call your function and store the result in updatedList
+const updateListArr = addToShoppingList(groceryItem, currentList)
+
+// TODO: Print the updated shopping list
+console.log(updateListArr)
+
+// Second test
+const bakeryItem: [string, number] = ["cookies", 2];
+
+// TODO: Call your function again using updatedList and bakeryItem, store in finalList
+const finalList = addToShoppingList(bakeryItem, updateListArr)
+
+// TODO: Print the final shopping list
+console.log(finalList)

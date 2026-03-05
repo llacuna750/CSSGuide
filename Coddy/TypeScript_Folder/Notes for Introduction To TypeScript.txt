@@ -27,3 +27,17 @@ Data Structure: Arrays & Tuple
 2. 'readonly' Modifier for Arrays
 3. What is a Tuple?
 4. Declaring and Accessing Tuples
+5. Destructuring Tuples
+6. Readonly Tuples
+7. Multi-dimensional Typed Arrays
+8. Spread Operator with Arrays
+9. Recap: Arrays and Tuples
+
+
+
+Working with Functions
+
+1. Typing Params & Return Values
+2. Typing Arrow Functions
+3. The 'void' Return Type
+

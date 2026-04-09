@@ -1,5 +1,6 @@
-const straightLine = '='.repeat(10)
+import 'dotenv/config';
 
+const straightLine = "=".repeat(10);
 
 /* ================================================================================================== */
 /*                           Practice with Local Api   Links: Below!                                  */
@@ -50,7 +51,7 @@ console.log(resSepName);
 /* ================================================================================================== */
 /*                           Practice with Cat Api   Links: Below!                                    */
 /* ================================================================================================== */
-const api = "https://api.thecatapi.com/v1/images/searchs"; // try to edit api endPoint
+const api = "https://api.thecatapi.com/v1/images/search"; // try to edit api endPoint
 
 fetch(api)
   .then((response) => {
@@ -87,7 +88,6 @@ const getMessage = async (api) => {
 
 getMessage(api);
 
-
 /* ================================================================================================== */
 /*                           Practice with Local Api   Links: Below!                                  */
 /* ================================================================================================== */
@@ -110,6 +110,51 @@ fetch(api2)
     ),
   );
 
+/* ================================================================================================== */
+/*                           Practice with Products API   Links: Below!                               */
+/* ================================================================================================== */
 
+const baseUrl = "https://ddsgateway-production-1ccb.up.railway.app/";
+
+// fetch(baseUrl).then(res => {
+//   if (!res.ok) {
+//     throw new Error('The Products cannot access!')
+//   }
+
+//   return res.json()
+// }).then(data => console.log(data)).catch(err => console.log(err))
+
+
+
+
+const oauth2Token = process.env.OAUTH2_TOKEN || '';
+
+async function productApi(api) {
+  try {
+    const res = await fetch(`${api}/products`, {
+      
+      headers: {
+        'Authorization': `Bearer ${oauth2Token}`
+      }
+    });
+
+    // console.log('Response status:', res.status);
+    // console.log('Response headers:', Object.fromEntries(res.headers.entries()));
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.log('Error response body:', errorText);
+      throw new Error("Not Accessible");
+    }
+
+    const data = await res.json();
+    console.log(data)
+
+  } catch (error) {
+    console.log('Error Message:', error.message)
+  }
+}
+
+productApi(baseUrl)
 
 

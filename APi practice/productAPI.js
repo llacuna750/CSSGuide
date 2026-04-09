@@ -1,4 +1,6 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
+
 /* ================================================================================================== */
 /*                           Practice with Products API   Links: Below!                               */
 /* ================================================================================================== */
@@ -19,29 +21,40 @@ const baseUrl = "https://ddsgateway-production-1ccb.up.railway.app/";
 // HTTP GET method - retrieves data from the server
 const oauth2Token = process.env.OAUTH2_TOKEN || '';
 
+document.getElementById("api-trigger").addEventListener("click", () => {
+    productApi(baseUrl);
+});
+
+
+
 async function productApi(api) {
     try {
-        const res = await fetch(`${api}/products`, {
 
+        const res = await fetch(`${api}/products`, {
             headers: {
                 'Authorization': `Bearer ${oauth2Token}`
             }
         });
 
-        // console.log('Response status:', res.status);
-        // console.log('Response headers:', Object.fromEntries(res.headers.entries()));
-
         if (!res.ok) {
-            const errorText = await res.text();
-            console.log('Error response body:', errorText);
             throw new Error("Not Accessible");
         }
 
         const data = await res.json();
-        console.log(data)
+
+        const list = document.getElementById('displayName');
+        list.innerHTML = '';
+
+        data.forEach(dt => {
+            const li = document.createElement('li');
+            li.textContent = dt.name;
+            list.appendChild(li);
+        });
+
+        console.log(data);
 
     } catch (error) {
-        console.log('Error Message:', error.message)
+        console.log(error.message);
     }
 }
 
@@ -76,8 +89,12 @@ async function productApiPut(api, productId, productData) {
             body: JSON.stringify(productData)
         });
 
-        if (!res.ok) throw new Error("Failed to update product");
-        console.log(await res.json());
+
+
+
+        if (!res.ok) throw new Error("Failed to update product")
+        console.log(await res.json())
+
     } catch (error) {
         console.log('Error Message:', error.message)
     }
@@ -100,8 +117,35 @@ async function productApiDelete(api, productId) {
     }
 }
 
-productApi(baseUrl)
-productApiDelete(baseUrl,3)
-productApi(baseUrl)
+const timeUpdate = new Date()
+const timeCombined = timeUpdate.toDateString() + ', ' + timeUpdate.toLocaleTimeString()
 
 
+function makeUpdate() {
+    productApiPut(baseUrl, 5, {
+        name: 'Mrbagvs',
+        description: 'drugpusher',
+        price: 1570,
+        stock: 88,
+        updated_at: timeCombined
+        // updated_at: new Date().toISOString()
+    })
+}
+
+// console.log(new Date().toISOString())
+console.log(timeCombined)
+
+// productApi(baseUrl)
+// makeUpdate() 
+
+function makePost() {
+    productApiPost(baseUrl, {
+        name: 'GabVS',
+        description: 'Gwapo dabz',
+        price: 2004,
+        stock: 22,
+        updated_at: timeCombined
+    })
+}
+
+// makePost()

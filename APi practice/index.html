@@ -4,57 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Practice</title>
+    <title>Product API Console</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./images/product.png" type="image/x-icon">
 </head>
 
 <body>
-    <h1>Philippine Time Zone: <p style="display: inline; font-weight: normal;"><span id="time"></span></p>
-    </h1>
-    <h1><span style="font-weight: normal;">Choose</span> HTTP <span style="font-weight: normal;">Method:</span></h1>
 
-    <form id="api-form">
-        <label for="token">Insert <b>access_token</b> and make http method: </label>
-        <input type="text" id="token">
-        <br><br>
-        
-        <label for="cars">Choose a http method:</label>
-
-        <select name="cars" id="cars">
-            <option value="get">GET</option>
-            <option value="post">POST</option>
-            <option value="put">PUT</option>
-            <option value="del">DELETE</option>
-        </select>
-
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
-
-    <!-- POST/PUT Method Form -->
-    <div id="data-form-container" style="display: none; border: 1px solid #ccc; padding: 20px; margin: 20px 0; border-radius: 8px; background-color: #f9f9f9;">
-        <h3>Enter Product Data</h3>
-        <div id="fields-container">
-            <!-- Default fields will be inserted here -->
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            <div class="logo-text">Product API <span>Console</span></div>
         </div>
-        <button type="button" id="add-field-btn" style="padding: 8px 15px; margin-top: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">+ Add Field</button>
-        <br><br>
-        <button type="button" id="send-data-btn" style="padding: 10px 20px; background-color: #008CBA; color: white; border: none; border-radius: 4px; cursor: pointer;">Send Data</button>
-        <button type="button" id="cancel-data-btn" style="padding: 10px 20px; margin-left: 10px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
+        <div class="clock-badge">
+            <div class="clock-dot"></div>
+            PH &nbsp;<span id="time">—</span>
+        </div>
     </div>
 
-    <h2 style="cursor: pointer;" onmouseover="this.style.color='red'; this.style.textDecoration='underline'"
-        onmouseout="this.style.color='black'; this.style.textDecoration='none'">
-        Data show's below inside the table after clicking submit!👇🏽
-    </h2>
+    <!-- Message -->
+    <div id="message"></div>
 
-    <table id="displayData">
-        
-    </table>
-    
+    <!-- Main Form Card -->
+    <div class="card">
+        <div class="card-title">Authentication &amp; Method</div>
+        <form id="api-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="token">Access token (JWT)</label>
+                    <input type="text" id="token" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
+                </div>
+                <div class="form-group" style="max-width:160px;">
+                    <label for="cars">HTTP method</label>
+                    <select name="cars" id="cars">
+                        <option value="get">GET</option>
+                        <option value="post">POST</option>
+                        <option value="put">PUT</option>
+                        <option value="del">DELETE</option>
+                    </select>
+                </div>
+                <div style="padding-bottom:1px;">
+                    <button type="submit" class="btn btn-primary">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Send
+                    </button>
+                </div>
+            </div>
+        </form>
+        <p class="hint">
+            <span class="hint-dot"></span>
+            Token must be a valid JWT with three dot-separated parts
+        </p>
+    </div>
+
+    <!-- POST / PUT Data Form Card -->
+    <div class="card" id="data-form-container">
+        <div class="card-title" id="data-form-title">Product data</div>
+        <div id="fields-container"></div>
+        <div style="margin-top: 12px;">
+            <button type="button" id="add-field-btn" class="btn btn-ghost" style="font-size:13px; padding:8px 14px;">
+                + Add field
+            </button>
+        </div>
+        <div class="form-actions">
+            <button type="button" id="send-data-btn" class="btn btn-primary">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Send data
+            </button>
+            <button type="button" id="cancel-data-btn" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="card" id="data-table-section">
+        <div class="table-header">
+            <div class="table-title">
+                Results
+                <span class="record-count" id="record-count">0</span>
+            </div>
+            <button class="close-btn" onclick="closeTable()">✕</button>
+        </div>
+        <div class="table-scroll">
+            <table id="displayData"></table>
+        </div>
+    </div>
+
     <script src="productAPI.js"></script>
-
 </body>
-
 </html>

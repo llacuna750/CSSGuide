@@ -1,0 +1,45 @@
+table {
+  border-collapse: collapse;
+  /* text-align: center; */
+  /* height: 500px; */
+  font-family: "Cal Sans", sans-serif;
+  /* width: 100%; */
+}
+
+th,
+td,
+tr,
+caption {
+  padding: 5px;
+  text-align: center;
+  border: 1px solid;
+  padding: 5px 20px;
+  /* width: 100%; */
+  /* border-radius: 10px; */
+}
+
+
+.number-cell {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.id-tooltip {
+    visibility: hidden;
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.number-cell:hover .id-tooltip {
+    visibility: visible;
+}

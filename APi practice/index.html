@@ -5,21 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Practice</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./images/product.png" type="image/x-icon">
 </head>
 
 <body>
+    <h1>Philippine Time Zone: <p style="display: inline; font-weight: normal;"><span id="time"></span></p>
+    </h1>
+    <h1><span style="font-weight: normal;">Choose</span> HTTP <span style="font-weight: normal;">Method:</span></h1>
 
-    <h1>Show <span style="font-weight: normal;">data.name:</span></h1>
+    <form id="api-form">
+        <label for="token">Insert <b>access_token</b> and make http method: </label>
+        <input type="text" id="token">
+        <br><br>
+        
+        <label for="cars">Choose a http method:</label>
 
-    <h2 id="api-trigger" style="cursor: pointer;"
-        onmouseover="this.style.color='red'; this.style.textDecoration='underline'"
+        <select name="cars" id="cars">
+            <option value="get">GET</option>
+            <option value="post">POST</option>
+            <option value="put">PUT</option>
+            <option value="del">DELETE</option>
+        </select>
+
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- POST/PUT Method Form -->
+    <div id="data-form-container" style="display: none; border: 1px solid #ccc; padding: 20px; margin: 20px 0; border-radius: 8px; background-color: #f9f9f9;">
+        <h3>Enter Product Data</h3>
+        <div id="fields-container">
+            <!-- Default fields will be inserted here -->
+        </div>
+        <button type="button" id="add-field-btn" style="padding: 8px 15px; margin-top: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">+ Add Field</button>
+        <br><br>
+        <button type="button" id="send-data-btn" style="padding: 10px 20px; background-color: #008CBA; color: white; border: none; border-radius: 4px; cursor: pointer;">Send Data</button>
+        <button type="button" id="cancel-data-btn" style="padding: 10px 20px; margin-left: 10px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
+    </div>
+
+    <h2 style="cursor: pointer;" onmouseover="this.style.color='red'; this.style.textDecoration='underline'"
         onmouseout="this.style.color='black'; this.style.textDecoration='none'">
-        Click Show!
+        Data show's below inside the table after clicking submit!👇🏽
     </h2>
 
-    <ol id="displayName"></ol>
-
-    <script src="productAPI.js" type="module"></script>
+    <table id="displayData">
+        
+    </table>
+    
+    <script src="productAPI.js"></script>
 
 </body>
 

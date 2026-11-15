@@ -506,6 +506,16 @@ node1.setValue(50);
 console.log(node1);
 
 
+let reverseWord = 'reverse this word';
+
+console.log(reverseWord)
+
+
+
+
+
+
+
 
 
 

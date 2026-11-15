@@ -97,7 +97,7 @@ const finishers = new Map();
 finishers.set(athlete1, 10000);
 finishers.set(athlete2, 7000);
 
-console.log(finishers);
+console.log(finishers); 
 
 // 2nd Benefits Iterate with .forEach()
 

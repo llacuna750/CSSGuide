@@ -1,0 +1,207 @@
+Question 3
+In NAT terms, what address type refers to the globally routable IPv4 address of a destination host on the Internet?
+
+
+outside global
+
+inside global
+
+inside local
+
+outside local
+
+
+
+
+
+Question 15
+What are two hashing algorithms used with IPsec AH to guarantee authenticity? (Choose two.)
+
+DH
+
+SHA
+
+RSA
+
+MD5
+
+AES
+
+
+Question 16
+Which is a requirement of a site-to-site VPN?
+
+It requires hosts to use VPN client software to encapsulate traffic.
+
+It requires the placement of a VPN server at the edge of the company network.
+
+It requires a VPN gateway at each end of the tunnel to encrypt and decrypt traffic.
+
+It requires a client/server architecture.
+
+
+
+Question 17
+What two algorithms can be part of an IPsec policy to provide encryption and hashing to protect interesting traffic? (Choose two.)
+
+PSK
+
+RSA
+
+DH
+
+AES
+
+SHA
+
+
+Question 18
+Which two technologies provide enterprise-managed VPN solutions? (Choose two.)
+
+Remote access VPN
+
+Layer 3 MPLS VPN
+
+Site-to-site VPN
+
+Layer 2 MPLS VPN
+
+Frame Relay
+
+
+Question 19
+Which IPsec security function provides assurance that the data received via a VPN has not been modified in transit?
+
+secure key exchange
+
+confidentiality
+
+integrity
+
+authentication
+
+
+Question 20
+What is the function of the Diffie-Hellman algorithm within the IPsec framework?
+
+provides strong data encryption
+
+allows peers to exchange shared keys
+
+guarantees message integrity
+
+provides authentication
+
+
+Question 21
+What algorithm is used with IPsec to provide data confidentiality?
+
+RSA
+
+MD5
+
+AES
+
+Diffie-Hellman
+
+SHA
+
+
+Question 22
+What does NAT overloading use to track multiple internal hosts that use one inside global address?
+
+MAC addresses
+
+port numbers
+
+autonomous system numbers
+
+IP addresses
+
+
+Question 23
+Which statement describes a VPN?
+
+VPNs use open source virtualization software to create the tunnel through the Internet.
+
+VPNs use virtual connections to create a private network through a public network.
+
+VPNs use dedicated physical connections to transfer data between remote users.
+
+VPNs use logical connections to create public networks through the Internet.
+
+
+
+Question 25
+Which two statements about the relationship between LANs and WANs are true? (Choose two.)
+
+LANs connect multiple WANs together.
+
+WANs must be publicly-owned, but LANs can be owned by either public or private entities.
+
+WANs connect LANs at slower speed bandwidth than LANs connect their internal end devices.​
+
+Both LANs and WANs connect end devices.
+
+WANs are typically operated through multiple ISPs, but LANs are typically operated by single organizations or individuals.
+
+
+Question 27
+Which two WAN infrastructure services are examples of private connections? (Choose two.)
+
+T1/E1
+
+DSL
+
+Wireless
+
+Cable
+
+Frame Relay
+
+
+Question 28
+How is "tunneling" accomplished in a VPN?
+
+Packets are disguised to look like other types of traffic so that they will be ignored by potential attackers.
+
+New headers from one or more VPN protocols encapsulate the original packets.
+
+All packets between two hosts are assigned to a single physical medium to ensure that the packets are kept private.
+
+A dedicated circuit is established between the source and destination devices for the duration of the connection.
+
+
+Question 30
+Which statement describes an important characteristic of a site-to-site VPN?
+
+It requires using a VPN client on the host PC.
+
+It must be statically set up.
+
+After the initial connection is established, it can dynamically change connection information.
+
+It is ideally suited for use by mobile workers.
+
+It is commonly implemented over dialup and cable modem networks.
+
+
+
+Question 32
+What type of address is 10.100.126.126?
+
+private
+
+public
+
+
+Question 33
+Which type of VPN allows multicast and broadcast traffic over a secure site-to-site VPN?
+
+SSL VPN
+
+Dynamic multipoint VPN
+
+GRE over IPsec
+
+IPsec virtual tunnel interface

@@ -5,9 +5,38 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Programa",
+            "request": "launch",
+            "mainClass": "JavaIntermediate.Programa",
+            "projectName": "Javascriptbiggener_6b153dc3"
+        },
+        {
+            "type": "java",
+            "name": "IPConverter",
+            "request": "launch",
+            "mainClass": "Java_IP_Converter_Code.IPConverter",
+            "projectName": "Javascriptbiggener_6b153dc3"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Run: Introduction To TypeScript"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run coreTypes.ts",
+            "runtimeExecutable": "node",
+            "runtimeArgs": [
+                "--loader",
+                "ts-node/esm"
+            ],
+            "program": "${workspaceFolder}/Coddy/TypeScript_Folder/Core Types/coreTypes.ts",
+            "cwd": "${workspaceFolder}",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }

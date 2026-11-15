@@ -50,8 +50,8 @@ function getFullName(firstName: string, lastName: string): string {
 }
 
 // Create the isEligible function with explicit return type annotation
-function isEligible(age: number, hasLicencse: boolean): boolean {
-    return (age >= 18 && hasLicencse) ? true : false
+function isEligible(age: number, hasLicense: boolean): boolean {
+    return (age >= 18 && hasLicense) ? true : false
 }
 
 // Test the functions and print the results
@@ -116,7 +116,7 @@ const createMessage = (text: string): string => `Message: ${text}`
 // TODO: Create the isPositive arrow function with type annotations
 const isPositive = (num: number): boolean => (num > 0) ? true : false
 
-// TODO: Test your arrow functions and print the results
+// TODO: Test your arrow functions and print the resultsI
 console.log(subtract(10, 3))
 console.log(createMessage('Hello World'))
 console.log(isPositive(-5))

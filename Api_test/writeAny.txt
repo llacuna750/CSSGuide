@@ -1,0 +1,19 @@
+Correct answer: Leave these frames unlabeled.
+
+Why? / Ngano?
+Kay after the gripper releases the object, the robot is still moving back / retracting.
+So this is transitional motion, not an action clip and not true inactive time.
+
+Bisaya + English:
+Inactive time = walay important movement, basically idle/still.
+Retracting/repositioning = naa pa siyay movement, but not part of the next subgoal yet.
+Mao nang dili siya i-clip as inactive time.
+Also dili pud siya apil sa subgoal clip.
+So ang sakto:
+✅ Leave these frames unlabeled
+
+Simple rule:
+Active action → clip it
+True idle / no movement → inactive time, leave unlabeled
+Retraction / repositioning → leave unlabeled
+If you want, I can give you a very short cheat sheet for all these FNA1 tricky cases.

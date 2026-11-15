@@ -5364,7 +5364,7 @@ arr.filter(...)
 function processFruits(fruits) {
   // Write your code here
 
-  return fruits
+  return fruits 
     .filter((item) => item.quantity !== 0)
     .map((fruit) => fruit.name.toUpperCase() + ": " + fruit.quantity)
     .join(", ");

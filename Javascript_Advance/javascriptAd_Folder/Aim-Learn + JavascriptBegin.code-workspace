@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "C:/xampp/htdocs/Aim-Learn"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Aim-Learn",
+		"auto-close-tag.disableOnLanguage": [
+			
+		]
+	}
+}

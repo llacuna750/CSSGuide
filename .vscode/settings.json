@@ -4,5 +4,6 @@
     "code-runner.saveFileBeforeRun": true,
     "code-runner.executorMapByFileExtension": {
         "ts": "npm run ts"
-    }
+    },
+    "liveServer.settings.port": 5501
 }

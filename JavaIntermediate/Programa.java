@@ -1,5 +1,4 @@
 package JavaIntermediate;
-
 import java.util.*;
 
 class Programa {
@@ -47,7 +46,7 @@ class Programa {
         }
 
         int pick = pick1to3(sc);
-        if (pick != 2) {
+        if (pick == 2) {
             Machine m = new Machine() { 
                 @Override 
                 public void start() {
@@ -56,6 +55,8 @@ class Programa {
             };
             System.out.println("\nAnnonymous Class \n");
             m.start();
+
+            return;
         }
 
         /*Inner Classes
@@ -67,7 +68,7 @@ class Programa {
          * 
          * Example:
          */
-        if (pick != 1) {
+        if (pick == 1) {
             Robot r = new Robot(3);
             System.out.println("\nInner Class \nAssign the id. \nid = "+r.id);
         }

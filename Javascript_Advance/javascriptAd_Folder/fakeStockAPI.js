@@ -18,7 +18,7 @@ const spaceMe = "-".repeat(30);
     🔍 You will need to write code here in index.js and in fakeStockAPI.js.
 
 
-Stock Ticker App require:
+  Stock Ticker App require:
 
   name: Qtech AI
   Symbol: QTA

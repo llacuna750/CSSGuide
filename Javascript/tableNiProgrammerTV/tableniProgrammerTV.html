@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table ni Programmer TV</title>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
     <style>
-        html, body {margin: 5px; background-color: rgb(211, 228, 226);  height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;}
+        body {
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: ; */
+            font-style: normal;
+        }
+
+        html,
+        body {
+            margin: 5px;
+            background-color: rgb(211, 228, 226);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .myTable {
-            padding: 5px; justify-content: center; align-items: center; height: ; width: 100%;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            height: ;
+            width: 100%;
         }
 
         table {
@@ -17,44 +44,101 @@
             text-align: center;
             /* margin: auto; */
         }
-        .Rows {background-color: rgb(240, 222, 222);}
-        .Colms {background-color: rgb(206, 212, 216);}
 
-        th, tr, td {border: 1px solid;}
-        th {padding: 10px 15px;}
-        td {padding: 5px 50px;}
+        th,
+        tr,
+        td {
+            border: 1px solid;
+        }
+
+        th {
+            padding: 10px 15px;
+        }
+
+        td {
+            padding: 5px 50px;
+        }
+
+        .Rows {
+            background-color: rgb(167, 40, 167);
+            color: #d4e2e0;
+        }
+
+        .Colms {
+            color: #d4e2e0;
+            background-color: rgb(54, 116, 64);
+        }
+
+        .hoverArea {
+            font-style: oblique;
+            background-color: #16e249;
+            color: #340483;
+            border: 1px solid black;
+        }
     </style>
 </head>
+
 <body>
-        <table>
-            <tr>
-                <th class="Rows" rowspan="7">Rows</th>
-                <th class="Colms" colspan="8">Columns</th>
-            </tr>
-            <tr>
-                <td></td><td></td><td>A1</td>
-                <td>A2</td><td>A3</td><td>A4</td><td>A5</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>→1</td><td></td><td rowspan="2">Merge1</td>
-                <td colspan="2" rowspan="2">Merge2</td>
-                <td></td><td rowspan="2">Merge3</td>
-            </tr>
-            <tr>
-                <td>→2</td>
-                <td></td><td>Human</td>
-            </tr>
-            <tr>
-                <td>→3</td><td></td><td rowspan="3" colspan="5" style="background-color: rgb(229, 235, 229);">Long row / column</td>
-            </tr>
-            <tr>
-                <td>→4</td><td>#1 </td><td>#2  </td>
-            </tr>
-            <tr>
-                <td>→5</td>
-            </tr>
-            
-        </table>
+    <table>
+        <tr>
+            <th class="Rows" rowspan="7">Rows</th>
+            <th class="Colms" colspan="8">Columns</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>A1</td>
+            <td>A2</td>
+            <td>A3</td>
+            <td>A4</td>
+            <td>A5</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>→1</td>
+            <td></td>
+            <td rowspan="2">Merge1</td>
+            <td colspan="2" rowspan="2">Merge2</td>
+            <td></td>
+            <td rowspan="2">Merge3</td>
+        </tr>
+        <tr>
+            <td>→2</td>
+            <td></td>
+            <td>Human</td>
+        </tr>
+        <tr>
+            <td>→3</td>
+            <td></td>
+            <td id="tryHover" class="hoverArea" rowspan="3" colspan="5">
+                Try hover!
+            </td>
+        </tr>
+        <tr>
+            <td>→4</td>
+            <td>#1 </td>
+            <td>#2 </td>
+        </tr>
+        <tr>
+            <td>→5</td>
+        </tr>
+    </table>
+
+    <script>
+        function onHover(element, onEnter, onLeave) {
+            element.addEventListener('mouseenter', onEnter)
+            element.addEventListener('mouseleave', onLeave)
+        }
+
+        const div = document.getElementById('tryHover')
+
+        onHover(div, () => {
+            div.innerHTML = '<a href="https://github.com/llacuna750/CSSGuide/blob/main/Javascript/tableNiProgrammerTV/tableniProgrammerTV.html">Table code!</a>'
+        },
+            () => {
+                div.textContent = 'Try hover!'
+            })
+    </script>
 </body>
+
 </html>
